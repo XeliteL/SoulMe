@@ -1,0 +1,45 @@
+{
+  "name": "SoulMe",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "minista",
+    "build": "minista build",
+    "preview": "minista preview",
+    "format": "prettier --write \"./src/**/*.{ts,tsx,scss,json}\"",
+    "format:check": "prettier --check \"./src/**/*.{ts,tsx,scss,json}\"",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
+    "stylelint": "stylelint \"./src/**/*.scss\"",
+    "stylelint:fix": "stylelint \"./src/**/*.scss\" --fix",
+    "check": "npm run format:check && npm run lint && npm run stylelint",
+    "fix": "npm run format && npm run lint:fix && npm run stylelint:fix"
+  },
+  "prettier": {
+    "semi": false
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.1.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^10.6.0",
+    "eslint-config-prettier": "^10.1.8",
+    "minista": "^3.1.7",
+    "postcss-pxtorem": "^6.1.0",
+    "prettier": "^3.9.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.81.0",
+    "stylelint": "^17.14.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.1",
+    "vite": "^8.0.11"
+  },
+  "dependencies": {
+    "@a1rth/css-normalize": "^1.1.9",
+    "classnames": "^2.5.1",
+    "imask": "^7.6.1",
+    "swiper": "12.1.2"
+  }
+}
