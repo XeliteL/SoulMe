@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import { Head } from "minista"
+import { Head } from "minista/head"
 import Header from "@/widgets/Header"
 import Content from "@/widgets/Content"
 import Footer from "@/widgets/Footer"
@@ -10,7 +10,7 @@ interface GlobalProps {
   title: string
 }
 
-export default function Global({ children, title }: GlobalProps) {
+export default function Index({ children, title }: GlobalProps) {
   return (
     <>
       <Head htmlAttributes={{ lang: "ru" }}>

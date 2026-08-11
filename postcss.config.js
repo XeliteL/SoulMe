@@ -1,4 +1,5 @@
 import postcssPxToREm from 'postcss-pxtorem';
+import postcssPresetEnv from "postcss-preset-env";
 
 export default ({ env }) => {
   const isProd = env === 'production';
@@ -12,6 +13,8 @@ export default ({ env }) => {
       })
     )
   }
+
+  plugins.push(postcssPresetEnv())
 
   return {
     plugins
