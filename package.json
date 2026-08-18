@@ -12,20 +12,26 @@
     "lint:fix": "eslint ./src --fix",
     "stylelint": "stylelint \"./src/**/*.scss\"",
     "stylelint:fix": "stylelint \"./src/**/*.scss\" --fix",
-    "check": "npm run format:check && npm run lint && npm run stylelint",
-    "fix": "npm run format && npm run lint:fix && npm run stylelint:fix"
+    "check": "npm run format:check && npm run lint && npm run stylelint && npm run test",
+    "fix": "npm run format && npm run lint:fix && npm run stylelint:fix",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "prettier": {
     "semi": false
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.4",
     "@types/node": "^26.1.0",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
     "eslint": "^10.6.0",
     "eslint-config-prettier": "^10.1.8",
+    "jsdom": "^30.0.1",
     "minista": "^4.0.6",
     "postcss-pxtorem": "^6.1.0",
     "prettier": "^3.9.4",
@@ -35,7 +41,8 @@
     "stylelint": "^17.14.0",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.62.1",
-    "vite": "^8.0.11"
+    "vite": "^8.0.11",
+    "vitest": "^4.1.10"
   },
   "dependencies": {
     "@a1rth/css-normalize": "^1.1.9",
