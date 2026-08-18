@@ -3,7 +3,7 @@
   z-index: 100;
   top: 0;
   width: 100%;
-  padding-block: fluid(22, 14);
+  padding-block: fluid(18, 14);
   border-bottom: var(--border-width-s) solid transparent;
   animation-name: scrolling-header;
   animation-fill-mode: both;
@@ -13,7 +13,7 @@
   @keyframes scrolling-header {
 
     to {
-      padding-block: 10px;
+      padding-block: 8px;
       background-color: var(--color-black-08);
       border-color: var(--color-black-15);
     }
@@ -39,7 +39,7 @@
     background-color: var(--color-black-20);
     border: none;
     transition-duration: var(--transition-duration);
-    transitiopn-behavior: allow-discrete;
+    transition-behavior: allow-discrete;
 
     @include tablet-above {
       display: contents;
@@ -60,7 +60,13 @@
           @include starting-styles;
         }
 
+        &.is-closing {
+
+          @include starting-styles;
+        }
+
         ~ .header__actions > .header__actions__buttons-container > .button {
+          transition-delay: var(--transition-duration);
 
           @include show;
         }
@@ -146,6 +152,10 @@
         left: 16px;
         translate: 0 -50%;
         margin-right: 0;
+      }
+
+      > .button {
+        transition-duration: 0s;
       }
     }
 

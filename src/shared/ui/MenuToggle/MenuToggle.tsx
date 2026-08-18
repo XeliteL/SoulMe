@@ -21,17 +21,34 @@ const MenuToggle = ({ dialogId, className }: MenuToggleProps) => {
     const dialog = document.getElementById(dialogId) as HTMLDialogElement | null
     if (!dialog) return
 
-    if (isMenuOpen && !dialog.open) {
-      dialog.show()
+    if (isMenuOpen) {
+      dialog.classList.remove("is-closing")
+      if (!dialog.open) dialog.show()
+      return
     }
-    if (!isMenuOpen && dialog.open) {
+
+    if (!dialog.open) return
+
+    dialog.classList.add("is-closing")
+
+    const handleTransitionEnd = (event: TransitionEvent) => {
+      if (event.target !== dialog) return
+      dialog.classList.remove("is-closing")
       dialog.close()
     }
+    dialog.addEventListener("transitionend", handleTransitionEnd)
+    return () =>
+      dialog.removeEventListener("transitionend", handleTransitionEnd)
+  }, [isMenuOpen, dialogId])
+
+  useEffect(() => {
+    const dialog = document.getElementById(dialogId) as HTMLDialogElement | null
+    if (!dialog) return
 
     const handleClose = () => setIsMenuOpen(false)
     dialog.addEventListener("close", handleClose)
     return () => dialog.removeEventListener("close", handleClose)
-  }, [isMenuOpen, dialogId])
+  }, [dialogId])
 
   useEffect(() => {
     if (!isMenuOpen) return
