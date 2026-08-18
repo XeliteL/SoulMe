@@ -4,8 +4,8 @@ interface NavigationItem {
 }
 
 export const navigation: NavigationItem[] = [
-  { label: "Home", href: "/" },
-  { label: "Anime", href: "/anime" },
-  { label: "Support", href: "/support" },
-  { label: "Subscriptions", href: "/subscriptions" },
+  { label: "Главная", href: "/" },
+  { label: "Аниме", href: "/anime" },
+  { label: "Поддержка", href: "/support" },
+  { label: "Избранное", href: "/subscriptions" },
 ]
