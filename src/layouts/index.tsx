@@ -8,9 +8,10 @@ import "@/app/styles"
 interface GlobalProps {
   children: ReactNode
   title: string
+  url: string
 }
 
-export default function Index({ children, title }: GlobalProps) {
+export default function Index({ children, title, url }: GlobalProps) {
   return (
     <>
       <Head htmlAttributes={{ lang: "ru" }}>
@@ -34,7 +35,7 @@ export default function Index({ children, title }: GlobalProps) {
         />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
-      <Header />
+      <Header url={url} />
       <Content>{children}</Content>
       <Footer />
     </>
