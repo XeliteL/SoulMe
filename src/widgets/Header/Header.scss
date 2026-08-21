@@ -87,7 +87,7 @@
     }
 
     @include tablet-above {
-      padding: fluid(10, 8);
+      padding: fluid(8, 6);
       background-color: var(--color-black-06);
       outline: var(--border-width-l) solid var(--color-black-12);
     }
@@ -112,7 +112,7 @@
     }
 
     &-link {
-      padding: fluid-to-laptop(14, 12) fluid-to-laptop(24, 20);
+      padding: fluid-to-laptop(14, 12) fluid-to-laptop(22, 18);
       color: var(--color-gray-75);
       border-radius: var(--border-radius-s);
 
