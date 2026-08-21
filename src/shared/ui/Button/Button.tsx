@@ -8,11 +8,12 @@ interface ButtonProps {
   type?: "button" | "submit" | "reset"
   href?: string
   target?: HTMLAttributeAnchorTarget
-  variant?: "" | "transparent"
+  variant?: "" | "transparent" | "black-10"
   label?: string
   isLabelHidden?: boolean
   iconName?: IconName
   iconPosition?: "before" | "after"
+  hasFillIcon?: boolean
 }
 
 const Button = ({
@@ -25,16 +26,21 @@ const Button = ({
   isLabelHidden = false,
   iconName,
   iconPosition = "before",
+  hasFillIcon,
 }: ButtonProps) => {
   const isLink = !!href
   const Component = isLink ? "a" : "button"
 
-  const linkProps = { href, target }
+  const linkProps = {
+    href,
+    target,
+    rel: target === "_blank" ? "noopener noreferrer" : undefined,
+  }
   const buttonProps = { type }
   const specificProps = isLink ? linkProps : buttonProps
   const title = isLabelHidden ? label : undefined
   const iconComponent = iconName && (
-    <Icon className="button__icon" name={iconName} />
+    <Icon className="button__icon" name={iconName} hasFill={hasFillIcon} />
   )
 
   return (
