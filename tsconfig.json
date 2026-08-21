@@ -9,6 +9,7 @@
     "noErrorTruncation": true,
     "jsx": "react-jsx",
     "types": ["minista/client"],
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
