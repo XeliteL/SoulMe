@@ -7,7 +7,6 @@ html {
 }
 
 body {
-
   @include fluid-text(18, 14);
 
   display: flex;
@@ -38,7 +37,6 @@ h6,
 
 h1,
 .h1 {
-
   @include fluid-text(58, 28);
 
   font-weight: 700;
@@ -46,7 +44,6 @@ h1,
 
 h2,
 .h2 {
-
   @include fluid-text(48, 24);
 
   font-weight: 700;
@@ -54,7 +51,6 @@ h2,
 
 h3,
 .h3 {
-
   @include fluid-text(38, 20);
 
   font-weight: 700;
@@ -62,7 +58,6 @@ h3,
 
 h4,
 .h4 {
-
   @include fluid-text(24, 18);
 
   font-weight: 600;
@@ -70,7 +65,6 @@ h4,
 
 h5,
 .h5 {
-
   @include fluid-text(22, 18);
 
   font-weight: 500;
@@ -78,7 +72,6 @@ h5,
 
 h6,
 .h6 {
-
   @include fluid-text(20, 16);
 
   font-weight: 600;
@@ -107,6 +100,5 @@ a {
 }
 
 :focus-visible {
-
   @include focus-visible;
 }

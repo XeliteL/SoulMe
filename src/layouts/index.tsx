@@ -1,9 +1,11 @@
 import { ReactNode } from "react"
+import useGrayFavicon from "@/shared/ui/GrayFavicon"
 import { Head } from "minista/head"
 import Header from "@/widgets/Header"
 import Content from "@/widgets/Content"
 import Footer from "@/widgets/Footer"
 import "@/app/styles"
+import GrayFavicon from "@/shared/ui/GrayFavicon"
 
 interface GlobalProps {
   children: ReactNode
@@ -16,6 +18,7 @@ export default function Index({ children, title, url }: GlobalProps) {
     <>
       <Head htmlAttributes={{ lang: "ru" }}>
         <title>SoulMe | {title}</title>
+        <link rel="icon" sizes="any" href="/favicon.ico" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -36,6 +39,7 @@ export default function Index({ children, title, url }: GlobalProps) {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <Header url={url} />
+      <GrayFavicon client:load />
       <Content>{children}</Content>
       <Footer />
     </>

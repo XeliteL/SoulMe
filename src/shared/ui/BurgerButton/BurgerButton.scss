@@ -1,5 +1,4 @@
 .burger-button {
-
   @include flex-center(true);
 
   @include square(51px);
@@ -17,7 +16,6 @@
   }
 
   &.is-active {
-
     .burger-button__line {
       stroke-dasharray: 90 207;
       stroke-dashoffset: -134;
@@ -30,7 +28,6 @@
   }
 
   &:not(.is-active) {
-
     .burger-button__line--3 {
       stroke-dasharray: 30 207;
       stroke-dashoffset: -30;

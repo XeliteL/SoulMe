@@ -11,7 +11,6 @@
   animation-range: 0 100px;
 
   @keyframes scrolling-header {
-
     to {
       padding-block: 8px;
       background-color: var(--color-black-08);
@@ -51,17 +50,14 @@
     }
 
     @include tablet {
-
       &[open] {
         display: flex;
 
         @starting-style {
-
           @include starting-styles;
         }
 
         &.is-closing {
-
           @include starting-styles;
         }
 
@@ -73,7 +69,6 @@
       }
 
       &:not([open]) {
-
         @include starting-styles;
       }
     }
@@ -160,9 +155,7 @@
     }
 
     @include tablet {
-
       > .header__actions__buttons-container > .button {
-
         @include hide;
       }
     }
