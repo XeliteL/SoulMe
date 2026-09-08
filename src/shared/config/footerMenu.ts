@@ -1,4 +1,4 @@
-import type { IconName } from "@/shared/ui/Icon/Icon"
+import type { IconName } from "@/shared/ui/Icon"
 
 interface FooterLink {
   label: string

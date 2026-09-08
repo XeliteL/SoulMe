@@ -1,9 +1,9 @@
 import classNames from "classnames"
 import { Sprite as MinistaIcon } from "minista/assets"
-import "./Icon.scss"
 
-export const ICON_NAMES = ["notification", "search", "telegram"] as const
-export type IconName = (typeof ICON_NAMES)[number]
+import { IconName } from "./iconName"
+
+import "./Icon.scss"
 
 interface IconProps {
   className?: string
@@ -13,7 +13,7 @@ interface IconProps {
 
 const Icon = ({ className, name, hasFill = false }: IconProps) => {
   return (
-    <span className={classNames(className, "icon")}>
+    <span className={classNames(className, "icon")} aria-hidden="true">
       <MinistaIcon
         src={`/src/shared/assets/icons/${name}.svg`}
         fill={hasFill ? "currentColor" : "none"}
