@@ -3,7 +3,7 @@
   z-index: 100;
   top: 0;
   width: 100%;
-  padding-block: fluid(18, 14);
+  padding-block: fluid(14, 10);
   border-bottom: var(--border-width-s) solid transparent;
   animation-name: scrolling-header;
   animation-fill-mode: both;
@@ -111,7 +111,7 @@
     }
 
     &-link {
-      padding: fluid-to-laptop(10, 8) fluid-to-laptop(16, 12);
+      padding: fluid-to-laptop(8, 6) fluid-to-laptop(14, 10);
       color: var(--color-gray-75);
       border-radius: var(--border-radius-s);
 

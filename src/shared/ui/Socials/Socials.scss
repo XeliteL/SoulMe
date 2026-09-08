@@ -2,4 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px fluid-to-laptop(14, 10);
+
+  &__link {
+    @include square(fluid(56, 44));
+  }
 }
