@@ -5,6 +5,7 @@ export const ICON_NAMES = [
   "play",
   "arrow-right",
   "arrow-left",
+  "user",
 ] as const
 
 export type IconName = (typeof ICON_NAMES)[number]

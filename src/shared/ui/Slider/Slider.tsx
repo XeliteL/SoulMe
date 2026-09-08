@@ -40,9 +40,7 @@ const Slider = ({
         </ul>
       </div>
 
-      {!navigationTargetElementId && (
-        <SliderNavigation className="slider-navigation" />
-      )}
+      {!navigationTargetElementId && <SliderNavigation />}
 
       {hasScrollbar && <div className="slider__scrollbar visible-mobile" />}
     </div>

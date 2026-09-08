@@ -1,7 +1,8 @@
-import { categoryItems } from "@/shared/config/categoryItems"
 import CategoryCard from "@/shared/ui/CategoryCard"
 import Slider, { SliderNavigation, SliderRuntime } from "@/shared/ui/Slider"
 import Section from "@/widgets/Section"
+
+import { categoryItems } from "./config/categoryItems"
 
 const sliderNavigationId = "categories-slider-navigation"
 

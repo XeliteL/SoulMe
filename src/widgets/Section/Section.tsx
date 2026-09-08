@@ -5,8 +5,8 @@ import "./Section.scss"
 
 interface SectionProps {
   className?: string
-  title?: string
-  titleId?: string
+  title: string
+  titleId: string
   id?: string
   description?: string
   actions?: ReactElement

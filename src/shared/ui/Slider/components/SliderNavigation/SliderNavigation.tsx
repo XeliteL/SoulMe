@@ -5,21 +5,19 @@ import Button from "@/shared/ui/Button"
 import "./SliderNavigation.scss"
 
 interface SliderNavigationProps {
-  className?: string
   id?: string
   variant?: "" | "tile"
   hasPagination?: boolean
 }
 
 const SliderNavigation = ({
-  className,
   id,
   variant = "",
   hasPagination = true,
 }: SliderNavigationProps) => {
   return (
     <div
-      className={classNames(className, "slider-navigation", {
+      className={classNames("slider-navigation", {
         [`slider-navigation--${variant}`]: variant,
       })}
       id={id}

@@ -1,7 +1,7 @@
 import classNames from "classnames"
 import { Sprite as MinistaIcon } from "minista/assets"
 
-import { IconName } from "./iconName"
+import { IconName } from "./config/iconName"
 
 import "./Icon.scss"
 

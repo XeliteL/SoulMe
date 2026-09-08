@@ -34,6 +34,7 @@ export const footerMenu: FooterMenuSection[] = [
     titleHref: "/",
     links: [
       { label: "Категории", href: "/#categories" },
+      { label: "Устройства", href: "/#devices" },
       { label: "FAQ", href: "/#faq" },
       { label: "Подписка", href: "/#subscription" },
     ],

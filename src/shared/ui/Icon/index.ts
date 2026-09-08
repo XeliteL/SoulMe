@@ -1,3 +1,3 @@
+export type { IconName } from "./config/iconName"
+export { ICON_NAMES } from "./config/iconName"
 export { default } from "./Icon"
-export type { IconName } from "./iconName"
-export { ICON_NAMES } from "./iconName"

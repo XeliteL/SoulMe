@@ -1,8 +1,9 @@
 import classNames from "classnames"
 
-import { footerExtraLinks } from "@/shared/config/footerExtraLinks"
-import { footerMenu } from "@/shared/config/footerMenu"
 import Socials from "@/shared/ui/Socials"
+
+import { footerExtraLinks } from "./config/footerExtraLinks"
+import { footerMenu } from "./config/footerMenu"
 
 import "./Footer.scss"
 

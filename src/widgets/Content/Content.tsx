@@ -2,11 +2,11 @@ import { ReactNode } from "react"
 
 import "./Content.scss"
 
-interface Props {
+interface ContentProps {
   children: ReactNode
 }
 
-const Content = ({ children }: Props) => {
+const Content = ({ children }: ContentProps) => {
   return <main className="content">{children}</main>
 }
 

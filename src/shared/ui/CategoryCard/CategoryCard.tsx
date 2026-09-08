@@ -5,8 +5,8 @@ import Icon from "@/shared/ui/Icon"
 import "./CategoryCard.scss"
 
 interface CategoryCardProps {
-  title?: string
-  images?: string[]
+  title: string
+  images: string[]
 }
 
 const CategoryCard = ({ title, images = [] }: CategoryCardProps) => {
