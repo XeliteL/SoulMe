@@ -59,12 +59,13 @@ describe("Header", () => {
     expect(dialog.open).toBe(false)
   })
 
-  it("renders the search and notifications actions", () => {
+  it("renders the search, notifications and account actions", () => {
     render(<Header url="/" />)
 
     expect(screen.getByRole("button", { name: "Search" })).toBeInTheDocument()
     expect(
-      screen.getByRole("link", { name: "Notifications" }),
+      screen.getByRole("button", { name: "Notifications" }),
     ).toBeInTheDocument()
+    expect(screen.getByRole("button", { name: "You" })).toBeInTheDocument()
   })
 })

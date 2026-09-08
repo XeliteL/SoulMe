@@ -49,11 +49,16 @@ const Header = ({ url, isFixed }: HeaderProps) => {
               iconName="search"
             />
             <Button
-              href="/"
               label="Notifications"
               isLabelHidden
               variant="transparent"
               iconName="notification"
+            />
+            <Button
+              label="You"
+              isLabelHidden
+              variant="transparent"
+              iconName="user"
             />
           </div>
           <MenuToggle
