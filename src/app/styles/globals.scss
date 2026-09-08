@@ -1,6 +1,10 @@
 html {
   scroll-padding-top: fluid(112, 88);
 
+  &:has(.hero) {
+    scroll-snap-type: y proximity;
+  }
+
   &.is-lock {
     overflow: hidden;
   }

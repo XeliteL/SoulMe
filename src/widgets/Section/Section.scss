@@ -1,4 +1,6 @@
 .section {
+  scroll-snap-align: start;
+
   display: grid;
   gap: fluid(80, 40);
   padding-block: var(--section-padding-y);

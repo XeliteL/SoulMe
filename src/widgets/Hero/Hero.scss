@@ -1,12 +1,14 @@
 .hero {
+  scroll-snap-align: start;
+
   display: flex;
   flex-direction: column;
   padding-bottom: var(--section-padding-y);
   min-height: 100vh;
   text-align: center;
 
-  @include mobile {
-    min-height: 639px;
+  @supports (min-height: 100svh) {
+    min-height: 100svh;
   }
 
   &__pano {
