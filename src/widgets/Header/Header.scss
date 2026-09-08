@@ -88,7 +88,7 @@
     @include tablet-above {
       padding: fluid(8, 6);
       background-color: var(--color-black-06);
-      outline: var(--border-width-l) solid var(--color-black-12);
+      outline: var(--border-width-m) solid var(--color-black-12);
     }
 
     @include tablet {
@@ -111,7 +111,7 @@
     }
 
     &-link {
-      padding: fluid-to-laptop(14, 12) fluid-to-laptop(22, 18);
+      padding: fluid-to-laptop(10, 8) fluid-to-laptop(16, 12);
       color: var(--color-gray-75);
       border-radius: var(--border-radius-s);
 
@@ -121,7 +121,7 @@
 
       @include hover {
         color: var(--color-white);
-        background-color: var(--color-turquoise-45);
+        background-color: var(--color-turquoise-50);
       }
 
       &.is-active {

@@ -1,14 +1,16 @@
 import classNames from "classnames"
-import { footerMenu } from "@/shared/config/footerMenu"
+
 import { footerExtraLinks } from "@/shared/config/footerExtraLinks"
+import { footerMenu } from "@/shared/config/footerMenu"
 import Socials from "@/shared/ui/Socials"
+
 import "./Footer.scss"
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__inner container">
-        <nav className="footer__menu">
+        <nav className="footer__menu" aria-label="Дополнительная навигация">
           {footerMenu.map((section) => (
             <div className="footer__menu-column" key={section.title}>
               <a
