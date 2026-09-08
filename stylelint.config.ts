@@ -23,8 +23,11 @@ const config: Config = {
     "declaration-block-single-line-max-declarations": 1,
     "no-unknown-animations": true,
     "selector-type-case": "lower",
-    "rule-empty-line-before": "always",
-    "at-rule-empty-line-before": "always",
+    "rule-empty-line-before": ["always", { except: ["first-nested"] }],
+    "at-rule-empty-line-before": [
+      "always",
+      { except: ["first-nested"], ignoreAtRules: ["else"] },
+    ],
     "selector-class-pattern": null,
     "font-family-name-quotes": "always-where-recommended",
   },

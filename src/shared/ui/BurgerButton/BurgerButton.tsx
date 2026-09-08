@@ -1,5 +1,6 @@
-import "./BurgerButton.scss"
 import classNames from "classnames"
+
+import "./BurgerButton.scss"
 
 interface BurgerButtonProps {
   className?: string

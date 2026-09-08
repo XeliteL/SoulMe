@@ -1,7 +1,9 @@
-import "./Socials.scss"
 import classNames from "classnames"
-import { IconName } from "@/shared/ui/Icon"
+
 import Button from "@/shared/ui/Button"
+import { IconName } from "@/shared/ui/Icon"
+
+import "./Socials.scss"
 
 interface SocialsLink {
   label: string

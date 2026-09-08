@@ -1,4 +1,5 @@
 import classNames from "classnames"
+
 import "./Logo.scss"
 
 interface LogoProps {

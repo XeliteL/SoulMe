@@ -1,6 +1,8 @@
 import { afterEach, describe, expect, it } from "vitest"
-import { cleanup, render, screen } from "@testing-library/react"
+
 import Footer from "./Footer"
+
+import { cleanup, render, screen } from "@testing-library/react"
 
 afterEach(() => {
   cleanup()

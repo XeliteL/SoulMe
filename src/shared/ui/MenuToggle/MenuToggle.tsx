@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+
 import BurgerButton from "@/shared/ui/BurgerButton"
 
 interface MenuToggleProps {

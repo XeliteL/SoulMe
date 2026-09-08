@@ -1,4 +1,5 @@
 import { ReactNode } from "react"
+
 import "./Content.scss"
 
 interface Props {

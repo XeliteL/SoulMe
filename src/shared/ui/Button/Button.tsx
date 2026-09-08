@@ -1,7 +1,9 @@
-import "./Button.scss"
-import classNames from "classnames"
 import { HTMLAttributeAnchorTarget } from "react"
+import classNames from "classnames"
+
 import Icon, { IconName } from "@/shared/ui/Icon"
+
+import "./Button.scss"
 
 interface ButtonProps {
   className?: string
