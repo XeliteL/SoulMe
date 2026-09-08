@@ -1,19 +1,26 @@
 import { ReactNode } from "react"
-import useGrayFavicon from "@/shared/ui/GrayFavicon"
 import { Head } from "minista/head"
-import Header from "@/widgets/Header"
+
+import "@/app/styles"
+
+import GrayFavicon from "@/shared/ui/GrayFavicon"
 import Content from "@/widgets/Content"
 import Footer from "@/widgets/Footer"
-import "@/app/styles"
-import GrayFavicon from "@/shared/ui/GrayFavicon"
+import Header from "@/widgets/Header"
 
 interface GlobalProps {
   children: ReactNode
   title: string
   url: string
+  isHeaderFixed?: boolean
 }
 
-export default function Index({ children, title, url }: GlobalProps) {
+export default function Index({
+  children,
+  title,
+  url,
+  isHeaderFixed,
+}: GlobalProps) {
   return (
     <>
       <Head htmlAttributes={{ lang: "ru" }}>
@@ -38,8 +45,8 @@ export default function Index({ children, title, url }: GlobalProps) {
         />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
-      <Header url={url} />
       <GrayFavicon client:load />
+      <Header url={url} isFixed={isHeaderFixed} />
       <Content>{children}</Content>
       <Footer />
     </>

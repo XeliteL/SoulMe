@@ -1,0 +1,33 @@
+.slider-navigation {
+  display: flex;
+  align-items: center;
+
+  &--tile {
+    column-gap: fluid-to-laptop(16, 12);
+    padding: fluid-to-laptop(16, 12);
+    background-color: var(--color-black-06);
+    border-radius: var(--border-radius-l);
+
+    @include laptop {
+      border-radius: var(--border-radius-m);
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    gap: 3px;
+
+    &-bullet {
+      width: 16px;
+      height: 4px;
+      background-color: var(--color-black-20);
+      border-radius: 100px;
+      transition-duration: var(--transition-duration);
+
+      &.is-active {
+        width: 24px;
+        background-color: var(--color-turquoise-45);
+      }
+    }
+  }
+}

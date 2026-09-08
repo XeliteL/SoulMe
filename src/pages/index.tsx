@@ -1,12 +1,16 @@
+import Categories from "@/widgets/Categories"
+import Hero from "@/widgets/Hero"
+
 export const metadata = {
   title: "Главная",
+  isHeaderFixed: true,
 }
 
 export default function () {
   return (
     <>
-      <h1>Главная</h1>
-      <h2 id="categories">Категории</h2>
+      <Hero></Hero>
+      <Categories></Categories>
       <h2 id="faq">FAQ</h2>
       <h2 id="subscription">Подписка</h2>
     </>

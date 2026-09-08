@@ -1,21 +1,28 @@
 import classNames from "classnames"
-import Logo from "@/shared/ui/Logo"
+
 import { navigation as menuItems } from "@/shared/config/navigation"
 import Button from "@/shared/ui/Button"
+import Logo from "@/shared/ui/Logo"
 import MenuToggle from "@/shared/ui/MenuToggle"
+
 import "./Header.scss"
 
 interface HeaderProps {
   url?: string
+  isFixed?: boolean
 }
 
-const Header = ({ url }: HeaderProps) => {
+const Header = ({ url, isFixed }: HeaderProps) => {
   return (
-    <header className="header">
+    <header
+      className={classNames("header", {
+        "is-fixed": isFixed,
+      })}
+    >
       <div className="header__inner container">
         <Logo className="header__logo" loading="eager" />
         <dialog className="header__overlay-menu-dialog" id="header-menu">
-          <nav className="header__menu">
+          <nav className="header__menu" aria-label="Основная навигация">
             <ul className="header__menu-list">
               {menuItems.map(({ label, href }) => (
                 <li className="header__menu-item" key={href}>

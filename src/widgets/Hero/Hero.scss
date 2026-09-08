@@ -1,0 +1,45 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(--section-padding-y);
+  min-height: 100vh;
+  text-align: center;
+
+  @include mobile {
+    min-height: 639px;
+  }
+
+  &__pano {
+    @include flex-center;
+
+    flex-grow: 1;
+    padding-top: fluid(195, 150);
+    padding-bottom: fluid(60, 50);
+    background: url(@/shared/assets/images/hero/bg.webp) 50% / cover no-repeat;
+    background-image: image-set(
+      url(@/shared/assets/images/hero/bg.avif) type("image/avif"),
+      url(@/shared/assets/images/hero/bg.webp) type("image/webp")
+    );
+  }
+
+  &__play-button {
+    @include square(fluid(470, 200));
+
+    padding: 0;
+    background-color: transparent;
+    border: none;
+  }
+
+  &__title {
+    margin-top: -1.5em;
+    margin-bottom: fluid-to-laptop(14, 10);
+  }
+
+  &__description {
+    margin-bottom: fluid(50, 30);
+  }
+
+  &__body {
+    padding-bottom: fluid(50, 20);
+  }
+}
