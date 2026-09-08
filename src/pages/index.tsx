@@ -1,4 +1,5 @@
 import Categories from "@/widgets/Categories"
+import Devices from "@/widgets/Devices"
 import Hero from "@/widgets/Hero"
 
 export const metadata = {
@@ -9,8 +10,9 @@ export const metadata = {
 export default function () {
   return (
     <>
-      <Hero></Hero>
-      <Categories></Categories>
+      <Hero />
+      <Categories />
+      <Devices />
       <h2 id="faq">FAQ</h2>
       <h2 id="subscription">Подписка</h2>
     </>
