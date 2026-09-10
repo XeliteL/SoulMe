@@ -1,4 +1,4 @@
-import useGrayFavicon from "@/shared/utils/useGrayFavicon"
+import useGrayFavicon from "./useGrayFavicon"
 
 const GrayFavicon = () => {
   useGrayFavicon()

@@ -4,6 +4,7 @@ import { Head } from "minista/head"
 import "@/app/styles"
 
 import GrayFavicon from "@/shared/ui/GrayFavicon"
+import Preloader from "@/shared/ui/Preloader"
 import Content from "@/widgets/Content"
 import Footer from "@/widgets/Footer"
 import Header from "@/widgets/Header"
@@ -45,9 +46,10 @@ export default function Index({
         />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
+      <Preloader />
       <GrayFavicon client:load />
       <Header url={url} isFixed={isHeaderFixed} />
-      <Content>{children}</Content>
+      <Content isResetPaddingTop={isHeaderFixed}>{children}</Content>
       <Footer />
     </>
   )

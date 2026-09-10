@@ -1,6 +1,8 @@
+import Banner from "@/widgets/Banner"
 import Categories from "@/widgets/Categories"
 import Devices from "@/widgets/Devices"
 import Hero from "@/widgets/Hero"
+import Questions from "@/widgets/Questions"
 
 export const metadata = {
   title: "Главная",
@@ -13,8 +15,8 @@ export default function () {
       <Hero />
       <Categories />
       <Devices />
-      <h2 id="faq">FAQ</h2>
-      <h2 id="subscription">Подписка</h2>
+      <Questions />
+      <Banner />
     </>
   )
 }
