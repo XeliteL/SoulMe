@@ -1,0 +1,39 @@
+.banner {
+  padding-block: var(--section-padding-y);
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 100px;
+    padding: fluid(100, 50) fluid(80, 30);
+    background:
+      linear-gradient(
+        90deg,
+        #0f0f0f 2.42%,
+        rgb(17 15 15 / 0.99) 11.15%,
+        rgb(15 20 20 / 0.97) 25.46%,
+        rgb(8 37 34 / 0.91) 46.72%,
+        rgb(0 32 30 / 0) 168.98%
+      ),
+      image-set(
+          url(@/shared/assets/images/banner/bg.avif) type("image/avif"),
+          url(@/shared/assets/images/banner/bg.webp) type("image/webp")
+        )
+        50% / cover no-repeat;
+    border: var(--border);
+    border-radius: var(--border-radius-l);
+
+    @include tablet {
+      flex-direction: column;
+      row-gap: 30px;
+      text-align: center;
+      padding: 20px 30px 50px;
+    }
+  }
+
+  &__body {
+    display: grid;
+    row-gap: fluid-to-laptop(14, 10);
+  }
+}
