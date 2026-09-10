@@ -115,6 +115,20 @@ svg * {
   transition-duration: var(--transition-duration);
 }
 
+/* stylelint-disable declaration-no-important */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* stylelint-enable declaration-no-important */
+
 a {
   color: inherit;
 
