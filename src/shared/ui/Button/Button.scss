@@ -9,6 +9,7 @@
   border-radius: var(--border-radius-s);
   user-select: none;
   cursor: pointer;
+  white-space: nowrap;
 
   @include hover {
     color: var(--color-white);
