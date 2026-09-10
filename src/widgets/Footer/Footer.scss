@@ -49,7 +49,7 @@
     padding-block: fluid-to-laptop(24, 20) fluid(50, 20);
 
     @include mobile {
-      flex-direction: column;
+      flex-direction: column-reverse;
       row-gap: 20px;
     }
 
