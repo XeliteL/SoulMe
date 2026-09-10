@@ -1,0 +1,15 @@
+#questions {
+  .section__actions {
+    align-self: end;
+
+    @include tablet {
+      align-self: start;
+    }
+  }
+
+  .section__info {
+    @include mobile {
+      align-self: start;
+    }
+  }
+}
