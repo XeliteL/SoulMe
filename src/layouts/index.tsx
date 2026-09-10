@@ -49,7 +49,7 @@ export default function Index({
       <Preloader />
       <GrayFavicon client:load />
       <Header url={url} isFixed={isHeaderFixed} />
-      <Content>{children}</Content>
+      <Content isResetPaddingTop={isHeaderFixed}>{children}</Content>
       <Footer />
     </>
   )
