@@ -1,6 +1,7 @@
 {
   "name": "SoulMe",
   "private": true,
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "start": "minista",
