@@ -4,21 +4,26 @@ import classNames from "classnames"
 import "swiper/css"
 
 import SliderNavigation from "./components/SliderNavigation"
+import { SliderVariant } from "./components/SliderRuntime/sliderParams"
 
 import "./Slider.scss"
 
 interface SliderProps {
   children?: ReactNode
-  navigationTargetElementId: string | null
+  navigationTargetElementId?: string | null
   isBeyondTheViewportOnMobileS?: boolean
-  hasScrollbar?: boolean
+  hasScrollbarOnMobile?: boolean
+  navigationPosition?: "" | "abs-bottom"
+  variant?: SliderVariant
 }
 
 const Slider = ({
   children,
   navigationTargetElementId,
   isBeyondTheViewportOnMobileS = true,
-  hasScrollbar = true,
+  hasScrollbarOnMobile = true,
+  navigationPosition = "",
+  variant = "default",
 }: SliderProps) => {
   const slides = Children.toArray(children)
 
@@ -29,6 +34,7 @@ const Slider = ({
       })}
       data-js-slider=""
       data-slider-navigation-target={navigationTargetElementId ?? undefined}
+      data-slider-variant={variant}
     >
       <div className="slider__swiper swiper">
         <ul className="slider__list swiper-wrapper">
@@ -40,9 +46,13 @@ const Slider = ({
         </ul>
       </div>
 
-      {!navigationTargetElementId && <SliderNavigation />}
+      {!navigationTargetElementId && (
+        <SliderNavigation position={navigationPosition} />
+      )}
 
-      {hasScrollbar && <div className="slider__scrollbar visible-mobile" />}
+      {hasScrollbarOnMobile && (
+        <div className="slider__scrollbar visible-mobile" />
+      )}
     </div>
   )
 }
