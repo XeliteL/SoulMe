@@ -1,8 +1,7 @@
-import Banner from "@/widgets/Banner"
-import Categories from "@/widgets/Categories"
-import Devices from "@/widgets/Devices"
-import Hero from "@/widgets/Hero"
-import Questions from "@/widgets/Questions"
+import Categories from "@/sections/Categories"
+import Devices from "@/sections/Devices"
+import Hero from "@/sections/Hero"
+import Questions from "@/sections/Questions"
 
 export const metadata = {
   title: "Главная",
@@ -16,7 +15,6 @@ export default function () {
       <Categories />
       <Devices />
       <Questions />
-      <Banner />
     </>
   )
 }
