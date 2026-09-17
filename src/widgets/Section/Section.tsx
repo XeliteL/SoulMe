@@ -5,9 +5,10 @@ import "./Section.scss"
 
 interface SectionProps {
   className?: string
-  title: string
-  titleId: string
+  title?: string
+  titleId?: string
   id?: string
+  ariaLabelledby?: string
   description?: string
   actions?: ReactElement
   isActionsHiddenOnMobile?: boolean
