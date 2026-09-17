@@ -1,11 +1,13 @@
 .hero {
   scroll-snap-align: start;
-
+  /* stylelint-disable declaration-no-important */
   display: flex;
   flex-direction: column;
+  padding-inline: 0 !important;
   padding-bottom: var(--section-padding-y);
   min-height: 100vh;
   text-align: center;
+  /* stylelint-enable declaration-no-important */
 
   @supports (min-height: 100svh) {
     min-height: 100svh;

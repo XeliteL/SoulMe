@@ -2,8 +2,8 @@
   scroll-snap-align: start;
 
   display: grid;
-  gap: fluid(80, 40);
-  padding-block: var(--section-padding-y);
+  gap: fluid(30, 20);
+  padding: var(--section-padding-y) var(--section-padding-x);
 
   &__header {
     display: flex;
