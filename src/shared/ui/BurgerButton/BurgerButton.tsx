@@ -9,7 +9,7 @@ interface BurgerButtonProps {
 }
 
 const BurgerButton = ({ className, isActive, onClick }: BurgerButtonProps) => {
-  const title = isActive ? "Close menu" : "Open menu"
+  const title = isActive ? "Закрыть меню" : "Открыть меню"
 
   return (
     <button
