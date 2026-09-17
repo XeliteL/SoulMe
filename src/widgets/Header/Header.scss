@@ -64,6 +64,12 @@
 
         &.is-closing {
           @include starting-styles;
+
+          ~ .header__actions > .header__actions__buttons-container > .button {
+            transition-delay: 0s;
+
+            @include hide;
+          }
         }
 
         ~ .header__actions > .header__actions__buttons-container > .button {
