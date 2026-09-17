@@ -14,6 +14,7 @@
   @include hover {
     color: var(--color-white);
     background: var(--color-turquoise-50);
+    border-radius: var(--border-radius-xl);
   }
 
   @include laptop {
@@ -49,8 +50,16 @@
     }
   }
 
+  &--black-06,
+  &--black-10 {
+    border: var(--border-width-s) solid var(--color-black-15);
+  }
+
+  &--black-06 {
+    background-color: var(--color-black-06);
+  }
+
   &--black-10 {
     background-color: var(--color-black-10);
-    border: var(--border);
   }
 }
