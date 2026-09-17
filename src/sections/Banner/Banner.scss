@@ -17,8 +17,8 @@
         rgb(0 32 30 / 0) 168.98%
       ),
       image-set(
-          url(@/shared/assets/images/banner/bg.avif) type("image/avif"),
-          url(@/shared/assets/images/banner/bg.webp) type("image/webp")
+          url(../../shared/assets/images/banner/bg.avif) type("image/avif"),
+          url(../../shared/assets/images/banner/bg.webp) type("image/webp")
         )
         50% / cover no-repeat;
     border: var(--border);

@@ -21,8 +21,8 @@
       linear-gradient(180deg, #141414 0%, rgb(20 20 20 / 0) 75%),
       linear-gradient(180deg, rgb(20 20 20 / 0) 25%, #141414 100%),
       image-set(
-          url(@/shared/assets/images/hero/bg.avif) type("image/avif"),
-          url(@/shared/assets/images/hero/bg.webp) type("image/webp")
+          url(../../shared/assets/images/hero/bg.avif) type("image/avif"),
+          url(../../shared/assets/images/hero/bg.webp) type("image/webp")
         )
         50% / cover no-repeat;
   }
