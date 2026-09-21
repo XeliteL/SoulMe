@@ -43,19 +43,19 @@ const Header = ({ url, isFixed }: HeaderProps) => {
           <div className="header__actions__buttons-container">
             <Button
               className="header__button"
-              label="Search"
+              label="Поиск"
               isLabelHidden
               variant="transparent"
               iconName="search"
             />
             <Button
-              label="Notifications"
+              label="Уведомления"
               isLabelHidden
               variant="transparent"
               iconName="notification"
             />
             <Button
-              label="You"
+              label="Вы"
               isLabelHidden
               variant="transparent"
               iconName="user"
