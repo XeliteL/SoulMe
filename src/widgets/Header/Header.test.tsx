@@ -44,12 +44,12 @@ describe("Header", () => {
 
     const dialog = document.getElementById("header-menu") as HTMLDialogElement
 
-    await user.click(screen.getByRole("button", { name: "Open menu" }))
+    await user.click(screen.getByRole("button", { name: "Открыть меню" }))
 
     expect(dialog.open).toBe(true)
     expect(document.documentElement).toHaveClass("is-lock")
 
-    await user.click(screen.getByRole("button", { name: "Close menu" }))
+    await user.click(screen.getByRole("button", { name: "Закрыть меню" }))
 
     expect(document.documentElement).not.toHaveClass("is-lock")
     expect(dialog.open).toBe(true)
@@ -62,10 +62,10 @@ describe("Header", () => {
   it("renders the search, notifications and account actions", () => {
     render(<Header url="/" />)
 
-    expect(screen.getByRole("button", { name: "Search" })).toBeInTheDocument()
+    expect(screen.getByRole("button", { name: "Поиск" })).toBeInTheDocument()
     expect(
-      screen.getByRole("button", { name: "Notifications" }),
+      screen.getByRole("button", { name: "Уведомления" }),
     ).toBeInTheDocument()
-    expect(screen.getByRole("button", { name: "You" })).toBeInTheDocument()
+    expect(screen.getByRole("button", { name: "Вы" })).toBeInTheDocument()
   })
 })

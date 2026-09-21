@@ -102,7 +102,7 @@ describe("Slider", () => {
 
     it("omits the scrollbar track when hasScrollbar is false", () => {
       const { container } = render(
-        <Slider navigationTargetElementId={null} hasScrollbar={false}>
+        <Slider navigationTargetElementId={null} hasScrollbarOnMobile={false}>
           <span>a</span>
         </Slider>,
       )

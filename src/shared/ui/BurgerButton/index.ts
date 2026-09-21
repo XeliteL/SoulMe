@@ -1,3 +1,1 @@
-import BurgerButton from "./BurgerButton"
-
-export default BurgerButton
+export { default } from "./BurgerButton"

@@ -1,0 +1,42 @@
+.anime-card {
+  display: flex;
+  flex-direction: column;
+  padding: fluid(20, 12);
+  padding-bottom: 0;
+  background-color: var(--color-black-10);
+  border: var(--border);
+  border-radius: var(--border-radius-l);
+  overflow: visible;
+
+  @include laptop {
+    border-radius: var(--border-radius-m);
+  }
+
+  @include hover {
+    color: var(--color-white);
+    border-color: currentColor;
+    transform: translateY(-5px);
+  }
+
+  &:focus-visible {
+    outline-offset: -2px;
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: fluid(20, 12);
+    column-gap: fluid(10, 2);
+  }
+
+  &__released-badge {
+    width: 100%;
+  }
+}

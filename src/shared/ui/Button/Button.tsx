@@ -10,7 +10,7 @@ interface ButtonProps {
   type?: "button" | "submit" | "reset"
   href?: string
   target?: HTMLAttributeAnchorTarget
-  variant?: "" | "transparent" | "black-10"
+  variant?: "" | "transparent" | "black-10" | "black-06"
   label?: string
   isLabelHidden?: boolean
   iconName?: IconName

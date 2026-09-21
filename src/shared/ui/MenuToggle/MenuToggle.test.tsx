@@ -28,7 +28,7 @@ describe("MenuToggle", () => {
   it("renders closed by default", () => {
     const { dialog, button } = renderMenuToggle()
 
-    expect(button).toHaveAccessibleName("Open menu")
+    expect(button).toHaveAccessibleName("Открыть меню")
     expect(button).toHaveAttribute("aria-expanded", "false")
     expect(dialog.open).toBe(false)
     expect(document.documentElement).not.toHaveClass("is-lock")
@@ -41,7 +41,7 @@ describe("MenuToggle", () => {
     await user.click(button)
 
     expect(dialog.open).toBe(true)
-    expect(button).toHaveAccessibleName("Close menu")
+    expect(button).toHaveAccessibleName("Закрыть меню")
     expect(button).toHaveAttribute("aria-expanded", "true")
     expect(document.documentElement).toHaveClass("is-lock")
   })

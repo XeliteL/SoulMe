@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { Swiper } from "swiper"
 import { Mousewheel, Navigation, Pagination, Scrollbar } from "swiper/modules"
 
-import { defaultSliderParams } from "./sliderParams"
+import { sliderParamsByVariant, SliderVariant } from "./sliderParams"
 
 const useSliderRuntime = () => {
   useEffect(() => {
@@ -14,6 +14,17 @@ const useSliderRuntime = () => {
         const swiperEl = sliderEl.querySelector<HTMLElement>(".swiper")
         if (!swiperEl) return
 
+        const variant = (sliderEl.getAttribute("data-slider-variant") ??
+          "default") as SliderVariant
+        const customParamsAttr = sliderEl.getAttribute("data-slider-params")
+        const customParams = customParamsAttr
+          ? JSON.parse(customParamsAttr)
+          : {}
+        const sliderParams = {
+          ...(sliderParamsByVariant[variant] ?? sliderParamsByVariant.default),
+          ...customParams,
+        }
+
         const navigationTargetId = sliderEl.getAttribute(
           "data-slider-navigation-target",
         )
@@ -24,7 +35,7 @@ const useSliderRuntime = () => {
         instances.push(
           new Swiper(swiperEl, {
             modules: [Navigation, Pagination, Scrollbar, Mousewheel],
-            ...defaultSliderParams,
+            ...sliderParams,
             navigation: {
               prevEl: navRoot.querySelector<HTMLElement>(
                 ".slider-navigation__arrow-button--previous",

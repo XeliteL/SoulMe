@@ -29,18 +29,20 @@
   --color-gray-97: #f7f7f8;
   --color-gray-99: #fcfcfd;
 
-  --border: var(--border-width-s) solid var(--color-black-15);
+  --border: var(--border-width-xs) solid var(--color-black-15);
 
-  --border-width-s: 1px;
+  --border-width-xs: 1px;
+  --border-width-s: 2px;
   --border-width-m: 3px;
   --border-width-l: 4px;
 
-  --border-radius-l: 16px;
-  --border-radius-m: 14px;
-  --border-radius-s: 12px;
-  --border-radius-xs: 10px;
-  --border-radius-xxs: 7px;
-  --border-radius-xxxs: 6px;
+  --border-radius-xl: 14px;
+  --border-radius-l: 12px;
+  --border-radius-m: 10px;
+  --border-radius-s: 8px;
+  --border-radius-xs: 6px;
+  --border-radius-xxs: 4px;
+  --border-radius-xxxs: 3px;
 
   --font-family-base: "Manrope", sans-serif;
 
@@ -50,7 +52,8 @@
     )};
   --container-padding-x: 16px;
 
-  --section-padding-y: #{fluid(75, 40)};
+  --section-padding-y: #{fluid(50, 30)};
+  --section-padding-x: #{fluid(100, 16)};
 
   --transition-duration: 0.2s;
   --transition-duration-longer: 0.4s;

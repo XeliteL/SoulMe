@@ -8,17 +8,20 @@ interface SliderNavigationProps {
   id?: string
   variant?: "" | "tile"
   hasPagination?: boolean
+  position?: "" | "abs-bottom"
 }
 
 const SliderNavigation = ({
   id,
   variant = "",
   hasPagination = true,
+  position = "",
 }: SliderNavigationProps) => {
   return (
     <div
       className={classNames("slider-navigation", {
         [`slider-navigation--${variant}`]: variant,
+        [`slider-navigation--${position}`]: position,
       })}
       id={id}
     >

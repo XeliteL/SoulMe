@@ -29,7 +29,7 @@
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
+    gap: fluid(10, 5);
 
     &::after {
       @include abs-cover;
@@ -47,7 +47,6 @@
 
   &__image {
     width: 100%;
-    height: fluid(124, 68);
     object-fit: cover;
     border-radius: var(--border-radius-m);
 
@@ -64,6 +63,8 @@
   }
 
   &__title {
+    display: flex;
+    flex-direction: column;
     font-size: inherit;
     font-weight: 600;
   }

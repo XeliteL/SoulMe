@@ -8,7 +8,7 @@ interface LogoProps {
 }
 
 const Logo = ({ className, loading }: LogoProps) => {
-  const title: string = "Home"
+  const title: string = "Главная"
 
   return (
     <a
