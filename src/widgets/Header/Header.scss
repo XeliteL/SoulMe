@@ -62,6 +62,12 @@
           @include starting-styles;
         }
 
+        ~ .header__actions > .header__actions__buttons-container > .button {
+          transition-delay: var(--transition-duration);
+
+          @include show;
+        }
+
         &.is-closing {
           @include starting-styles;
 
@@ -70,12 +76,6 @@
 
             @include hide;
           }
-        }
-
-        ~ .header__actions > .header__actions__buttons-container > .button {
-          transition-delay: var(--transition-duration);
-
-          @include show;
         }
       }
 
