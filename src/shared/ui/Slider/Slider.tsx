@@ -15,6 +15,7 @@ interface SliderProps {
   hasScrollbarOnMobile?: boolean
   navigationPosition?: "" | "abs-bottom"
   variant?: SliderVariant
+  sliderParams?: object
 }
 
 const Slider = ({
@@ -24,6 +25,7 @@ const Slider = ({
   hasScrollbarOnMobile = true,
   navigationPosition = "",
   variant = "default",
+  sliderParams,
 }: SliderProps) => {
   const slides = Children.toArray(children)
 
@@ -35,6 +37,9 @@ const Slider = ({
       data-js-slider=""
       data-slider-navigation-target={navigationTargetElementId ?? undefined}
       data-slider-variant={variant}
+      data-slider-params={
+        sliderParams ? JSON.stringify(sliderParams) : undefined
+      }
     >
       <div className="slider__swiper swiper">
         <ul className="slider__list swiper-wrapper">

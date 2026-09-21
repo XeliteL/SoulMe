@@ -16,8 +16,14 @@ const useSliderRuntime = () => {
 
         const variant = (sliderEl.getAttribute("data-slider-variant") ??
           "default") as SliderVariant
-        const sliderParams =
-          sliderParamsByVariant[variant] ?? sliderParamsByVariant.default
+        const customParamsAttr = sliderEl.getAttribute("data-slider-params")
+        const customParams = customParamsAttr
+          ? JSON.parse(customParamsAttr)
+          : {}
+        const sliderParams = {
+          ...(sliderParamsByVariant[variant] ?? sliderParamsByVariant.default),
+          ...customParams,
+        }
 
         const navigationTargetId = sliderEl.getAttribute(
           "data-slider-navigation-target",
