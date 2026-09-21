@@ -24,7 +24,7 @@ export const sliderParamsByVariant: Record<
       0: {
         slidesPerView: 2,
         slidesPerGroup: 1,
-        spaceBetween: 20,
+        spaceBetween: 10,
       },
       650: {
         slidesPerView: 3,
