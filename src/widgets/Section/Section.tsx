@@ -22,20 +22,23 @@ const Section = ({
   description,
   actions,
   id,
+  ariaLabelledby,
   isActionsHiddenOnMobile = false,
   children,
 }: SectionProps) => {
   return (
     <section
       className={classNames(className, "section container")}
-      aria-labelledby={titleId}
+      aria-labelledby={ariaLabelledby ?? titleId}
       id={id}
     >
       <header className="section__header">
         <div className="section__info">
-          <h2 className="section__title h3" id={titleId}>
-            {title}
-          </h2>
+          {title && (
+            <h2 className="section__title h3" id={titleId}>
+              {title}
+            </h2>
+          )}
           {description && (
             <div className="section__description">
               <p>{description}</p>

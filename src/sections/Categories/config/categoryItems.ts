@@ -1,6 +1,8 @@
 interface CategoryItem {
+  kind: "category"
   title: string
   images: string[]
+  href: string
 }
 
 const IMAGES_PER_CATEGORY = 4
@@ -25,11 +27,13 @@ const categories: { title: string; slug: string }[] = [
 
 export const categoryItems: CategoryItem[] = categories.map(
   ({ title, slug }) => ({
+    kind: "category",
     title,
     images: Array.from(
       { length: IMAGES_PER_CATEGORY },
       (_, index) =>
         `/src/shared/assets/images/categories/${slug}/${index + 1}.png`,
     ),
+    href: `/anime/${slug}`,
   }),
 )
