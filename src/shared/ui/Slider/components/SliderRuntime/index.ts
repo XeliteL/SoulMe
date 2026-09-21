@@ -1,3 +1,1 @@
-import SliderRuntime from "./SliderRuntime"
-
-export default SliderRuntime
+export { default } from "./SliderRuntime"

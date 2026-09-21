@@ -1,3 +1,1 @@
-import Devices from "./Devices"
-
-export default Devices
+export { default } from "./Devices"

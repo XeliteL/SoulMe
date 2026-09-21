@@ -1,3 +1,1 @@
-import DeviceCard from "./DeviceCard"
-
-export default DeviceCard
+export { default } from "./DeviceCard"

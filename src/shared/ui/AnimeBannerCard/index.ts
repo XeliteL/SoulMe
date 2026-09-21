@@ -1,3 +1,1 @@
-import AnimeBannerCard from "./AnimeBannerCard"
-
-export default AnimeBannerCard
+export { default } from "./AnimeBannerCard"

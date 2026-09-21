@@ -1,3 +1,1 @@
-import AnimeBanner from "./AnimeBanner"
-
-export default AnimeBanner
+export { default } from "./AnimeBanner"
