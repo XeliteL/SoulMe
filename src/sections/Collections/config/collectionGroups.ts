@@ -36,32 +36,38 @@ interface collectionGroup {
   sliderParams?: object
   showReleaseDate?: boolean
   showRating?: boolean
+  id?: string
 }
 
 export const collectionGroups: collectionGroup[] = [
   {
     title: "Наши жанры",
     children: categoryItems,
+    id: "genres",
   },
   {
     title: "Топ 10 в жанрах",
     children: categoryItems,
     badge: "Топ 10 в",
     sliderParams: specialSliderParams,
+    id: "top",
   },
   {
     title: "Популярное",
     children: AnimeItems,
+    id: "trends",
   },
   {
     title: "Новые релизы",
     children: AnimeItems,
     showReleaseDate: true,
+    id: "new",
   },
   {
     title: "Обязательно посмотрите",
     children: AnimeItems,
     sliderParams: specialSliderParams,
     showRating: true,
+    id: "recommendation",
   },
 ]
