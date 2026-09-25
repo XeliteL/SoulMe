@@ -13,6 +13,7 @@ const Collections = () => {
       {collectionGroups.map((collectionGroup, index) => {
         const title = collectionGroup.title
         const collectionItems = collectionGroup.children
+        const id = collectionGroup.id
 
         const titleId = `${title}-title`
         const sliderNavigationId = `${title}-slider-navigation`
@@ -22,6 +23,7 @@ const Collections = () => {
             className="collections__section"
             title={title}
             titleId={titleId}
+            id={id}
             actions={
               <SliderNavigation id={sliderNavigationId} variant="tile" />
             }
