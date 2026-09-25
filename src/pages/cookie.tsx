@@ -1,11 +1,16 @@
+import LegalDocument from "@/sections/LegalDocument"
+import { cookieItems } from "@/sections/LegalDocument/config/cookieItems"
+
 export const metadata = {
   title: "Использование куки",
 }
 
 export default function () {
   return (
-    <>
-      <h1>Использование куки</h1>
-    </>
+    <LegalDocument
+      title="Использование куки"
+      updatedAt="2026-09-24"
+      items={cookieItems}
+    />
   )
 }
