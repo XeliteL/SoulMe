@@ -68,7 +68,7 @@ export const footerMenu: FooterMenuSection[] = [
     titleHref: "/news",
     links: [
       { label: "Анонсы", href: "/news#announcements" },
-      { label: "Выходят сегодня", href: "/news#today" },
+      { label: "Расписание", href: "/news#schedule" },
     ],
   },
   {
