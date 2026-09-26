@@ -2,6 +2,10 @@
 
 SoulMe is the landing page for an anime streaming service — browse a catalog of anime titles with Russian dub and subtitles, track new episodes, and build a personal watchlist.
 
+## Design
+
+The UI was designed by me — see the [Figma mockup](https://www.figma.com/design/dB7bfwAFQuN67Vu3DT4GZ3/SoulMe?node-id=34-3).
+
 ## Tech stack
 
 - [minista](https://minista.jp) — a Vite-based static site generator with file-based routing
