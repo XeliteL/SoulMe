@@ -3,6 +3,7 @@ import { Head } from "minista/head"
 
 import "@/app/styles"
 
+import { authStateScript } from "@/entities/session"
 import Banner from "@/sections/Banner"
 import GrayFavicon from "@/shared/ui/GrayFavicon"
 import Preloader from "@/shared/ui/Preloader"
@@ -46,6 +47,7 @@ export default function Index({
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
+        <script dangerouslySetInnerHTML={{ __html: authStateScript }} />
       </Head>
       <Preloader />
       <GrayFavicon client:load />
