@@ -3,8 +3,9 @@
 ## Reporting a Vulnerability
 
 If you discover a security vulnerability in this project, please report it
-privately by emailing **marat140606@gmail.com** instead of opening a public
-issue.
+privately via GitHub's
+[private vulnerability reporting](https://github.com/XeliteL/SoulMe/security/advisories/new)
+(**Security → Report a vulnerability**) instead of opening a public issue.
 
 Please include:
 
