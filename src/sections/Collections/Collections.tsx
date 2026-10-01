@@ -52,10 +52,10 @@ const Collections = () => {
                 ),
               )}
             </Slider>
-            <SliderRuntime client:load />
           </Section>
         )
       })}
+      <SliderRuntime client:load />
     </Section>
   )
 }
