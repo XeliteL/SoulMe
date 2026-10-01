@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+    paths: &front-paths
+      - "src/**"
+      - "public/**"
+      - "package.json"
+      - "package-lock.json"
+      - "tsconfig.json"
+      - "vite.config.ts"
+      - "vitest.config.ts"
+      - "vitest.setup.ts"
+      - "eslint.config.js"
+      - "stylelint.config.ts"
+      - "postcss.config.js"
+      - ".prettierrc"
+      - ".github/workflows/ci.yml"
+  push:
+    branches: [main]
+    paths: *front-paths
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  front:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npm run check
+      - run: npm run build
