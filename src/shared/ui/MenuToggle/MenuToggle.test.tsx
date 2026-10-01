@@ -10,7 +10,7 @@ const DIALOG_ID = "test-menu"
 function renderMenuToggle() {
   document.body.insertAdjacentHTML(
     "beforeend",
-    `<dialog id="${DIALOG_ID}"></dialog>`,
+    `<dialog id="${DIALOG_ID}"><a href="/">Главная</a></dialog>`,
   )
   const dialog = document.getElementById(DIALOG_ID) as HTMLDialogElement
 
@@ -21,6 +21,7 @@ function renderMenuToggle() {
 
 afterEach(() => {
   cleanup()
+  document.querySelectorAll(`#${DIALOG_ID}`).forEach((el) => el.remove())
   document.documentElement.classList.remove("is-lock")
 })
 
@@ -79,6 +80,39 @@ describe("MenuToggle", () => {
 
     expect(dialog.open).toBe(false)
     expect(button).toHaveAttribute("aria-expanded", "false")
+  })
+
+  it("points aria-controls at the controlled dialog", () => {
+    const { button } = renderMenuToggle()
+
+    expect(button).toHaveAttribute("aria-controls", DIALOG_ID)
+  })
+
+  it("returns focus to the toggle when closed on Escape from inside the menu", async () => {
+    const user = userEvent.setup()
+    const { button } = renderMenuToggle()
+
+    await user.click(button)
+    screen.getByRole("link", { name: "Главная" }).focus()
+
+    await user.keyboard("{Escape}")
+
+    expect(button).toHaveFocus()
+  })
+
+  it("does not move focus on close when it is outside the menu", async () => {
+    const user = userEvent.setup()
+    const { button } = renderMenuToggle()
+    const outsideButton = document.createElement("button")
+    document.body.append(outsideButton)
+
+    await user.click(button)
+    outsideButton.focus()
+
+    await user.keyboard("{Escape}")
+
+    expect(outsideButton).toHaveFocus()
+    outsideButton.remove()
   })
 
   it("syncs state when the dialog fires a native close event", async () => {
