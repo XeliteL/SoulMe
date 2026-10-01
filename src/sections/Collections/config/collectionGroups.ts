@@ -1,3 +1,5 @@
+import type { SwiperOptions } from "swiper/types"
+
 import { categoryItems } from "@/sections/Categories/config/categoryItems"
 import { AnimeItems } from "@/sections/Collections/config/animeItems"
 import { specialSliderParams } from "@/sections/Collections/config/specialSliderParams"
@@ -33,7 +35,7 @@ interface collectionGroup {
   title: string
   children: CategoryItem[] | AnimeItem[]
   badge?: string
-  sliderParams?: object
+  sliderParams?: SwiperOptions
   showReleaseDate?: boolean
   showRating?: boolean
   id?: string
