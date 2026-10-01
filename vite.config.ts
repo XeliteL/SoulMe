@@ -83,6 +83,7 @@ export default defineConfig(({ command, isSsrBuild }) => {
       pluginSsg(),
       pluginBundle(),
       pluginImage({
+        loading: "lazy",
         optimize: {
           format: "webp",
           layout: "constrained",

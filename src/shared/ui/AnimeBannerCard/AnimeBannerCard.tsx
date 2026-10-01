@@ -8,16 +8,23 @@ interface AnimeBannerCardProps {
   title: string
   description: string
   imgSrc: string
+  loading?: "eager" | "lazy"
 }
 
 const AnimeBannerCard = ({
   title,
   description,
   imgSrc,
+  loading,
 }: AnimeBannerCardProps) => {
   return (
     <div className="anime-banner-card">
-      <Image className="anime-banner-card__image" src={imgSrc} alt="" />
+      <Image
+        className="anime-banner-card__image"
+        src={imgSrc}
+        loading={loading}
+        alt=""
+      />
       <div className="anime-banner-card__inner">
         <div className="anime-banner-card__body">
           <h2 className="anime-banner-card__title h2">{title}</h2>
