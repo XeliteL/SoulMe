@@ -21,7 +21,11 @@ const AnimeBanner = () => {
         isBeyondTheViewportOnMobileS={false}
       >
         {animeCards.map((animeCard, index) => (
-          <AnimeBannerCard {...animeCard} key={index} />
+          <AnimeBannerCard
+            {...animeCard}
+            loading={index === 0 ? "eager" : undefined}
+            key={index}
+          />
         ))}
       </Slider>
       <SliderRuntime client:load />
