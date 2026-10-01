@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import BurgerButton from "@/shared/ui/BurgerButton"
 
@@ -9,6 +9,7 @@ interface MenuToggleProps {
 
 const MenuToggle = ({ dialogId, className }: MenuToggleProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const previousFocusRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
     document.documentElement.classList.toggle("is-lock", isMenuOpen)
@@ -23,9 +24,17 @@ const MenuToggle = ({ dialogId, className }: MenuToggleProps) => {
     if (!dialog) return
 
     if (isMenuOpen) {
+      previousFocusRef.current =
+        document.activeElement instanceof HTMLElement
+          ? document.activeElement
+          : null
       dialog.classList.remove("is-closing")
       if (!dialog.open) dialog.show()
       return
+    }
+
+    if (dialog.contains(document.activeElement)) {
+      previousFocusRef.current?.focus()
     }
 
     if (!dialog.open) return
@@ -65,6 +74,7 @@ const MenuToggle = ({ dialogId, className }: MenuToggleProps) => {
   return (
     <BurgerButton
       className={className}
+      dialogId={dialogId}
       isActive={isMenuOpen}
       onClick={() => setIsMenuOpen((prev) => !prev)}
     />

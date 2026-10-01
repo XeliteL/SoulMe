@@ -4,11 +4,17 @@ import "./BurgerButton.scss"
 
 interface BurgerButtonProps {
   className?: string
+  dialogId: string
   isActive: boolean
   onClick: () => void
 }
 
-const BurgerButton = ({ className, isActive, onClick }: BurgerButtonProps) => {
+const BurgerButton = ({
+  className,
+  dialogId,
+  isActive,
+  onClick,
+}: BurgerButtonProps) => {
   const title = isActive ? "Закрыть меню" : "Открыть меню"
 
   return (
@@ -21,7 +27,7 @@ const BurgerButton = ({ className, isActive, onClick }: BurgerButtonProps) => {
       title={title}
       onClick={onClick}
       aria-expanded={isActive}
-      aria-controls="header-menu"
+      aria-controls={dialogId}
     >
       <svg
         className="burger-button__svg"
