@@ -9,16 +9,11 @@ interface IconProps {
   className?: string
   name: IconName
   hasFill?: boolean
-  ariaLabel?: string
 }
 
-const Icon = ({ className, name, hasFill = false, ariaLabel }: IconProps) => {
+const Icon = ({ className, name, hasFill = false }: IconProps) => {
   return (
-    <span
-      className={classNames(className, "icon")}
-      aria-hidden="true"
-      aria-label={ariaLabel}
-    >
+    <span className={classNames(className, "icon")} aria-hidden="true">
       <MinistaIcon
         src={`/src/shared/assets/icons/${name}.svg`}
         fill={hasFill ? "currentColor" : "none"}
