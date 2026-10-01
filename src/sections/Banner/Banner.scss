@@ -6,6 +6,11 @@
   }
 
   &__inner {
+    --bannerBackgroundImage: image-set(
+      url(../../shared/assets/images/banner/bg-desktop.avif) type("image/avif"),
+      url(../../shared/assets/images/banner/bg-desktop.webp) type("image/webp")
+    );
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,13 +25,23 @@
         rgb(8 37 34 / 0.91) 46.72%,
         rgb(0 32 30 / 0) 168.98%
       ),
-      image-set(
-          url(../../shared/assets/images/banner/bg.avif) type("image/avif"),
-          url(../../shared/assets/images/banner/bg.webp) type("image/webp")
-        )
-        50% / cover no-repeat;
+      var(--bannerBackgroundImage) 50% / cover no-repeat;
     border: var(--border);
     border-radius: var(--border-radius-l);
+
+    @include laptop {
+      --bannerBackgroundImage: image-set(
+        url(../../shared/assets/images/banner/bg-laptop.avif) type("image/avif"),
+        url(../../shared/assets/images/banner/bg-laptop.webp) type("image/webp")
+      );
+    }
+
+    @include mobile {
+      --bannerBackgroundImage: image-set(
+        url(../../shared/assets/images/banner/bg-mobile.avif) type("image/avif"),
+        url(../../shared/assets/images/banner/bg-mobile.webp) type("image/webp")
+      );
+    }
 
     @include tablet {
       flex-direction: column;

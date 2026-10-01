@@ -16,17 +16,32 @@
   &__pano {
     @include flex-center;
 
+    --heroBackgroundImage: image-set(
+      url(../../shared/assets/images/hero/bg-desktop.avif) type("image/avif"),
+      url(../../shared/assets/images/hero/bg-desktop.webp) type("image/webp")
+    );
+
     flex-grow: 1;
     padding-top: fluid(195, 150);
     padding-bottom: fluid(60, 50);
     background:
       linear-gradient(180deg, #141414 0%, rgb(20 20 20 / 0) 75%),
       linear-gradient(180deg, rgb(20 20 20 / 0) 25%, #141414 100%),
-      image-set(
-          url(../../shared/assets/images/hero/bg.avif) type("image/avif"),
-          url(../../shared/assets/images/hero/bg.webp) type("image/webp")
-        )
-        50% / cover no-repeat;
+      var(--heroBackgroundImage) 50% / cover no-repeat;
+
+    @include laptop {
+      --heroBackgroundImage: image-set(
+        url(../../shared/assets/images/hero/bg-laptop.avif) type("image/avif"),
+        url(../../shared/assets/images/hero/bg-laptop.webp) type("image/webp")
+      );
+    }
+
+    @include mobile {
+      --heroBackgroundImage: image-set(
+        url(../../shared/assets/images/hero/bg-mobile.avif) type("image/avif"),
+        url(../../shared/assets/images/hero/bg-mobile.webp) type("image/webp")
+      );
+    }
   }
 
   &__play-button {
