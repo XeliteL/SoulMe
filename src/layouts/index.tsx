@@ -4,7 +4,6 @@ import { Head } from "minista/head"
 import "@/app/styles"
 
 import { authStateScript } from "@/entities/session"
-import Banner from "@/sections/Banner"
 import GrayFavicon from "@/shared/ui/GrayFavicon"
 import Preloader from "@/shared/ui/Preloader"
 import Content from "@/widgets/Content"
@@ -52,10 +51,7 @@ export default function Index({
       <Preloader />
       <GrayFavicon client:load />
       <Header url={url} isFixed={isHeaderFixed} />
-      <Content isResetPaddingTop={isHeaderFixed}>
-        {children}
-        <Banner />
-      </Content>
+      <Content isResetPaddingTop={isHeaderFixed}>{children}</Content>
 
       <Footer />
     </>

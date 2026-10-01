@@ -1,3 +1,4 @@
+import Banner from "@/sections/Banner"
 import Categories from "@/sections/Categories"
 import Devices from "@/sections/Devices"
 import Hero from "@/sections/Hero"
@@ -15,6 +16,7 @@ export default function () {
       <Categories />
       <Devices />
       <Questions />
+      <Banner />
     </>
   )
 }
