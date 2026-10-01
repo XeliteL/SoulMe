@@ -1,5 +1,6 @@
 import { Children, ReactNode } from "react"
 import classNames from "classnames"
+import type { SwiperOptions } from "swiper/types"
 
 import "swiper/css"
 
@@ -15,7 +16,7 @@ interface SliderProps {
   hasScrollbarOnMobile?: boolean
   navigationPosition?: "" | "abs-bottom"
   variant?: SliderVariant
-  sliderParams?: object
+  sliderParams?: SwiperOptions
 }
 
 const Slider = ({
