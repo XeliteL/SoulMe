@@ -11,8 +11,10 @@ const useSliderRuntime = () => {
     document
       .querySelectorAll<HTMLElement>("[data-js-slider]")
       .forEach((sliderEl) => {
-        const swiperEl = sliderEl.querySelector<HTMLElement>(".swiper")
-        if (!swiperEl) return
+        const swiperEl = sliderEl.querySelector<
+          HTMLElement & { swiper?: Swiper | null }
+        >(".swiper")
+        if (!swiperEl || swiperEl.swiper) return
 
         const variant = (sliderEl.getAttribute("data-slider-variant") ??
           "default") as SliderVariant
