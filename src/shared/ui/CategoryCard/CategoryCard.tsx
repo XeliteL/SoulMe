@@ -25,7 +25,6 @@ const CategoryCard = ({
           <Image
             className="category-card__image"
             src={imgSrc}
-            format="webp"
             quality={82}
             loading="lazy"
             alt=""

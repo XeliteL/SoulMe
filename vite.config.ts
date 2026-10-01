@@ -84,7 +84,7 @@ export default defineConfig(({ command, isSsrBuild }) => {
       pluginBundle(),
       pluginImage({
         optimize: {
-          outName: "[name]",
+          format: "webp",
           layout: "constrained",
           breakpoints: [
             320, 400, 640, 800, 1024, 1280, 1440, 1920, 2560, 2880, 3840,
