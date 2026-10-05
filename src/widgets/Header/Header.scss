@@ -3,7 +3,7 @@
   z-index: 100;
   top: 0;
   width: 100%;
-  padding-block: fluid(14, 10);
+  padding-block: fluid(24, 20);
   border-bottom: var(--border-width-xs) solid transparent;
   animation-name: scrolling-header;
   animation-fill-mode: both;
@@ -27,7 +27,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    column-gap: 16px;
+    column-gap: 20px;
     padding-inline: var(--section-padding-x);
   }
 
@@ -108,7 +108,7 @@
     &-list {
       display: flex;
       align-items: center;
-      column-gap: 6px;
+      column-gap: fluid(8, 4);
 
       @include tablet {
         flex-direction: column;
@@ -118,7 +118,7 @@
     }
 
     &-link {
-      padding: fluid-to-laptop(8, 6) fluid-to-laptop(14, 10);
+      padding: fluid-to-laptop(12, 10) fluid-to-laptop(16, 12);
       color: var(--color-gray-75);
       border-radius: var(--border-radius-s);
 
