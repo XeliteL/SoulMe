@@ -1,3 +1,6 @@
+import Questions from "@/sections/Questions"
+import Support from "@/sections/Support"
+
 export const metadata = {
   title: "Поддержка",
 }
@@ -5,8 +8,8 @@ export const metadata = {
 export default function () {
   return (
     <>
-      <h1>Поддержка</h1>
-      <h2>Контакты</h2>
+      <Support />
+      <Questions />
     </>
   )
 }
