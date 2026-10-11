@@ -18,3 +18,7 @@ if (!HTMLDialogElement.prototype.close) {
     this.dispatchEvent(new Event("close"))
   }
 }
+
+if (!Element.prototype.scrollIntoView) {
+  Element.prototype.scrollIntoView = function () {}
+}
