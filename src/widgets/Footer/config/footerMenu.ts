@@ -16,7 +16,7 @@ interface FooterSectionBase {
 }
 
 interface FooterLinksSection extends FooterSectionBase {
-  type: "links" | "text"
+  type: "links"
   links: FooterLink[]
 }
 
@@ -72,9 +72,12 @@ export const footerMenu: FooterMenuSection[] = [
     ],
   },
   {
-    type: "text",
+    type: "links",
     title: "Поддержка",
+    titleHref: "/support",
     links: [
+      { label: "Задать вопрос", href: "/support#form" },
+      { label: "FAQ", href: "/support#questions" },
       { label: "Контакты", href: "https://t.me/soulmesup", newTab: true },
     ],
   },
