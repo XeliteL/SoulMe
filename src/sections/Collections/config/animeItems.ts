@@ -14,7 +14,7 @@ interface AnimeItemBase {
   href: string
 }
 
-type AnimeItem =
+export type AnimeItem =
   | (AnimeItemBase & { type: "film"; duration: number })
   | (AnimeItemBase & { type: "serial"; episodes: number })
 

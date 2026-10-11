@@ -1,4 +1,4 @@
-interface CategoryItem {
+export interface CategoryItem {
   kind: "category"
   title: string
   images: string[]

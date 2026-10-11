@@ -1,35 +1,14 @@
 import type { SwiperOptions } from "swiper/types"
 
-import { categoryItems } from "@/sections/Categories/config/categoryItems"
-import { AnimeItems } from "@/sections/Collections/config/animeItems"
+import {
+  type CategoryItem,
+  categoryItems,
+} from "@/sections/Categories/config/categoryItems"
+import {
+  type AnimeItem,
+  AnimeItems,
+} from "@/sections/Collections/config/animeItems"
 import { specialSliderParams } from "@/sections/Collections/config/specialSliderParams"
-
-interface CategoryItem {
-  kind: "category"
-  title: string
-  images: string[]
-  href: string
-}
-
-interface AnimeItemBase {
-  kind: "anime"
-  title: string
-  imgSrc: string
-  views: number
-  released: {
-    label: string
-    dateTime: string
-  }
-  rating: {
-    value: number
-    label: number
-  }
-  href: string
-}
-
-type AnimeItem =
-  | (AnimeItemBase & { type: "film"; duration: number })
-  | (AnimeItemBase & { type: "serial"; episodes: number })
 
 interface collectionGroup {
   title: string
