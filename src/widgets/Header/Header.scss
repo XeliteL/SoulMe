@@ -5,16 +5,32 @@
   width: 100%;
   padding-block: fluid(24, 20);
   border-bottom: var(--border-width-xs) solid transparent;
-  animation-name: scrolling-header;
-  animation-fill-mode: both;
-  animation-timeline: scroll();
-  animation-range: 0 100px;
 
-  @keyframes scrolling-header {
-    to {
-      padding-block: 8px;
-      background-color: var(--color-black-08);
-      border-color: var(--color-black-15);
+  @mixin scrolled {
+    padding-block: 8px;
+    background-color: var(--color-black-08);
+    border-color: var(--color-black-15);
+  }
+
+  @supports (animation-timeline: scroll()) {
+    animation-name: scrolling-header;
+    animation-fill-mode: both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+
+    @keyframes scrolling-header {
+      to {
+        @include scrolled;
+      }
+    }
+  }
+
+  @supports not (animation-timeline: scroll()) {
+    transition-duration: var(--transition-duration);
+    transition-property: padding-block, background-color, border-color;
+
+    &.is-scrolled {
+      @include scrolled;
     }
   }
 
