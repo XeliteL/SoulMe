@@ -1,4 +1,5 @@
 import classNames from "classnames"
+import Image from "next/image"
 
 import "./Logo.scss"
 
@@ -17,7 +18,7 @@ const Logo = ({ className, loading }: LogoProps) => {
       title={title}
       aria-label={title}
     >
-      <img
+      <Image
         className="logo__image"
         src="/logo.svg"
         alt=""

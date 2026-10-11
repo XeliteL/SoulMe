@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-import parseJsonAttribute from "@/shared/utils/parseJsonAttribute"
+import parseJsonAttribute from "@/shared/lib/parseJsonAttribute"
 
 import { TabsConfig } from "../../types"
 

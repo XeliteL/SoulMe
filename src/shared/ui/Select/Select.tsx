@@ -1,3 +1,5 @@
+"use client"
+
 import classNames from "classnames"
 
 import { useSelect } from "./useSelect"
@@ -5,7 +7,6 @@ import { useSelect } from "./useSelect"
 import "./Select.scss"
 
 interface SelectProps {
-  // обязателен: Select всегда остров, а useId на сервере и в острове даёт разные id
   id: string
   name?: string
   label: string

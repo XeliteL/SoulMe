@@ -1,3 +1,5 @@
+"use client"
+
 import useInputMaskRuntime from "./useInputMaskRuntime"
 
 const InputMaskRuntime = () => {

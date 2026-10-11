@@ -1,3 +1,5 @@
+"use client"
+
 import useSliderRuntime from "./useSliderRuntime"
 
 const SliderRuntime = () => {

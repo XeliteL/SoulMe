@@ -1,3 +1,5 @@
+"use client"
+
 import useTabsRuntime from "./useTabsRuntime"
 
 const TabsRuntime = () => {

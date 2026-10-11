@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 import "./DeviceCard.scss"
 
 interface DeviceCardProps {
@@ -11,7 +13,7 @@ const DeviceCard = ({ title, description, imgSrc }: DeviceCardProps) => {
     <div className="device-card">
       <header className="device-card__header">
         <div className="device-card__image-wrapper">
-          <img
+          <Image
             className="device-card__image"
             src={imgSrc}
             alt=""

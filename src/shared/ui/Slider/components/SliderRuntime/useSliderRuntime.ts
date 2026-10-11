@@ -3,7 +3,7 @@ import { Swiper } from "swiper"
 import { Mousewheel, Navigation, Pagination, Scrollbar } from "swiper/modules"
 import type { SwiperOptions } from "swiper/types"
 
-import parseJsonAttribute from "@/shared/utils/parseJsonAttribute"
+import parseJsonAttribute from "@/shared/lib/parseJsonAttribute"
 
 import { sliderParamsByVariant, SliderVariant } from "./sliderParams"
 

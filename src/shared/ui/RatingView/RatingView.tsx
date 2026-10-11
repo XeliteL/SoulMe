@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react"
+import Image from "next/image"
 
 import "./RatingView.scss"
 
@@ -22,7 +23,7 @@ const RatingView = ({ value = 5, label }: RatingViewProps) => {
       }
     >
       <div className="rating-view__stars">
-        <img
+        <Image
           className="rating-view__stars-unfilled"
           src="/rating/stars-unfilled.svg"
           alt=""
@@ -30,7 +31,7 @@ const RatingView = ({ value = 5, label }: RatingViewProps) => {
           height={18}
           loading="lazy"
         />
-        <img
+        <Image
           className="rating-view__stars-filled"
           src="/rating/stars-filled.svg"
           alt=""

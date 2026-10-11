@@ -1,3 +1,5 @@
+"use client"
+
 import useHeaderScrollRuntime from "./useHeaderScrollRuntime"
 
 const HeaderScrollRuntime = () => {

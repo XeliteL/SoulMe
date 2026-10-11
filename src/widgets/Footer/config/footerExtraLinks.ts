@@ -6,14 +6,14 @@ interface FooterExtraLink {
 export const footerExtraLinks: FooterExtraLink[] = [
   {
     label: "Условия использования",
-    href: "/terms",
+    href: "/legal/terms",
   },
   {
     label: "Политика конфиденциальности",
-    href: "/privacy",
+    href: "/legal/privacy",
   },
   {
     label: "Использование куки",
-    href: "/cookie",
+    href: "/legal/cookie",
   },
 ]

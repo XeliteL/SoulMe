@@ -1,0 +1,93 @@
+.support {
+  display: grid;
+  gap: 50px fluid-to-laptop(80, 50);
+  padding: var(--section-padding-y) var(--section-padding-x);
+
+  @include mobile-above {
+    grid-template-columns: 33.5% 1fr;
+  }
+
+  &__body {
+    display: grid;
+    gap: fluid(30, 20);
+  }
+
+  &__info {
+    display: grid;
+    row-gap: fluid-to-laptop(14, 10);
+  }
+
+  &__description {
+    font-size: 14px;
+  }
+
+  &__image {
+    --supportBackgroundImage: image-set(
+      url(../../../../shared/assets/images/supportBanner/bg-desktop.avif)
+        type("image/avif"),
+      url(../../../../shared/assets/images/supportBanner/bg-desktop.webp)
+        type("image/webp")
+    );
+
+    aspect-ratio: 720 / 688;
+    background: var(--supportBackgroundImage) 50% / cover no-repeat
+      var(--color-black-06);
+    border: var(--border-width-xl) solid var(--color-black-15);
+    border-radius: var(--border-radius-xs);
+
+    @include laptop {
+      --supportBackgroundImage: image-set(
+        url(../../../../shared/assets/images/supportBanner/bg-laptop.avif)
+          type("image/avif"),
+        url(../../../../shared/assets/images/supportBanner/bg-laptop.webp)
+          type("image/webp")
+      );
+
+      border-radius: var(--border-radius-xxs);
+    }
+
+    @include mobile {
+      --supportBackgroundImage: image-set(
+        url(../../../../shared/assets/images/supportBanner/bg-mobile.avif)
+          type("image/avif"),
+        url(../../../../shared/assets/images/supportBanner/bg-mobile.webp)
+          type("image/webp")
+      );
+    }
+  }
+
+  &__form {
+    display: grid;
+    gap: fluid(50, 20) fluid-to-laptop(50, 20);
+    padding: fluid(50, 24);
+    background-color: var(--color-black-06);
+    border: var(--border);
+    border-radius: var(--border-radius-l);
+
+    @include mobile-above {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include laptop {
+      border-radius: var(--border-radius-m);
+    }
+
+    &-cell {
+      &--wide {
+        grid-column: -1 / 1;
+      }
+
+      &--actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+
+        @include mobile-s {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+    }
+  }
+}
