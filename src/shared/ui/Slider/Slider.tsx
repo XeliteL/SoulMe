@@ -1,4 +1,4 @@
-import { Children, ReactNode } from "react"
+import { Children, isValidElement, ReactNode } from "react"
 import classNames from "classnames"
 import type { SwiperOptions } from "swiper/types"
 
@@ -45,7 +45,10 @@ const Slider = ({
       <div className="slider__swiper swiper">
         <ul className="slider__list swiper-wrapper">
           {slides.map((slide, index) => (
-            <li className="slider__item swiper-slide" key={index}>
+            <li
+              className="slider__item swiper-slide"
+              key={isValidElement(slide) ? slide.key : index}
+            >
               {slide}
             </li>
           ))}

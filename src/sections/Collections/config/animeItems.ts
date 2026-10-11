@@ -1,5 +1,6 @@
 interface AnimeItemBase {
   kind: "anime"
+  id: string
   title: string
   imgSrc: string
   views: number
@@ -21,6 +22,7 @@ export type AnimeItem =
 export const AnimeItems: AnimeItem[] = [
   {
     kind: "anime",
+    id: "soul-eater",
     title: "Пожиратель душ",
     type: "serial",
     imgSrc: "/src/shared/assets/images/categories/sonen/1.png",
@@ -38,6 +40,7 @@ export const AnimeItems: AnimeItem[] = [
   },
   {
     kind: "anime",
+    id: "k-on",
     title: "Кэйон!",
     type: "serial",
     imgSrc: "/src/shared/assets/images/categories/music/1.png",
@@ -55,6 +58,7 @@ export const AnimeItems: AnimeItem[] = [
   },
   {
     kind: "anime",
+    id: "gurren-lagann",
     title: "Гуррен-лаганн",
     type: "serial",
     imgSrc: "/src/shared/assets/images/categories/mecha/1.png",
@@ -72,6 +76,7 @@ export const AnimeItems: AnimeItem[] = [
   },
   {
     kind: "anime",
+    id: "one-piece",
     title: "Ванпис",
     type: "serial",
     imgSrc: "/src/shared/assets/images/categories/sonen/3.png",
@@ -89,6 +94,7 @@ export const AnimeItems: AnimeItem[] = [
   },
   {
     kind: "anime",
+    id: "akira",
     title: "Акира",
     type: "film",
     imgSrc: "/src/shared/assets/images/categories/films/1.png",
@@ -106,6 +112,7 @@ export const AnimeItems: AnimeItem[] = [
   },
   {
     kind: "anime",
+    id: "bleach",
     title: "Блич",
     type: "serial",
     imgSrc: "/src/shared/assets/images/categories/sonen/4.png",
@@ -123,6 +130,7 @@ export const AnimeItems: AnimeItem[] = [
   },
   {
     kind: "anime",
+    id: "frieren",
     title: "Фрирен, провожающая в последний путь",
     type: "serial",
     imgSrc: "/src/shared/assets/images/categories/fantasy/1.png",
@@ -140,6 +148,7 @@ export const AnimeItems: AnimeItem[] = [
   },
   {
     kind: "anime",
+    id: "bocchi-the-rock",
     title: "Рок-тихоня!",
     type: "serial",
     imgSrc: "/src/shared/assets/images/categories/music/2.png",
@@ -157,6 +166,7 @@ export const AnimeItems: AnimeItem[] = [
   },
   {
     kind: "anime",
+    id: "chainsaw-man",
     title: "Человек-бензопила",
     type: "serial",
     imgSrc: "/src/shared/assets/images/categories/seynen/1.png",
@@ -174,6 +184,7 @@ export const AnimeItems: AnimeItem[] = [
   },
   {
     kind: "anime",
+    id: "code-geass",
     title: "Код Гиасс",
     type: "serial",
     imgSrc: "/src/shared/assets/images/categories/mecha/2.png",

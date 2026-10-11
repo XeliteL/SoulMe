@@ -24,7 +24,7 @@ const AnimeBanner = () => {
           <AnimeBannerCard
             {...animeCard}
             loading={index === 0 ? "eager" : undefined}
-            key={index}
+            key={animeCard.id}
           />
         ))}
       </Slider>

@@ -17,7 +17,7 @@ interface collectionGroup {
   sliderParams?: SwiperOptions
   showReleaseDate?: boolean
   showRating?: boolean
-  id?: string
+  id: string
 }
 
 export const collectionGroups: collectionGroup[] = [
