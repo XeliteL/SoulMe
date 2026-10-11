@@ -13,10 +13,11 @@ describe("Footer", () => {
     render(<Footer />)
 
     expect(screen.getByRole("link", { name: "Аниме" })).toBeInTheDocument()
-    expect(screen.getByText("Поддержка")).toBeInTheDocument()
+    expect(screen.getByRole("link", { name: "Поддержка" })).toBeInTheDocument()
+    expect(screen.getByText("Наши соцсети")).toBeInTheDocument()
   })
 
-  it("renders a text-type section (no titleHref) as a plain link list, not Socials", () => {
+  it("opens external links from a links section in a new tab", () => {
     render(<Footer />)
 
     const contacts = screen.getByRole("link", { name: "Контакты" })
@@ -49,14 +50,11 @@ describe("Footer", () => {
   it("marks section titles without a titleHref as static (no href, no hover highlight)", () => {
     render(<Footer />)
 
-    const support = screen.getByText("Поддержка")
     const socials = screen.getByText("Наши соцсети")
 
-    for (const title of [support, socials]) {
-      expect(title.tagName).toBe("A")
-      expect(title).not.toHaveAttribute("href")
-      expect(title).toHaveClass("footer__menu-title--static")
-    }
+    expect(socials.tagName).toBe("A")
+    expect(socials).not.toHaveAttribute("href")
+    expect(socials).toHaveClass("footer__menu-title--static")
   })
 
   it("keeps the href and drops the static class for sections with a titleHref", () => {
@@ -66,6 +64,28 @@ describe("Footer", () => {
 
     expect(anime).toHaveAttribute("href", "/anime")
     expect(anime).not.toHaveClass("footer__menu-title--static")
+  })
+
+  it("links the support section title to the support page", () => {
+    render(<Footer />)
+
+    const support = screen.getByRole("link", { name: "Поддержка" })
+
+    expect(support).toHaveAttribute("href", "/support")
+    expect(support).not.toHaveClass("footer__menu-title--static")
+  })
+
+  it("links support items to anchors on the support page", () => {
+    render(<Footer />)
+
+    const askQuestion = screen.getByRole("link", { name: "Задать вопрос" })
+    const faqHrefs = screen
+      .getAllByRole("link", { name: "FAQ" })
+      .map((link) => link.getAttribute("href"))
+
+    expect(askQuestion).toHaveAttribute("href", "/support#form")
+    expect(askQuestion).not.toHaveAttribute("target")
+    expect(faqHrefs).toContain("/support#questions")
   })
 
   it("renders extra legal links as same-tab internal links with rel set", () => {

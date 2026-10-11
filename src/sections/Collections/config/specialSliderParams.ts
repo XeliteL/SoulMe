@@ -1,3 +1,5 @@
+import type { SwiperOptions } from "swiper/types"
+
 export const specialSliderParams = {
   slidesPerView: 4,
   slidesPerGroup: 4,
@@ -43,4 +45,4 @@ export const specialSliderParams = {
       allowTouchMove: false,
     },
   },
-}
+} satisfies SwiperOptions

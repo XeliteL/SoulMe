@@ -1,5 +1,6 @@
 interface AnimeItemBase {
   kind: "anime"
+  id: string
   title: string
   imgSrc: string
   views: number
@@ -14,13 +15,14 @@ interface AnimeItemBase {
   href: string
 }
 
-type AnimeItem =
+export type AnimeItem =
   | (AnimeItemBase & { type: "film"; duration: number })
   | (AnimeItemBase & { type: "serial"; episodes: number })
 
 export const AnimeItems: AnimeItem[] = [
   {
     kind: "anime",
+    id: "soul-eater",
     title: "Пожиратель душ",
     type: "serial",
     imgSrc: "/src/shared/assets/images/categories/sonen/1.png",
@@ -34,10 +36,11 @@ export const AnimeItems: AnimeItem[] = [
       value: 5,
       label: 1_000_000,
     },
-    href: "anime/",
+    href: "/anime/title/soul-eater",
   },
   {
     kind: "anime",
+    id: "k-on",
     title: "Кэйон!",
     type: "serial",
     imgSrc: "/src/shared/assets/images/categories/music/1.png",
@@ -51,10 +54,11 @@ export const AnimeItems: AnimeItem[] = [
       value: 4.9,
       label: 3_067_067,
     },
-    href: "anime/",
+    href: "/anime/title/k-on",
   },
   {
     kind: "anime",
+    id: "gurren-lagann",
     title: "Гуррен-лаганн",
     type: "serial",
     imgSrc: "/src/shared/assets/images/categories/mecha/1.png",
@@ -68,10 +72,11 @@ export const AnimeItems: AnimeItem[] = [
       value: 4.8,
       label: 2_280_000,
     },
-    href: "anime/",
+    href: "/anime/title/gurren-lagann",
   },
   {
     kind: "anime",
+    id: "one-piece",
     title: "Ванпис",
     type: "serial",
     imgSrc: "/src/shared/assets/images/categories/sonen/3.png",
@@ -85,10 +90,11 @@ export const AnimeItems: AnimeItem[] = [
       value: 4.5,
       label: 10_000_000,
     },
-    href: "anime/",
+    href: "/anime/title/one-piece",
   },
   {
     kind: "anime",
+    id: "akira",
     title: "Акира",
     type: "film",
     imgSrc: "/src/shared/assets/images/categories/films/1.png",
@@ -102,10 +108,11 @@ export const AnimeItems: AnimeItem[] = [
       value: 2.7,
       label: 6_767_670,
     },
-    href: "anime/",
+    href: "/anime/title/akira",
   },
   {
     kind: "anime",
+    id: "bleach",
     title: "Блич",
     type: "serial",
     imgSrc: "/src/shared/assets/images/categories/sonen/4.png",
@@ -119,10 +126,11 @@ export const AnimeItems: AnimeItem[] = [
       value: 3.7,
       label: 800_000,
     },
-    href: "anime/",
+    href: "/anime/title/bleach",
   },
   {
     kind: "anime",
+    id: "frieren",
     title: "Фрирен, провожающая в последний путь",
     type: "serial",
     imgSrc: "/src/shared/assets/images/categories/fantasy/1.png",
@@ -136,10 +144,11 @@ export const AnimeItems: AnimeItem[] = [
       value: 4.1,
       label: 1_200_000,
     },
-    href: "anime/",
+    href: "/anime/title/frieren",
   },
   {
     kind: "anime",
+    id: "bocchi-the-rock",
     title: "Рок-тихоня!",
     type: "serial",
     imgSrc: "/src/shared/assets/images/categories/music/2.png",
@@ -153,10 +162,11 @@ export const AnimeItems: AnimeItem[] = [
       value: 5,
       label: 2_020_000,
     },
-    href: "anime/",
+    href: "/anime/title/bocchi-the-rock",
   },
   {
     kind: "anime",
+    id: "chainsaw-man",
     title: "Человек-бензопила",
     type: "serial",
     imgSrc: "/src/shared/assets/images/categories/seynen/1.png",
@@ -170,10 +180,11 @@ export const AnimeItems: AnimeItem[] = [
       value: 3.4,
       label: 1_000_000,
     },
-    href: "anime/",
+    href: "/anime/title/chainsaw-man",
   },
   {
     kind: "anime",
+    id: "code-geass",
     title: "Код Гиасс",
     type: "serial",
     imgSrc: "/src/shared/assets/images/categories/mecha/2.png",
@@ -187,6 +198,6 @@ export const AnimeItems: AnimeItem[] = [
       value: 4.7,
       label: 1_500_000,
     },
-    href: "anime/",
+    href: "/anime/title/code-geass",
   },
 ]

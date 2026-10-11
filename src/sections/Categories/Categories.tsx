@@ -20,8 +20,8 @@ const Categories = () => {
         navigationTargetElementId={sliderNavigationId}
         isBeyondTheViewportOnMobileS
       >
-        {categoryItems.map((categoryItem, index) => (
-          <CategoryCard {...categoryItem} key={index} />
+        {categoryItems.map((categoryItem) => (
+          <CategoryCard {...categoryItem} key={categoryItem.id} />
         ))}
       </Slider>
       <SliderRuntime client:load />

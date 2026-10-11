@@ -1,6 +1,9 @@
 import { useEffect } from "react"
 import { Swiper } from "swiper"
 import { Mousewheel, Navigation, Pagination, Scrollbar } from "swiper/modules"
+import type { SwiperOptions } from "swiper/types"
+
+import parseJsonAttribute from "@/shared/utils/parseJsonAttribute"
 
 import { sliderParamsByVariant, SliderVariant } from "./sliderParams"
 
@@ -11,15 +14,18 @@ const useSliderRuntime = () => {
     document
       .querySelectorAll<HTMLElement>("[data-js-slider]")
       .forEach((sliderEl) => {
-        const swiperEl = sliderEl.querySelector<HTMLElement>(".swiper")
-        if (!swiperEl) return
+        const swiperEl = sliderEl.querySelector<
+          HTMLElement & { swiper?: Swiper | null }
+        >(".swiper")
+        if (!swiperEl || swiperEl.swiper) return
 
         const variant = (sliderEl.getAttribute("data-slider-variant") ??
           "default") as SliderVariant
-        const customParamsAttr = sliderEl.getAttribute("data-slider-params")
-        const customParams = customParamsAttr
-          ? JSON.parse(customParamsAttr)
-          : {}
+        const customParams = parseJsonAttribute<SwiperOptions>(
+          sliderEl,
+          "data-slider-params",
+          {},
+        )
         const sliderParams = {
           ...(sliderParamsByVariant[variant] ?? sliderParamsByVariant.default),
           ...customParams,

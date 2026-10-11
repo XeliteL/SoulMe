@@ -45,7 +45,7 @@ const Footer = () => {
         </nav>
         <div className="footer__extra">
           <p className="footer__copyright">
-            @<time dateTime="2026">2026</time> SoulMe, All Rights Reserved
+            @<time dateTime="2026">2026</time> SoulMe, все права защищены
           </p>
           <div className="footer__extra-links">
             {footerExtraLinks.map(({ label, href }) => (

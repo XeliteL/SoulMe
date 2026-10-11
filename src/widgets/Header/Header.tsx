@@ -5,6 +5,8 @@ import Button from "@/shared/ui/Button"
 import Logo from "@/shared/ui/Logo"
 import MenuToggle from "@/shared/ui/MenuToggle"
 
+import HeaderScrollRuntime from "./components/HeaderScrollRuntime"
+
 import "./Header.scss"
 
 interface HeaderProps {
@@ -68,6 +70,7 @@ const Header = ({ url, isFixed }: HeaderProps) => {
           />
         </div>
       </div>
+      <HeaderScrollRuntime client:load />
     </header>
   )
 }

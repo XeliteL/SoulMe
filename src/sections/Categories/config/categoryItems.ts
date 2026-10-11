@@ -1,5 +1,6 @@
-interface CategoryItem {
+export interface CategoryItem {
   kind: "category"
+  id: string
   title: string
   images: string[]
   href: string
@@ -28,6 +29,7 @@ const categories: { title: string; slug: string }[] = [
 export const categoryItems: CategoryItem[] = categories.map(
   ({ title, slug }) => ({
     kind: "category",
+    id: slug,
     title,
     images: Array.from(
       { length: IMAGES_PER_CATEGORY },

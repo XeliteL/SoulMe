@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "strict": true,
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -9,8 +10,6 @@
     "noErrorTruncation": true,
     "jsx": "react-jsx",
     "types": ["minista/client"],
-    "ignoreDeprecations": "6.0",
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }

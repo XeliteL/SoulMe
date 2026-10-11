@@ -1,0 +1,158 @@
+.select {
+  --selectButtonArrowIconUrl: url(../../assets/icons/chevron-down.svg);
+  --selectButtonArrowIconSize: #{fluid-to-laptop(24, 20)};
+  --selectButtonGapX: #{fluid-to-laptop(6, 4)};
+  --selectButtonPaddingX: #{fluid-to-laptop(12, 8)};
+
+  flex-shrink: 0;
+
+  &__original-control,
+  &__button {
+    min-width: 40px;
+  }
+
+  &__original-control {
+    appearance: none;
+    padding-left: var(--selectButtonPaddingX);
+    padding-right: calc(
+      var(--selectButtonArrowIconSize) + var(--selectButtonGapX) +
+        var(--selectButtonPaddingX)
+    );
+    background-image: var(--selectButtonArrowIconUrl);
+    background-position: calc(100% - var(--selectButtonPaddingX)) 50%;
+    background-size: var(--selectButtonArrowIconSize);
+    background-repeat: no-repeat;
+
+    @include mobile-above {
+      @include visually-hidden;
+    }
+
+    &:disabled {
+      @include disabled;
+
+      & + .select__body {
+        @include disabled;
+
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__body {
+    position: relative;
+  }
+
+  &__button,
+  &__option {
+    user-select: none;
+    cursor: pointer;
+
+    * {
+      pointer-events: none;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: var(--selectButtonPaddingX);
+    padding-inline: var(--selectButtonPaddingX);
+    transition-duration: var(--transition-duration);
+
+    @include mobile {
+      @include visually-hidden;
+    }
+
+    &::after {
+      @include square(var(--selectButtonArrowIconSize));
+
+      content: "";
+      background: var(--selectButtonArrowIconUrl) center/contain no-repeat;
+      transition-duration: inherit;
+    }
+
+    &.is-expanded {
+      border-color: var(--color-turquoise-45);
+      border-radius: var(--border-radius-xl);
+
+      &::after {
+        rotate: 180deg;
+      }
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    display: grid;
+    row-gap: 4px;
+    min-width: 300px;
+    max-height: 250px;
+    overflow-y: auto;
+    overscroll-behavior: none;
+    scrollbar-width: thin;
+    padding: 4px;
+    background-color: var(--color-black-08);
+    border: var(--border);
+    border-radius: var(--border-radius-xl);
+    transition-duration: var(--transition-duration);
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-width: 1px;
+    }
+
+    &.is-on-left-side {
+      left: 0;
+      transform-origin: 0 0;
+    }
+
+    &.is-on-right-side {
+      right: 0;
+      transform-origin: 100% 0;
+    }
+
+    &:not(.is-expanded) {
+      @include hide;
+
+      scale: 0;
+    }
+  }
+
+  &__option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 10px;
+    padding: 10px;
+    border: var(--border);
+    border-radius: inherit;
+
+    @include hover {
+      color: var(--color-white);
+      border-color: var(--color-white);
+    }
+
+    &.is-selected {
+      color: var(--color-white);
+
+      &::after {
+        @include square(var(--selectButtonArrowIconSize));
+
+        content: "";
+        flex-shrink: 0;
+        background-color: currentColor;
+        mask: url(../../assets/icons/check.svg) center / contain no-repeat;
+        transition-duration: inherit;
+      }
+    }
+
+    &.is-current {
+      border-color: var(--color-turquoise-45);
+    }
+  }
+}

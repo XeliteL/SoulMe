@@ -10,9 +10,10 @@ import "./Collections.scss"
 const Collections = () => {
   return (
     <Section className="collections container" titleId="collections">
-      {collectionGroups.map((collectionGroup, index) => {
+      {collectionGroups.map((collectionGroup) => {
         const title = collectionGroup.title
         const collectionItems = collectionGroup.children
+        const id = collectionGroup.id
 
         const titleId = `${title}-title`
         const sliderNavigationId = `${title}-slider-navigation`
@@ -22,38 +23,39 @@ const Collections = () => {
             className="collections__section"
             title={title}
             titleId={titleId}
+            id={id}
             actions={
               <SliderNavigation id={sliderNavigationId} variant="tile" />
             }
             isActionsHiddenOnMobile
-            key={index}
+            key={id}
           >
             <Slider
               navigationTargetElementId={sliderNavigationId}
               isBeyondTheViewportOnMobileS
               sliderParams={collectionGroup.sliderParams}
             >
-              {collectionItems.map((collectionItem, index) =>
+              {collectionItems.map((collectionItem) =>
                 collectionItem.kind === "anime" ? (
                   <AnimeCard
                     {...collectionItem}
                     showReleaseDate={collectionGroup.showReleaseDate}
                     showRating={collectionGroup.showRating}
-                    key={index}
+                    key={collectionItem.id}
                   />
                 ) : (
                   <CategoryCard
                     {...collectionItem}
                     badge={collectionGroup.badge}
-                    key={index}
+                    key={collectionItem.id}
                   />
                 ),
               )}
             </Slider>
-            <SliderRuntime client:load />
           </Section>
         )
       })}
+      <SliderRuntime client:load />
     </Section>
   )
 }

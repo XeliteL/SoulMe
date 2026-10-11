@@ -1,4 +1,4 @@
-import { Children, ReactNode } from "react"
+import { Children, isValidElement, ReactNode } from "react"
 import classNames from "classnames"
 
 import "./Grid.scss"
@@ -18,7 +18,10 @@ const Grid = ({ columns, children }: GridProps) => {
       })}
     >
       {items.map((item, index) => (
-        <li className="grid__item" key={index}>
+        <li
+          className="grid__item"
+          key={isValidElement(item) ? item.key : index}
+        >
           {item}
         </li>
       ))}

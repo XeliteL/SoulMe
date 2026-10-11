@@ -1,6 +1,7 @@
 :root {
   --color-white: #fff;
   --color-black: #000;
+  --color-red: #f00;
 
   --color-turquoise-45: #00786a;
   --color-turquoise-50: #009688;
@@ -35,6 +36,7 @@
   --border-width-s: 2px;
   --border-width-m: 3px;
   --border-width-l: 4px;
+  --border-width-xl: 6px;
 
   --border-radius-xl: 14px;
   --border-radius-l: 12px;
@@ -52,7 +54,7 @@
     )};
   --container-padding-x: 16px;
 
-  --section-padding-y: #{fluid(50, 30)};
+  --section-padding-y: #{fluid(50, 20)};
   --section-padding-x: #{fluid(100, 16)};
 
   --transition-duration: 0.2s;
