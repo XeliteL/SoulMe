@@ -27,8 +27,8 @@ describe("Support", () => {
   })
 
   it.each([
-    ["условиями использования", "/terms"],
-    ["политикой конфиденциальности", "/privacy"],
+    ["условиями использования", "/legal/terms"],
+    ["политикой конфиденциальности", "/legal/privacy"],
   ])("links «%s» to %s in a new tab", (name, href) => {
     render(<Support />)
 

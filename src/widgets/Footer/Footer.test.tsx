@@ -93,7 +93,7 @@ describe("Footer", () => {
 
     const terms = screen.getByRole("link", { name: "Условия использования" })
 
-    expect(terms).toHaveAttribute("href", "/terms")
+    expect(terms).toHaveAttribute("href", "/legal/terms")
     expect(terms).not.toHaveAttribute("target")
     expect(terms).toHaveAttribute("rel", "noopener noreferrer")
   })
