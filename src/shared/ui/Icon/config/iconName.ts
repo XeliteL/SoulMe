@@ -12,6 +12,7 @@ export const ICON_NAMES = [
   "duration",
   "views",
   "catalog",
+  "check",
 ] as const
 
 export type IconName = (typeof ICON_NAMES)[number]
