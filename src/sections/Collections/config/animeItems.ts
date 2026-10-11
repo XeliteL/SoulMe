@@ -36,7 +36,7 @@ export const AnimeItems: AnimeItem[] = [
       value: 5,
       label: 1_000_000,
     },
-    href: "anime/",
+    href: "/anime/title/soul-eater",
   },
   {
     kind: "anime",
@@ -54,7 +54,7 @@ export const AnimeItems: AnimeItem[] = [
       value: 4.9,
       label: 3_067_067,
     },
-    href: "anime/",
+    href: "/anime/title/k-on",
   },
   {
     kind: "anime",
@@ -72,7 +72,7 @@ export const AnimeItems: AnimeItem[] = [
       value: 4.8,
       label: 2_280_000,
     },
-    href: "anime/",
+    href: "/anime/title/gurren-lagann",
   },
   {
     kind: "anime",
@@ -90,7 +90,7 @@ export const AnimeItems: AnimeItem[] = [
       value: 4.5,
       label: 10_000_000,
     },
-    href: "anime/",
+    href: "/anime/title/one-piece",
   },
   {
     kind: "anime",
@@ -108,7 +108,7 @@ export const AnimeItems: AnimeItem[] = [
       value: 2.7,
       label: 6_767_670,
     },
-    href: "anime/",
+    href: "/anime/title/akira",
   },
   {
     kind: "anime",
@@ -126,7 +126,7 @@ export const AnimeItems: AnimeItem[] = [
       value: 3.7,
       label: 800_000,
     },
-    href: "anime/",
+    href: "/anime/title/bleach",
   },
   {
     kind: "anime",
@@ -144,7 +144,7 @@ export const AnimeItems: AnimeItem[] = [
       value: 4.1,
       label: 1_200_000,
     },
-    href: "anime/",
+    href: "/anime/title/frieren",
   },
   {
     kind: "anime",
@@ -162,7 +162,7 @@ export const AnimeItems: AnimeItem[] = [
       value: 5,
       label: 2_020_000,
     },
-    href: "anime/",
+    href: "/anime/title/bocchi-the-rock",
   },
   {
     kind: "anime",
@@ -180,7 +180,7 @@ export const AnimeItems: AnimeItem[] = [
       value: 3.4,
       label: 1_000_000,
     },
-    href: "anime/",
+    href: "/anime/title/chainsaw-man",
   },
   {
     kind: "anime",
@@ -198,6 +198,6 @@ export const AnimeItems: AnimeItem[] = [
       value: 4.7,
       label: 1_500_000,
     },
-    href: "anime/",
+    href: "/anime/title/code-geass",
   },
 ]
