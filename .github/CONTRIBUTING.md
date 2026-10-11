@@ -12,7 +12,7 @@ looking for outside code contributions.
 
 ```bash
 npm install
-npm run start   # dev server
+npm run dev     # dev server
 npm run check   # format, lint, stylelint, tests
 npm run fix     # auto-fix formatting/lint/stylelint
 ```
