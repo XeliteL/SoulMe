@@ -15,7 +15,6 @@ on:
       - "eslint.config.js"
       - "stylelint.config.ts"
       - "postcss.config.js"
-      - ".prettierrc"
       - ".github/workflows/ci.yml"
   push:
     branches: [main]
