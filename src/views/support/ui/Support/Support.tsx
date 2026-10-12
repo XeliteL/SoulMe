@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 import Button from "@/shared/ui/Button"
 import Checkbox from "@/shared/ui/Checkbox"
 import Field from "@/shared/ui/Field"
@@ -75,21 +77,21 @@ const Support = () => {
             label={
               <>
                 Я соглашаюсь с{" "}
-                <a
+                <Link
                   href="/legal/terms"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   условиями использования
-                </a>{" "}
+                </Link>{" "}
                 и{" "}
-                <a
+                <Link
                   href="/legal/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   политикой конфиденциальности
-                </a>
+                </Link>
               </>
             }
             isRequired

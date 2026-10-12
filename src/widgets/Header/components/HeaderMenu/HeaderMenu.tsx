@@ -1,6 +1,7 @@
 "use client"
 
 import classNames from "classnames"
+import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { navigation as menuItems } from "@/shared/config/navigation"
@@ -12,14 +13,14 @@ const HeaderMenu = () => {
     <ul className="header__menu-list">
       {menuItems.map(({ label, href }) => (
         <li className="header__menu-item" key={href}>
-          <a
+          <Link
             className={classNames("header__menu-link", {
               "is-active": href === pathname,
             })}
             href={href}
           >
             {label}
-          </a>
+          </Link>
         </li>
       ))}
     </ul>

@@ -1,5 +1,6 @@
 import { HTMLAttributeAnchorTarget } from "react"
 import classNames from "classnames"
+import Link from "next/link"
 
 import Icon, { IconName } from "@/shared/ui/Icon"
 
@@ -30,34 +31,49 @@ const Button = ({
   iconPosition = "before",
   hasFillIcon,
 }: ButtonProps) => {
-  const isLink = !!href
-  const Component = isLink ? "a" : "button"
-
-  const linkProps = {
-    href,
-    target,
-    rel: target === "_blank" ? "noopener noreferrer" : undefined,
-  }
-  const buttonProps = { type }
-  const specificProps = isLink ? linkProps : buttonProps
   const title = isLabelHidden ? label : undefined
+  const commonProps = {
+    className: classNames(className, "button", {
+      [`button--${variant}`]: variant,
+    }),
+    title,
+    "aria-label": title,
+  }
   const iconComponent = iconName && (
     <Icon className="button__icon" name={iconName} hasFill={hasFillIcon} />
   )
-
-  return (
-    <Component
-      className={classNames(className, "button", {
-        [`button--${variant}`]: variant,
-      })}
-      title={title}
-      aria-label={title}
-      {...specificProps}
-    >
+  const content = (
+    <>
       {iconPosition === "before" && iconComponent}
       {!isLabelHidden && <span className="button__label">{label}</span>}
       {iconPosition === "after" && iconComponent}
-    </Component>
+    </>
+  )
+
+  if (!href) {
+    return (
+      <button type={type} {...commonProps}>
+        {content}
+      </button>
+    )
+  }
+
+  const isExternal = !href.startsWith("/") || target === "_blank"
+
+  if (isExternal) {
+    const rel = target === "_blank" ? "noopener noreferrer" : undefined
+
+    return (
+      <a href={href} target={target} rel={rel} {...commonProps}>
+        {content}
+      </a>
+    )
+  }
+
+  return (
+    <Link href={href} target={target} {...commonProps}>
+      {content}
+    </Link>
   )
 }
 

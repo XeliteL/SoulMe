@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 import Badge from "@/shared/ui/Badge"
 import Icon from "@/shared/ui/Icon"
@@ -21,7 +22,7 @@ const CategoryCard = ({
   badge,
 }: CategoryCardProps) => {
   return (
-    <a className="category-card" href={href}>
+    <Link className="category-card" href={href}>
       <div className="category-card__images">
         {images.map((imgSrc, index) => (
           <Image
@@ -47,7 +48,7 @@ const CategoryCard = ({
         </h3>
         <Icon className="category-card__icon" name="arrow-right" />
       </div>
-    </a>
+    </Link>
   )
 }
 

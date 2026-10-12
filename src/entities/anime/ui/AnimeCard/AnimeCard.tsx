@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 import {
   formatCompactNumber,
@@ -41,7 +42,7 @@ const AnimeCard = ({
         )
 
   return (
-    <a className="anime-card" href={href} title={title}>
+    <Link className="anime-card" href={href} title={title}>
       <h3 className="visually-hidden">{title}</h3>
       <Image
         className="anime-card__image"
@@ -97,7 +98,7 @@ const AnimeCard = ({
           </>
         )}
       </div>
-    </a>
+    </Link>
   )
 }
 

@@ -1,5 +1,6 @@
 import classNames from "classnames"
 import Image from "next/image"
+import Link from "next/link"
 
 import "./Logo.scss"
 
@@ -12,7 +13,7 @@ const Logo = ({ className, loading }: LogoProps) => {
   const title: string = "Главная"
 
   return (
-    <a
+    <Link
       className={classNames(className, "logo")}
       href="/"
       title={title}
@@ -26,7 +27,7 @@ const Logo = ({ className, loading }: LogoProps) => {
         height={60}
         loading={loading}
       />
-    </a>
+    </Link>
   )
 }
 
