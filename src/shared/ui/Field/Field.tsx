@@ -3,6 +3,8 @@ import classNames from "classnames"
 
 import { useBaseId } from "@/shared/lib/useBaseId"
 
+import MaskedInput from "./components/MaskedInput"
+
 import "./Field.scss"
 
 interface FieldProps {
@@ -44,15 +46,25 @@ const Field = ({
       </label>
       <div className="field__body">
         {renderBefore?.("field__control")}
-        <Component
-          className="field__control"
-          id={controlId}
-          type={type}
-          placeholder={placeholder}
-          required={isRequired}
-          inputMode={inputMode}
-          data-js-input-mask={mask}
-        />
+        {mask ? (
+          <MaskedInput
+            className="field__control"
+            id={controlId}
+            placeholder={placeholder}
+            required={isRequired}
+            inputMode={inputMode}
+            mask={mask}
+          />
+        ) : (
+          <Component
+            className="field__control"
+            id={controlId}
+            placeholder={placeholder}
+            required={isRequired}
+            inputMode={inputMode}
+            type={type}
+          />
+        )}
       </div>
     </div>
   )

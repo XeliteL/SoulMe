@@ -3,7 +3,6 @@ import Link from "next/link"
 import Button from "@/shared/ui/Button"
 import Checkbox from "@/shared/ui/Checkbox"
 import Field from "@/shared/ui/Field"
-import InputMaskRuntime from "@/shared/ui/Field/components/InputMaskRuntime"
 import Select from "@/shared/ui/Select"
 
 import { phoneCodes } from "./config/phoneCodes"
@@ -103,7 +102,6 @@ const Support = () => {
           ></Button>
         </div>
       </form>
-      <InputMaskRuntime />
     </section>
   )
 }
