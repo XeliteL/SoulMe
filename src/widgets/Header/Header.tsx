@@ -5,7 +5,7 @@ import Logo from "@/shared/ui/Logo"
 import MenuToggle from "@/shared/ui/MenuToggle"
 
 import HeaderMenu from "./components/HeaderMenu"
-import HeaderScrollRuntime from "./components/HeaderScrollRuntime"
+import HeaderRoot from "./components/HeaderRoot"
 
 import "./Header.scss"
 
@@ -15,7 +15,7 @@ interface HeaderProps {
 
 const Header = ({ isFixed }: HeaderProps) => {
   return (
-    <header
+    <HeaderRoot
       className={classNames("header", {
         "is-fixed": isFixed,
       })}
@@ -55,8 +55,7 @@ const Header = ({ isFixed }: HeaderProps) => {
           />
         </div>
       </div>
-      <HeaderScrollRuntime />
-    </header>
+    </HeaderRoot>
   )
 }
 
