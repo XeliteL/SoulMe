@@ -46,7 +46,7 @@
   --border-radius-xxs: 4px;
   --border-radius-xxxs: 3px;
 
-  --font-family-base: "Manrope", sans-serif;
+  --font-family-base: var(--font-manrope), sans-serif;
 
   --container-width: #{fluid-to-laptop(
       $container-desktop-width,

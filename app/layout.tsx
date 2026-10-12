@@ -4,6 +4,7 @@ import type { Metadata } from "next"
 import "@/shared/styles"
 
 import { authStateScript } from "@/entities/session"
+import { manrope } from "@/shared/styles/font"
 import GrayFavicon from "@/shared/ui/GrayFavicon"
 import Preloader from "@/shared/ui/Preloader"
 import Footer from "@/widgets/Footer"
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ru" suppressHydrationWarning>
+    <html lang="ru" suppressHydrationWarning className={manrope.variable}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: authStateScript }} />
       </head>
