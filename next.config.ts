@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     qualities: [75, 82],
   },
+  agentRules: false,
 }
 
 export default nextConfig
