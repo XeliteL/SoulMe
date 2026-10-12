@@ -27,7 +27,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ru" suppressHydrationWarning className={manrope.variable}>
+    <html
+      lang="ru"
+      className={manrope.variable}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: authStateScript }} />
       </head>
