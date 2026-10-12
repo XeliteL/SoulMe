@@ -2,6 +2,7 @@ export const ICON_NAMES = [
   "notification",
   "search",
   "telegram",
+  "github",
   "play",
   "arrow-right",
   "arrow-left",
