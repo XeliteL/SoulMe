@@ -7,6 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "analyze": "next analyze",
     "format": "prettier --write \"./{app,src}/**/*.{ts,tsx,scss,json}\" \"./*.{ts,js}\" ./tsconfig.json \".github/**/*.yml\"",
     "format:check": "prettier --check \"./{app,src}/**/*.{ts,tsx,scss,json}\" \"./*.{ts,js}\" ./tsconfig.json \".github/**/*.yml\"",
     "lint": "eslint ./app ./src",
