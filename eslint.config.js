@@ -38,7 +38,6 @@ export default tseslint.config(
         },
       ],
       "simple-import-sort/exports": "error",
-      "@next/next/no-html-link-for-pages": "off",
     },
   },
 )
