@@ -6,7 +6,3 @@ export interface TabItem {
   isActive?: boolean
   children?: ReactNode
 }
-
-export interface TabsConfig {
-  navigationTargetElementId?: string
-}

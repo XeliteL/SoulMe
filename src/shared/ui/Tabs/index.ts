@@ -1,1 +1,5 @@
+export { default as TabsNavigation } from "./components/TabsNavigation"
+export { default as TabsPanel } from "./components/TabsPanel"
+export { default as TabsRoot } from "./components/TabsRoot"
 export { default } from "./Tabs"
+export type { TabItem } from "./types"

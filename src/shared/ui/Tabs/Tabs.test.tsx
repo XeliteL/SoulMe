@@ -67,17 +67,4 @@ describe("Tabs", () => {
       expect(tab).toHaveAttribute("type", "button")
     })
   })
-
-  it("skips navigation when navigationTargetElementId is set", () => {
-    render(
-      <Tabs
-        title="Tabs title"
-        items={ITEMS}
-        navigationTargetElementId="external-navigation"
-      />,
-    )
-
-    expect(screen.queryByRole("tablist")).toBeNull()
-    expect(screen.getAllByRole("tabpanel", { hidden: true })).toHaveLength(2)
-  })
 })
