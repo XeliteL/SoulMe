@@ -36,7 +36,7 @@ const RatingView = ({ value = 5, label }: RatingViewProps) => {
           src="/rating/stars-filled.svg"
           alt=""
           width={98}
-          height={20}
+          height={18}
           loading="lazy"
         />
       </div>
