@@ -5,9 +5,14 @@ const pluralRules: Record<Locale, Intl.PluralRules> = {
   en: new Intl.PluralRules("en"),
 }
 
+const numberFormats: Record<Locale, Intl.NumberFormat> = {
+  ru: new Intl.NumberFormat("ru"),
+  en: new Intl.NumberFormat("en"),
+}
+
 type PluralForms = Partial<Record<Intl.LDMLPluralRule, string>> & {
   other: string
 }
 
 export const pluralize = (count: number, forms: PluralForms, locale: Locale) =>
-  `${count} ${forms[pluralRules[locale].select(count)] ?? forms.other}`
+  `${numberFormats[locale].format(count)} ${forms[pluralRules[locale].select(count)] ?? forms.other}`
