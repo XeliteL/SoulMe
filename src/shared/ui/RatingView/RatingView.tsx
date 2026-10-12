@@ -1,6 +1,8 @@
 import type { CSSProperties } from "react"
 import Image from "next/image"
 
+import { pluralize } from "@/shared/lib/format"
+
 import "./RatingView.scss"
 
 interface RatingViewProps {
@@ -9,7 +11,12 @@ interface RatingViewProps {
 }
 
 const RatingView = ({ value = 5, label }: RatingViewProps) => {
-  const ariaLabel = `Оценка: ${value} звёзд`
+  const stars = pluralize(
+    value,
+    { one: "звезда", few: "звезды", many: "звёзд", other: "звезды" },
+    "ru",
+  )
+  const ariaLabel = `Оценка: ${stars}`
 
   return (
     <div
