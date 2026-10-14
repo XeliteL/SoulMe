@@ -89,8 +89,8 @@ describe("Field with a mask", () => {
   it("masks only the field that has a mask", async () => {
     render(
       <form>
-        <Field label="Телефон" placeholder="" mask={PHONE_MASK} />
-        <Field label="Имя" placeholder="" />
+        <Field label="Телефон" name="phone" placeholder="" mask={PHONE_MASK} />
+        <Field label="Имя" name="firstName" placeholder="" />
       </form>,
     )
     const phone = screen.getByLabelText("Телефон")

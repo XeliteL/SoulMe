@@ -32,17 +32,20 @@ const Support = () => {
         <Field
           className="support__form-cell"
           label="Имя"
+          name="firstname"
           placeholder="Иван"
           isRequired
         />
         <Field
           className="support__form-cell"
           label="Фамилия"
+          name="lastname"
           placeholder="Иванов"
         />
         <Field
           className="support__form-cell"
           label="Email"
+          name="email"
           type="email"
           placeholder="example@example.com"
           isRequired
@@ -50,6 +53,7 @@ const Support = () => {
         <Field
           className="support__form-cell"
           label="Номер телефона"
+          name="phone"
           placeholder="(999) 999-99-99"
           inputMode="tel"
           mask="(000) 000-00-00"
@@ -66,6 +70,7 @@ const Support = () => {
         <Field
           className="support__form-cell support__form-cell--wide"
           label="Ваша проблема"
+          name="message"
           type="textarea"
           placeholder="Здравствуйте, у меня вопрос..."
           isRequired
@@ -93,6 +98,7 @@ const Support = () => {
                 </Link>
               </>
             }
+            name="agreement"
             isRequired
           />
           <Button

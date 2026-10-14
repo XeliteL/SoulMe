@@ -11,7 +11,7 @@ afterEach(() => {
 
 describe("Checkbox", () => {
   it("is labelled by its text", () => {
-    render(<Checkbox label="Согласен" />)
+    render(<Checkbox name="agreement" label="Согласен" />)
 
     expect(
       screen.getByRole("checkbox", { name: "Согласен" }),
@@ -19,7 +19,7 @@ describe("Checkbox", () => {
   })
 
   it("toggles when the label text is clicked", async () => {
-    render(<Checkbox label="Согласен" />)
+    render(<Checkbox name="agreement" label="Согласен" />)
 
     const checkbox = screen.getByRole("checkbox")
 
@@ -31,7 +31,7 @@ describe("Checkbox", () => {
   })
 
   it("uses the passed id instead of the generated one", () => {
-    render(<Checkbox id="agreement" label="Согласен" />)
+    render(<Checkbox id="agreement" name="agreement" label="Согласен" />)
 
     expect(screen.getByRole("checkbox", { name: "Согласен" })).toHaveAttribute(
       "id",
@@ -40,11 +40,11 @@ describe("Checkbox", () => {
   })
 
   it("marks the input as required only when isRequired is set", () => {
-    const { rerender } = render(<Checkbox label="Согласен" />)
+    const { rerender } = render(<Checkbox name="agreement" label="Согласен" />)
 
     expect(screen.getByRole("checkbox")).not.toBeRequired()
 
-    rerender(<Checkbox label="Согласен" isRequired />)
+    rerender(<Checkbox name="agreement" label="Согласен" isRequired />)
 
     expect(screen.getByRole("checkbox")).toBeRequired()
   })
@@ -52,6 +52,7 @@ describe("Checkbox", () => {
   it("renders rich label content with links as part of the name", () => {
     render(
       <Checkbox
+        name="agreement"
         label={
           <>
             Согласен с <a href="#terms">условиями</a>

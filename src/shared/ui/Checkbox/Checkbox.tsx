@@ -9,10 +9,17 @@ interface CheckboxProps {
   className?: string
   id?: string
   label: ReactNode
+  name: string
   isRequired?: boolean
 }
 
-const Checkbox = ({ className, id, label, isRequired }: CheckboxProps) => {
+const Checkbox = ({
+  className,
+  id,
+  label,
+  name,
+  isRequired,
+}: CheckboxProps) => {
   const baseId = useBaseId(id)
   const controlId = `${baseId}-checkbox`
 
@@ -21,6 +28,7 @@ const Checkbox = ({ className, id, label, isRequired }: CheckboxProps) => {
       <input
         id={controlId}
         type="checkbox"
+        name={name}
         className="checkbox__input"
         required={isRequired}
       />

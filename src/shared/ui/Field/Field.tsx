@@ -11,6 +11,7 @@ interface FieldProps {
   className?: string
   id?: string
   label: string
+  name: string
   type?: "email" | "textarea"
   placeholder: string
   isRequired?: boolean
@@ -23,6 +24,7 @@ const Field = ({
   className,
   id,
   label,
+  name,
   type,
   placeholder,
   isRequired,
@@ -36,6 +38,7 @@ const Field = ({
   const controlProps = {
     className: "field__control",
     id: controlId,
+    name,
     placeholder,
     required: isRequired,
   }
