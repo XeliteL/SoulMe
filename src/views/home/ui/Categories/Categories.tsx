@@ -9,7 +9,6 @@ const Categories = () => {
     <Section
       title="Выбери жанр по настроению"
       id="categories"
-      titleId="categories-title"
       description="Ищешь лёгкую комедию, трогательную повседневность или динамичный сёнэн с эпичными сражениями - здесь есть всё"
       actions={<SliderNavigation id={sliderNavigationId} variant="tile" />}
       isActionsHiddenOnMobile

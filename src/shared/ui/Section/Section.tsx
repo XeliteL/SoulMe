@@ -1,6 +1,8 @@
 import { ReactElement, ReactNode } from "react"
 import classNames from "classnames"
 
+import { useBaseId } from "@/shared/lib/useBaseId"
+
 import "./Section.scss"
 
 interface SectionProps {
@@ -26,16 +28,18 @@ const Section = ({
   isActionsHiddenOnMobile = false,
   children,
 }: SectionProps) => {
+  const headingId = useBaseId(titleId)
+
   return (
     <section
       className={classNames(className, "section container")}
-      aria-labelledby={ariaLabelledby ?? titleId}
+      aria-labelledby={ariaLabelledby ?? (title ? headingId : undefined)}
       id={id}
     >
       <header className="section__header">
         <div className="section__info">
           {title && (
-            <h2 className="section__title h3" id={titleId}>
+            <h2 className="section__title h3" id={headingId}>
               {title}
             </h2>
           )}

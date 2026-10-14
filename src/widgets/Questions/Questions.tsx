@@ -12,7 +12,6 @@ const Questions = () => {
     <Section
       title="Часто задаваемые вопросы"
       id="questions"
-      titleId="questions-title"
       description="Остались вопросы? Загляните в FAQ, здесь вы найдёте ответы на самые частые вопросы о SoulMe!"
       actions={<Button label="Задать вопрос" href="/support" />}
     >
