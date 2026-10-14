@@ -69,4 +69,20 @@ describe("Checkbox", () => {
       "#terms",
     )
   })
+
+  it("submits its name with the form only when checked", async () => {
+    const { container } = render(
+      <form>
+        <Checkbox name="agreement" label="Согласен" />
+      </form>,
+    )
+    const form = container.querySelector("form")!
+
+    expect(screen.getByRole("checkbox")).toHaveAttribute("name", "agreement")
+    expect(new FormData(form).has("agreement")).toBe(false)
+
+    await userEvent.click(screen.getByRole("checkbox"))
+
+    expect(new FormData(form).get("agreement")).toBe("on")
+  })
 })

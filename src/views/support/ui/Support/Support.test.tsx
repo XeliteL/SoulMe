@@ -26,6 +26,22 @@ describe("Support", () => {
     expect(nativeSelect).toHaveAttribute("name", "phoneCode")
   })
 
+  it("names every field for form submission", () => {
+    const { container } = render(<Support />)
+    const form = container.querySelector("form")!
+
+    expect([...new FormData(form).keys()]).toEqual(
+      expect.arrayContaining([
+        "firstname",
+        "lastname",
+        "email",
+        "phoneCode",
+        "phone",
+        "message",
+      ]),
+    )
+  })
+
   it.each([
     ["условиями использования", "/legal/terms"],
     ["политикой конфиденциальности", "/legal/privacy"],
