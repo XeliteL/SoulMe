@@ -20,7 +20,7 @@ const Hero = () => {
           >
             <Image
               className="hero__play-button-image"
-              src="/play.svg"
+              src="/brand/play.svg"
               alt=""
               width={470}
               height={470}

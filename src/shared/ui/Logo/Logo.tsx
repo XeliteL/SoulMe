@@ -21,7 +21,7 @@ const Logo = ({ className, loading }: LogoProps) => {
     >
       <Image
         className="logo__image"
-        src="/logo.svg"
+        src="/brand/logo.svg"
         alt=""
         width={60}
         height={60}
