@@ -32,7 +32,13 @@ const Field = ({
 }: FieldProps) => {
   const baseId = useBaseId(id)
   const controlId = `${baseId}-field`
-  const Component = type === "textarea" ? "textarea" : "input"
+
+  const controlProps = {
+    className: "field__control",
+    id: controlId,
+    placeholder,
+    required: isRequired,
+  }
 
   return (
     <div className={classNames(className, "field")}>
@@ -46,24 +52,12 @@ const Field = ({
       </label>
       <div className="field__body">
         {renderBefore?.("field__control")}
-        {mask ? (
-          <MaskedInput
-            className="field__control"
-            id={controlId}
-            placeholder={placeholder}
-            required={isRequired}
-            inputMode={inputMode}
-            mask={mask}
-          />
+        {type === "textarea" ? (
+          <textarea {...controlProps} />
+        ) : mask ? (
+          <MaskedInput {...controlProps} inputMode={inputMode} mask={mask} />
         ) : (
-          <Component
-            className="field__control"
-            id={controlId}
-            placeholder={placeholder}
-            required={isRequired}
-            inputMode={inputMode}
-            type={type}
-          />
+          <input {...controlProps} type={type} inputMode={inputMode} />
         )}
       </div>
     </div>
