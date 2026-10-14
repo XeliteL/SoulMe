@@ -5,24 +5,20 @@ import Slider, { SliderNavigation, SliderRuntime } from "@/shared/ui/Slider"
 
 import { collectionGroups } from "./config/collectionGroups"
 
-import "./Collections.scss"
-
 const Collections = () => {
   return (
-    <Section className="collections container" titleId="collections">
+    <div className="collections">
       {collectionGroups.map((collectionGroup) => {
         const title = collectionGroup.title
         const collectionItems = collectionGroup.children
         const id = collectionGroup.id
 
-        const titleId = `${title}-title`
-        const sliderNavigationId = `${title}-slider-navigation`
+        const sliderNavigationId = `${id}-slider-navigation`
 
         return (
           <Section
             className="collections__section"
             title={title}
-            titleId={titleId}
             id={id}
             actions={
               <SliderNavigation id={sliderNavigationId} variant="tile" />
@@ -56,7 +52,7 @@ const Collections = () => {
         )
       })}
       <SliderRuntime />
-    </Section>
+    </div>
   )
 }
 
