@@ -10,7 +10,7 @@ interface RatingViewProps {
   label: string
 }
 
-const RatingView = ({ value = 5, label }: RatingViewProps) => {
+const RatingView = ({ value, label }: RatingViewProps) => {
   const stars = pluralize(
     value,
     { one: "звезда", few: "звезды", many: "звёзд", other: "звезды" },
