@@ -5,6 +5,8 @@ import Slider, { SliderNavigation, SliderRuntime } from "@/shared/ui/Slider"
 
 import { collectionGroups } from "./config/collectionGroups"
 
+import "./Collections.scss"
+
 const Collections = () => {
   return (
     <div className="collections">
