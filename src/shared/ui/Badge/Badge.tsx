@@ -11,7 +11,7 @@ interface BadgeProps {
   children: ReactNode
   iconName?: "duration" | "views"
   hasFillIcon?: boolean
-  iconAriaLabel?: string
+  iconLabel?: string
 }
 
 const Badge = ({
@@ -20,7 +20,7 @@ const Badge = ({
   children,
   iconName,
   hasFillIcon = true,
-  iconAriaLabel,
+  iconLabel,
 }: BadgeProps) => {
   return (
     <div
@@ -29,14 +29,12 @@ const Badge = ({
       })}
     >
       {iconName && (
-        <Icon
-          className="badge__icon"
-          name={iconName}
-          hasFill={hasFillIcon}
-          aria-label={iconAriaLabel}
-        />
+        <Icon className="badge__icon" name={iconName} hasFill={hasFillIcon} />
       )}
-      <span>{children}</span>
+      <span>
+        {iconLabel && <span className="visually-hidden">{iconLabel}: </span>}
+        {children}
+      </span>
     </div>
   )
 }

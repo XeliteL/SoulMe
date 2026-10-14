@@ -60,11 +60,7 @@ const AnimeCard = ({
         ) : (
           <>
             {duration && (
-              <Badge
-                iconName="duration"
-                iconAriaLabel="Длительность"
-                hasFillIcon
-              >
+              <Badge iconName="duration" iconLabel="Длительность" hasFillIcon>
                 {rest.type === "serial" ? (
                   <>
                     <span className="hidden-mobile">{duration}</span>
@@ -87,7 +83,7 @@ const AnimeCard = ({
                 {views > 0 && (
                   <Badge
                     iconName="views"
-                    iconAriaLabel="Количество просмотров"
+                    iconLabel="Количество просмотров"
                     hasFillIcon
                   >
                     {formatCompactNumber(views, "ru")}
