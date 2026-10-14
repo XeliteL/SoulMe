@@ -11,10 +11,15 @@ const Collections = () => {
   return (
     <div className="collections">
       {collectionGroups.map((collectionGroup) => {
-        const title = collectionGroup.title
-        const collectionItems = collectionGroup.children
-        const id = collectionGroup.id
-
+        const {
+          title,
+          items,
+          id,
+          sliderParams,
+          showReleaseDate,
+          showRating,
+          badge,
+        } = collectionGroup
         const sliderNavigationId = `${id}-slider-navigation`
 
         return (
@@ -31,22 +36,18 @@ const Collections = () => {
             <Slider
               navigationTargetElementId={sliderNavigationId}
               isBeyondTheViewportOnMobileS
-              sliderParams={collectionGroup.sliderParams}
+              sliderParams={sliderParams}
             >
-              {collectionItems.map((collectionItem) =>
-                collectionItem.kind === "anime" ? (
+              {items.map((item) =>
+                item.kind === "anime" ? (
                   <AnimeCard
-                    {...collectionItem}
-                    showReleaseDate={collectionGroup.showReleaseDate}
-                    showRating={collectionGroup.showRating}
-                    key={collectionItem.id}
+                    {...item}
+                    showReleaseDate={showReleaseDate}
+                    showRating={showRating}
+                    key={item.id}
                   />
                 ) : (
-                  <CategoryCard
-                    {...collectionItem}
-                    badge={collectionGroup.badge}
-                    key={collectionItem.id}
-                  />
+                  <CategoryCard {...item} badge={badge} key={item.id} />
                 ),
               )}
             </Slider>

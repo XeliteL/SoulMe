@@ -5,9 +5,9 @@ import { type Category, categoryItems } from "@/entities/category"
 
 import { specialSliderParams } from "./specialSliderParams"
 
-interface collectionGroup {
+interface CollectionGroup {
   title: string
-  children: Category[] | Anime[]
+  items: Category[] | Anime[]
   badge?: string
   sliderParams?: SwiperOptions
   showReleaseDate?: boolean
@@ -15,33 +15,33 @@ interface collectionGroup {
   id: string
 }
 
-export const collectionGroups: collectionGroup[] = [
+export const collectionGroups: CollectionGroup[] = [
   {
     title: "Наши жанры",
-    children: categoryItems,
+    items: categoryItems,
     id: "genres",
   },
   {
     title: "Топ 10 в жанрах",
-    children: categoryItems,
+    items: categoryItems,
     badge: "Топ 10 в",
     sliderParams: specialSliderParams,
     id: "top",
   },
   {
     title: "Популярное",
-    children: animeItems,
+    items: animeItems,
     id: "trends",
   },
   {
     title: "Новые релизы",
-    children: animeItems,
+    items: animeItems,
     showReleaseDate: true,
     id: "new",
   },
   {
     title: "Обязательно посмотрите",
-    children: animeItems,
+    items: animeItems,
     sliderParams: specialSliderParams,
     showRating: true,
     id: "recommendation",
