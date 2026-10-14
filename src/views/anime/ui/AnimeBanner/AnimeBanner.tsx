@@ -10,7 +10,7 @@ const AnimeBanner = () => {
   const titleId = "anime-banner-title"
 
   return (
-    <Section className="anime-banner">
+    <Section className="anime-banner" ariaLabelledby={titleId}>
       <h1 className="visually-hidden" id={titleId}>
         Аниме
       </h1>
