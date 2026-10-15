@@ -1,9 +1,11 @@
+import Script from "next/script"
+
 import "./Preloader.scss"
 
 const Preloader = () => (
   <div className="preloader" id="preloader" role="presentation">
     <span className="preloader__bar" />
-    <script src="/scripts/preloader.js" />
+    <Script src="/scripts/preloader.js" />
   </div>
 )
 

@@ -1,4 +1,5 @@
-import { afterEach, describe, expect, it } from "vitest"
+import { usePathname } from "next/navigation"
+import { afterEach, describe, expect, it, vi } from "vitest"
 
 import Header from "./Header"
 
@@ -11,14 +12,17 @@ import {
 } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 
+vi.mock("next/navigation", () => ({ usePathname: vi.fn(() => "/") }))
+
 afterEach(() => {
   cleanup()
   document.documentElement.classList.remove("is-lock")
 })
 
 describe("Header", () => {
-  it("marks the nav link matching the current url as active", () => {
-    render(<Header url="/anime" />)
+  it("marks the nav link matching the current pathname as active", () => {
+    vi.mocked(usePathname).mockReturnValue("/anime")
+    render(<Header />)
     const nav = screen.getByRole("navigation", { hidden: true })
 
     expect(
@@ -29,7 +33,8 @@ describe("Header", () => {
     ).not.toHaveClass("is-active")
   })
 
-  it("marks no link active when url is not provided", () => {
+  it("marks no link active on a page outside the navigation", () => {
+    vi.mocked(usePathname).mockReturnValue("/terms")
     render(<Header />)
     const nav = screen.getByRole("navigation", { hidden: true })
 
@@ -40,7 +45,7 @@ describe("Header", () => {
 
   it("opens and closes the overlay menu via the burger button", async () => {
     const user = userEvent.setup()
-    render(<Header url="/" />)
+    render(<Header />)
 
     const dialog = document.getElementById("header-menu") as HTMLDialogElement
 
@@ -60,7 +65,7 @@ describe("Header", () => {
   })
 
   it("renders the search, notifications and account actions", () => {
-    render(<Header url="/" />)
+    render(<Header />)
 
     expect(screen.getByRole("button", { name: "Поиск" })).toBeInTheDocument()
     expect(

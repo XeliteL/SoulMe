@@ -8,8 +8,8 @@ The UI was designed by me — see the [Figma mockup](https://www.figma.com/desig
 
 ## Tech stack
 
-- [minista](https://minista.jp) — a Vite-based static site generator with file-based routing
-- React 18 + TypeScript
+- [Next.js](https://nextjs.org) (App Router)
+- React 19 + TypeScript
 - SCSS (BEM naming)
 - ESLint (typescript-eslint), Stylelint, Prettier
 - Vitest + React Testing Library
@@ -18,16 +18,16 @@ The UI was designed by me — see the [Figma mockup](https://www.figma.com/desig
 
 ```bash
 npm install
-npm run start     # dev server
+npm run dev       # dev server
 ```
 
 ## Scripts
 
 | Command              | Description                                     |
 | --------------------- | ------------------------------------------------ |
-| `npm run start`       | Start the dev server                              |
+| `npm run dev`         | Start the dev server                              |
 | `npm run build`       | Build for production                              |
-| `npm run preview`     | Preview the production build                      |
+| `npm run start`       | Serve the production build                        |
 | `npm run check`       | Run format check + lint + stylelint + tests       |
 | `npm run fix`         | Auto-fix formatting, lint, and stylelint issues    |
 | `npm run test`        | Run the test suite                                |
@@ -36,13 +36,17 @@ npm run start     # dev server
 ## Project structure
 
 ```
-src/
-  app/styles/   — global SCSS (helpers, mixins, variables)
-  layouts/      — page wrapper (Header + Content + Footer), <head> metadata
-  pages/        — file-based routing (minista), one page per file
-  widgets/      — large page sections (Header, Footer, Hero, Categories, Devices, ...)
+app/            — Next.js App Router: layouts, one folder per route, metadata
+src/            — Feature-Sliced Design
+  views/        — pages: one slice per page, composes its own blocks (FSD `pages`,
+                  renamed because Next.js reserves `pages`)
+  widgets/      — blocks shared between pages (Header, Footer, Questions, LegalDocument)
+  features/     — user actions (bookmarks, search, auth) — added as they appear
+  entities/     — domain entities with types, data and cards (anime, category, session)
   shared/
     ui/         — reusable UI primitives (Button, Icon, Logo, Slider, ...)
+    lib/        — hooks and helpers (formatters, ids)
+    styles/     — global SCSS (helpers, mixins, variables)
     config/     — cross-cutting config (navigation)
     assets/     — icons, fonts, images
 ```

@@ -1,7 +1,7 @@
 import classNames from "classnames"
-import { Sprite as MinistaIcon } from "minista/assets"
 
 import { IconName } from "./config/iconName"
+import { ICON_SPRITE_URL } from "./config/iconSprite"
 
 import "./Icon.scss"
 
@@ -14,11 +14,12 @@ interface IconProps {
 const Icon = ({ className, name, hasFill = false }: IconProps) => {
   return (
     <span className={classNames(className, "icon")} aria-hidden="true">
-      <MinistaIcon
-        src={`/src/shared/assets/icons/${name}.svg`}
+      <svg
         fill={hasFill ? "currentColor" : "none"}
         stroke={hasFill ? "none" : "currentColor"}
-      />
+      >
+        <use href={`${ICON_SPRITE_URL}#${name}`} />
+      </svg>
     </span>
   )
 }

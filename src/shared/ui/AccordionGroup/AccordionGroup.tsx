@@ -4,7 +4,7 @@ import classNames from "classnames"
 import "./AccordionGroup.scss"
 
 interface AccordionGroupProps {
-  columns?: number
+  columns?: 1 | 2
   children?: ReactNode
   isOrderedList?: boolean
 }
@@ -18,7 +18,7 @@ const AccordionGroup = ({
   const ListTag = isOrderedList ? "ol" : "ul"
 
   const className = classNames("accordion-group", {
-    [`accordion-group--${columns}-columns`]: columns > 1,
+    [`accordion-group--${columns}-columns`]: columns === 2,
     "accordion-group--has-counter": isOrderedList,
   })
 
@@ -28,7 +28,7 @@ const AccordionGroup = ({
     </li>
   )
 
-  if (columns <= 1) {
+  if (columns === 1) {
     return (
       <ListTag className={className} role="list">
         {items.map((item, index) => renderItem(item, index))}

@@ -1,7 +1,9 @@
-import { ReactNode } from "react"
+import { HTMLInputAutoCompleteAttribute, ReactNode } from "react"
 import classNames from "classnames"
 
 import { useBaseId } from "@/shared/lib/useBaseId"
+
+import MaskedInput from "./components/MaskedInput"
 
 import "./Field.scss"
 
@@ -9,11 +11,13 @@ interface FieldProps {
   className?: string
   id?: string
   label: string
+  name: string
   type?: "email" | "textarea"
   placeholder: string
   isRequired?: boolean
   inputMode?: "tel"
   mask?: string
+  autoComplete?: HTMLInputAutoCompleteAttribute
   renderBefore?: (controlClassName: string) => ReactNode
 }
 
@@ -21,16 +25,26 @@ const Field = ({
   className,
   id,
   label,
+  name,
   type,
   placeholder,
   isRequired,
   inputMode,
   mask,
+  autoComplete,
   renderBefore,
 }: FieldProps) => {
   const baseId = useBaseId(id)
   const controlId = `${baseId}-field`
-  const Component = type === "textarea" ? "textarea" : "input"
+
+  const controlProps = {
+    className: "field__control",
+    id: controlId,
+    name,
+    placeholder,
+    required: isRequired,
+    autoComplete,
+  }
 
   return (
     <div className={classNames(className, "field")}>
@@ -44,15 +58,13 @@ const Field = ({
       </label>
       <div className="field__body">
         {renderBefore?.("field__control")}
-        <Component
-          className="field__control"
-          id={controlId}
-          type={type}
-          placeholder={placeholder}
-          required={isRequired}
-          inputMode={inputMode}
-          data-js-input-mask={mask}
-        />
+        {type === "textarea" ? (
+          <textarea {...controlProps} />
+        ) : mask ? (
+          <MaskedInput {...controlProps} inputMode={inputMode} mask={mask} />
+        ) : (
+          <input {...controlProps} type={type} inputMode={inputMode} />
+        )}
       </div>
     </div>
   )

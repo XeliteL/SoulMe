@@ -4,12 +4,13 @@ on:
   pull_request:
     branches: [main, "feature/**"]
     paths: &front-paths
+      - "app/**"
       - "src/**"
       - "public/**"
       - "package.json"
       - "package-lock.json"
       - "tsconfig.json"
-      - "vite.config.ts"
+      - "next.config.ts"
       - "vitest.config.ts"
       - "vitest.setup.ts"
       - "eslint.config.js"

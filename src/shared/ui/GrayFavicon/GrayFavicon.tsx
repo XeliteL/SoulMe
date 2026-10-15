@@ -1,3 +1,5 @@
+"use client"
+
 import useGrayFavicon from "./useGrayFavicon"
 
 const GrayFavicon = () => {

@@ -1,0 +1,9 @@
+.collections {
+  row-gap: 30px;
+
+  &__section:last-of-type {
+    @include mobile {
+      margin-block-end: 30px;
+    }
+  }
+}

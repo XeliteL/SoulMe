@@ -1,4 +1,4 @@
-import classNames from "classnames"
+import Link from "next/link"
 
 import Socials from "@/shared/ui/Socials"
 
@@ -14,28 +14,30 @@ const Footer = () => {
         <nav className="footer__menu" aria-label="Дополнительная навигация">
           {footerMenu.map((section) => (
             <div className="footer__menu-column" key={section.title}>
-              <a
-                className={classNames("footer__menu-title h6", {
-                  "footer__menu-title--static": !section.titleHref,
-                })}
-                href={section.titleHref}
-              >
-                {section.title}
-              </a>
+              {section.titleHref ? (
+                <Link
+                  className="footer__menu-title h6"
+                  href={section.titleHref}
+                >
+                  {section.title}
+                </Link>
+              ) : (
+                <span className="footer__menu-title h6">{section.title}</span>
+              )}
               {section.type === "social" ? (
                 <Socials links={section.socialLinks} />
               ) : (
                 <ul className="footer__menu-list">
                   {section.links.map((link) => (
                     <li key={link.label}>
-                      <a
+                      <Link
                         className="footer__menu-link"
                         href={link.href}
                         target={link.newTab ? "_blank" : undefined}
                         rel={link.newTab ? "noopener noreferrer" : undefined}
                       >
                         {link.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -45,18 +47,13 @@ const Footer = () => {
         </nav>
         <div className="footer__extra">
           <p className="footer__copyright">
-            @<time dateTime="2026">2026</time> SoulMe, все права защищены
+            ©<time dateTime="2026">2026</time> SoulMe, все права защищены
           </p>
           <div className="footer__extra-links">
             {footerExtraLinks.map(({ label, href }) => (
-              <a
-                className="footer__extra-link"
-                href={href}
-                rel="noopener noreferrer"
-                key={label}
-              >
+              <Link className="footer__extra-link" href={href} key={label}>
                 {label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

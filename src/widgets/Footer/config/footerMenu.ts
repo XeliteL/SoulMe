@@ -91,6 +91,12 @@ export const footerMenu: FooterMenuSection[] = [
         iconName: "telegram",
         newTab: true,
       },
+      {
+        label: "GitHub",
+        href: "https://github.com/XeliteL/SoulMe",
+        iconName: "github",
+        newTab: true,
+      },
     ],
   },
 ]

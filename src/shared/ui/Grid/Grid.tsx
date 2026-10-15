@@ -4,7 +4,7 @@ import classNames from "classnames"
 import "./Grid.scss"
 
 interface GridProps {
-  columns: number
+  columns: 1 | 2 | 4
   children: ReactNode
 }
 

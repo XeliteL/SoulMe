@@ -47,23 +47,20 @@ describe("Footer", () => {
     expect(categories).not.toHaveAttribute("rel")
   })
 
-  it("marks section titles without a titleHref as static (no href, no hover highlight)", () => {
+  it("renders section titles without a titleHref as static text, not a link", () => {
     render(<Footer />)
 
     const socials = screen.getByText("Наши соцсети")
 
-    expect(socials.tagName).toBe("A")
-    expect(socials).not.toHaveAttribute("href")
-    expect(socials).toHaveClass("footer__menu-title--static")
+    expect(socials.tagName).toBe("SPAN")
   })
 
-  it("keeps the href and drops the static class for sections with a titleHref", () => {
+  it("links section titles that have a titleHref", () => {
     render(<Footer />)
 
     const anime = screen.getByRole("link", { name: "Аниме" })
 
     expect(anime).toHaveAttribute("href", "/anime")
-    expect(anime).not.toHaveClass("footer__menu-title--static")
   })
 
   it("links the support section title to the support page", () => {
@@ -72,7 +69,6 @@ describe("Footer", () => {
     const support = screen.getByRole("link", { name: "Поддержка" })
 
     expect(support).toHaveAttribute("href", "/support")
-    expect(support).not.toHaveClass("footer__menu-title--static")
   })
 
   it("links support items to anchors on the support page", () => {
@@ -88,13 +84,13 @@ describe("Footer", () => {
     expect(faqHrefs).toContain("/support#questions")
   })
 
-  it("renders extra legal links as same-tab internal links with rel set", () => {
+  it("renders extra legal links as same-tab internal links", () => {
     render(<Footer />)
 
     const terms = screen.getByRole("link", { name: "Условия использования" })
 
-    expect(terms).toHaveAttribute("href", "/terms")
+    expect(terms).toHaveAttribute("href", "/legal/terms")
     expect(terms).not.toHaveAttribute("target")
-    expect(terms).toHaveAttribute("rel", "noopener noreferrer")
+    expect(terms).not.toHaveAttribute("rel")
   })
 })

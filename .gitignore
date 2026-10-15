@@ -4,6 +4,8 @@ db.json
 *.log
 node_modules
 dist
+.next
+next-env.d.ts
 
 logs
 npm-debug.log*
@@ -28,5 +30,3 @@ docs
 *.sln
 *.sw?
 *.css.map
-
-TODO.md

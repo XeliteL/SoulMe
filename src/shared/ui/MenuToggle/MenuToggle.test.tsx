@@ -10,7 +10,7 @@ const DIALOG_ID = "test-menu"
 function renderMenuToggle() {
   document.body.insertAdjacentHTML(
     "beforeend",
-    `<dialog id="${DIALOG_ID}"><a href="/">Главная</a></dialog>`,
+    `<dialog id="${DIALOG_ID}"><a href="/"><span>Главная</span></a></dialog>`,
   )
   const dialog = document.getElementById(DIALOG_ID) as HTMLDialogElement
 
@@ -80,6 +80,43 @@ describe("MenuToggle", () => {
 
     expect(dialog.open).toBe(false)
     expect(button).toHaveAttribute("aria-expanded", "false")
+  })
+
+  it("closes the menu when a link inside it is clicked", async () => {
+    const user = userEvent.setup()
+    const { dialog, button } = renderMenuToggle()
+
+    await user.click(button)
+    await user.click(screen.getByRole("link", { name: "Главная" }))
+
+    expect(button).toHaveAttribute("aria-expanded", "false")
+    expect(document.documentElement).not.toHaveClass("is-lock")
+    expect(dialog).toHaveClass("is-closing")
+
+    fireEvent.transitionEnd(dialog)
+
+    expect(dialog.open).toBe(false)
+  })
+
+  it("closes the menu when content nested inside a link is clicked", async () => {
+    const user = userEvent.setup()
+    const { button } = renderMenuToggle()
+
+    await user.click(button)
+    await user.click(screen.getByText("Главная"))
+
+    expect(button).toHaveAttribute("aria-expanded", "false")
+  })
+
+  it("keeps the menu open when clicking inside it outside of a link", async () => {
+    const user = userEvent.setup()
+    const { dialog, button } = renderMenuToggle()
+
+    await user.click(button)
+    await user.click(dialog)
+
+    expect(button).toHaveAttribute("aria-expanded", "true")
+    expect(document.documentElement).toHaveClass("is-lock")
   })
 
   it("points aria-controls at the controlled dialog", () => {
