@@ -35,12 +35,14 @@ const Support = () => {
           name="firstname"
           placeholder="Иван"
           isRequired
+          autoComplete="given-name"
         />
         <Field
           className="support__form-cell"
           label="Фамилия"
           name="lastname"
           placeholder="Иванов"
+          autoComplete="family-name"
         />
         <Field
           className="support__form-cell"
@@ -49,6 +51,7 @@ const Support = () => {
           type="email"
           placeholder="example@example.com"
           isRequired
+          autoComplete="email"
         />
         <Field
           className="support__form-cell"
@@ -57,6 +60,7 @@ const Support = () => {
           placeholder="(999) 999-99-99"
           inputMode="tel"
           mask="(000) 000-00-00"
+          autoComplete="tel-national"
           renderBefore={(controlClassName) => (
             <Select
               id="support-phone-code"
