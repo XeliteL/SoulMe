@@ -1,4 +1,4 @@
-import type { LegalDocumentItem } from "@/widgets/LegalDocument"
+import type { LegalDocumentItem } from "../ui/LegalDocument"
 
 export const privacyItems: LegalDocumentItem[] = [
   {

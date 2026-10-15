@@ -1,7 +1,7 @@
-import DeviceCard from "@/shared/ui/DeviceCard"
 import Grid from "@/shared/ui/Grid"
 import Section from "@/shared/ui/Section"
 
+import DeviceCard from "../DeviceCard"
 import { deviceItems } from "./config/deviceItems"
 
 const Devices = () => {

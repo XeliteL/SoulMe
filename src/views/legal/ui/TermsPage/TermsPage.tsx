@@ -1,6 +1,5 @@
-import LegalDocument from "@/widgets/LegalDocument"
-
 import { termsItems } from "../../config/termsItems"
+import LegalDocument from "../LegalDocument"
 
 const TermsPage = () => (
   <LegalDocument

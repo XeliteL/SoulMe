@@ -1,6 +1,5 @@
-import LegalDocument from "@/widgets/LegalDocument"
-
 import { cookieItems } from "../../config/cookieItems"
+import LegalDocument from "../LegalDocument"
 
 const CookiePage = () => (
   <LegalDocument

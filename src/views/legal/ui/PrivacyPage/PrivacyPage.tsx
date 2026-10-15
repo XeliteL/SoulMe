@@ -1,6 +1,5 @@
-import LegalDocument from "@/widgets/LegalDocument"
-
 import { privacyItems } from "../../config/privacyItems"
+import LegalDocument from "../LegalDocument"
 
 const PrivacyPage = () => (
   <LegalDocument
