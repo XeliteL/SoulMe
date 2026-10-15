@@ -8,7 +8,6 @@ import "./Section.scss"
 interface SectionProps {
   className?: string
   title?: string
-  titleId?: string
   id?: string
   ariaLabelledby?: string
   description?: string
@@ -20,7 +19,6 @@ interface SectionProps {
 const Section = ({
   className,
   title,
-  titleId,
   description,
   actions,
   id,
@@ -28,7 +26,7 @@ const Section = ({
   isActionsHiddenOnMobile = false,
   children,
 }: SectionProps) => {
-  const headingId = useBaseId(titleId)
+  const headingId = useBaseId()
 
   return (
     <section

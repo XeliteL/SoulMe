@@ -34,18 +34,8 @@ describe("Section", () => {
     expect(first.id).not.toBe(second.id)
   })
 
-  it("uses the passed titleId instead of the generated one", () => {
-    render(<Section title="Популярное" titleId="popular-title" />)
-
-    expect(screen.getByRole("heading")).toHaveAttribute("id", "popular-title")
-    expect(screen.getByRole("region")).toHaveAttribute(
-      "aria-labelledby",
-      "popular-title",
-    )
-  })
-
   it("is not labelled when it has no title", () => {
-    const { container } = render(<Section titleId="ignored" />)
+    const { container } = render(<Section />)
 
     expect(container.querySelector("section")).not.toHaveAttribute(
       "aria-labelledby",
