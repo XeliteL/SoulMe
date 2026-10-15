@@ -1,22 +1,12 @@
-import postcssPxToREm from "postcss-pxtorem"
-import postcssPresetEnv from "postcss-preset-env"
+import process from "node:process"
 
-export default ({ env }) => {
-  const isProd = env === "production"
-  const plugins = []
+const isProd = process.env.NODE_ENV === "production"
 
-  if (isProd) {
-    plugins.push(
-      postcssPxToREm({
-        propList: ["*"],
-        mediaQuery: true,
-      }),
-    )
-  }
-
-  plugins.push(postcssPresetEnv())
-
-  return {
-    plugins,
-  }
+export default {
+  plugins: {
+    ...(isProd && {
+      "postcss-pxtorem": { propList: ["*"], mediaQuery: true },
+    }),
+    "postcss-preset-env": {},
+  },
 }

@@ -1,44 +1,84 @@
+"use client"
+
 import classNames from "classnames"
 
 import Button from "@/shared/ui/Button"
 
+import { useSliderContext } from "../SliderRoot/SliderContext"
+import useSliderState from "./useSliderState"
+
 import "./SliderNavigation.scss"
 
+interface SliderNavigationLabels {
+  previous: string
+  next: string
+  slide: string
+}
+
+const defaultLabels: SliderNavigationLabels = {
+  previous: "Предыдущий слайд",
+  next: "Следующий слайд",
+  slide: "Слайд",
+}
+
 interface SliderNavigationProps {
-  id?: string
   variant?: "" | "tile"
   hasPagination?: boolean
   position?: "" | "abs-bottom"
+  labels?: SliderNavigationLabels
 }
 
 const SliderNavigation = ({
-  id,
   variant = "",
   hasPagination = true,
   position = "",
+  labels = defaultLabels,
 }: SliderNavigationProps) => {
+  const { swiper } = useSliderContext()
+  const { isBeginning, isEnd, snapIndex, snapCount } = useSliderState(swiper)
+
   return (
     <div
       className={classNames("slider-navigation", {
         [`slider-navigation--${variant}`]: variant,
         [`slider-navigation--${position}`]: position,
       })}
-      id={id}
     >
       <Button
-        className="slider-navigation__arrow-button slider-navigation__arrow-button--previous"
+        className="slider-navigation__arrow-button"
         variant="black-10"
         iconName="arrow-left"
-        label="Предыдущий слайд"
+        label={labels.previous}
         isLabelHidden
+        disabled={!swiper || isBeginning}
+        onClick={() => swiper?.slidePrev()}
       />
-      {hasPagination && <div className="slider-navigation__pagination" />}
+      {hasPagination && (
+        <div className="slider-navigation__pagination">
+          {Array.from({ length: snapCount }, (_, index) => (
+            <button
+              className={classNames("slider-navigation__pagination-bullet", {
+                "is-active": index === snapIndex,
+              })}
+              type="button"
+              aria-label={`${labels.slide} ${index + 1}`}
+              aria-current={index === snapIndex ? "true" : undefined}
+              onClick={() =>
+                swiper?.slideTo(index * (swiper.params.slidesPerGroup ?? 1))
+              }
+              key={index}
+            />
+          ))}
+        </div>
+      )}
       <Button
-        className="slider-navigation__arrow-button slider-navigation__arrow-button--next"
+        className="slider-navigation__arrow-button"
         variant="black-10"
         iconName="arrow-right"
-        label="Следующий слайд"
+        label={labels.next}
         isLabelHidden
+        disabled={!swiper || isEnd}
+        onClick={() => swiper?.slideNext()}
       />
     </div>
   )

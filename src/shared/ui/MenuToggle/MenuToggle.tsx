@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useRef, useState } from "react"
 
 import BurgerButton from "@/shared/ui/BurgerButton"
@@ -56,8 +58,18 @@ const MenuToggle = ({ dialogId, className }: MenuToggleProps) => {
     if (!dialog) return
 
     const handleClose = () => setIsMenuOpen(false)
+    const handleClick = (event: MouseEvent) => {
+      if (event.target instanceof Element && event.target.closest("a[href]"))
+        setIsMenuOpen(false)
+    }
+
     dialog.addEventListener("close", handleClose)
-    return () => dialog.removeEventListener("close", handleClose)
+    dialog.addEventListener("click", handleClick)
+
+    return () => {
+      dialog.removeEventListener("close", handleClose)
+      dialog.removeEventListener("click", handleClick)
+    }
   }, [dialogId])
 
   useEffect(() => {

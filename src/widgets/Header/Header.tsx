@@ -1,22 +1,21 @@
 import classNames from "classnames"
 
-import { navigation as menuItems } from "@/shared/config/navigation"
 import Button from "@/shared/ui/Button"
 import Logo from "@/shared/ui/Logo"
 import MenuToggle from "@/shared/ui/MenuToggle"
 
-import HeaderScrollRuntime from "./components/HeaderScrollRuntime"
+import HeaderMenu from "./components/HeaderMenu"
+import HeaderRoot from "./components/HeaderRoot"
 
 import "./Header.scss"
 
 interface HeaderProps {
-  url?: string
   isFixed?: boolean
 }
 
-const Header = ({ url, isFixed }: HeaderProps) => {
+const Header = ({ isFixed }: HeaderProps) => {
   return (
-    <header
+    <HeaderRoot
       className={classNames("header", {
         "is-fixed": isFixed,
       })}
@@ -25,20 +24,7 @@ const Header = ({ url, isFixed }: HeaderProps) => {
         <Logo className="header__logo" loading="eager" />
         <dialog className="header__overlay-menu-dialog" id="header-menu">
           <nav className="header__menu" aria-label="Основная навигация">
-            <ul className="header__menu-list">
-              {menuItems.map(({ label, href }) => (
-                <li className="header__menu-item" key={href}>
-                  <a
-                    className={classNames("header__menu-link", {
-                      "is-active": href === url,
-                    })}
-                    href={href}
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <HeaderMenu />
           </nav>
         </dialog>
         <div className="header__actions">
@@ -64,14 +50,12 @@ const Header = ({ url, isFixed }: HeaderProps) => {
             />
           </div>
           <MenuToggle
-            client:load
             dialogId="header-menu"
             className="header__burger-button visible-tablet"
           />
         </div>
       </div>
-      <HeaderScrollRuntime client:load />
-    </header>
+    </HeaderRoot>
   )
 }
 

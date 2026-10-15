@@ -1,12 +1,18 @@
 import { useEffect } from "react"
 
+const getGrayedHref = (href: string) => href.replace(/(\.\w+)$/, "_grayed$1")
+
 const useGrayFavicon = () => {
   useEffect(() => {
-    const favicon = document.querySelector<HTMLLinkElement>('link[rel="icon"]')
-    if (!favicon) return
-
     const handleVisibilityChange = () => {
-      favicon.href = `/favicon${document.hidden ? "_grayed" : ""}.ico`
+      document
+        .querySelectorAll<HTMLLinkElement>('link[rel="icon"]')
+        .forEach((favicon) => {
+          favicon.dataset.href ??= favicon.getAttribute("href") ?? ""
+          favicon.href = document.hidden
+            ? getGrayedHref(favicon.dataset.href)
+            : favicon.dataset.href
+        })
     }
 
     document.addEventListener("visibilitychange", handleVisibilityChange)

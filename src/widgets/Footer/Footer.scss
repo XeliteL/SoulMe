@@ -31,14 +31,6 @@
       align-items: start;
       row-gap: fluid(14, 8);
     }
-
-    &-title {
-      &--static {
-        @include hover {
-          color: var(--color-white);
-        }
-      }
-    }
   }
 
   &__extra {
