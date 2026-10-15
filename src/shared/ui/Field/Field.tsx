@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import { HTMLInputAutoCompleteAttribute, ReactNode } from "react"
 import classNames from "classnames"
 
 import { useBaseId } from "@/shared/lib/useBaseId"
@@ -17,6 +17,7 @@ interface FieldProps {
   isRequired?: boolean
   inputMode?: "tel"
   mask?: string
+  autoComplete?: HTMLInputAutoCompleteAttribute
   renderBefore?: (controlClassName: string) => ReactNode
 }
 
@@ -30,6 +31,7 @@ const Field = ({
   isRequired,
   inputMode,
   mask,
+  autoComplete,
   renderBefore,
 }: FieldProps) => {
   const baseId = useBaseId(id)
@@ -41,6 +43,7 @@ const Field = ({
     name,
     placeholder,
     required: isRequired,
+    autoComplete,
   }
 
   return (
