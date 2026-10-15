@@ -1,28 +1,24 @@
 import { CategoryCard, categoryItems } from "@/entities/category"
 import Section from "@/shared/ui/Section"
-import Slider, { SliderNavigation, SliderRuntime } from "@/shared/ui/Slider"
-
-const sliderNavigationId = "categories-slider-navigation"
+import { SliderNavigation, SliderRoot, SliderTrack } from "@/shared/ui/Slider"
 
 const Categories = () => {
   return (
-    <Section
-      title="Выбери жанр по настроению"
-      id="categories"
-      description="Ищешь лёгкую комедию, трогательную повседневность или динамичный сёнэн с эпичными сражениями - здесь есть всё"
-      actions={<SliderNavigation id={sliderNavigationId} variant="tile" />}
-      isActionsHiddenOnMobile
-    >
-      <Slider
-        navigationTargetElementId={sliderNavigationId}
-        isBeyondTheViewportOnMobileS
+    <SliderRoot>
+      <Section
+        title="Выбери жанр по настроению"
+        id="categories"
+        description="Ищешь лёгкую комедию, трогательную повседневность или динамичный сёнэн с эпичными сражениями - здесь есть всё"
+        actions={<SliderNavigation variant="tile" />}
+        isActionsHiddenOnMobile
       >
-        {categoryItems.map((categoryItem) => (
-          <CategoryCard {...categoryItem} key={categoryItem.id} />
-        ))}
-      </Slider>
-      <SliderRuntime />
-    </Section>
+        <SliderTrack>
+          {categoryItems.map((categoryItem) => (
+            <CategoryCard {...categoryItem} key={categoryItem.id} />
+          ))}
+        </SliderTrack>
+      </Section>
+    </SliderRoot>
   )
 }
 

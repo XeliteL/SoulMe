@@ -1,6 +1,6 @@
 import { AnimeBannerCard } from "@/entities/anime"
 import Section from "@/shared/ui/Section"
-import Slider, { SliderRuntime } from "@/shared/ui/Slider"
+import Slider from "@/shared/ui/Slider"
 
 import { animeCards } from "./config/animeCards"
 
@@ -28,7 +28,6 @@ const AnimeBanner = () => {
           />
         ))}
       </Slider>
-      <SliderRuntime />
     </Section>
   )
 }
