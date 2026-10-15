@@ -66,4 +66,33 @@ describe("Field", () => {
     expect(screen.getByText("*")).toHaveAttribute("aria-hidden", "true")
     expect(screen.getByRole("textbox", { name: "Имя" })).toBeInTheDocument()
   })
+
+  it("passes autoComplete to the control", () => {
+    render(
+      <>
+        <Field
+          label="Имя"
+          name="firstname"
+          placeholder=""
+          autoComplete="given-name"
+        />
+        <Field
+          label="Телефон"
+          name="phone"
+          placeholder=""
+          mask="(000) 000-00-00"
+          autoComplete="tel-national"
+        />
+      </>,
+    )
+
+    expect(screen.getByLabelText("Имя")).toHaveAttribute(
+      "autocomplete",
+      "given-name",
+    )
+    expect(screen.getByLabelText("Телефон")).toHaveAttribute(
+      "autocomplete",
+      "tel-national",
+    )
+  })
 })
