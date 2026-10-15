@@ -3,7 +3,7 @@
 import { ReactNode } from "react"
 import classNames from "classnames"
 
-import getTabsElementsIds from "../../utils/getTabsElementsIds"
+import getTabsElementsIds from "../../lib/getTabsElementsIds"
 import { useTabsContext } from "../TabsRoot/TabsContext"
 
 interface TabsPanelProps {

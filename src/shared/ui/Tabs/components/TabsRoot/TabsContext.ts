@@ -2,7 +2,7 @@
 
 import { createContext, useContext } from "react"
 
-import { TabItem } from "../../types"
+import { TabItem } from "../../model/types"
 
 interface TabsContextValue {
   items: TabItem[]

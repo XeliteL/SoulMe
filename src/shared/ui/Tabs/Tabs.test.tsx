@@ -8,7 +8,7 @@ import {
   vi,
 } from "vitest"
 
-import { TabItem } from "./types"
+import { TabItem } from "./model/types"
 import Tabs, { TabsNavigation, TabsPanel, TabsRoot } from "."
 
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react"

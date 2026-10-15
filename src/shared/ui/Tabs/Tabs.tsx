@@ -3,7 +3,7 @@ import classNames from "classnames"
 import TabsNavigation from "./components/TabsNavigation"
 import TabsPanel from "./components/TabsPanel"
 import TabsRoot from "./components/TabsRoot"
-import { TabItem } from "./types"
+import { TabItem } from "./model/types"
 
 import "./Tabs.scss"
 

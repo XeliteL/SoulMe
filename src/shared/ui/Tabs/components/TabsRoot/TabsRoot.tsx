@@ -2,7 +2,7 @@
 
 import { ReactNode, useState } from "react"
 
-import { TabItem } from "../../types"
+import { TabItem } from "../../model/types"
 import { TabsContext } from "./TabsContext"
 
 interface TabsRootProps {

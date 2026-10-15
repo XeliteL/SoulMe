@@ -3,8 +3,8 @@
 import { KeyboardEvent, useRef } from "react"
 import classNames from "classnames"
 
-import getNextTabIndex from "../../utils/getNextTabIndex"
-import getTabsElementsIds from "../../utils/getTabsElementsIds"
+import getNextTabIndex from "../../lib/getNextTabIndex"
+import getTabsElementsIds from "../../lib/getTabsElementsIds"
 import { useTabsContext } from "../TabsRoot/TabsContext"
 import useTabsIndicator from "./useTabsIndicator"
 
