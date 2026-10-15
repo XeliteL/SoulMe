@@ -3,7 +3,7 @@ import { afterEach, describe, expect, it, vi } from "vitest"
 
 import Button from "./Button"
 
-import { cleanup, render, screen } from "@testing-library/react"
+import { cleanup, fireEvent, render, screen } from "@testing-library/react"
 
 vi.mock("next/link", () => ({
   default: ({ children, ...props }: ComponentProps<"a">) => (
@@ -76,5 +76,25 @@ describe("Button", () => {
     expect(button).toHaveAttribute("title", "Меню")
     expect(button).toHaveAttribute("aria-label", "Меню")
     expect(container.querySelector(".button__label")).toBeNull()
+  })
+
+  it("calls onClick when the button is clicked", () => {
+    const onClick = vi.fn()
+    render(<Button label="Далее" onClick={onClick} />)
+
+    fireEvent.click(screen.getByRole("button", { name: "Далее" }))
+
+    expect(onClick).toHaveBeenCalledOnce()
+  })
+
+  it("disables the button and ignores clicks", () => {
+    const onClick = vi.fn()
+    render(<Button label="Далее" disabled onClick={onClick} />)
+
+    const button = screen.getByRole("button", { name: "Далее" })
+    fireEvent.click(button)
+
+    expect(button).toBeDisabled()
+    expect(onClick).not.toHaveBeenCalled()
   })
 })
