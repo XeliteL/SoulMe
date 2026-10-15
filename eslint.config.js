@@ -5,6 +5,32 @@ import eslintConfigPrettier from "eslint-config-prettier"
 import reactHooks from "eslint-plugin-react-hooks"
 import simpleImportSort from "eslint-plugin-simple-import-sort"
 
+const LAYERS = ["shared", "entities", "features", "widgets", "views"]
+const SLICED_LAYERS = ["entities", "features", "widgets", "views"]
+
+const layerRules = LAYERS.map((layer, index) => ({
+  files: [`src/${layer}/**/*.{ts,tsx}`],
+  rules: {
+    "no-restricted-imports": [
+      "error",
+      {
+        patterns: [
+          {
+            group: LAYERS.slice(layer === "shared" ? index + 1 : index).map(
+              (upperLayer) => `@/${upperLayer}/**`,
+            ),
+            message: `${layer}: only lower layers can be imported; within your own slice, use relative imports`,
+          },
+          {
+            group: SLICED_LAYERS.map((slicedLayer) => `@/${slicedLayer}/*/**`),
+            message: "Import from a slice only through its index.ts",
+          },
+        ],
+      },
+    ],
+  },
+}))
+
 export default tseslint.config(
   { ignores: [".next/", "next-env.d.ts"] },
   js.configs.recommended,
@@ -40,4 +66,5 @@ export default tseslint.config(
       "simple-import-sort/exports": "error",
     },
   },
+  ...layerRules,
 )
