@@ -7,7 +7,6 @@ import { authStateScript } from "@/entities/session"
 import { manrope } from "@/shared/styles/font"
 import GrayFavicon from "@/shared/ui/GrayFavicon"
 import Preloader from "@/shared/ui/Preloader"
-import Footer from "@/widgets/Footer"
 
 export const metadata: Metadata = {
   title: {
@@ -40,7 +39,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Preloader />
         <GrayFavicon />
         {children}
-        <Footer />
       </body>
     </html>
   )
