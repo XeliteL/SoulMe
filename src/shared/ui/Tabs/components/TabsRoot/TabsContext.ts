@@ -8,6 +8,7 @@ interface TabsContextValue {
   items: TabItem[]
   activeId?: string
   setActiveId: (id: string) => void
+  shouldResetInactive?: boolean
 }
 
 export const TabsContext = createContext<TabsContextValue | null>(null)
