@@ -1,0 +1,29 @@
+.auth {
+  &__tabs {
+    display: grid;
+    gap: fluid-to-laptop(25, 10);
+  }
+
+  .tabs-navigation {
+    background-color: var(--color-black-06);
+    margin: auto;
+    border-radius: var(--border-radius-xl);
+  }
+
+  .tabs__body {
+    display: grid;
+  }
+
+  .tabs__content {
+    grid-area: 1/1;
+
+    &:not(.is-active) {
+      display: block;
+      visibility: hidden;
+
+      * {
+        transition: none;
+      }
+    }
+  }
+}

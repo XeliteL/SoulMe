@@ -1,0 +1,45 @@
+.auth-banner {
+  @include flex-center;
+
+  --authBannerBackgroundImage: image-set(
+    url(../../../../shared/assets/images/authBanner/bg-desktop.avif)
+      type("image/avif"),
+    url(../../../../shared/assets/images/authBanner/bg-desktop.webp)
+      type("image/webp")
+  );
+
+  background:
+    linear-gradient(180deg, var(--color-black-08) 0%, rgb(20 20 20 / 0) 75%),
+    linear-gradient(180deg, rgb(20 20 20 / 0) 25%, var(--color-black-08) 100%),
+    var(--authBannerBackgroundImage) 50% / cover no-repeat;
+
+  @include laptop {
+    --authBannerBackgroundImage: image-set(
+      url(../../../../shared/assets/images/authBanner/bg-laptop.avif)
+        type("image/avif"),
+      url(../../../../shared/assets/images/authBanner/bg-laptop.webp)
+        type("image/webp")
+    );
+  }
+
+  @include tablet {
+    --authBannerBackgroundImage: image-set(
+      url(../../../../shared/assets/images/authBanner/bg-mobile.avif)
+        type("image/avif"),
+      url(../../../../shared/assets/images/authBanner/bg-mobile.webp)
+        type("image/webp")
+    );
+
+    min-height: 100dvh;
+    grid-area: 1/1;
+  }
+
+  &__play {
+    @include square(var(--authEmblemSize));
+
+    @include tablet {
+      align-self: flex-end;
+      margin-block: var(--authEmblemOffset);
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.auth-layout {
+  --authEmblemSize: #{fluid(500, 250)};
+  --authEmblemOffset: #{fluid(200, 20)};
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  min-height: 100dvh;
+  background-color: var(--color-black-08);
+
+  @include tablet {
+    --authEmblemSize: min(#{fluid(500, 250)}, 25dvh);
+
+    grid-template-columns: 1fr;
+  }
+
+  &__panel {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-inline: fluid(160, 15);
+
+    @include tablet {
+      grid-area: 1/1;
+      position: relative;
+      z-index: 1;
+      justify-content: flex-start;
+      padding-block: var(--section-padding-y)
+        calc(var(--authEmblemSize) + var(--authEmblemOffset) * 2);
+    }
+  }
+
+  &__inner {
+    width: 100%;
+    max-width: 720px;
+    margin-inline: auto;
+  }
+}
