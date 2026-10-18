@@ -1,32 +1,16 @@
-import Image from "next/image"
-
 import Button from "@/shared/ui/Button"
+import PlayEmblem from "@/shared/ui/PlayEmblem"
 
 import "./Hero.scss"
 
 const Hero = () => {
   const titleId = "hero-title"
-  const playButtonTitle = "Начать просмотр"
 
   return (
     <section className="hero" aria-labelledby={titleId}>
       <div className="hero__pano">
-        <div className="hero__pano-inner container">
-          <button
-            className="hero__play-button"
-            type="button"
-            aria-label={playButtonTitle}
-            title={playButtonTitle}
-          >
-            <Image
-              className="hero__play-button-image"
-              src="/brand/play.svg"
-              alt=""
-              width={470}
-              height={470}
-              loading="lazy"
-            />
-          </button>
+        <div className="hero__play">
+          <PlayEmblem />
         </div>
       </div>
       <div className="hero__body">
