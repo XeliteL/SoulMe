@@ -5,7 +5,7 @@ import "./NotFoundPage.scss"
 
 const NotFoundPage = () => {
   return (
-    <div className="not-found">
+    <main className="not-found">
       <div className="not-found__decor">
         <Image
           className="not-found__image"
@@ -24,7 +24,7 @@ const NotFoundPage = () => {
           Пожалуйста, перейдите на <Link href="/">главную страницу сайта</Link>.
         </p>
       </div>
-    </div>
+    </main>
   )
 }
 
