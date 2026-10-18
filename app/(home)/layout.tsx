@@ -8,7 +8,7 @@ export default function HomeLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <Header isFixed />
-      <Content isResetPaddingTop>{children}</Content>
+      <Content>{children}</Content>
       <Footer />
     </>
   )
