@@ -32,9 +32,4 @@ export const socialProviders: ProvidersLink[] = [
     iconName: "vk",
     label: "VK",
   },
-  {
-    id: "github",
-    iconName: "github",
-    label: "GitHub",
-  },
 ]
