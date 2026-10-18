@@ -71,6 +71,31 @@
     }
   }
 
+  &__password {
+    position: relative;
+    width: 100%;
+
+    .field__control {
+      padding-right: fluid(64, 52);
+    }
+
+    input::-ms-reveal {
+      display: none;
+    }
+
+    &-toggle {
+      position: absolute;
+      top: 50%;
+      right: fluid(12, 8);
+      translate: 0 -50%;
+      color: var(--color-gray-65);
+
+      @include hover {
+        background-color: var(--color-black-15);
+      }
+    }
+  }
+
   &--invalid &__control {
     border-color: var(--color-red);
     border-width: var(--border-width-s);

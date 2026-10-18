@@ -4,6 +4,7 @@ import classNames from "classnames"
 import { useBaseId } from "@/shared/lib/useBaseId"
 
 import MaskedInput from "./components/MaskedInput"
+import PasswordInput from "./components/PasswordInput"
 
 import "./Field.scss"
 
@@ -83,6 +84,8 @@ const Field = ({
         {renderBefore?.("field__control")}
         {type === "textarea" ? (
           <textarea {...controlProps} />
+        ) : type === "password" ? (
+          <PasswordInput {...controlProps} />
         ) : mask ? (
           <MaskedInput {...controlProps} inputMode={inputMode} mask={mask} />
         ) : (

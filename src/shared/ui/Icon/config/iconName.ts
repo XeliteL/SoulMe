@@ -5,6 +5,8 @@ export const ICON_NAMES = [
   "check",
   "chevron-down",
   "duration",
+  "eye",
+  "eye-off",
   "github",
   "like",
   "notification",
