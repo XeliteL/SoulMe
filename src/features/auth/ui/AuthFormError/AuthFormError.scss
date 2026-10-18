@@ -1,0 +1,8 @@
+.auth-form-error {
+  color: var(--color-red);
+  text-align: center;
+
+  &:empty {
+    display: none;
+  }
+}

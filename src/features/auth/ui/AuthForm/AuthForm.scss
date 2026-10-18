@@ -1,0 +1,39 @@
+.auth-form {
+  display: grid;
+  gap: fluid(25, 10);
+  padding: fluid(50, 20);
+  border: var(--border);
+  border-radius: var(--border-radius-xl);
+  background: var(--color-black-06);
+  font-size: fluid(18, 14);
+
+  &__form {
+    display: grid;
+    gap: fluid(25, 10);
+  }
+
+  &__cell {
+    display: grid;
+    gap: fluid(40, 15);
+
+    &--input {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: fluid(30, 20);
+      text-wrap: nowrap;
+
+      @include tablet {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__submit-button {
+    width: 100%;
+  }
+}
