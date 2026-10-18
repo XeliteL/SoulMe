@@ -357,3 +357,54 @@ describe("Tabs active indicator", () => {
     expect(resizeObservers[0].disconnect).toHaveBeenCalled()
   })
 })
+
+describe("Tabs inactive panels reset", () => {
+  const FORM_ITEMS: TabItem[] = [
+    {
+      id: "login",
+      title: "Login",
+      isActive: true,
+      children: <input aria-label="Login field" />,
+    },
+    {
+      id: "register",
+      title: "Register",
+      children: <input aria-label="Register field" />,
+    },
+  ]
+
+  async function typeAndSwitchBack(shouldResetInactive?: boolean) {
+    const user = userEvent.setup()
+
+    render(
+      <Tabs
+        title="Tabs title"
+        items={FORM_ITEMS}
+        shouldResetInactive={shouldResetInactive}
+      />,
+    )
+
+    const [loginTab, registerTab] = screen.getAllByRole("tab")
+
+    await user.click(registerTab)
+    await user.type(screen.getByLabelText("Register field"), "value")
+    await user.click(loginTab)
+    await user.click(registerTab)
+
+    return screen.getByLabelText("Register field")
+  }
+
+  it("resets panel content after switching away and back", async () => {
+    expect(await typeAndSwitchBack(true)).toHaveValue("")
+  })
+
+  it("keeps panel content without shouldResetInactive", async () => {
+    expect(await typeAndSwitchBack()).toHaveValue("value")
+  })
+
+  it("keeps inactive panel content rendered", () => {
+    render(<Tabs title="Tabs title" items={FORM_ITEMS} shouldResetInactive />)
+
+    expect(screen.getByLabelText("Register field")).toBeInTheDocument()
+  })
+})
