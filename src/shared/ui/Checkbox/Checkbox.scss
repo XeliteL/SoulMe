@@ -1,13 +1,15 @@
 .checkbox {
-  display: inline-flex;
-  align-items: center;
-  column-gap: fluid-to-laptop(10, 8);
+  &__control {
+    display: inline-flex;
+    align-items: center;
+    column-gap: fluid-to-laptop(10, 8);
 
-  @include hover {
-    color: var(--color-white);
+    @include hover {
+      color: var(--color-white);
 
-    .checkbox__input {
-      border-color: var(--color-white);
+      .checkbox__input {
+        border-color: var(--color-white);
+      }
     }
   }
 
@@ -36,6 +38,7 @@
 
     &:user-invalid {
       border-color: var(--color-red);
+      border-width: var(--border-width-s);
     }
 
     &:disabled {
@@ -43,13 +46,6 @@
       & + .checkbox__label {
         @include disabled;
         pointer-events: none;
-      }
-    }
-
-    &:required {
-      & + .checkbox__label::after {
-        content: " *" / "";
-        color: var(--color-turquoise-45);
       }
     }
 
@@ -61,5 +57,19 @@
       mask: url(../../assets/icons/check.svg) center / contain no-repeat;
       transition-duration: inherit;
     }
+  }
+
+  &--invalid .checkbox__input {
+    border-color: var(--color-red);
+    border-width: var(--border-width-s);
+  }
+
+  &__error {
+    font-size: fluid(16, 12);
+    color: var(--color-red);
+  }
+
+  &__required-star {
+    color: var(--color-turquoise-45);
   }
 }
