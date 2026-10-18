@@ -28,6 +28,7 @@ const Hero = () => {
             </p>
             <Button
               className="hero__button"
+              href="/anime"
               hasFillIcon
               iconName="play"
               label="Начать просмотр"
