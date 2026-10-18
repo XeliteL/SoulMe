@@ -1,0 +1,24 @@
+.soc1al-login {
+  display: grid;
+  gap: fluid(20, 10);
+  align-items: center;
+
+  &__options {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: fluid(20, 10);
+  }
+
+  &__paragraph {
+    margin: 0;
+    text-align: center;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: fluid(20, 10);
+  }
+}

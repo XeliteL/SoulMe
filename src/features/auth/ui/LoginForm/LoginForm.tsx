@@ -11,12 +11,13 @@ import { login } from "../../api/actions"
 import { initialState } from "../../model/initialState"
 import AuthForm from "../AuthForm"
 import AuthFormError from "../AuthFormError"
+import SocialLogin from "../SocialLogin"
 
 const LoginForm = () => {
   const [state, formAction, isPending] = useActionState(login, initialState)
 
   return (
-    <AuthForm action={formAction} state={state}>
+    <AuthForm action={formAction} state={state} footer={<SocialLogin />}>
       <Field
         label="Логин или email"
         name="identifier"

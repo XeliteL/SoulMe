@@ -10,9 +10,10 @@ interface AuthFormProps {
   children: ReactNode
   action: (formData: FormData) => void
   state: AuthFormState
+  footer?: ReactNode
 }
 
-const AuthForm = ({ children, action, state }: AuthFormProps) => {
+const AuthForm = ({ children, action, state, footer }: AuthFormProps) => {
   const formRef = useRef<HTMLFormElement>(null)
 
   useEffect(() => {
@@ -26,6 +27,7 @@ const AuthForm = ({ children, action, state }: AuthFormProps) => {
       <form className="auth-form__form" ref={formRef} action={action}>
         {children}
       </form>
+      {footer}
     </div>
   )
 }

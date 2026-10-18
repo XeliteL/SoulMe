@@ -14,3 +14,4 @@ export type RegisterState = AuthFormState<
   RegisterFields,
   "login" | "email" | "agreement"
 >
+export type SocialLoginState = AuthFormState<never>

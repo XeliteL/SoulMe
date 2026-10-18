@@ -8,15 +8,19 @@ export const ICON_NAMES = [
   "eye",
   "eye-off",
   "github",
+  "google",
   "like",
   "notification",
   "play",
   "plus",
   "search",
+  "shikimori",
   "telegram",
   "user",
   "views",
+  "vk",
   "volume",
+  "yandex",
 ] as const
 
 export type IconName = (typeof ICON_NAMES)[number]

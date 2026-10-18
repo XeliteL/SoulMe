@@ -1,7 +1,12 @@
 "use server"
 
 import { getFieldErrors } from "../model/getFieldErrors"
-import { type LoginState, type RegisterState } from "../model/types"
+import { socialProviders } from "../model/socialProviders"
+import {
+  type LoginState,
+  type RegisterState,
+  type SocialLoginState,
+} from "../model/types"
 import {
   type LoginFields,
   loginSchema,
@@ -54,4 +59,19 @@ export async function register(
   }
 
   return { error: "Регистрация временно недоступна", values }
+}
+
+export async function signInWithProvider(
+  _prevState: SocialLoginState,
+  formData: FormData,
+): Promise<SocialLoginState> {
+  const provider = socialProviders.find(
+    ({ id }) => id === formData.get("provider"),
+  )
+
+  if (!provider) {
+    return { error: "Неизвестный способ входа" }
+  }
+
+  return { error: `Вход через ${provider.label} временно недоступен` }
 }
