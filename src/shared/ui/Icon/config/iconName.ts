@@ -4,6 +4,7 @@ export const ICON_NAMES = [
   "catalog",
   "check",
   "chevron-down",
+  "discord",
   "duration",
   "eye",
   "eye-off",
@@ -18,7 +19,6 @@ export const ICON_NAMES = [
   "telegram",
   "user",
   "views",
-  "vk",
   "volume",
   "yandex",
 ] as const

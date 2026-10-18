@@ -28,8 +28,8 @@ export const socialProviders: ProvidersLink[] = [
     label: "Yandex",
   },
   {
-    id: "vk",
-    iconName: "vk",
-    label: "VK",
+    id: "discord",
+    iconName: "discord",
+    label: "Discord",
   },
 ]
