@@ -17,7 +17,8 @@
     "check": "npm run format:check && npm run lint && npm run stylelint && npm run test",
     "fix": "npm run format && npm run lint:fix && npm run stylelint:fix",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "svgo": "svgo --multipass -r -f ./public && svgo --multipass -r -f ./src/shared/assets"
   },
   "prettier": {
     "semi": false
@@ -41,6 +42,7 @@
     "prettier": "^3.9.4",
     "sass": "^1.101.0",
     "stylelint": "^17.14.0",
+    "svgo": "^4.1.0",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.62.1",
     "vite": "^8.0.11",
