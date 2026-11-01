@@ -46,4 +46,27 @@ describe("AuthForm", () => {
 
     expect(screen.getByLabelText("Пароль")).toHaveFocus()
   })
+
+  it("renders the footer outside the form", () => {
+    render(
+      <AuthForm action={vi.fn()} state={{}} footer={<a href="/auth">Войти</a>}>
+        <input aria-label="Email" />
+      </AuthForm>,
+    )
+
+    const link = screen.getByRole("link", { name: "Войти" })
+
+    expect(link.closest(".auth-form__footer")).toBeInTheDocument()
+    expect(link.closest("form")).toBeNull()
+  })
+
+  it("renders no footer wrapper without a footer", () => {
+    const { container } = render(
+      <AuthForm action={vi.fn()} state={{}} footer={false}>
+        <input aria-label="Email" />
+      </AuthForm>,
+    )
+
+    expect(container.querySelector(".auth-form__footer")).toBeNull()
+  })
 })
