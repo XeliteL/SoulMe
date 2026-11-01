@@ -10,7 +10,7 @@ import Field from "@/shared/ui/Field"
 import { register } from "../../api/actions"
 import { initialState } from "../../model/initialState"
 import AuthForm from "../AuthForm"
-import AuthFormError from "../AuthFormError"
+import AuthFormMessage from "../AuthFormMessage"
 
 const RegisterForm = () => {
   const [state, formAction, isPending] = useActionState(register, initialState)
@@ -84,7 +84,7 @@ const RegisterForm = () => {
         defaultChecked={state.values?.agreement === "on"}
         isRequired
       />
-      <AuthFormError message={state.error} />
+      <AuthFormMessage message={state.error} />
       <Button
         className="auth-form__submit-button"
         label="Зарегистрироваться"

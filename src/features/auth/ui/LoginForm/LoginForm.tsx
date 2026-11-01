@@ -10,7 +10,7 @@ import Field from "@/shared/ui/Field"
 import { login } from "../../api/actions"
 import { initialState } from "../../model/initialState"
 import AuthForm from "../AuthForm"
-import AuthFormError from "../AuthFormError"
+import AuthFormMessage from "../AuthFormMessage"
 import SocialLogin from "../SocialLogin"
 
 const LoginForm = () => {
@@ -47,7 +47,7 @@ const LoginForm = () => {
           />
           <Link href="/reset-password">Забыли пароль?</Link>
         </div>
-        <AuthFormError message={state.error} />
+        <AuthFormMessage message={state.error} />
         <Button
           className="auth-form__submit-button"
           label="Войти"

@@ -7,7 +7,7 @@ import Button from "@/shared/ui/Button"
 import { signInWithProvider } from "../../api/actions"
 import { initialState } from "../../model/initialState"
 import { socialProviders } from "../../model/socialProviders"
-import AuthFormError from "../AuthFormError"
+import AuthFormMessage from "../AuthFormMessage"
 
 import "./SocialLogin.scss"
 
@@ -39,7 +39,7 @@ const SocialLogin = () => {
           ))}
         </ul>
       </div>
-      <AuthFormError message={state.error} />
+      <AuthFormMessage message={state.error} />
     </form>
   )
 }

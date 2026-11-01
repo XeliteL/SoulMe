@@ -1,0 +1,15 @@
+.auth-form-message {
+  text-align: center;
+
+  &--error {
+    color: var(--color-red);
+  }
+
+  &--success {
+    color: var(--color-white);
+  }
+
+  &:empty {
+    position: absolute;
+  }
+}
