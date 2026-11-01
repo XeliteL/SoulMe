@@ -1,6 +1,6 @@
 "use client"
 
-import { ReactNode } from "react"
+import { Fragment, ReactNode } from "react"
 import classNames from "classnames"
 
 import getTabsElementsIds from "../../lib/getTabsElementsIds"
@@ -12,20 +12,23 @@ interface TabsPanelProps {
 }
 
 const TabsPanel = ({ id, children }: TabsPanelProps) => {
-  const { activeId } = useTabsContext()
+  const { activeId, shouldResetInactive } = useTabsContext()
   const { buttonId, contentId } = getTabsElementsIds(id)
+  const isActive = id === activeId
 
   return (
     <div
-      className={classNames("tabs__content", {
-        "is-active": id === activeId,
-      })}
+      className={classNames("tabs__content", { "is-active": isActive })}
       id={contentId}
       role="tabpanel"
       aria-labelledby={buttonId}
       tabIndex={0}
     >
-      {children}
+      {shouldResetInactive ? (
+        <Fragment key={isActive ? "active" : "inactive"}>{children}</Fragment>
+      ) : (
+        children
+      )}
     </div>
   )
 }

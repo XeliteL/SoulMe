@@ -1,8 +1,10 @@
-import { afterEach, describe, expect, it } from "vitest"
+import { type FormEvent } from "react"
+import { afterEach, describe, expect, it, vi } from "vitest"
 
 import Field from "./Field"
 
 import { cleanup, render, screen } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 
 const PHONE_MASK = "(000) 000-00-00"
 
@@ -93,6 +95,91 @@ describe("Field", () => {
     expect(screen.getByLabelText("Телефон")).toHaveAttribute(
       "autocomplete",
       "tel-national",
+    )
+  })
+
+  it("toggles password visibility", async () => {
+    const user = userEvent.setup()
+    render(
+      <Field label="Пароль" name="password" type="password" placeholder="" />,
+    )
+
+    const input = screen.getByLabelText("Пароль")
+
+    expect(input).toHaveAttribute("type", "password")
+
+    await user.click(screen.getByRole("button", { name: "Показать пароль" }))
+
+    expect(input).toHaveAttribute("type", "text")
+
+    await user.click(screen.getByRole("button", { name: "Скрыть пароль" }))
+
+    expect(input).toHaveAttribute("type", "password")
+  })
+
+  it("does not submit the form when toggling password visibility", async () => {
+    const user = userEvent.setup()
+    const onSubmit = vi.fn((event: FormEvent) => event.preventDefault())
+    render(
+      <form onSubmit={onSubmit}>
+        <Field label="Пароль" name="password" type="password" placeholder="" />
+      </form>,
+    )
+
+    await user.click(screen.getByRole("button", { name: "Показать пароль" }))
+
+    expect(onSubmit).not.toHaveBeenCalled()
+  })
+
+  it("passes name and defaultValue to the password input", () => {
+    render(
+      <Field
+        label="Пароль"
+        name="password"
+        type="password"
+        placeholder=""
+        defaultValue="secret"
+      />,
+    )
+
+    const input = screen.getByLabelText("Пароль")
+
+    expect(input).toHaveAttribute("name", "password")
+    expect(input).toHaveValue("secret")
+  })
+
+  it("describes the control with the hint", () => {
+    render(
+      <Field label="Логин" name="login" placeholder="" hint="3–20 символов" />,
+    )
+
+    expect(screen.getByLabelText("Логин")).toHaveAccessibleDescription(
+      "3–20 символов",
+    )
+  })
+
+  it("describes the control with the error before the hint", () => {
+    render(
+      <Field
+        label="Логин"
+        name="login"
+        placeholder=""
+        hint="3–20 символов"
+        error="Минимум 3 символа"
+      />,
+    )
+
+    const input = screen.getByLabelText("Логин")
+
+    expect(input).toHaveAttribute("aria-invalid", "true")
+    expect(input).toHaveAccessibleDescription("Минимум 3 символа 3–20 символов")
+  })
+
+  it("has no description without hint and error", () => {
+    render(<Field label="Логин" name="login" placeholder="" />)
+
+    expect(screen.getByLabelText("Логин")).not.toHaveAttribute(
+      "aria-describedby",
     )
   })
 })

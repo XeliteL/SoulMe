@@ -10,6 +10,8 @@ interface ButtonProps {
   className?: string
   type?: "button" | "submit" | "reset"
   href?: string
+  name?: string
+  value?: string
   target?: HTMLAttributeAnchorTarget
   variant?: "" | "transparent" | "black-10" | "black-06"
   label?: string
@@ -26,6 +28,8 @@ const Button = ({
   type = "button",
   href,
   target,
+  name,
+  value,
   variant = "",
   label,
   isLabelHidden = false,
@@ -42,6 +46,8 @@ const Button = ({
     }),
     title,
     "aria-label": title,
+    name,
+    value,
   }
   const iconComponent = iconName && (
     <Icon className="button__icon" name={iconName} hasFill={hasFillIcon} />

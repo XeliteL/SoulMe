@@ -11,11 +11,12 @@ interface TabsProps {
   className?: string
   title: string
   items: TabItem[]
+  shouldResetInactive?: boolean
 }
 
-const Tabs = ({ className, title, items }: TabsProps) => {
+const Tabs = ({ className, title, items, shouldResetInactive }: TabsProps) => {
   return (
-    <TabsRoot items={items}>
+    <TabsRoot items={items} shouldResetInactive={shouldResetInactive}>
       <div className={classNames(className, "tabs")}>
         <TabsNavigation title={title} />
         <div className="tabs__body">

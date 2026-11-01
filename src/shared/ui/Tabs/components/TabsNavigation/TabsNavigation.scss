@@ -8,6 +8,7 @@
   padding: var(--tabsNavigationPadding);
   border: var(--border);
   border-radius: var(--border-radius-m);
+  width: fit-content;
 
   @include laptop {
     border-radius: var(--border-radius-s);

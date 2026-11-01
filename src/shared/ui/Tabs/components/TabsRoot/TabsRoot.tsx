@@ -8,15 +8,16 @@ import { TabsContext } from "./TabsContext"
 interface TabsRootProps {
   items: TabItem[]
   children: ReactNode
+  shouldResetInactive?: boolean
 }
 
-const TabsRoot = ({ items, children }: TabsRootProps) => {
+const TabsRoot = ({ items, children, shouldResetInactive }: TabsRootProps) => {
   const [activeId, setActiveId] = useState(
     () => (items.find((item) => item.isActive) ?? items[0])?.id,
   )
 
   return (
-    <TabsContext value={{ items, activeId, setActiveId }}>
+    <TabsContext value={{ items, activeId, setActiveId, shouldResetInactive }}>
       {children}
     </TabsContext>
   )

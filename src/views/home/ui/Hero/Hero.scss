@@ -50,12 +50,13 @@
     }
   }
 
-  &__play-button {
-    @include square(fluid(470, 200));
+  &__play {
+    @include square(fluid(470, 250));
 
-    padding: 0;
-    background-color: transparent;
-    border: none;
+    @include mobile {
+      align-self: flex-end;
+      margin-block: 40px;
+    }
   }
 
   &__title {
