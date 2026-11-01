@@ -15,6 +15,7 @@
     "stylelint": "stylelint \"./{app,src}/**/*.scss\" --allow-empty-input",
     "stylelint:fix": "stylelint \"./{app,src}/**/*.scss\" --allow-empty-input --fix",
     "check": "npm run format:check && npm run lint && npm run stylelint && npm run test",
+    "typecheck": "next typegen && tsc --noEmit",
     "fix": "npm run format && npm run lint:fix && npm run stylelint:fix",
     "test": "vitest run",
     "test:watch": "vitest",
