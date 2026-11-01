@@ -24,25 +24,21 @@ export const specialSliderParams = {
       slidesPerView: 3,
       slidesPerGroup: 3,
       spaceBetween: 30,
-      allowTouchMove: false,
     },
     1200: {
       slidesPerView: 4,
       slidesPerGroup: 4,
       spaceBetween: 30,
-      allowTouchMove: false,
     },
     1441: {
       slidesPerView: 4,
       slidesPerGroup: 4,
       spaceBetween: 30,
-      allowTouchMove: false,
     },
     2000: {
       slidesPerView: 5,
       slidesPerGroup: 5,
       spaceBetween: 30,
-      allowTouchMove: false,
     },
   },
 } satisfies SwiperOptions

@@ -13,7 +13,6 @@ export const sliderParamsByVariant: Record<
         slidesPerView: number
         slidesPerGroup: number
         spaceBetween: number
-        allowTouchMove?: boolean
       }
     >
   }
@@ -40,25 +39,21 @@ export const sliderParamsByVariant: Record<
         slidesPerView: 4,
         slidesPerGroup: 4,
         spaceBetween: 20,
-        allowTouchMove: false,
       },
       1200: {
         slidesPerView: 5,
         slidesPerGroup: 5,
         spaceBetween: 20,
-        allowTouchMove: false,
       },
       1441: {
         slidesPerView: 5,
         slidesPerGroup: 5,
         spaceBetween: 30,
-        allowTouchMove: false,
       },
       2000: {
         slidesPerView: 6,
         slidesPerGroup: 6,
         spaceBetween: 30,
-        allowTouchMove: false,
       },
     },
   },
@@ -84,19 +79,16 @@ export const sliderParamsByVariant: Record<
         slidesPerView: 1,
         slidesPerGroup: 1,
         spaceBetween: 20,
-        allowTouchMove: false,
       },
       1200: {
         slidesPerView: 1,
         slidesPerGroup: 1,
         spaceBetween: 20,
-        allowTouchMove: false,
       },
       1441: {
         slidesPerView: 1,
         slidesPerGroup: 1,
         spaceBetween: 30,
-        allowTouchMove: false,
       },
     },
   },
