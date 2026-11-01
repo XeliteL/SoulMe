@@ -1,7 +1,13 @@
 import { describe, expect, it } from "vitest"
 
 import { socialProviders } from "../model/socialProviders"
-import { login, register, signInWithProvider } from "./actions"
+import {
+  login,
+  register,
+  requestPasswordReset,
+  resetPassword,
+  signInWithProvider,
+} from "./actions"
 
 const createFormData = (entries: Record<string, string>) => {
   const formData = new FormData()
@@ -95,4 +101,71 @@ describe("signInWithProvider", () => {
       })
     },
   )
+})
+
+describe("requestPasswordReset", () => {
+  it("returns a field error and keeps the email", async () => {
+    const state = await requestPasswordReset(
+      {},
+      createFormData({ email: "user@" }),
+    )
+
+    expect(state.fieldErrors).toEqual({
+      email: "Некорректный адрес электронной почты",
+    })
+    expect(state.values).toEqual({ email: "user@" })
+  })
+
+  it("returns a form error for valid data until the API exists", async () => {
+    const state = await requestPasswordReset(
+      {},
+      createFormData({ email: "user@example.com" }),
+    )
+
+    expect(state).toEqual({
+      error: "Восстановление пароля временно недоступно",
+      values: { email: "user@example.com" },
+    })
+  })
+})
+
+describe("resetPassword", () => {
+  const valid = {
+    token: "reset-token",
+    password: "secret123",
+    passwordConfirm: "secret123",
+  }
+
+  it("returns field errors without echoing the token or passwords", async () => {
+    const state = await resetPassword(
+      {},
+      createFormData({ ...valid, passwordConfirm: "secret124" }),
+    )
+
+    expect(state).toEqual({
+      fieldErrors: { passwordConfirm: "Пароли не совпадают" },
+    })
+  })
+
+  it.each([
+    [
+      "a missing token",
+      { password: valid.password, passwordConfirm: valid.passwordConfirm },
+    ],
+    ["an empty token", { ...valid, token: "" }],
+    [
+      "an empty token and invalid passwords",
+      { ...valid, token: "", password: "short" },
+    ],
+  ])("returns a form error for %s", async (_, entries) => {
+    const state = await resetPassword({}, createFormData(entries))
+
+    expect(state).toEqual({ error: "Ссылка недействительна" })
+  })
+
+  it("returns a form error for valid data until the API exists", async () => {
+    const state = await resetPassword({}, createFormData(valid))
+
+    expect(state).toEqual({ error: "Смена пароля временно недоступна" })
+  })
 })
