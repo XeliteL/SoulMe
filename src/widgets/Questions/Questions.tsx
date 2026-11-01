@@ -13,7 +13,7 @@ const Questions = () => {
       title="Часто задаваемые вопросы"
       id="questions"
       description="Остались вопросы? Загляните в FAQ, здесь вы найдёте ответы на самые частые вопросы о SoulMe!"
-      actions={<Button label="Задать вопрос" href="/support" />}
+      actions={<Button label="Задать вопрос" href="/support#form" />}
     >
       <AccordionGroup columns={2}>
         {questionItems.map((question) => (
