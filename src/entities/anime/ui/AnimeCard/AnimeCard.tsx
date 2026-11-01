@@ -54,7 +54,7 @@ const AnimeCard = ({
       />
       <div className="anime-card__body">
         {showReleaseDate ? (
-          <Badge className="anime-card__released-badge ">
+          <Badge className="anime-card__released-badge">
             Вышел <time dateTime={released.dateTime}>{released.label}</time>
           </Badge>
         ) : (
