@@ -5,6 +5,8 @@ import { socialProviders } from "../model/socialProviders"
 import {
   type LoginState,
   type RegisterState,
+  type ResetPasswordState,
+  type ResetRequestState,
   type SocialLoginState,
 } from "../model/types"
 import {
@@ -12,6 +14,10 @@ import {
   loginSchema,
   type RegisterFields,
   registerSchema,
+  type ResetPasswordFields,
+  resetPasswordSchema,
+  type ResetRequestFields,
+  resetRequestSchema,
 } from "../model/validation"
 
 export async function login(
@@ -74,4 +80,49 @@ export async function signInWithProvider(
   }
 
   return { error: `Вход через ${provider.label} временно недоступен` }
+}
+
+export async function requestPasswordReset(
+  _prevState: ResetRequestState,
+  formData: FormData,
+): Promise<ResetRequestState> {
+  const parsed = resetRequestSchema.safeParse({
+    email: formData.get("email"),
+  })
+
+  const values = {
+    email: String(formData.get("email") ?? ""),
+  }
+
+  if (!parsed.success) {
+    return {
+      fieldErrors: getFieldErrors<ResetRequestFields>(parsed.error),
+      values,
+    }
+  }
+
+  return { error: "Восстановление пароля временно недоступно", values }
+}
+
+export async function resetPassword(
+  _prevState: ResetPasswordState,
+  formData: FormData,
+): Promise<ResetPasswordState> {
+  const parsed = resetPasswordSchema.safeParse({
+    password: formData.get("password"),
+    passwordConfirm: formData.get("passwordConfirm"),
+    token: formData.get("token"),
+  })
+
+  if (!parsed.success) {
+    const fieldErrors = getFieldErrors<ResetPasswordFields>(parsed.error)
+
+    if (fieldErrors.token) {
+      return { error: fieldErrors.token }
+    }
+
+    return { fieldErrors }
+  }
+
+  return { error: "Смена пароля временно недоступна" }
 }

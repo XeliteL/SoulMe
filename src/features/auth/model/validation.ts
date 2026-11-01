@@ -61,8 +61,20 @@ export const registerSchema = passwordSchema.extend({
   agreement: z.literal("on", "Необходимо принять условия"),
 })
 
+export const resetRequestSchema = z.object({
+  email: emailSchema,
+})
+
+export const resetPasswordSchema = passwordSchema.extend({
+  token: z.string("Ссылка недействительна").min(1, "Ссылка недействительна"),
+})
+
 export type LoginData = z.infer<typeof loginSchema>
 export type RegisterData = z.infer<typeof registerSchema>
+export type ResetRequestData = z.infer<typeof resetRequestSchema>
+export type ResetPasswordData = z.infer<typeof resetPasswordSchema>
 
 export type LoginFields = keyof LoginData
 export type RegisterFields = keyof RegisterData
+export type ResetRequestFields = keyof ResetRequestData
+export type ResetPasswordFields = keyof ResetPasswordData
