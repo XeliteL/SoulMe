@@ -47,7 +47,7 @@ const RegisterForm = () => {
           placeholder="Введите пароль"
           autoComplete="new-password"
           error={state.fieldErrors?.password}
-          hint="От 8 до 64 символов, латинская буква и цифра"
+          hint="8–64 символа: хотя бы одна латинская буква и цифра"
           isRequired
           hasRequiredMark={false}
         />
