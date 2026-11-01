@@ -21,15 +21,18 @@ const RatingView = ({ value, label }: RatingViewProps) => {
   return (
     <div
       className="rating-view"
-      aria-label={ariaLabel}
-      title={ariaLabel}
       style={
         {
           "--ratingViewValue": value,
         } as CSSProperties
       }
     >
-      <div className="rating-view__stars">
+      <div
+        className="rating-view__stars"
+        role="img"
+        aria-label={ariaLabel}
+        title={ariaLabel}
+      >
         <Image
           className="rating-view__stars-unfilled"
           src="/rating/stars-unfilled.svg"
