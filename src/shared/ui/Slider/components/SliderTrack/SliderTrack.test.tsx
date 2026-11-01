@@ -75,16 +75,17 @@ describe("SliderTrack", () => {
   })
 
   it("picks up added and removed slides without recreating the swiper", () => {
-    const { container, rerender } = render(track({ slidesCount: 2 }))
+    const params = { width: 1000 }
+    const { container, rerender } = render(track({ slidesCount: 2, params }))
     const swiper = getSwiperEl(container).swiper
 
-    rerender(track({ slidesCount: 4 }))
+    rerender(track({ slidesCount: 4, params }))
 
     expect(getSwiperEl(container).swiper).toBe(swiper)
     expect(container.querySelectorAll(".slider__item")).toHaveLength(4)
     expect(swiper?.slides).toHaveLength(4)
 
-    rerender(track({ slidesCount: 1 }))
+    rerender(track({ slidesCount: 1, params }))
 
     expect(swiper?.slides).toHaveLength(1)
   })
