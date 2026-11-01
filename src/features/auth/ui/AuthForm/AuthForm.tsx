@@ -27,7 +27,7 @@ const AuthForm = ({ children, action, state, footer }: AuthFormProps) => {
       <form className="auth-form__form" ref={formRef} action={action}>
         {children}
       </form>
-      {footer}
+      {footer && <div className="auth-form__footer">{footer}</div>}
     </div>
   )
 }
