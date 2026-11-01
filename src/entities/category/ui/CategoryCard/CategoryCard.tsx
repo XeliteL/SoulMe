@@ -24,7 +24,7 @@ const CategoryCard = ({
   return (
     <Link className="category-card" href={href}>
       <div className="category-card__images">
-        {images.map((imgSrc, index) => (
+        {images.map((imgSrc) => (
           <Image
             className="category-card__image"
             src={imgSrc}
@@ -33,7 +33,7 @@ const CategoryCard = ({
             sizes="(max-width: 767px) 25vw, 10vw"
             quality={82}
             alt=""
-            key={index}
+            key={imgSrc}
           />
         ))}
       </div>

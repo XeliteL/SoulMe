@@ -16,12 +16,12 @@ const Questions = () => {
       actions={<Button label="Задать вопрос" href="/support" />}
     >
       <AccordionGroup columns={2}>
-        {questionItems.map((question, index) => (
+        {questionItems.map((question) => (
           <Accordion
             title={question.question}
-            id={`question-${index}`}
+            id={`question-${question.id}`}
             name="questions"
-            key={index}
+            key={question.id}
           >
             <p>{question.answer}</p>
           </Accordion>
