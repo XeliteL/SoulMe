@@ -8,8 +8,11 @@
   transition: opacity var(--transition-duration-longer);
 
   &--hidden {
+    visibility: hidden;
     opacity: 0;
-    pointer-events: none;
+    transition:
+      opacity var(--transition-duration-longer),
+      visibility 0s var(--transition-duration-longer);
   }
 
   &__bar {

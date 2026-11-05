@@ -12,8 +12,8 @@ const Devices = () => {
       description="SoulMe работает на любом устройстве - от смартфона до телевизора. Смотрите любимые фильмы и сериалы дома или в дороге, не привязываясь к одному экрану."
     >
       <Grid columns={4}>
-        {deviceItems.map((deviceItem, index) => (
-          <DeviceCard {...deviceItem} key={index} />
+        {deviceItems.map(({ id, ...deviceItem }) => (
+          <DeviceCard {...deviceItem} key={id} />
         ))}
       </Grid>
     </Section>

@@ -13,11 +13,6 @@ export const socialProviders: ProvidersLink[] = [
     label: "Telegram",
   },
   {
-    id: "shikimori",
-    iconName: "shikimori",
-    label: "Shikimori",
-  },
-  {
     id: "google",
     iconName: "google",
     label: "Google",

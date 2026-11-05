@@ -1,23 +1,12 @@
+import type { SwiperOptions } from "swiper/types"
+
 export type SliderVariant = "default" | "banner"
 
 const shared = {
   mousewheel: { forceToAxis: true },
 }
 
-export const sliderParamsByVariant: Record<
-  SliderVariant,
-  typeof shared & {
-    breakpoints: Record<
-      number,
-      {
-        slidesPerView: number
-        slidesPerGroup: number
-        spaceBetween: number
-        allowTouchMove?: boolean
-      }
-    >
-  }
-> = {
+export const sliderParamsByVariant = {
   default: {
     ...shared,
     breakpoints: {
@@ -40,25 +29,21 @@ export const sliderParamsByVariant: Record<
         slidesPerView: 4,
         slidesPerGroup: 4,
         spaceBetween: 20,
-        allowTouchMove: false,
       },
       1200: {
         slidesPerView: 5,
         slidesPerGroup: 5,
         spaceBetween: 20,
-        allowTouchMove: false,
       },
       1441: {
         slidesPerView: 5,
         slidesPerGroup: 5,
         spaceBetween: 30,
-        allowTouchMove: false,
       },
       2000: {
         slidesPerView: 6,
         slidesPerGroup: 6,
         spaceBetween: 30,
-        allowTouchMove: false,
       },
     },
   },
@@ -84,22 +69,24 @@ export const sliderParamsByVariant: Record<
         slidesPerView: 1,
         slidesPerGroup: 1,
         spaceBetween: 20,
-        allowTouchMove: false,
       },
       1200: {
         slidesPerView: 1,
         slidesPerGroup: 1,
         spaceBetween: 20,
-        allowTouchMove: false,
       },
       1441: {
         slidesPerView: 1,
         slidesPerGroup: 1,
         spaceBetween: 30,
-        allowTouchMove: false,
       },
     },
+    autoplay: {
+      delay: 15000,
+      disableOnInteraction: true,
+      pauseOnMouseEnter: true,
+    },
   },
-}
+} satisfies Record<SliderVariant, SwiperOptions>
 
 export const defaultSliderParams = sliderParamsByVariant.default

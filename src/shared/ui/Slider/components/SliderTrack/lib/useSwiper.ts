@@ -1,10 +1,13 @@
 import { useLayoutEffect, useRef } from "react"
 import { Swiper } from "swiper"
-import { Mousewheel, Scrollbar } from "swiper/modules"
+import { Autoplay, Mousewheel, Scrollbar } from "swiper/modules"
 import type { SwiperOptions } from "swiper/types"
 
-import { sliderParamsByVariant, SliderVariant } from "../../config/sliderParams"
-import { useSliderContext } from "../SliderRoot/SliderContext"
+import {
+  sliderParamsByVariant,
+  SliderVariant,
+} from "../../../config/sliderParams"
+import { useSliderContext } from "../../SliderRoot/SliderContext"
 
 interface UseSwiperOptions {
   variant: SliderVariant
@@ -23,17 +26,30 @@ const useSwiper = ({ variant, params, slidesKey }: UseSwiperOptions) => {
     if (!swiperEl) return
 
     const scrollbarEl = scrollbarRef.current
+    const isMotionReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches
     const instance = new Swiper(swiperEl, {
-      modules: [Mousewheel, Scrollbar],
+      modules: [Autoplay, Mousewheel, Scrollbar],
       ...sliderParamsByVariant[variant],
       ...(JSON.parse(paramsKey) as SwiperOptions),
+      ...(isMotionReduced && { autoplay: false }),
       scrollbar: scrollbarEl
         ? { el: scrollbarEl, dragClass: "slider__scrollbar-drag" }
         : false,
     })
+    const pauseAutoplay = () => {
+      if (!instance.autoplay.paused) instance.autoplay.pause()
+    }
+    const resumeAutoplay = () => instance.autoplay.resume()
+
+    swiperEl.addEventListener("focusin", pauseAutoplay)
+    swiperEl.addEventListener("focusout", resumeAutoplay)
     setSwiper(instance)
 
     return () => {
+      swiperEl.removeEventListener("focusin", pauseAutoplay)
+      swiperEl.removeEventListener("focusout", resumeAutoplay)
       instance.destroy(true, true)
       setSwiper(null)
     }
