@@ -7,12 +7,12 @@ const ResetPasswordPage = async ({
 
   return typeof token === "string" && token ? (
     <>
-      <h1 className="h2">Новый пароль</h1>
+      <h1 className="visually-hidden">Новый пароль</h1>
       <ResetPasswordForm token={token} />
     </>
   ) : (
     <>
-      <h1 className="h2">Восстановление пароля</h1>
+      <h1 className="visually-hidden">Восстановление пароля</h1>
       <RequestResetForm />
     </>
   )

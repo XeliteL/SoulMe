@@ -1,8 +1,7 @@
 .anime-card {
   display: flex;
   flex-direction: column;
-  padding: fluid(20, 12);
-  padding-bottom: 0;
+  padding: fluid(20, 10) fluid(20, 6) 0;
   background-color: var(--color-black-10);
   border: var(--border);
   border-radius: var(--border-radius-l);

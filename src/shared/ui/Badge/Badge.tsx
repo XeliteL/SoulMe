@@ -7,7 +7,7 @@ import "./Badge.scss"
 
 interface BadgeProps {
   className?: string
-  variant?: "" | "accent"
+  variant?: "" | "accent" | "accent-round"
   children: ReactNode
   iconName?: "duration" | "views"
   hasFillIcon?: boolean

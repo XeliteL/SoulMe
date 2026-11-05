@@ -54,7 +54,7 @@ const AnimeCard = ({
       />
       <div className="anime-card__body">
         {showReleaseDate ? (
-          <Badge className="anime-card__released-badge ">
+          <Badge className="anime-card__released-badge">
             Вышел <time dateTime={released.dateTime}>{released.label}</time>
           </Badge>
         ) : (
@@ -75,7 +75,7 @@ const AnimeCard = ({
               <Badge className="anime-card__rating-badge">
                 <RatingView
                   value={rating.value}
-                  label={formatCompactNumber(rating.label, "ru")}
+                  reviewsCount={rating.reviewsCount}
                 />
               </Badge>
             ) : (
