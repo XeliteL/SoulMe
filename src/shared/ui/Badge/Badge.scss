@@ -16,7 +16,8 @@
     padding-inline: 6px;
   }
 
-  &--accent {
+  &--accent,
+  &--accent-round {
     width: max-content;
     color: var(--color-white);
     background-color: var(--color-turquoise-45);
@@ -26,6 +27,10 @@
     @include laptop {
       border-radius: var(--border-radius-xxxs);
     }
+  }
+
+  &--accent-round {
+    border-radius: 100px;
   }
 
   &__icon {
