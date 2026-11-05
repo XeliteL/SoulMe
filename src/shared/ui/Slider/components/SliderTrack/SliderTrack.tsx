@@ -7,7 +7,7 @@ import type { SwiperOptions } from "swiper/types"
 import "swiper/swiper.css"
 
 import { SliderVariant } from "../../config/sliderParams"
-import useSwiper from "./useSwiper"
+import useSwiper from "./lib/useSwiper"
 
 import "./SliderTrack.scss"
 

@@ -3,8 +3,11 @@ import { Swiper } from "swiper"
 import { Mousewheel, Scrollbar } from "swiper/modules"
 import type { SwiperOptions } from "swiper/types"
 
-import { sliderParamsByVariant, SliderVariant } from "../../config/sliderParams"
-import { useSliderContext } from "../SliderRoot/SliderContext"
+import {
+  sliderParamsByVariant,
+  SliderVariant,
+} from "../../../config/sliderParams"
+import { useSliderContext } from "../../SliderRoot/SliderContext"
 
 interface UseSwiperOptions {
   variant: SliderVariant

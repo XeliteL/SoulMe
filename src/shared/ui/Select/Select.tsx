@@ -2,7 +2,7 @@
 
 import classNames from "classnames"
 
-import { useSelect } from "./useSelect"
+import { useSelect } from "./lib/useSelect"
 
 import "./Select.scss"
 
