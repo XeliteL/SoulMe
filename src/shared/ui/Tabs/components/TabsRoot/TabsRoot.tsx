@@ -2,11 +2,11 @@
 
 import { ReactNode, useState } from "react"
 
-import { TabsNavigationItem } from "../../model/types"
+import { TabItem } from "../../model/types"
 import { TabsContext } from "./TabsContext"
 
 interface TabsRootProps {
-  items: TabsNavigationItem[]
+  items: TabItem[]
   children: ReactNode
   shouldResetInactive?: boolean
 }

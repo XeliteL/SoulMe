@@ -20,6 +20,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: `@use '@/shared/styles/helpers' as *;`,
+        silenceDeprecations: ["legacy-js-api"],
       },
     },
   },

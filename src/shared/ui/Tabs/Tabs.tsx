@@ -16,10 +16,7 @@ interface TabsProps {
 
 const Tabs = ({ className, title, items, shouldResetInactive }: TabsProps) => {
   return (
-    <TabsRoot
-      items={items.map(({ id, title, isActive }) => ({ id, title, isActive }))}
-      shouldResetInactive={shouldResetInactive}
-    >
+    <TabsRoot items={items} shouldResetInactive={shouldResetInactive}>
       <div className={classNames(className, "tabs")}>
         <TabsNavigation title={title} />
         <div className="tabs__body">

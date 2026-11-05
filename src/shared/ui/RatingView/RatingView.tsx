@@ -1,72 +1,53 @@
 import type { CSSProperties } from "react"
 import Image from "next/image"
 
-import { formatRating, pluralize } from "@/shared/lib/format"
+import { pluralize } from "@/shared/lib/format"
 
 import "./RatingView.scss"
 
-type RatingViewProps = { value: number } & (
-  | { type?: "base"; reviewsCount: number }
-  | { type: "user"; reviewsCount?: never }
-)
+interface RatingViewProps {
+  value: number
+  label: string
+}
 
-const RatingView = (props: RatingViewProps) => {
-  const { value } = props
-  const grade = formatRating(value, "ru")
-  const isUser = props.type === "user"
-  const ariaLabel = isUser ? `Ваша оценка ${grade}` : `Оценка ${grade} из 10`
-  const title = isUser
-    ? "Ваша оценка"
-    : `Оценка на основе ${pluralize(
-        props.reviewsCount,
-        { one: "отзыва", few: "отзывов", many: "отзывов", other: "отзывов" },
-        "ru",
-      )}`
+const RatingView = ({ value, label }: RatingViewProps) => {
+  const stars = pluralize(
+    value,
+    { one: "звезда", few: "звезды", many: "звёзд", other: "звезды" },
+    "ru",
+  )
+  const ariaLabel = `Оценка: ${stars}`
 
   return (
     <div
       className="rating-view"
+      aria-label={ariaLabel}
+      title={ariaLabel}
       style={
         {
           "--ratingViewValue": value,
         } as CSSProperties
       }
-      role="img"
-      title={title}
-      aria-label={ariaLabel}
     >
-      <div className="rating-view__star">
-        {isUser ? (
-          <Image
-            className="rating-view__star-user"
-            src="/rating/star-user.svg"
-            alt=""
-            width={18}
-            height={18}
-            loading="lazy"
-          />
-        ) : (
-          <>
-            <Image
-              className="rating-view__star-unfilled"
-              src="/rating/star-unfilled.svg"
-              alt=""
-              width={18}
-              height={18}
-              loading="lazy"
-            />
-            <Image
-              className="rating-view__star-filled"
-              src="/rating/star-filled.svg"
-              alt=""
-              width={18}
-              height={18}
-              loading="lazy"
-            />
-          </>
-        )}
+      <div className="rating-view__stars">
+        <Image
+          className="rating-view__stars-unfilled"
+          src="/rating/stars-unfilled.svg"
+          alt=""
+          width={98}
+          height={18}
+          loading="lazy"
+        />
+        <Image
+          className="rating-view__stars-filled"
+          src="/rating/stars-filled.svg"
+          alt=""
+          width={98}
+          height={18}
+          loading="lazy"
+        />
       </div>
-      <span>{grade}</span>
+      {label && <div className="rating-view__label">{label}</div>}
     </div>
   )
 }

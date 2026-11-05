@@ -19,7 +19,7 @@ describe("formatDuration", () => {
     [59, "0h 59min"],
     [60, "1h 0min"],
     [125, "2h 5min"],
-  ])("formats %i minutes as '%s' in en", (value, expected) => {
+  ])("formats %i minutes as '%s' шin en", (value, expected) => {
     expect(formatDuration(value, "en")).toBe(expected)
   })
 })

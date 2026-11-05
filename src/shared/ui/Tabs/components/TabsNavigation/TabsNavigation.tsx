@@ -6,7 +6,7 @@ import classNames from "classnames"
 import getNextTabIndex from "../../lib/getNextTabIndex"
 import getTabsElementsIds from "../../lib/getTabsElementsIds"
 import { useTabsContext } from "../TabsRoot/TabsContext"
-import useTabsIndicator from "./lib/useTabsIndicator"
+import useTabsIndicator from "./useTabsIndicator"
 
 import "./TabsNavigation.scss"
 

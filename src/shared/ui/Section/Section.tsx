@@ -34,31 +34,29 @@ const Section = ({
       aria-labelledby={ariaLabelledby ?? (title ? headingId : undefined)}
       id={id}
     >
-      {(title || description || actions) && (
-        <header className="section__header">
-          <div className="section__info">
-            {title && (
-              <h2 className="section__title h3" id={headingId}>
-                {title}
-              </h2>
-            )}
-            {description && (
-              <div className="section__description">
-                <p>{description}</p>
-              </div>
-            )}
-          </div>
-          {actions && (
-            <div
-              className={classNames("section__actions", {
-                "hidden-mobile": isActionsHiddenOnMobile,
-              })}
-            >
-              {actions}
+      <header className="section__header">
+        <div className="section__info">
+          {title && (
+            <h2 className="section__title h3" id={headingId}>
+              {title}
+            </h2>
+          )}
+          {description && (
+            <div className="section__description">
+              <p>{description}</p>
             </div>
           )}
-        </header>
-      )}
+        </div>
+        {actions && (
+          <div
+            className={classNames("section__actions", {
+              "hidden-mobile": isActionsHiddenOnMobile,
+            })}
+          >
+            {actions}
+          </div>
+        )}
+      </header>
       <div className="section__body">{children}</div>
     </section>
   )

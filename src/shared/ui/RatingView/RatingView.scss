@@ -1,22 +1,22 @@
 .rating-view {
-  --ratingViewValue: 10;
+  --ratingViewValue: 5;
 
   display: flex;
   align-items: center;
-  column-gap: 10px;
+  column-gap: 4px;
 
-  &__star {
+  &__stars {
     position: relative;
 
     &-filled {
-      --ratingViewStarClipEnd: calc(100% / 10 * var(--ratingViewValue));
+      --ratingViewStarsClipEnd: calc(100% / 5 * var(--ratingViewValue));
 
       @include abs-cover;
 
       clip-path: polygon(
         0 0,
-        var(--ratingViewStarClipEnd) 0,
-        var(--ratingViewStarClipEnd) 100%,
+        var(--ratingViewStarsClipEnd) 0,
+        var(--ratingViewStarsClipEnd) 100%,
         0 100%
       );
     }

@@ -2,10 +2,10 @@
 
 import { createContext, useContext } from "react"
 
-import { TabsNavigationItem } from "../../model/types"
+import { TabItem } from "../../model/types"
 
 interface TabsContextValue {
-  items: TabsNavigationItem[]
+  items: TabItem[]
   activeId?: string
   setActiveId: (id: string) => void
   shouldResetInactive?: boolean

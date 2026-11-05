@@ -5,7 +5,7 @@ import classNames from "classnames"
 import Button from "@/shared/ui/Button"
 
 import { useSliderContext } from "../SliderRoot/SliderContext"
-import useSliderState from "./lib/useSliderState"
+import useSliderState from "./useSliderState"
 
 import "./SliderNavigation.scss"
 

@@ -13,15 +13,15 @@ const Questions = () => {
       title="Часто задаваемые вопросы"
       id="questions"
       description="Остались вопросы? Загляните в FAQ, здесь вы найдёте ответы на самые частые вопросы о SoulMe!"
-      actions={<Button label="Задать вопрос" href="/support#form" />}
+      actions={<Button label="Задать вопрос" href="/support" />}
     >
       <AccordionGroup columns={2}>
-        {questionItems.map((question) => (
+        {questionItems.map((question, index) => (
           <Accordion
             title={question.question}
-            id={`question-${question.id}`}
+            id={`question-${index}`}
             name="questions"
-            key={question.id}
+            key={index}
           >
             <p>{question.answer}</p>
           </Accordion>

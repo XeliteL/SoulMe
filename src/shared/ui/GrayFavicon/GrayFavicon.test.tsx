@@ -6,8 +6,8 @@ import { cleanup, render } from "@testing-library/react"
 
 const FAVICONS = [
   "/favicon.ico",
-  "/favicons/favicon-32x32.png",
-  "/favicons/favicon-16x16.png",
+  "/favicon-32x32.png",
+  "/favicon-16x16.png",
 ] as const
 
 const setHidden = (isHidden: boolean) => {
@@ -46,8 +46,8 @@ describe("GrayFavicon", () => {
 
     expect(getFaviconHrefs()).toEqual([
       "/favicon_grayed.ico",
-      "/favicons/favicon-32x32_grayed.png",
-      "/favicons/favicon-16x16_grayed.png",
+      "/favicon-32x32_grayed.png",
+      "/favicon-16x16_grayed.png",
     ])
   })
 
