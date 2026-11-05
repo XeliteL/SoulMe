@@ -81,6 +81,11 @@ export const sliderParamsByVariant = {
         spaceBetween: 30,
       },
     },
+    autoplay: {
+      delay: 15000,
+      disableOnInteraction: true,
+      pauseOnMouseEnter: true,
+    },
   },
 } satisfies Record<SliderVariant, SwiperOptions>
 
