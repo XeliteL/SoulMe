@@ -10,7 +10,7 @@ interface AnimeBase {
   }
   rating: {
     value: number
-    label: number
+    reviewsCount: number
   }
   href: string
 }

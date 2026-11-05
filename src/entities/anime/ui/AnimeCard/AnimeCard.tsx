@@ -75,7 +75,7 @@ const AnimeCard = ({
               <Badge className="anime-card__rating-badge">
                 <RatingView
                   value={rating.value}
-                  label={formatCompactNumber(rating.label, "ru")}
+                  reviewsCount={rating.reviewsCount}
                 />
               </Badge>
             ) : (
