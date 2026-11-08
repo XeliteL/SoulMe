@@ -1,7 +1,10 @@
 .anime-card {
+  --animeCardImagesGradientOpactiy: 1;
+  --animeCardImageScale: 1;
+
   display: flex;
   flex-direction: column;
-  padding: fluid(20, 10) fluid(20, 6) 0;
+  padding: fluid(20, 8) fluid(20, 6) 0;
   background-color: var(--color-black-10);
   border: var(--border);
   border-radius: var(--border-radius-l);
@@ -12,7 +15,11 @@
   }
 
   @include hover {
-    color: var(--color-white);
+    --animeCardImagesGradientOpactiy: 0;
+    --animeCardImageScale: 1.05;
+
+    color: var(--color-turquoise-50);
+    border-radius: var(--border-radius-xl);
     border-color: currentColor;
     transform: translateY(-5px);
   }
@@ -22,9 +29,36 @@
   }
 
   &__image {
+    display: block;
     width: 100%;
+    height: auto;
+    aspect-ratio: 7 / 8;
     object-fit: cover;
-    border-radius: inherit;
+    scale: var(--animeCardImageScale);
+    transition: scale var(--transition-duration) ease-out;
+
+    &-container {
+      position: relative;
+      border-radius: var(--border-radius-s);
+      overflow: hidden;
+
+      @include laptop {
+        border-radius: var(--border-radius-xs);
+      }
+
+      &::after {
+        @include abs-cover;
+
+        content: "";
+        background-image: linear-gradient(
+          180deg,
+          rgb(20 20 20 / 0) 0%,
+          var(--color-black-10) 100%
+        );
+        opacity: var(--animeCardImagesGradientOpactiy);
+        transition: opacity var(--transition-duration) ease-in-out;
+      }
+    }
   }
 
   &__body {

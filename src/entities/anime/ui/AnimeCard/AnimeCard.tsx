@@ -13,8 +13,8 @@ import type { Anime, AnimeStatus } from "../../model/types"
 
 import "./AnimeCard.scss"
 
-const IMAGE_WIDTH = 116
-const IMAGE_HEIGHT = 124
+const IMAGE_WIDTH = 200
+const IMAGE_HEIGHT = 225
 const RELEASE_PREFIX: Record<AnimeStatus, string> = {
   announced: "Выйдет",
   ongoing: "Выходит с",
@@ -52,14 +52,16 @@ const AnimeCard = ({
   return (
     <Link className="anime-card" href={href} title={title}>
       <h3 className="visually-hidden">{title}</h3>
-      <Image
-        className="anime-card__image"
-        src={imgSrc}
-        width={IMAGE_WIDTH}
-        height={IMAGE_HEIGHT}
-        sizes="(max-width: 767px) 50vw, 20vw"
-        alt=""
-      />
+      <div className="anime-card__image-container">
+        <Image
+          className="anime-card__image"
+          src={imgSrc}
+          width={IMAGE_WIDTH}
+          height={IMAGE_HEIGHT}
+          sizes="(max-width: 767px) 50vw, 20vw"
+          alt=""
+        />
+      </div>
       <div className="anime-card__body">
         {showReleaseDate ? (
           <Badge className="anime-card__released-badge">
