@@ -1,6 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 
+import BackButton from "../BackButton"
+
 import "./NotFoundPage.scss"
 
 const NotFoundPage = () => {
@@ -21,7 +23,8 @@ const NotFoundPage = () => {
         <p className="not-found__description">
           Страница, к которой вы обращаетесь, не найдена.
           <br />
-          Пожалуйста, перейдите на <Link href="/">главную страницу сайта</Link>.
+          Пожалуйста, <BackButton /> или перейдите на{" "}
+          <Link href="/">главную страницу сайта</Link>.
         </p>
       </div>
     </main>
