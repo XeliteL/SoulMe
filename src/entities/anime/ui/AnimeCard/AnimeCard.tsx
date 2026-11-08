@@ -9,12 +9,17 @@ import {
 import Badge from "@/shared/ui/Badge"
 import RatingView from "@/shared/ui/RatingView"
 
-import type { Anime } from "../../model/types"
+import type { Anime, AnimeStatus } from "../../model/types"
 
 import "./AnimeCard.scss"
 
 const IMAGE_WIDTH = 116
 const IMAGE_HEIGHT = 124
+const RELEASE_PREFIX: Record<AnimeStatus, string> = {
+  announced: "Выйдет",
+  ongoing: "Выходит с",
+  released: "Вышел",
+}
 
 type AnimeCardProps = Anime & {
   showReleaseDate?: boolean
@@ -30,16 +35,19 @@ const AnimeCard = ({
   href,
   showReleaseDate,
   showRating,
+  status,
   ...rest
 }: AnimeCardProps) => {
   const duration =
-    rest.type === "film"
+    "duration" in rest
       ? formatDuration(rest.duration, "ru")
-      : pluralize(
-          rest.episodes,
-          { one: "серия", few: "серии", many: "серий", other: "серии" },
-          "ru",
-        )
+      : "episodes" in rest
+        ? pluralize(
+            rest.episodes,
+            { one: "серия", few: "серии", many: "серий", other: "серии" },
+            "ru",
+          )
+        : undefined
 
   return (
     <Link className="anime-card" href={href} title={title}>
@@ -55,13 +63,20 @@ const AnimeCard = ({
       <div className="anime-card__body">
         {showReleaseDate ? (
           <Badge className="anime-card__released-badge">
-            Вышел <time dateTime={released.dateTime}>{released.label}</time>
+            {released ? (
+              <>
+                {RELEASE_PREFIX[status]}{" "}
+                <time dateTime={released.dateTime}>{released.label}</time>
+              </>
+            ) : (
+              "Анонс"
+            )}
           </Badge>
         ) : (
           <>
             {duration && (
               <Badge iconName="duration" iconLabel="Длительность" hasFillIcon>
-                {rest.type === "serial" ? (
+                {"episodes" in rest ? (
                   <>
                     <span className="hidden-mobile">{duration}</span>
                     <span className="visible-mobile">{rest.episodes} сер.</span>
