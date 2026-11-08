@@ -177,5 +177,21 @@ describe("Select", () => {
 
       expect(new FormData(form).get("phoneCode")).toBe("+7")
     })
+
+    it("shows the label and submits the value", async () => {
+      const { nativeSelect, combobox, form, getOption } = renderSelect([
+        { value: "comedy", label: "Комедия" },
+        { value: "drama", label: "Драма", isSelected: true },
+      ])
+
+      expect(combobox).toHaveTextContent("Драма")
+      expect(nativeSelect).toHaveValue("drama")
+
+      await userEvent.click(combobox)
+      await userEvent.click(getOption("Комедия"))
+
+      expect(combobox).toHaveTextContent("Комедия")
+      expect(new FormData(form).get("phoneCode")).toBe("comedy")
+    })
   })
 })
