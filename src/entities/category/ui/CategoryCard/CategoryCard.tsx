@@ -25,16 +25,17 @@ const CategoryCard = ({
     <Link className="category-card" href={href}>
       <div className="category-card__images">
         {images.map((imgSrc) => (
-          <Image
-            className="category-card__image"
-            src={imgSrc}
-            width={IMAGE_WIDTH}
-            height={IMAGE_HEIGHT}
-            sizes="(max-width: 767px) 25vw, 10vw"
-            quality={82}
-            alt=""
-            key={imgSrc}
-          />
+          <div className="category-card__image-wrapper" key={imgSrc}>
+            <Image
+              className="category-card__image"
+              src={imgSrc}
+              width={IMAGE_WIDTH}
+              height={IMAGE_HEIGHT}
+              sizes="(max-width: 767px) 25vw, 10vw"
+              quality={82}
+              alt=""
+            />
+          </div>
         ))}
       </div>
       <div className="category-card__body">

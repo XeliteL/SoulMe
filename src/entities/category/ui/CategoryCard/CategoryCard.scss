@@ -1,9 +1,11 @@
 .category-card {
   --categoryCardImagesGradientOpactiy: 1;
+  --categoryCardImageScale: 1;
+  --categoryCardIconOffset: 0;
 
   display: flex;
   flex-direction: column;
-  padding: fluid(30, 20);
+  padding: fluid(22, 12);
   background-color: var(--color-black-10);
   border: var(--border);
   border-radius: var(--border-radius-l);
@@ -15,9 +17,12 @@
 
   @include hover {
     --categoryCardImagesGradientOpactiy: 0;
+    --categoryCardImageScale: 1.05;
+    --categoryCardIconOffset: 4px;
 
-    color: var(--color-white);
+    color: var(--color-turquoise-50);
     border-color: currentColor;
+    border-radius: var(--border-radius-xl);
     transform: translateY(-5px);
   }
 
@@ -41,17 +46,26 @@
         var(--color-black-10) 100%
       );
       opacity: var(--categoryCardImagesGradientOpactiy);
-      transition-duration: var(--transition-duration);
+      transition: opacity var(--transition-duration) ease-in-out;
     }
   }
 
   &__image {
+    display: block;
     width: 100%;
+    height: auto;
+    aspect-ratio: 116/124;
     object-fit: cover;
-    border-radius: var(--border-radius-m);
+    scale: var(--categoryCardImageScale);
+    transition: scale var(--transition-duration) ease-out;
 
-    @include laptop {
-      border-radius: var(--border-radius-xs);
+    &-wrapper {
+      border-radius: var(--border-radius-s);
+      overflow: hidden;
+
+      @include laptop {
+        border-radius: var(--border-radius-xxs);
+      }
     }
   }
 
@@ -70,6 +84,9 @@
   }
 
   &__icon {
+    translate: var(--categoryCardIconOffset) 0;
+    transition: translate var(--transition-duration) ease-out;
+
     &.icon {
       --iconSize: #{fluid(30, 20)};
     }
