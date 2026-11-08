@@ -18,7 +18,6 @@ const PasswordInput = (props: PasswordInputProps) => {
         label={isVisible ? "Скрыть пароль" : "Показать пароль"}
         isLabelHidden
         iconName={isVisible ? "eye-off" : "eye"}
-        hasFillIcon
         onClick={() => setIsVisible(!isVisible)}
       />
     </div>
