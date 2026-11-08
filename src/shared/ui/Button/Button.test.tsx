@@ -97,4 +97,20 @@ describe("Button", () => {
     expect(button).toBeDisabled()
     expect(onClick).not.toHaveBeenCalled()
   })
+
+  it("omits aria-pressed when isPressed is not set", () => {
+    render(<Button label="Смотреть" />)
+
+    expect(
+      screen.getByRole("button", { name: "Смотреть" }),
+    ).not.toHaveAttribute("aria-pressed")
+  })
+
+  it("passes isPressed through to aria-pressed", () => {
+    render(<Button label="В закладки" isPressed />)
+
+    expect(
+      screen.getByRole("button", { name: "В закладки", pressed: true }),
+    ).toBeInTheDocument()
+  })
 })
