@@ -5,6 +5,7 @@
   width: 100%;
   padding-block: fluid(24, 20);
   border-bottom: var(--border-width-xs) solid transparent;
+  view-transition-name: site-header;
 
   @mixin scrolled {
     padding-block: 8px;
@@ -190,4 +191,17 @@
   &__burger-button {
     position: relative;
   }
+}
+
+::view-transition-group(site-header) {
+  z-index: 100;
+  animation: none;
+}
+
+::view-transition-old(site-header) {
+  display: none;
+}
+
+::view-transition-new(site-header) {
+  animation: none;
 }

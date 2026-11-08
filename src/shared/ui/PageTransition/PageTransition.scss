@@ -1,0 +1,29 @@
+::view-transition {
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(.page-exit) {
+    animation: page-transition-fade var(--transition-duration) ease-in both
+      reverse;
+  }
+
+  ::view-transition-new(.page-enter) {
+    animation:
+      page-transition-fade var(--transition-duration) ease-out
+        var(--transition-duration) both,
+      page-transition-slide calc(var(--transition-duration) * 2) ease-out both;
+  }
+}
+
+@keyframes page-transition-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes page-transition-slide {
+  from {
+    translate: 0 12px;
+  }
+}
