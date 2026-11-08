@@ -17,6 +17,7 @@ interface SelectProps {
 
 export interface SelectOption {
   value: string
+  label?: string
   isSelected?: boolean
 }
 
@@ -74,9 +75,9 @@ const Select = ({
         value={options[selectedIndex].value}
         onChange={(event) => setSelectedIndex(event.target.selectedIndex)}
       >
-        {options.map(({ value }) => (
+        {options.map(({ value, label }) => (
           <option value={value} key={value}>
-            {value}
+            {label ?? value}
           </option>
         ))}
       </select>
@@ -98,7 +99,7 @@ const Select = ({
           onClick={toggle}
           onKeyDown={handleKeyDown}
         >
-          {options[selectedIndex].value}
+          {options[selectedIndex].label ?? options[selectedIndex].value}
         </div>
         <div
           className={classNames("select__dropdown", `is-on-${side}-side`, {
@@ -109,7 +110,7 @@ const Select = ({
           role="listbox"
           aria-labelledby={IDs.label}
         >
-          {options.map(({ value }, index) => (
+          {options.map(({ value, label }, index) => (
             <div
               className={classNames("select__option", {
                 "is-selected": index === selectedIndex,
@@ -122,7 +123,7 @@ const Select = ({
               onMouseEnter={() => setCurrentIndex(index)}
               key={value}
             >
-              {value}
+              {label ?? value}
             </div>
           ))}
         </div>
