@@ -1,3 +1,4 @@
+import { ReactNode } from "react"
 import Image from "next/image"
 
 import Button from "@/shared/ui/Button"
@@ -11,6 +12,7 @@ const IMAGE_HEIGHT = 835
 
 type AnimeBannerCardProps = AnimeBanner & {
   loading?: "eager" | "lazy"
+  actions?: ReactNode
 }
 
 const AnimeBannerCard = ({
@@ -18,6 +20,7 @@ const AnimeBannerCard = ({
   description,
   imgSrc,
   loading,
+  actions,
 }: AnimeBannerCardProps) => {
   return (
     <div className="anime-banner-card">
@@ -46,22 +49,11 @@ const AnimeBannerCard = ({
             hasFillIcon
           />
           <div className="anime-banner-card__actions">
+            {actions}
             <Button
               variant="black-06"
-              iconName="plus"
-              label="Добавить в плейлист"
-              isLabelHidden
-            />
-            <Button
-              variant="black-06"
-              iconName="like"
-              label="Любимое"
-              isLabelHidden
-            />
-            <Button
-              variant="black-06"
-              iconName="volume"
-              label="Выключить звук"
+              iconName="information"
+              label="Информация"
               isLabelHidden
             />
           </div>
