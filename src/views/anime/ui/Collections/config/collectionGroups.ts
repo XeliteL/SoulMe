@@ -15,6 +15,8 @@ interface CollectionGroup {
   id: string
 }
 
+const COLLECTION_LIMIT = 10
+
 export const collectionGroups: CollectionGroup[] = [
   {
     title: "Наши жанры",
@@ -30,19 +32,27 @@ export const collectionGroups: CollectionGroup[] = [
   },
   {
     title: "Популярное",
-    items: animeItems,
+    items: animeItems
+      .toSorted((a, b) => b.views - a.views)
+      .slice(0, COLLECTION_LIMIT),
     id: "trends",
   },
   {
     title: "Новые релизы",
-    items: animeItems,
+    items: animeItems
+      .filter((anime) => anime.status !== "announced")
+      .toSorted((a, b) =>
+        b.released.dateTime.localeCompare(a.released.dateTime),
+      )
+      .slice(0, COLLECTION_LIMIT),
     showReleaseDate: true,
     id: "new",
   },
   {
     title: "Обязательно посмотрите",
-    items: animeItems,
-    sliderParams: specialSliderParams,
+    items: animeItems
+      .filter((anime) => anime.tags?.includes("must-watch"))
+      .slice(0, COLLECTION_LIMIT),
     showRating: true,
     id: "recommendation",
   },
