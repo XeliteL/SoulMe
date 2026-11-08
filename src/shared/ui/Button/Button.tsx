@@ -16,6 +16,7 @@ interface ButtonProps {
   variant?: "" | "transparent" | "black-10" | "black-06"
   label?: string
   isLabelHidden?: boolean
+  isPressed?: boolean
   iconName?: IconName
   iconPosition?: "before" | "after"
   hasFillIcon?: boolean
@@ -33,6 +34,7 @@ const Button = ({
   variant = "",
   label,
   isLabelHidden = false,
+  isPressed,
   iconName,
   iconPosition = "before",
   hasFillIcon,
@@ -66,6 +68,7 @@ const Button = ({
         type={type}
         disabled={disabled}
         onClick={onClick}
+        aria-pressed={isPressed}
         {...commonProps}
       >
         {content}

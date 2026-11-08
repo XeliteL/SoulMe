@@ -62,4 +62,12 @@
   &--black-10 {
     background-color: var(--color-black-10);
   }
+
+  &__icon svg {
+    transition: fill var(--transition-duration);
+  }
+
+  &[aria-pressed="true"] .button__icon svg {
+    fill: currentColor;
+  }
 }
