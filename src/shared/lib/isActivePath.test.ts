@@ -7,7 +7,7 @@ describe("isActivePath", () => {
     ["/", "/", true],
     ["/anime", "/", false],
     ["/anime", "/anime", true],
-    ["/anime/title/k-on", "/anime", true],
+    ["/anime/k-on", "/anime", true],
     ["/anime-news", "/anime", false],
     ["/news", "/anime", false],
   ])("pathname %s, href %s → %s", (pathname, href, expected) => {
