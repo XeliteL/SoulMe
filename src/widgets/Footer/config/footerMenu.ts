@@ -53,13 +53,13 @@ export const footerMenu: FooterMenuSection[] = [
   {
     type: "links",
     title: "Закладки",
-    titleHref: "/markers",
+    titleHref: "/bookmarks",
     links: [
-      { label: "Все", href: "/markers#all" },
-      { label: "В планах", href: "/markers#plans" },
-      { label: "Смотрите", href: "/markers#watching" },
-      { label: "Просмотрено", href: "/markers#watched" },
-      { label: "Избранное", href: "/markers#favorites" },
+      { label: "Все", href: "/bookmarks#all" },
+      { label: "В планах", href: "/bookmarks#plans" },
+      { label: "Смотрите", href: "/bookmarks#watching" },
+      { label: "Просмотрено", href: "/bookmarks#watched" },
+      { label: "Избранное", href: "/bookmarks#favorites" },
     ],
   },
   {

@@ -1,4 +1,4 @@
-const MarkersPage = () => (
+const BookmarksPage = () => (
   <>
     <h1>Закладки</h1>
     <h2 id="all">Все</h2>
@@ -9,4 +9,4 @@ const MarkersPage = () => (
   </>
 )
 
-export default MarkersPage
+export default BookmarksPage

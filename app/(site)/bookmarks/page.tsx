@@ -4,4 +4,4 @@ export const metadata: Metadata = {
   title: "Закладки",
 }
 
-export { MarkersPage as default } from "@/views/markers"
+export { BookmarksPage as default } from "@/views/bookmarks"
