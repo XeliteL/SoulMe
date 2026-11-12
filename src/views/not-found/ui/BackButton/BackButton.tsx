@@ -2,11 +2,23 @@
 
 import { useRouter } from "next/navigation"
 
+const isSameOriginReferrer = () =>
+  URL.canParse(document.referrer) &&
+  new URL(document.referrer).origin === window.location.origin
+
+const canGoBack = () => {
+  const navigation: Navigation | undefined = window.navigation
+
+  return navigation
+    ? navigation.canGoBack
+    : window.history.length > 1 && isSameOriginReferrer()
+}
+
 const BackButton = () => {
   const router = useRouter()
 
   const handleClick = () => {
-    if (window.history.length > 1) {
+    if (canGoBack()) {
       router.back()
     } else {
       router.push("/")
