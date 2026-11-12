@@ -1,11 +1,4 @@
-import Link from "next/link"
-
-import Button from "@/shared/ui/Button"
-import Checkbox from "@/shared/ui/Checkbox"
-import Field from "@/shared/ui/Field"
-import Select from "@/shared/ui/Select"
-
-import { phoneCodes } from "./config/phoneCodes"
+import { SupportForm } from "@/features/support"
 
 import "./Support.scss"
 
@@ -28,90 +21,7 @@ const Support = () => {
         </div>
         <div className="support__image" aria-hidden="true" />
       </div>
-      <form className="support__form" action="">
-        <Field
-          className="support__form-cell"
-          label="Имя"
-          name="firstname"
-          placeholder="Иван"
-          isRequired
-          autoComplete="given-name"
-        />
-        <Field
-          className="support__form-cell"
-          label="Фамилия"
-          name="lastname"
-          placeholder="Иванов"
-          autoComplete="family-name"
-        />
-        <Field
-          className="support__form-cell"
-          label="Email"
-          name="email"
-          type="email"
-          placeholder="example@example.com"
-          isRequired
-          autoComplete="email"
-        />
-        <Field
-          className="support__form-cell"
-          label="Номер телефона"
-          name="phone"
-          placeholder="(999) 999-99-99"
-          inputMode="tel"
-          mask="(000) 000-00-00"
-          autoComplete="tel-national"
-          renderBefore={(controlClassName) => (
-            <Select
-              id="support-phone-code"
-              name="phoneCode"
-              label="Телефонный код страны"
-              buttonClassName={controlClassName}
-              options={phoneCodes}
-            />
-          )}
-        />
-        <Field
-          className="support__form-cell support__form-cell--wide"
-          label="Ваша проблема"
-          name="message"
-          type="textarea"
-          placeholder="Здравствуйте, у меня вопрос..."
-          isRequired
-        />
-        <div className="support__form-cell support__form-cell--wide support__form-cell--actions">
-          <Checkbox
-            className="support__form-agreement"
-            label={
-              <>
-                Я соглашаюсь с{" "}
-                <Link
-                  href="/legal/terms"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  условиями использования
-                </Link>{" "}
-                и{" "}
-                <Link
-                  href="/legal/privacy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  политикой конфиденциальности
-                </Link>
-              </>
-            }
-            name="agreement"
-            isRequired
-          />
-          <Button
-            className="support__form-submit-button"
-            label="Отправить сообщение"
-            type="submit"
-          ></Button>
-        </div>
-      </form>
+      <SupportForm />
     </section>
   )
 }

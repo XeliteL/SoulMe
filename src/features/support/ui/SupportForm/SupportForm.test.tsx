@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it } from "vitest"
 
-import Support from "./Support"
+import SupportForm from "./SupportForm"
 
 import { cleanup, render, screen } from "@testing-library/react"
 
@@ -8,15 +8,15 @@ afterEach(() => {
   cleanup()
 })
 
-describe("Support", () => {
+describe("SupportForm", () => {
   it("requires agreeing to the documents before sending", () => {
-    render(<Support />)
+    render(<SupportForm />)
 
     expect(screen.getByRole("checkbox", { name: /соглашаюсь/ })).toBeRequired()
   })
 
   it("offers a phone code with +7 by default", () => {
-    render(<Support />)
+    render(<SupportForm />)
 
     const [nativeSelect] = screen.getAllByRole("combobox", {
       name: "Телефонный код страны",
@@ -27,7 +27,7 @@ describe("Support", () => {
   })
 
   it("names every field for form submission", () => {
-    const { container } = render(<Support />)
+    const { container } = render(<SupportForm />)
     const form = container.querySelector("form")!
 
     expect([...new FormData(form).keys()]).toEqual(
@@ -46,7 +46,7 @@ describe("Support", () => {
     ["условиями использования", "/legal/terms"],
     ["политикой конфиденциальности", "/legal/privacy"],
   ])("links «%s» to %s in a new tab", (name, href) => {
-    render(<Support />)
+    render(<SupportForm />)
 
     const link = screen.getByRole("link", { name })
 
