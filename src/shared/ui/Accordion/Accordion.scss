@@ -23,7 +23,7 @@
     cursor: pointer;
     user-select: none;
 
-    &:hover {
+    @include hover {
       color: var(--color-turquoise-50);
     }
 

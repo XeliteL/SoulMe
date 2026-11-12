@@ -10,7 +10,7 @@
   border: var(--border-width-m) solid var(--color-black-15);
   border-radius: var(--border-radius-xs);
 
-  &:hover {
+  @include hover {
     background-color: var(--color-turquoise-50);
     border-color: transparent;
   }
