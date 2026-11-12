@@ -11,7 +11,8 @@ import "./CategoryCard.scss"
 const IMAGE_WIDTH = 116
 const IMAGE_HEIGHT = 124
 
-type CategoryCardProps = Category & {
+type CategoryCardProps = Omit<Category, "filter"> & {
+  href: string
   badge?: string
 }
 

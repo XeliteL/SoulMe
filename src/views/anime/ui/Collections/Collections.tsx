@@ -1,5 +1,6 @@
 import { AnimeCard } from "@/entities/anime"
 import { CategoryCard } from "@/entities/category"
+import { getCategoryHref } from "@/features/filter"
 import Section from "@/shared/ui/Section"
 import { SliderNavigation, SliderRoot, SliderTrack } from "@/shared/ui/Slider"
 
@@ -19,6 +20,7 @@ const Collections = () => {
           showReleaseDate,
           showRating,
           badge,
+          categoryFilter,
         } = collectionGroup
 
         return (
@@ -40,7 +42,12 @@ const Collections = () => {
                       key={item.id}
                     />
                   ) : (
-                    <CategoryCard {...item} badge={badge} key={item.id} />
+                    <CategoryCard
+                      {...item}
+                      href={getCategoryHref(item, categoryFilter)}
+                      badge={badge}
+                      key={item.id}
+                    />
                   ),
                 )}
               </SliderTrack>

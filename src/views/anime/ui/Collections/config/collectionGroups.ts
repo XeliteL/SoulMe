@@ -2,6 +2,7 @@ import type { SwiperOptions } from "swiper/types"
 
 import { type Anime, animeItems, tagLabels } from "@/entities/anime"
 import { type Category, categoryItems } from "@/entities/category"
+import type { Filter } from "@/features/filter"
 
 import { specialSliderParams } from "./specialSliderParams"
 
@@ -9,6 +10,7 @@ interface CollectionGroup {
   title: string
   items: Category[] | Anime[]
   badge?: string
+  categoryFilter?: Filter
   sliderParams?: SwiperOptions
   showReleaseDate?: boolean
   showRating?: boolean
@@ -27,6 +29,7 @@ export const collectionGroups: CollectionGroup[] = [
     title: "Топ 10 в жанрах",
     items: categoryItems,
     badge: "Топ 10 в",
+    categoryFilter: { sort: "rating" },
     sliderParams: specialSliderParams,
     id: "top",
   },

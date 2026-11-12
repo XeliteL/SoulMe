@@ -1,10 +1,10 @@
-import type { Category } from "./types"
+import type { Category, CategoryFilter } from "./types"
 
 const categories: {
   title: string
   slug: string
   animeIds: [string, string, string, string]
-  query?: string
+  filter?: CategoryFilter
 }[] = [
   {
     title: "Сёнен",
@@ -85,7 +85,7 @@ const categories: {
       "howls-moving-castle",
       "your-name",
     ],
-    query: "type=film",
+    filter: { type: ["film"] },
   },
   {
     title: "Детектив",
@@ -120,11 +120,11 @@ const categories: {
 ]
 
 export const categoryItems: Category[] = categories.map(
-  ({ title, slug, animeIds, query = `genre=${slug}` }) => ({
+  ({ title, slug, animeIds, filter = { genre: [slug] } }) => ({
     kind: "category",
     id: slug,
     title,
     images: animeIds.map((animeId) => `/images/anime/${animeId}.webp`),
-    href: `/anime/filter?collection=${slug}&${query}`,
+    filter,
   }),
 )
