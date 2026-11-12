@@ -1,4 +1,4 @@
-import type { Anime } from "./types"
+import type { Anime } from "../model/types"
 
 export const animeItems: Anime[] = [
   {
