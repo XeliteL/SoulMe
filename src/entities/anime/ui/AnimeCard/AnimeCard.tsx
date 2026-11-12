@@ -9,6 +9,7 @@ import {
 import Badge from "@/shared/ui/Badge"
 import RatingView from "@/shared/ui/RatingView"
 
+import { statusLabels } from "../../config/statusLabels"
 import type { Anime, AnimeStatus } from "../../model/types"
 
 import "./AnimeCard.scss"
@@ -71,7 +72,7 @@ const AnimeCard = ({
                 <time dateTime={released.dateTime}>{released.label}</time>
               </>
             ) : (
-              "Анонс"
+              statusLabels.announced
             )}
           </Badge>
         ) : (

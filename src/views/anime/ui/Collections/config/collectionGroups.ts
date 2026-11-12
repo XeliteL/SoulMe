@@ -1,6 +1,6 @@
 import type { SwiperOptions } from "swiper/types"
 
-import { type Anime, animeItems } from "@/entities/anime"
+import { type Anime, animeItems, tagLabels } from "@/entities/anime"
 import { type Category, categoryItems } from "@/entities/category"
 
 import { specialSliderParams } from "./specialSliderParams"
@@ -49,7 +49,7 @@ export const collectionGroups: CollectionGroup[] = [
     id: "new",
   },
   {
-    title: "Обязательно посмотрите",
+    title: tagLabels["must-watch"],
     items: animeItems
       .filter((anime) => anime.tags?.includes("must-watch"))
       .slice(0, COLLECTION_LIMIT),
