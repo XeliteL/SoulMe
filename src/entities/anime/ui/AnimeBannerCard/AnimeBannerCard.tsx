@@ -3,20 +3,22 @@ import Image from "next/image"
 
 import Button from "@/shared/ui/Button"
 
-import type { AnimeBanner } from "../../model/types"
+import { getAnimeHref, getAnimePlayerHref } from "../../lib/getHref"
+import type { Anime, AnimeBanner } from "../../model/types"
 
 import "./AnimeBannerCard.scss"
 
 const IMAGE_WIDTH = 1605
 const IMAGE_HEIGHT = 835
 
-type AnimeBannerCardProps = AnimeBanner & {
+type AnimeBannerCardProps = Omit<AnimeBanner, "animeId"> & {
+  anime: Anime
   loading?: "eager" | "lazy"
   actions?: ReactNode
 }
 
 const AnimeBannerCard = ({
-  title,
+  anime: { title, id },
   description,
   imgSrc,
   loading,
@@ -44,6 +46,7 @@ const AnimeBannerCard = ({
         <div className="anime-banner-card__footer">
           <Button
             className="anime-banner-card__play-button"
+            href={getAnimePlayerHref(id)}
             iconName="play"
             label="Смотреть"
             hasFillIcon
@@ -54,6 +57,7 @@ const AnimeBannerCard = ({
               variant="black-06"
               iconName="information"
               label="Информация"
+              href={getAnimeHref(id)}
               isLabelHidden
             />
           </div>

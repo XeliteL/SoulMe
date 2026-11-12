@@ -1,4 +1,5 @@
 export { animeItems } from "./api/animeItems"
+export { getAnimeById } from "./api/getAnimeById"
 export { ageRatings } from "./config/ageRatings"
 export { genreLabels } from "./config/genreLabels"
 export { statusLabels } from "./config/statusLabels"

@@ -1,11 +1,17 @@
-import { AnimeBannerCard } from "@/entities/anime"
+import { AnimeBannerCard, getAnimeById } from "@/entities/anime"
 import { ListToggle } from "@/features/lists"
 import Section from "@/shared/ui/Section"
 import Slider from "@/shared/ui/Slider"
 
-import { animeCards } from "./config/animeCards"
+import { bannerCards } from "./config/bannerCards"
 
 import "./AnimeBanner.scss"
+
+const slides = bannerCards.flatMap(({ animeId, ...card }) => {
+  const anime = getAnimeById(animeId)
+
+  return anime ? [{ ...card, anime }] : []
+})
 
 const AnimeBanner = () => {
   const titleId = "anime-banner-title"
@@ -21,17 +27,19 @@ const AnimeBanner = () => {
         hasScrollbarOnMobile={false}
         isBeyondTheViewportOnMobileS={false}
       >
-        {animeCards.map((animeCard, index) => (
+        {slides.map(({ anime, description, imgSrc }, index) => (
           <AnimeBannerCard
-            {...animeCard}
+            anime={anime}
+            description={description}
+            imgSrc={imgSrc}
             actions={
               <>
-                <ListToggle animeId={animeCard.id} list="bookmarks" />
-                <ListToggle animeId={animeCard.id} list="favorites" />
+                <ListToggle animeId={anime.id} list="bookmarks" />
+                <ListToggle animeId={anime.id} list="favorites" />
               </>
             }
             loading={index === 0 ? "eager" : undefined}
-            key={animeCard.id}
+            key={anime.id}
           />
         ))}
       </Slider>

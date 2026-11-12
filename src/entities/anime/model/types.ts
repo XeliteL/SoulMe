@@ -76,8 +76,7 @@ export type Anime =
     } & AnimeRuntime)
 
 export interface AnimeBanner {
-  id: string
-  title: string
+  animeId: string
   description: string
   imgSrc: string
 }
