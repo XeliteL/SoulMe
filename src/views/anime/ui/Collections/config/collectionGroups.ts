@@ -26,9 +26,9 @@ export const collectionGroups: CollectionGroup[] = [
     id: "genres",
   },
   {
-    title: "Топ 10 в жанрах",
+    title: "Лучшие в жанрах",
     items: categoryItems,
-    badge: "Топ 10 в",
+    badge: "Лучшее",
     categoryFilter: { sort: "rating" },
     sliderParams: specialSliderParams,
     id: "top",

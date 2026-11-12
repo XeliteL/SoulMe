@@ -44,7 +44,7 @@ export const footerMenu: FooterMenuSection[] = [
     titleHref: "/anime",
     links: [
       { label: "Наши жанры", href: "/anime#genres" },
-      { label: "Топ 10 в жанрах", href: "/anime#top" },
+      { label: "Лучшие в жанрах", href: "/anime#top" },
       { label: "Популярное", href: "/anime#trends" },
       { label: "Новые релизы", href: "/anime#new" },
       { label: "Обязательно посмотрите", href: "/anime#recommendation" },
