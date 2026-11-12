@@ -14,31 +14,70 @@ const setHistoryLength = (length: number) => {
   vi.spyOn(window.history, "length", "get").mockReturnValue(length)
 }
 
+const setReferrer = (referrer: string) => {
+  vi.spyOn(document, "referrer", "get").mockReturnValue(referrer)
+}
+
+const clickBack = () => {
+  render(<BackButton />)
+  fireEvent.click(screen.getByRole("button", { name: "вернитесь назад" }))
+}
+
 describe("BackButton", () => {
   afterEach(() => {
     cleanup()
+    Reflect.deleteProperty(window, "navigation")
     vi.restoreAllMocks()
     back.mockReset()
     push.mockReset()
   })
 
-  it("возвращает на предыдущую страницу, если есть история", () => {
+  it("возвращает назад, если пришли со своего сайта", () => {
     setHistoryLength(2)
-    render(<BackButton />)
+    setReferrer(`${window.location.origin}/anime`)
 
-    fireEvent.click(screen.getByRole("button", { name: "вернитесь назад" }))
+    clickBack()
 
     expect(back).toHaveBeenCalledOnce()
     expect(push).not.toHaveBeenCalled()
   })
 
-  it("ведёт на главную, если истории нет", () => {
-    setHistoryLength(1)
-    render(<BackButton />)
+  it("ведёт на главную, если пришли с чужого сайта", () => {
+    setHistoryLength(2)
+    setReferrer("https://example.com/")
 
-    fireEvent.click(screen.getByRole("button", { name: "вернитесь назад" }))
+    clickBack()
 
     expect(push).toHaveBeenCalledWith("/")
     expect(back).not.toHaveBeenCalled()
   })
+
+  it("ведёт на главную, если истории нет", () => {
+    setHistoryLength(1)
+    setReferrer(`${window.location.origin}/anime`)
+
+    clickBack()
+
+    expect(push).toHaveBeenCalledWith("/")
+    expect(back).not.toHaveBeenCalled()
+  })
+
+  it.each([
+    [true, back],
+    [false, push],
+  ])(
+    "с Navigation API при canGoBack = %s не смотрит на referrer",
+    (canGoBack, expected) => {
+      Object.defineProperty(window, "navigation", {
+        configurable: true,
+        value: { canGoBack },
+      })
+      setHistoryLength(2)
+      setReferrer("https://example.com/")
+
+      clickBack()
+
+      expect(expected).toHaveBeenCalledOnce()
+    },
+  )
 })
