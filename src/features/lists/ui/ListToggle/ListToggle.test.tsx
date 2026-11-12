@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it } from "vitest"
 
-import AnimeListToggle from "./AnimeListToggle"
+import ListToggle from "./ListToggle"
 
 import { cleanup, fireEvent, render, screen } from "@testing-library/react"
 
@@ -8,9 +8,9 @@ afterEach(() => {
   cleanup()
 })
 
-describe("AnimeListToggle", () => {
+describe("ListToggle", () => {
   it("renders an unpressed toggle with the list label", () => {
-    render(<AnimeListToggle animeId="berserk" list="bookmarks" />)
+    render(<ListToggle animeId="berserk" list="bookmarks" />)
 
     expect(
       screen.getByRole("button", { name: "В закладки", pressed: false }),
@@ -18,7 +18,7 @@ describe("AnimeListToggle", () => {
   })
 
   it("toggles the pressed state on each click", () => {
-    render(<AnimeListToggle animeId="berserk" list="favorites" />)
+    render(<ListToggle animeId="berserk" list="favorites" />)
 
     const button = screen.getByRole("button", { name: "В избранное" })
 
@@ -30,7 +30,7 @@ describe("AnimeListToggle", () => {
   })
 
   it("keeps the label when pressed", () => {
-    render(<AnimeListToggle animeId="berserk" list="bookmarks" />)
+    render(<ListToggle animeId="berserk" list="bookmarks" />)
 
     fireEvent.click(screen.getByRole("button", { name: "В закладки" }))
 

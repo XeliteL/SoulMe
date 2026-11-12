@@ -4,16 +4,16 @@ import { useState } from "react"
 
 import Button from "@/shared/ui/Button"
 
-import { type AnimeList, animeLists } from "../../model/animeLists"
+import { type List, lists } from "../../model/lists"
 
-interface AnimeListToggleProps {
+interface ListToggleProps {
   animeId: string
-  list: AnimeList
+  list: List
 }
 
-const AnimeListToggle = ({ list }: AnimeListToggleProps) => {
+const ListToggle = ({ list }: ListToggleProps) => {
   const [isAdded, setIsAdded] = useState(false)
-  const { label, iconName } = animeLists[list]
+  const { label, iconName } = lists[list]
 
   return (
     <Button
@@ -27,4 +27,4 @@ const AnimeListToggle = ({ list }: AnimeListToggleProps) => {
   )
 }
 
-export default AnimeListToggle
+export default ListToggle

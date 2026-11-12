@@ -1,5 +1,5 @@
 import { AnimeBannerCard } from "@/entities/anime"
-import { AnimeListToggle } from "@/features/anime-lists"
+import { ListToggle } from "@/features/lists"
 import Section from "@/shared/ui/Section"
 import Slider from "@/shared/ui/Slider"
 
@@ -26,8 +26,8 @@ const AnimeBanner = () => {
             {...animeCard}
             actions={
               <>
-                <AnimeListToggle animeId={animeCard.id} list="bookmarks" />
-                <AnimeListToggle animeId={animeCard.id} list="favorites" />
+                <ListToggle animeId={animeCard.id} list="bookmarks" />
+                <ListToggle animeId={animeCard.id} list="favorites" />
               </>
             }
             loading={index === 0 ? "eager" : undefined}
