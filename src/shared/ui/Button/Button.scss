@@ -13,7 +13,7 @@
 
   @include hover {
     color: var(--color-white);
-    background: var(--color-turquoise-50);
+    background: var(--color-turquoise-40);
     border-radius: var(--border-radius-xl);
   }
 
@@ -61,6 +61,14 @@
 
   &--black-10 {
     background-color: var(--color-black-10);
+  }
+
+  &--black-06,
+  &--black-10,
+  &--transparent {
+    @include hover {
+      background-color: var(--color-turquoise-45);
+    }
   }
 
   &__icon svg {
