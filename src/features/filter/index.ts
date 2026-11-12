@@ -1,3 +1,4 @@
+export { collectionPresets } from "./config/collectionPresets"
 export { type EpisodeRange, episodeRanges } from "./config/episodeRanges"
 export {
   type RatingThreshold,
@@ -13,4 +14,5 @@ export { type StatusOption, statusOptions } from "./config/statusOptions"
 export { applyFilter } from "./lib/applyFilter"
 export { applySort } from "./lib/applySort"
 export { buildFilterHref } from "./lib/buildFilterHref"
+export { getCollectionTitle } from "./lib/getCollectionTitle"
 export { type Filter, parseFilter } from "./model/filterSchema"
