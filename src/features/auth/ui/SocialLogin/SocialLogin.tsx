@@ -5,8 +5,8 @@ import { useActionState } from "react"
 import Button from "@/shared/ui/Button"
 
 import { signInWithProvider } from "../../api/actions"
+import { socialProviders } from "../../config/socialProviders"
 import { initialState } from "../../model/initialState"
-import { socialProviders } from "../../model/socialProviders"
 import AuthFormMessage from "../AuthFormMessage"
 
 import "./SocialLogin.scss"

@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest"
 
-import { socialProviders } from "../../model/socialProviders"
+import { socialProviders } from "../../config/socialProviders"
 import type { SocialLoginState } from "../../model/types"
 import SocialLogin from "./SocialLogin"
 

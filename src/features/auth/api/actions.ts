@@ -1,7 +1,7 @@
 "use server"
 
-import { getFieldErrors } from "../model/getFieldErrors"
-import { socialProviders } from "../model/socialProviders"
+import { socialProviders } from "../config/socialProviders"
+import { getFieldErrors } from "../lib/getFieldErrors"
 import {
   type LoginState,
   type RegisterState,

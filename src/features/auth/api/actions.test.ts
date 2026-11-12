@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest"
 
-import { socialProviders } from "../model/socialProviders"
+import { socialProviders } from "../config/socialProviders"
 import {
   login,
   register,

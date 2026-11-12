@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest"
 import { z } from "zod"
 
-import { getFieldErrors } from "./getFieldErrors"
+import { getFieldErrors } from "../lib/getFieldErrors"
 import {
   loginSchema,
   registerSchema,
