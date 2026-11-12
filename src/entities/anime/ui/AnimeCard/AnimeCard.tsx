@@ -10,6 +10,7 @@ import Badge from "@/shared/ui/Badge"
 import RatingView from "@/shared/ui/RatingView"
 
 import { statusLabels } from "../../config/statusLabels"
+import { getAnimeHref } from "../../lib/getHref"
 import type { Anime, AnimeStatus } from "../../model/types"
 
 import "./AnimeCard.scss"
@@ -28,12 +29,12 @@ type AnimeCardProps = Anime & {
 }
 
 const AnimeCard = ({
+  id,
   title,
   imgSrc,
   views,
   released,
   rating,
-  href,
   showReleaseDate,
   showRating,
   status,
@@ -51,7 +52,7 @@ const AnimeCard = ({
         : undefined
 
   return (
-    <Link className="anime-card" href={href} title={title}>
+    <Link className="anime-card" href={getAnimeHref(id)} title={title}>
       <h3 className="visually-hidden">{title}</h3>
       <div className="anime-card__image-container">
         <Image

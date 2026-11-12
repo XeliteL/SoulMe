@@ -12,7 +12,6 @@ interface AnimeBase {
     value: number
     reviewsCount: number
   }
-  href: string
   tags?: AnimeTag[]
 }
 

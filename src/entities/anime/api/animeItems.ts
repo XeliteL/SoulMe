@@ -23,7 +23,6 @@ export const animeItems: Anime[] = [
       value: 10,
       reviewsCount: 1_000_000,
     },
-    href: "/anime/soul-eater",
     tags: ["must-watch"],
   },
   {
@@ -48,7 +47,6 @@ export const animeItems: Anime[] = [
       value: 9.6,
       reviewsCount: 3_067_067,
     },
-    href: "/anime/k-on",
   },
   {
     kind: "anime",
@@ -72,7 +70,6 @@ export const animeItems: Anime[] = [
       value: 9,
       reviewsCount: 2_280_000,
     },
-    href: "/anime/gurren-lagann",
     tags: ["must-watch"],
   },
   {
@@ -97,7 +94,6 @@ export const animeItems: Anime[] = [
       value: 8.3,
       reviewsCount: 10_000_000,
     },
-    href: "/anime/one-piece",
     tags: ["must-watch"],
   },
   {
@@ -122,7 +118,6 @@ export const animeItems: Anime[] = [
       value: 4,
       reviewsCount: 6_767_670,
     },
-    href: "/anime/akira",
   },
   {
     kind: "anime",
@@ -146,7 +141,6 @@ export const animeItems: Anime[] = [
       value: 7.4,
       reviewsCount: 800_000,
     },
-    href: "/anime/bleach",
   },
   {
     kind: "anime",
@@ -170,7 +164,6 @@ export const animeItems: Anime[] = [
       value: 8.2,
       reviewsCount: 1_200_000,
     },
-    href: "/anime/frieren",
     tags: ["must-watch"],
   },
   {
@@ -195,7 +188,6 @@ export const animeItems: Anime[] = [
       value: 10,
       reviewsCount: 2_020_000,
     },
-    href: "/anime/bocchi-the-rock",
     tags: ["must-watch"],
   },
   {
@@ -220,7 +212,6 @@ export const animeItems: Anime[] = [
       value: 6.8,
       reviewsCount: 1_000_000,
     },
-    href: "/anime/chainsaw-man",
   },
   {
     kind: "anime",
@@ -244,7 +235,6 @@ export const animeItems: Anime[] = [
       value: 9.9,
       reviewsCount: 1_000_000,
     },
-    href: "/anime/chainsaw-man-reze",
     tags: ["must-watch"],
   },
   {
@@ -264,7 +254,6 @@ export const animeItems: Anime[] = [
       value: 0,
       reviewsCount: 0,
     },
-    href: "/anime/chainsaw-man-assassins",
   },
   {
     kind: "anime",
@@ -288,7 +277,6 @@ export const animeItems: Anime[] = [
       value: 7.1,
       reviewsCount: 10_000,
     },
-    href: "/anime/konosuba-season2-ova",
   },
   {
     kind: "anime",
@@ -312,7 +300,6 @@ export const animeItems: Anime[] = [
       value: 8,
       reviewsCount: 1_500_000,
     },
-    href: "/anime/code-geass",
   },
   {
     kind: "anime",
@@ -336,6 +323,5 @@ export const animeItems: Anime[] = [
       value: 8.9,
       reviewsCount: 640_000,
     },
-    href: "/anime/the-apothecary-diaries",
   },
 ]

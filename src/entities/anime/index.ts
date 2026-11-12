@@ -4,6 +4,7 @@ export { genreLabels } from "./config/genreLabels"
 export { statusLabels } from "./config/statusLabels"
 export { tagLabels } from "./config/tagLabels"
 export { typeLabels } from "./config/typeLabels"
+export { getAnimeHref, getAnimePlayerHref } from "./lib/getHref"
 export type {
   Anime,
   AnimeAgeRating,
