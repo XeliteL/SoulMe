@@ -1,7 +1,7 @@
 .support {
   display: grid;
   gap: 50px fluid-to-laptop(80, 50);
-  padding: var(--section-padding-y) var(--section-padding-x);
+  padding-block: var(--section-padding-y);
 
   @include mobile-above {
     grid-template-columns: 33.5% 1fr;

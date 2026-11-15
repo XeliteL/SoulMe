@@ -3,7 +3,7 @@
 
   display: grid;
   gap: fluid(30, 20);
-  padding: var(--section-padding-y) var(--section-padding-x);
+  padding-block: var(--section-padding-y);
 
   @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {

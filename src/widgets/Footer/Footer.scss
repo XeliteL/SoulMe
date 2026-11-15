@@ -7,7 +7,7 @@
     display: grid;
     grid-template-columns: repeat(var(--footerMenuColumns), 1fr);
     gap: 30px fluid(30, 10);
-    padding: fluid(60, 30) var(--section-padding-x);
+    padding-block: fluid(60, 30);
     border-bottom: var(--border);
 
     @include laptop {
@@ -38,7 +38,7 @@
     justify-content: space-between;
     align-items: center;
     column-gap: 16px;
-    padding: fluid-to-laptop(24, 20) var(--section-padding-x) fluid(50, 20);
+    padding-block: fluid-to-laptop(24, 20) fluid(50, 20);
 
     @include mobile {
       flex-direction: column-reverse;
