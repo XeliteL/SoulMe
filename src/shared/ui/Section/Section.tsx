@@ -8,6 +8,7 @@ import "./Section.scss"
 interface SectionProps {
   className?: string
   title?: string
+  titleAs?: "h1" | "h2"
   id?: string
   ariaLabelledby?: string
   description?: string
@@ -19,6 +20,7 @@ interface SectionProps {
 const Section = ({
   className,
   title,
+  titleAs = "h2",
   description,
   actions,
   id,
@@ -27,6 +29,7 @@ const Section = ({
   children,
 }: SectionProps) => {
   const headingId = useBaseId()
+  const TitleTag = titleAs
 
   return (
     <section
@@ -38,9 +41,9 @@ const Section = ({
         <header className="section__header">
           <div className="section__info">
             {title && (
-              <h2 className="section__title h3" id={headingId}>
+              <TitleTag className="section__title h3" id={headingId}>
                 {title}
-              </h2>
+              </TitleTag>
             )}
             {description && (
               <div className="section__description">
