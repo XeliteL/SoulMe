@@ -10,18 +10,16 @@ const Banner = () => {
       <div className="banner__inner">
         <div className="banner__body">
           <h2 className="banner__title" id={titleId}>
-            Добро пожаловать в SoulMe!
+            Не знаешь, что посмотреть?
           </h2>
           <div className="banner__description">
-            <p>
-              Войдите в аккаунт SoulMe, чтобы синхронизировать ваши закладки.
-            </p>
+            <p>Отфильтруй каталог по жанру, году и рейтингу</p>
           </div>
         </div>
         <Button
           className="banner__button"
-          label="Войти в аккаунт"
-          href="/auth"
+          label="Подобрать аниме"
+          href="/anime/filter"
         />
       </div>
     </section>

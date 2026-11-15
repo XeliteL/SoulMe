@@ -1,10 +1,6 @@
 .banner {
   padding: var(--section-padding-y) var(--section-padding-x);
 
-  [data-auth] & {
-    display: none;
-  }
-
   &__inner {
     --bannerBackgroundImage: image-set(
       url(../../shared/assets/images/banner/bg-desktop.avif) type("image/avif"),
