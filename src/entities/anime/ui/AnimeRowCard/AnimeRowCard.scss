@@ -1,0 +1,48 @@
+.anime-row-card {
+  display: grid;
+  grid-template-columns: 162px 1fr;
+  gap: fluid(20, 10);
+
+  @include hover {
+    .anime-row-card__title {
+      color: var(--color-turquoise-50);
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 162 / 226;
+    object-fit: cover;
+    border-radius: var(--border-radius-l);
+  }
+
+  &__body {
+    display: grid;
+    align-content: start;
+    justify-items: start;
+    gap: fluid(4, 2);
+  }
+
+  &__title {
+    transition: color var(--transition-duration);
+  }
+
+  &__info,
+  &__description {
+    font-size: fluid(18, 14);
+  }
+
+  &__info {
+    @include line-clamp(2);
+
+    color: var(--color-gray-60);
+  }
+
+  &__description {
+    @include line-clamp(5);
+
+    color: var(--color-white);
+  }
+}

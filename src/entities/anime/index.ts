@@ -17,3 +17,5 @@ export type {
 } from "./model/types"
 export { default as AnimeBannerCard } from "./ui/AnimeBannerCard"
 export { default as AnimeCard } from "./ui/AnimeCard"
+export { default as AnimePosterCard } from "./ui/AnimePosterCard"
+export { default as AnimeRowCard } from "./ui/AnimeRowCard"
