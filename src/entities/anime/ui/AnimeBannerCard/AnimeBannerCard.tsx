@@ -32,6 +32,7 @@ const AnimeBannerCard = ({
         width={IMAGE_WIDTH}
         height={IMAGE_HEIGHT}
         sizes="100vw"
+        quality={82}
         loading={loading}
         fetchPriority={loading === "eager" ? "high" : undefined}
         alt=""
