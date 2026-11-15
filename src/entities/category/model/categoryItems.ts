@@ -9,7 +9,7 @@ const categories: {
   {
     title: "Сёнен",
     slug: "shounen",
-    animeIds: ["soul-eater", "hunter-x-hunter", "one-piece", "bleach"],
+    animeIds: ["soul-eater", "dandadan", "one-piece", "bleach"],
   },
   {
     title: "Комедия",
@@ -30,10 +30,10 @@ const categories: {
     title: "Драма",
     slug: "drama",
     animeIds: [
-      "the-apothecary-diaries",
       "violet-evergarden",
       "clannad-after-story",
       "plastic-memories",
+      "5-centimeters-per-second",
     ],
   },
   {
@@ -42,7 +42,7 @@ const categories: {
     animeIds: [
       "frieren",
       "delicious-in-dungeon",
-      "fate-strange-fake-whispers-of-dawn",
+      "howls-moving-castle",
       "goblin-slayer",
     ],
   },
@@ -62,30 +62,9 @@ const categories: {
     animeIds: ["chainsaw-man-reze", "monster", "berserk", "tokyo-ghoul"],
   },
   {
-    title: "Экшен",
-    slug: "action",
-    animeIds: [
-      "dandadan",
-      "jujutsu-kaisen",
-      "fullmetal-alchemist-brotherhood",
-      "naruto",
-    ],
-  },
-  {
     title: "Сёдзё",
     slug: "shoujo",
     animeIds: ["kamisama-kiss", "nana", "natsume-yuujinchou", "fruits-basket"],
-  },
-  {
-    title: "Фильмы",
-    slug: "films",
-    animeIds: [
-      "akira",
-      "5-centimeters-per-second",
-      "howls-moving-castle",
-      "your-name",
-    ],
-    filter: { type: ["film"] },
   },
   {
     title: "Детектив",
@@ -96,21 +75,6 @@ const categories: {
       "psycho-pass",
       "bungo-stray-dogs",
     ],
-  },
-  {
-    title: "Меха",
-    slug: "mecha",
-    animeIds: [
-      "gurren-lagann",
-      "code-geass",
-      "darling-in-the-franxx",
-      "evangelion",
-    ],
-  },
-  {
-    title: "Спорт",
-    slug: "sport",
-    animeIds: ["kurokos-basketball", "blue-lock", "hajime-no-ippo", "haikyuu"],
   },
   {
     title: "Хоррор",
