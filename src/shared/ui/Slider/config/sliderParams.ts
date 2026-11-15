@@ -53,7 +53,7 @@ export const sliderParamsByVariant = {
       0: {
         slidesPerView: 1,
         slidesPerGroup: 1,
-        spaceBetween: 20,
+        spaceBetween: 10,
       },
       481: {
         slidesPerView: 1,
