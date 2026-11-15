@@ -18,6 +18,7 @@ import {
 } from "../config/ratingThresholds"
 import { type SortKey, sortOptions, sortOrders } from "../config/sortOptions"
 import { type StatusOption, statusOptions } from "../config/statusOptions"
+import { views } from "../config/viewOptions"
 
 const ageRatingKeys = Object.keys(ageRatings) as AnimeAgeRating[]
 const episodeRangeKeys = Object.keys(episodeRanges) as EpisodeRange[]
@@ -60,6 +61,7 @@ const filterSchema = z.object({
   tag: list(tagKeys),
   order: optional(z.enum(sortOrders)),
   sort: optional(z.enum(sortKeys)),
+  view: optional(z.enum(views)),
 })
 
 export type Filter = z.infer<typeof filterSchema>

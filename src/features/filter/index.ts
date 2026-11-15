@@ -11,6 +11,12 @@ export {
   sortOrders,
 } from "./config/sortOptions"
 export { type StatusOption, statusOptions } from "./config/statusOptions"
+export {
+  DEFAULT_VIEW,
+  type View,
+  viewOptions,
+  views,
+} from "./config/viewOptions"
 export { applyFilter } from "./lib/applyFilter"
 export { applySort } from "./lib/applySort"
 export { buildFilterHref } from "./lib/buildFilterHref"
