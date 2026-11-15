@@ -54,6 +54,11 @@ describe("parseFilter", () => {
     expect(parseFilter({ sort: "nope", order: "0" })).toEqual({})
   })
 
+  it("принимает только известный view", () => {
+    expect(parseFilter({ view: "list" })).toEqual({ view: "list" })
+    expect(parseFilter({ view: "table" })).toEqual({})
+  })
+
   it("меняет местами yearFrom и yearTo, если они перепутаны", () => {
     expect(parseFilter({ yearFrom: "2020", yearTo: "2010" })).toEqual({
       yearFrom: 2010,

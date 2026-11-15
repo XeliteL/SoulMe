@@ -45,4 +45,11 @@ describe("buildFilterHref", () => {
     )
     expect(buildFilterHref({ order: "asc" })).toBe("/anime/filter")
   })
+
+  it("пишет view только если он отличается от вида по умолчанию", () => {
+    expect(buildFilterHref({ view: "grid" })).toBe("/anime/filter")
+    expect(buildFilterHref({ sort: "title", view: "list" })).toBe(
+      "/anime/filter?sort=title&view=list",
+    )
+  })
 })
