@@ -20,6 +20,27 @@ describe("Section", () => {
     )
   })
 
+  it("renders an h2 heading by default", () => {
+    render(<Section title="Популярное" />)
+
+    expect(
+      screen.getByRole("heading", { level: 2, name: "Популярное" }),
+    ).toBeInTheDocument()
+  })
+
+  it("renders the heading with the level from titleAs", () => {
+    render(<Section title="Результаты фильтра" titleAs="h1" />)
+
+    const heading = screen.getByRole("heading", {
+      level: 1,
+      name: "Результаты фильтра",
+    })
+
+    expect(
+      screen.getByRole("region", { name: "Результаты фильтра" }),
+    ).toHaveAttribute("aria-labelledby", heading.id)
+  })
+
   it("generates a unique heading id for every section", () => {
     render(
       <>
