@@ -1188,4 +1188,50 @@ export const animeItems: Anime[] = [
       reviewsCount: 870_000,
     },
   },
+  {
+    kind: "anime",
+    id: "black-clover-season2",
+    title: "Чёрный клевер 2",
+    originalTitle: "Black Clover 2nd Season",
+    description:
+      "Аста и Чёрные быки продолжают войну с королевством Пик, которым правит Тёмная триада, заключившая сделки с высшими демонами. Чтобы спасти друзей и дойти до мечты стать Королём магов, Асте придётся сразиться с врагами, перед которыми бессильна обычная магия.",
+    ageRating: "pg-13",
+    type: "serial",
+    status: "ongoing",
+    genres: ["shounen", "action", "comedy", "fantasy"],
+    imgSrc: "/images/anime/black-clover-season2.webp",
+    episodes: 7,
+    views: 850_000,
+    released: {
+      label: "03 Октября 2026",
+      dateTime: "2026-10-03",
+    },
+    rating: {
+      value: 8,
+      reviewsCount: 120_000,
+    },
+  },
+  {
+    kind: "anime",
+    id: "k-on-live-house",
+    title: "Кэйон! Лайв-хаус!",
+    originalTitle: "K-On!: Live House!",
+    description:
+      "Лёгкий музыкальный клуб впервые выступает не в школьном актовом зале, а в настоящем лайв-хаусе. Юи и подругам предстоит освоиться за кулисами, пережить саундчек и не растеряться перед незнакомой публикой.",
+    ageRating: "pg-13",
+    type: "special",
+    status: "released",
+    genres: ["music", "comedy", "slice-of-life", "school"],
+    imgSrc: "/images/anime/k-on-live-house.webp",
+    duration: 23,
+    views: 120_000,
+    released: {
+      label: "19 Января 2010",
+      dateTime: "2010-01-19",
+    },
+    rating: {
+      value: 7.8,
+      reviewsCount: 15_000,
+    },
+  },
 ]
