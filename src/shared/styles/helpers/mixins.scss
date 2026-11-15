@@ -80,4 +80,12 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  line-clamp: $lines;
+  overflow: hidden;
+}
 /* stylelint-enable declaration-no-important */
