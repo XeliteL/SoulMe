@@ -33,6 +33,10 @@
     border-radius: 100px;
   }
 
+  &--favorite {
+    background-color: var(--color-pink);
+  }
+
   &__icon {
     &.icon {
       --iconSize: #{fluid-to-laptop(22, 16)};
