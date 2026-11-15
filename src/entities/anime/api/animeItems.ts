@@ -492,7 +492,7 @@ export const animeItems: Anime[] = [
     originalTitle: "Clannad: After Story",
     description:
       "Томоя Окадзаки и Нагиса Фурукава оканчивают школу и начинают взрослую жизнь: работа, собственный дом, семья. Эта история о том, как трудно и как важно взрослеть, принимать ответственность и не отпускать тех, кого любишь.",
-    ageRating: "pg",
+    ageRating: "pg-13",
     type: "serial",
     status: "released",
     genres: ["drama", "romance", "slice-of-life", "supernatural"],
@@ -751,7 +751,7 @@ export const animeItems: Anime[] = [
     originalTitle: "Howl no Ugoku Shiro",
     description:
       "Ведьма Пустоши превращает юную шляпницу Софи в старуху. В поисках способа снять проклятие Софи нанимается уборщицей в ходячий замок чародея Хаула, которого в городе боятся как пожирателя девичьих сердец.",
-    ageRating: "g",
+    ageRating: "pg",
     type: "film",
     status: "released",
     genres: ["fantasy", "adventure", "romance", "drama"],
