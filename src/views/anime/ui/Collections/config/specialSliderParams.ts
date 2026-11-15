@@ -11,19 +11,9 @@ export const specialSliderParams = {
       spaceBetween: 30,
     },
     650: {
-      slidesPerView: 2,
-      slidesPerGroup: 2,
-      spaceBetween: 30,
-    },
-    900: {
       slidesPerView: 3,
       slidesPerGroup: 3,
-      spaceBetween: 30,
-    },
-    1025: {
-      slidesPerView: 3,
-      slidesPerGroup: 3,
-      spaceBetween: 30,
+      spaceBetween: 20,
     },
     1200: {
       slidesPerView: 4,
