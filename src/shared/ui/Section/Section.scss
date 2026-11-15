@@ -19,15 +19,22 @@
     align-items: center;
     column-gap: 16px;
 
-    @include mobile {
-      flex-direction: column;
-      align-items: start;
-      row-gap: 20px;
-    }
-
     &:has(.section__description) {
       align-items: end;
+
+      @include mobile {
+        flex-direction: column;
+        align-items: start;
+        row-gap: 20px;
+      }
     }
+  }
+
+  &__actions {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    column-gap: 16px;
   }
 
   &__info {

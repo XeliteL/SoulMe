@@ -2,7 +2,8 @@ import type { SwiperOptions } from "swiper/types"
 
 import { type Anime, animeItems, tagLabels } from "@/entities/anime"
 import { type Category, categoryItems } from "@/entities/category"
-import type { Filter } from "@/features/filter"
+import { buildFilterHref, type Filter } from "@/features/filter"
+import type { IconName } from "@/shared/ui/Icon"
 
 import { specialSliderParams } from "./specialSliderParams"
 
@@ -15,6 +16,7 @@ interface CollectionGroup {
   showReleaseDate?: boolean
   showRating?: boolean
   id: string
+  more?: { label: string; href: string; iconName: IconName }
 }
 
 const COLLECTION_LIMIT = 10
@@ -24,6 +26,11 @@ export const collectionGroups: CollectionGroup[] = [
     title: "Наши жанры",
     items: categoryItems,
     id: "genres",
+    more: {
+      label: "Весь каталог",
+      href: buildFilterHref({}),
+      iconName: "catalog",
+    },
   },
   {
     title: "Лучшие в жанрах",

@@ -22,6 +22,7 @@ const defaultLabels: SliderNavigationLabels = {
 }
 
 interface SliderNavigationProps {
+  className?: string
   variant?: "" | "tile"
   hasPagination?: boolean
   position?: "" | "abs-bottom"
@@ -29,6 +30,7 @@ interface SliderNavigationProps {
 }
 
 const SliderNavigation = ({
+  className,
   variant = "",
   hasPagination = true,
   position = "",
@@ -39,7 +41,7 @@ const SliderNavigation = ({
 
   return (
     <div
-      className={classNames("slider-navigation", {
+      className={classNames(className, "slider-navigation", {
         [`slider-navigation--${variant}`]: variant,
         [`slider-navigation--${position}`]: position,
       })}

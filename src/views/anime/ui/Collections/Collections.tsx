@@ -1,6 +1,7 @@
 import { AnimeCard } from "@/entities/anime"
 import { CategoryCard } from "@/entities/category"
 import { getCategoryHref } from "@/features/filter"
+import Button from "@/shared/ui/Button"
 import Section from "@/shared/ui/Section"
 import { SliderNavigation, SliderRoot, SliderTrack } from "@/shared/ui/Slider"
 
@@ -21,6 +22,7 @@ const Collections = () => {
           showRating,
           badge,
           categoryFilter,
+          more,
         } = collectionGroup
 
         return (
@@ -29,8 +31,22 @@ const Collections = () => {
               className="collections__section"
               title={title}
               id={id}
-              actions={<SliderNavigation variant="tile" />}
-              isActionsHiddenOnMobile
+              actions={
+                <>
+                  {more && (
+                    <Button
+                      className="collections__all-button"
+                      iconName={more.iconName}
+                      variant="black-06"
+                      label={more.label}
+                      href={more.href}
+                      isLabelHidden
+                      hasFillIcon
+                    />
+                  )}
+                  <SliderNavigation className="hidden-mobile" variant="tile" />
+                </>
+              }
             >
               <SliderTrack params={sliderParams}>
                 {items.map((item) =>

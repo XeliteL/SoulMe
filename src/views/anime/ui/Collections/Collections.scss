@@ -6,4 +6,8 @@
       margin-block-end: 30px;
     }
   }
+
+  &__all-button {
+    --buttonSize: #{fluid-to-laptop(54, 42)};
+  }
 }
