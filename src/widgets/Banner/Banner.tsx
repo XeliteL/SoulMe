@@ -18,7 +18,7 @@ const Banner = () => {
         </div>
         <Button
           className="banner__button"
-          label="Подобрать аниме"
+          label="Выбрать аниме"
           href="/anime/filter"
         />
       </div>
