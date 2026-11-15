@@ -33,7 +33,7 @@
   }
 
   &:has(.button__icon:only-child) {
-    @include square(fluid-to-laptop(56, 44));
+    @include square(var(--buttonSize, #{fluid-to-laptop(56, 44)}));
 
     padding: 0;
   }

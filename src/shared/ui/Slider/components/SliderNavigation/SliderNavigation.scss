@@ -4,8 +4,10 @@
   align-items: center;
 
   &--tile {
-    column-gap: fluid-to-laptop(16, 12);
-    padding: fluid-to-laptop(16, 12);
+    --buttonSize: #{fluid-to-laptop(46, 42)};
+
+    column-gap: fluid-to-laptop(12, 10);
+    padding: fluid-to-laptop(12, 8);
     background-color: var(--color-black-06);
     border-radius: var(--border-radius-l);
 
