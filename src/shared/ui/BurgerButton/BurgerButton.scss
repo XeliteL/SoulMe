@@ -1,10 +1,8 @@
 .burger-button {
   @include flex-center(true);
 
-  @include square(51px);
+  @include square(38px);
 
-  width: 44px;
-  height: 44px;
   padding: 0;
   background-color: var(--color-black-10);
   border: var(--border-width-m) solid var(--color-black-15);
@@ -13,6 +11,11 @@
   @include hover {
     background-color: var(--color-turquoise-50);
     border-color: transparent;
+  }
+
+  &__svg {
+    width: 84%;
+    height: auto;
   }
 
   &.is-active {
