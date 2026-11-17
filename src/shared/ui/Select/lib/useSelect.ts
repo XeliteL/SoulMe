@@ -1,4 +1,6 @@
-import { type KeyboardEvent, useEffect, useRef, useState } from "react"
+import { type KeyboardEvent, useEffect, useState } from "react"
+
+import { useDisclosure } from "@/shared/lib/useDisclosure"
 
 interface UseSelectParams {
   optionsCount: number
@@ -6,26 +8,17 @@ interface UseSelectParams {
 }
 
 export const useSelect = ({ optionsCount, initialIndex }: UseSelectParams) => {
-  const [isExpanded, setIsExpanded] = useState(false)
+  const disclosure = useDisclosure<HTMLDivElement>()
+  const { rootRef, buttonRef, dropdownRef, isExpanded, side, close } =
+    disclosure
+
   const [selectedIndex, setSelectedIndex] = useState(initialIndex)
   const [currentIndex, setCurrentIndex] = useState(initialIndex)
-  const [side, setSide] = useState<"left" | "right">("right")
-
-  const rootRef = useRef<HTMLDivElement>(null)
-  const buttonRef = useRef<HTMLDivElement>(null)
-  const dropdownRef = useRef<HTMLDivElement>(null)
 
   const open = () => {
-    const { left } = buttonRef.current!.getBoundingClientRect()
-    const width = dropdownRef.current!.offsetWidth
-    setSide(
-      left + width < document.documentElement.clientWidth ? "left" : "right",
-    )
     setCurrentIndex(selectedIndex)
-    setIsExpanded(true)
+    disclosure.open()
   }
-
-  const close = () => setIsExpanded(false)
 
   const toggle = () => (isExpanded ? close() : open())
 
@@ -38,21 +31,10 @@ export const useSelect = ({ optionsCount, initialIndex }: UseSelectParams) => {
   useEffect(() => {
     if (!isExpanded) return
 
-    const handlePointerDown = (event: PointerEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) close()
-    }
-
-    document.addEventListener("pointerdown", handlePointerDown)
-    return () => document.removeEventListener("pointerdown", handlePointerDown)
-  }, [isExpanded])
-
-  useEffect(() => {
-    if (!isExpanded) return
-
     dropdownRef.current?.children[currentIndex]?.scrollIntoView({
       block: "nearest",
     })
-  }, [isExpanded, currentIndex])
+  }, [isExpanded, currentIndex, dropdownRef])
 
   const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     const last = optionsCount - 1
