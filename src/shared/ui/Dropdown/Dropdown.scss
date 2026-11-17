@@ -1,3 +1,45 @@
 .dropdown {
+  position: relative;
 
+  &__button.button {
+    color: var(--color-gray-60);
+    padding: fluid(10, 5);
+    border: var(--border);
+    border-radius: var(--border-radius-l);
+
+    @include hover {
+      background-color: var(--color-black-06);
+      border-color: var(--color-turquoise-50);
+      border-radius: var(--border-radius-xl);
+    }
+
+    &[aria-expanded="true"] {
+      color: var(--color-white);
+      border-color: var(--color-turquoise-50);
+      border-radius: var(--border-radius-xl);
+    }
+  }
+
+  &__panel {
+    position: absolute;
+    z-index: 10;
+    top: calc(100% + 4px);
+    right: 0;
+    width: max-content;
+    color: white;
+    border: var(--border);
+    border-color: var(--color-turquoise-50);
+    border-radius: var(--border-radius-xl);
+    background-color: var(--color-black-06);
+    padding-inline: fluid(5, 2);
+    transform-origin: 100% 0;
+    transition-property: opacity, visibility, scale;
+    transition-duration: var(--transition-duration);
+
+    &:not(.is-expanded) {
+      @include hide;
+
+      scale: 0;
+    }
+  }
 }
