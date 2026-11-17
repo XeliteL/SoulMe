@@ -87,7 +87,7 @@
     top: calc(100% + 4px);
     display: grid;
     row-gap: 4px;
-    min-width: 300px;
+    min-width: 150px;
     max-height: 250px;
     overflow-y: auto;
     overscroll-behavior: none;
@@ -146,6 +146,7 @@
         content: "";
         flex-shrink: 0;
         background-color: currentColor;
+        color: var(--color-gray-60);
         mask: url(../../assets/icons/check.svg) center / contain no-repeat;
         transition-duration: inherit;
       }
