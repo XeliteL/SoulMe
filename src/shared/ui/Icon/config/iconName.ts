@@ -17,6 +17,7 @@ export const ICON_NAMES = [
   "information",
   "like",
   "list",
+  "list-sort",
   "notification",
   "play",
   "plus",
