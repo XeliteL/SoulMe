@@ -33,6 +33,8 @@
 
   &__title {
     @include line-clamp(2);
+
+    line-height: 1;
   }
 
   &__type {
