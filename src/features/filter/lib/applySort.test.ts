@@ -30,6 +30,7 @@ const film: Anime = {
   genres: [],
   id: "film",
   title: "Вега",
+  views: 100,
   type: "film",
   status: "released",
   rating: { value: 7, reviewsCount: 0 },
@@ -52,8 +53,8 @@ const items = [announced, film, serial]
 const ids = (result: Anime[]) => result.map(({ id }) => id)
 
 describe("applySort", () => {
-  it("без sort возвращает исходный порядок", () => {
-    expect(applySort(items, {})).toBe(items)
+  it("без sort сортирует по популярности", () => {
+    expect(ids(applySort(items, {}))[0]).toBe("film")
   })
 
   it("без order берёт направление поля по умолчанию", () => {
