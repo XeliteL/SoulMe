@@ -1,4 +1,4 @@
-import { HTMLAttributeAnchorTarget, MouseEventHandler } from "react"
+import { HTMLAttributeAnchorTarget, MouseEventHandler, type Ref } from "react"
 import classNames from "classnames"
 import Link from "next/link"
 
@@ -21,6 +21,9 @@ interface ButtonProps {
   iconPosition?: "before" | "after"
   hasFillIcon?: boolean
   disabled?: boolean
+  isExpanded?: boolean
+  controls?: string
+  ref?: Ref<HTMLButtonElement>
   onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
@@ -39,6 +42,9 @@ const Button = ({
   iconPosition = "before",
   hasFillIcon,
   disabled,
+  isExpanded,
+  controls,
+  ref,
   onClick,
 }: ButtonProps) => {
   const title = isLabelHidden ? label : undefined
@@ -67,7 +73,10 @@ const Button = ({
       <button
         type={type}
         disabled={disabled}
+        aria-expanded={isExpanded}
+        aria-controls={controls}
         onClick={onClick}
+        ref={ref}
         aria-pressed={isPressed}
         {...commonProps}
       >
