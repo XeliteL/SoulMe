@@ -1,4 +1,4 @@
-import { sortOptions } from "../config/sortOptions"
+import { DEFAULT_SORT, sortOptions } from "../config/sortOptions"
 import { DEFAULT_VIEW } from "../config/viewOptions"
 import type { Filter } from "../model/filterSchema"
 
@@ -6,7 +6,7 @@ const FILTER_PATH = "/anime/filter"
 
 export const buildFilterHref = (filter: Filter) => {
   const params = new URLSearchParams()
-  const { order, view, ...rest } = filter
+  const { sort, order, view, ...rest } = filter
 
   for (const [key, value] of Object.entries(rest)) {
     if (value === undefined) continue
@@ -15,7 +15,9 @@ export const buildFilterHref = (filter: Filter) => {
     else params.append(key, String(value))
   }
 
-  if (filter.sort && order && order !== sortOptions[filter.sort].order) {
+  if (sort && sort !== DEFAULT_SORT) params.append("sort", sort)
+
+  if (order && order !== sortOptions[sort ?? DEFAULT_SORT].order) {
     params.append("order", order)
   }
 

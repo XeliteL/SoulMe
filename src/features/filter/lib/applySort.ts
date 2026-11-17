@@ -1,7 +1,8 @@
 import type { Anime } from "@/entities/anime"
 
-import { type SortKey, sortOptions } from "../config/sortOptions"
+import type { SortKey } from "../config/sortOptions"
 import type { Filter } from "../model/filterSchema"
+import { resolveSort } from "./resolveSort"
 
 type SortValue = number | string | undefined
 
@@ -21,12 +22,10 @@ const compareValues = (a: string | number, b: string | number) =>
 
 export const applySort = (
   items: Anime[],
-  { sort, order }: Pick<Filter, "sort" | "order">,
+  filter: Pick<Filter, "sort" | "order">,
 ) => {
-  if (!sort) return items
-
-  const direction = order ?? sortOptions[sort].order
-  const sign = direction === "asc" ? 1 : -1
+  const { sort, order } = resolveSort(filter)
+  const sign = order === "asc" ? 1 : -1
 
   return items.toSorted((a, b) => {
     const valueA = getValue[sort](a)
