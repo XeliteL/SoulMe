@@ -9,7 +9,7 @@ export const useSelect = ({ optionsCount, initialIndex }: UseSelectParams) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(initialIndex)
   const [currentIndex, setCurrentIndex] = useState(initialIndex)
-  const [side, setSide] = useState<"left" | "right">("left")
+  const [side, setSide] = useState<"left" | "right">("right")
 
   const rootRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLDivElement>(null)
@@ -17,7 +17,10 @@ export const useSelect = ({ optionsCount, initialIndex }: UseSelectParams) => {
 
   const open = () => {
     const { left } = buttonRef.current!.getBoundingClientRect()
-    setSide(left < document.documentElement.clientWidth / 2 ? "left" : "right")
+    const width = dropdownRef.current!.offsetWidth
+    setSide(
+      left + width < document.documentElement.clientWidth ? "left" : "right",
+    )
     setCurrentIndex(selectedIndex)
     setIsExpanded(true)
   }
