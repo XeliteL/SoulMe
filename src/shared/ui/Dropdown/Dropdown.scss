@@ -15,7 +15,6 @@
 
     &[aria-expanded="true"] {
       color: var(--color-white);
-      border-color: var(--color-turquoise-50);
       border-radius: var(--border-radius-xl);
     }
   }
@@ -26,13 +25,12 @@
     top: calc(100% + 4px);
     right: 0;
     width: max-content;
-    color: white;
+    color: var(--color-white);
     border: var(--border);
-    border-color: var(--color-turquoise-50);
     border-radius: var(--border-radius-xl);
     background-color: var(--color-black-06);
     padding-inline: fluid(5, 2);
-    transform-origin: 100% 0;
+    transform-origin: top;
     transition-property: opacity, visibility, scale;
     transition-duration: var(--transition-duration);
 
