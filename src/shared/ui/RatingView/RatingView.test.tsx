@@ -25,6 +25,6 @@ describe("RatingView", () => {
     const rating = screen.getByRole("img", { name: "Ваша оценка 8,0" })
 
     expect(rating).toHaveAttribute("title", "Ваша оценка")
-    expect(rating.querySelector(".rating-view__star-user")).toBeInTheDocument()
+    expect(rating.querySelector(".rating-view__star-solid")).toBeInTheDocument()
   })
 })
