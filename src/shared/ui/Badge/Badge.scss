@@ -22,10 +22,10 @@
     color: var(--color-white);
     background-color: var(--color-turquoise-45);
     border: none;
-    border-radius: var(--border-radius-xxs);
+    border-radius: var(--border-radius-xs);
 
     @include laptop {
-      border-radius: var(--border-radius-xxxs);
+      border-radius: var(--border-radius-xxs);
     }
   }
 
