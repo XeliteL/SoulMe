@@ -46,4 +46,14 @@ describe("Badge", () => {
     expect(container.querySelector(".badge__icon")).not.toBeInTheDocument()
     expect(container).toHaveTextContent("Топ 10")
   })
+
+  it("renders an icon-only badge with a hidden label and no value wrapper", () => {
+    const { container } = render(
+      <Badge iconName="heart" iconLabel="В избранном" />,
+    )
+
+    expect(screen.getByText("В избранном")).toHaveClass("visually-hidden")
+    expect(container).toHaveTextContent(/^В избранном$/)
+    expect(container.firstElementChild?.children).toHaveLength(2)
+  })
 })
