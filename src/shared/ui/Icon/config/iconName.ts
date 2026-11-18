@@ -22,6 +22,7 @@ export const ICON_NAMES = [
   "play",
   "plus",
   "search",
+  "star",
   "telegram",
   "user",
   "views",

@@ -1,19 +1,25 @@
 import type { CSSProperties } from "react"
-import Image from "next/image"
+import classNames from "classnames"
 
 import { formatRating, pluralize } from "@/shared/lib/format"
+import Icon from "@/shared/ui/Icon"
 
 import "./RatingView.scss"
 
-type RatingViewProps = { value: number } & (
+type RatingViewProps = {
+  className?: string
+  value: number
+  isSolid?: boolean
+} & (
   | { type?: "base"; reviewsCount: number }
   | { type: "user"; reviewsCount?: never }
 )
 
 const RatingView = (props: RatingViewProps) => {
-  const { value } = props
+  const { className, value } = props
   const grade = formatRating(value, "ru")
   const isUser = props.type === "user"
+  const isSolid = props.isSolid || isUser
   const ariaLabel = isUser ? `Ваша оценка ${grade}` : `Оценка ${grade} из 10`
   const title = isUser
     ? "Ваша оценка"
@@ -24,8 +30,8 @@ const RatingView = (props: RatingViewProps) => {
       )}`
 
   return (
-    <div
-      className="rating-view"
+    <span
+      className={classNames(className, "rating-view")}
       style={
         {
           "--ratingViewValue": value,
@@ -35,39 +41,18 @@ const RatingView = (props: RatingViewProps) => {
       title={title}
       aria-label={ariaLabel}
     >
-      <div className="rating-view__star">
-        {isUser ? (
-          <Image
-            className="rating-view__star-user"
-            src="/rating/star-user.svg"
-            alt=""
-            width={18}
-            height={18}
-            loading="lazy"
-          />
+      <span className="rating-view__star">
+        {isSolid ? (
+          <Icon className="rating-view__star-solid" name="star" hasFill />
         ) : (
           <>
-            <Image
-              className="rating-view__star-unfilled"
-              src="/rating/star-unfilled.svg"
-              alt=""
-              width={18}
-              height={18}
-              loading="lazy"
-            />
-            <Image
-              className="rating-view__star-filled"
-              src="/rating/star-filled.svg"
-              alt=""
-              width={18}
-              height={18}
-              loading="lazy"
-            />
+            <Icon className="rating-view__star-unfilled" name="star" hasFill />
+            <Icon className="rating-view__star-filled" name="star" hasFill />
           </>
         )}
-      </div>
+      </span>
       <span>{grade}</span>
-    </div>
+    </span>
   )
 }
 

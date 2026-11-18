@@ -7,12 +7,22 @@
 
   &__star {
     position: relative;
+    display: flex;
+
+    .icon {
+      --iconSize: 18px;
+    }
+
+    &-unfilled {
+      color: var(--color-gray-60);
+    }
 
     &-filled {
       --ratingViewStarClipEnd: calc(100% / 10 * var(--ratingViewValue));
 
       @include abs-cover;
 
+      color: var(--color-turquoise-50);
       clip-path: polygon(
         0 0,
         var(--ratingViewStarClipEnd) 0,
