@@ -1,4 +1,4 @@
-import { type KeyboardEvent } from "react"
+import { type KeyboardEvent, type MouseEvent } from "react"
 
 import { useDisclosure } from "@/shared/lib/useDisclosure"
 
@@ -13,5 +13,12 @@ export const useDropdown = () => {
     buttonRef.current?.focus()
   }
 
-  return { ...rest, buttonRef, isExpanded, handleKeyDown }
+  const handlePanelClick = (event: MouseEvent<HTMLElement>) => {
+    if (!(event.target as Element).closest("a, button")) return
+
+    close()
+    buttonRef.current?.focus()
+  }
+
+  return { ...rest, buttonRef, isExpanded, handleKeyDown, handlePanelClick }
 }

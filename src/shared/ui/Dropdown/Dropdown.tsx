@@ -26,8 +26,15 @@ const Dropdown = ({
   children,
 }: DropdownProps) => {
   const panelId = useId()
-  const { rootRef, buttonRef, dropdownRef, isExpanded, toggle, handleKeyDown } =
-    useDropdown()
+  const {
+    rootRef,
+    buttonRef,
+    dropdownRef,
+    isExpanded,
+    toggle,
+    handleKeyDown,
+    handlePanelClick,
+  } = useDropdown()
 
   return (
     <div
@@ -53,6 +60,7 @@ const Dropdown = ({
         })}
         id={panelId}
         ref={dropdownRef}
+        onClick={handlePanelClick}
       >
         {children}
       </div>
