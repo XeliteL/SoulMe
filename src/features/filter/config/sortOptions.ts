@@ -16,6 +16,8 @@ export const sortOptions: Record<SortKey, SortOption> = {
   title: { label: "По названию", order: "asc" },
 }
 
+export const sortKeys = Object.keys(sortOptions) as SortKey[]
+
 export const orderLabels: Record<SortOrder, string> = {
   desc: "По убыванию",
   asc: "По возрастанию",

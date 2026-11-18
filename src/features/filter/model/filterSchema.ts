@@ -16,7 +16,7 @@ import {
   type RatingThreshold,
   ratingThresholds,
 } from "../config/ratingThresholds"
-import { type SortKey, sortOptions, sortOrders } from "../config/sortOptions"
+import { sortKeys, sortOrders } from "../config/sortOptions"
 import { type StatusOption, statusOptions } from "../config/statusOptions"
 import { views } from "../config/viewOptions"
 
@@ -27,7 +27,6 @@ const genreKeys = Object.keys(genreLabels) as AnimeGenre[]
 const typeKeys = Object.keys(typeLabels) as AnimeType[]
 const tagKeys = Object.keys(tagLabels) as AnimeTag[]
 const statusKeys = Object.keys(statusOptions) as StatusOption[]
-const sortKeys = Object.keys(sortOptions) as SortKey[]
 
 const optional = <T extends z.ZodType>(schema: T) =>
   schema.optional().catch(undefined)
