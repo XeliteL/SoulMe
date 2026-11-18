@@ -1,0 +1,15 @@
+.anime-cards-badges {
+  position: absolute;
+  inset: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+
+  &__rating.badge {
+    display: flex;
+    padding: fluid(5, 2);
+  }
+
+  &__favorite {
+    margin-left: auto;
+  }
+}

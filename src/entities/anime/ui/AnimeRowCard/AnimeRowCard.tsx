@@ -6,11 +6,14 @@ import { statusLabels } from "../../config/statusLabels"
 import { typeLabels } from "../../config/typeLabels"
 import { getAnimeHref } from "../../lib/getHref"
 import type { Anime } from "../../model/types"
+import AnimeCardsBadges from "../AnimeCardsBadges"
 
 import "./AnimeRowCard.scss"
 
 const POSTER_WIDTH = 324
 const POSTER_HEIGHT = 452
+
+type AnimeRowCardProps = Anime & { isFavorite?: boolean }
 
 const AnimeRowCard = ({
   id,
@@ -21,7 +24,10 @@ const AnimeRowCard = ({
   originalTitle,
   released,
   genres,
-}: Anime) => {
+  rating,
+  status,
+  isFavorite,
+}: AnimeRowCardProps) => {
   const year = released ? released.dateTime.slice(0, 4) : statusLabels.announced
   const info = [
     typeLabels[type],
@@ -32,6 +38,11 @@ const AnimeRowCard = ({
   return (
     <Link className="anime-row-card" href={getAnimeHref(id)} title={title}>
       <div className="anime-row-card__image-container">
+        <AnimeCardsBadges
+          status={status}
+          rating={rating}
+          isFavorite={isFavorite}
+        />
         <Image
           className="anime-row-card__image"
           src={imgSrc}

@@ -4,16 +4,32 @@ import Link from "next/link"
 import { typeLabels } from "../../config/typeLabels"
 import { getAnimeHref } from "../../lib/getHref"
 import type { Anime } from "../../model/types"
+import AnimeCardsBadges from "../AnimeCardsBadges"
 
 import "./AnimePosterCard.scss"
 
 const POSTER_WIDTH = 324
 const POSTER_HEIGHT = 452
 
-const AnimePosterCard = ({ id, title, imgSrc, type }: Anime) => {
+type AnimePosterCardProps = Anime & { isFavorite?: boolean }
+
+const AnimePosterCard = ({
+  id,
+  title,
+  imgSrc,
+  type,
+  rating,
+  status,
+  isFavorite,
+}: AnimePosterCardProps) => {
   return (
     <Link className="anime-poster-card" href={getAnimeHref(id)} title={title}>
       <div className="anime-poster-card__image-container">
+        <AnimeCardsBadges
+          status={status}
+          rating={rating}
+          isFavorite={isFavorite}
+        />
         <Image
           className="anime-poster-card__image"
           src={imgSrc}

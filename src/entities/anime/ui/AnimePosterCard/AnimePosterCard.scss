@@ -17,8 +17,9 @@
     object-fit: cover;
 
     &-container {
-      border-radius: var(--border-radius-s);
+      position: relative;
       overflow: hidden;
+      border-radius: var(--border-radius-s);
 
       @include laptop {
         border-radius: var(--border-radius-xs);

@@ -15,7 +15,12 @@
     height: auto;
     aspect-ratio: 162 / 226;
     object-fit: cover;
-    border-radius: var(--border-radius-l);
+
+    &-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--border-radius-m);
+    }
   }
 
   &__body {
