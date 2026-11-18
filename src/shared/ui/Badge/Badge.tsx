@@ -8,8 +8,8 @@ import "./Badge.scss"
 interface BadgeProps {
   className?: string
   variant?: "" | "accent" | "accent-round" | "favorite"
-  children: ReactNode
-  iconName?: "duration" | "views"
+  children?: ReactNode
+  iconName?: "duration" | "views" | "heart"
   hasFillIcon?: boolean
   iconLabel?: string
 }
@@ -31,10 +31,13 @@ const Badge = ({
       {iconName && (
         <Icon className="badge__icon" name={iconName} hasFill={hasFillIcon} />
       )}
-      <span>
-        {iconLabel && <span className="visually-hidden">{iconLabel}: </span>}
-        {children}
-      </span>
+      {iconLabel && (
+        <span className="visually-hidden">
+          {iconLabel}
+          {children && ": "}
+        </span>
+      )}
+      {children && <span>{children}</span>}
     </div>
   )
 }
