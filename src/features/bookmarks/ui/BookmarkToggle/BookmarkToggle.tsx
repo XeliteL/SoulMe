@@ -4,16 +4,16 @@ import { useState } from "react"
 
 import Button from "@/shared/ui/Button"
 
-import { type List, lists } from "../../model/lists"
+import { type BookmarkView, bookmarkView } from "../../model/bookmarks"
 
-interface ListToggleProps {
+interface BookmarkToggleProps {
   animeId: string
-  list: List
+  view: BookmarkView
 }
 
-const ListToggle = ({ list }: ListToggleProps) => {
+const BookmarkToggle = ({ view }: BookmarkToggleProps) => {
   const [isAdded, setIsAdded] = useState(false)
-  const { label, iconName } = lists[list]
+  const { label, iconName } = bookmarkView[view]
 
   return (
     <Button
@@ -27,4 +27,4 @@ const ListToggle = ({ list }: ListToggleProps) => {
   )
 }
 
-export default ListToggle
+export default BookmarkToggle

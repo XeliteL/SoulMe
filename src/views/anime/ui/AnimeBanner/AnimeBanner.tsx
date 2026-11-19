@@ -1,5 +1,5 @@
 import { AnimeBannerCard, getAnimeById } from "@/entities/anime"
-import { ListToggle } from "@/features/lists"
+import { BookmarkToggle } from "@/features/bookmarks"
 import Section from "@/shared/ui/Section"
 import Slider from "@/shared/ui/Slider"
 
@@ -33,10 +33,7 @@ const AnimeBanner = () => {
             description={description}
             imgSrc={imgSrc}
             actions={
-              <>
-                <ListToggle animeId={anime.id} list="bookmarks" />
-                <ListToggle animeId={anime.id} list="favorites" />
-              </>
+                <BookmarkToggle animeId={anime.id} view="bookmarks" />
             }
             loading={index === 0 ? "eager" : undefined}
             key={anime.id}
