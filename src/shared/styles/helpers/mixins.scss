@@ -70,10 +70,10 @@
 }
 
 @mixin focus-visible {
-  outline: 2px dashed var(--color-turquoise-45);
+  outline: 2px solid var(--color-turquoise-45);
   outline-offset: 4px;
   transition-duration: 0s !important;
-  border-radius: var(--border-radius-l);
+  border-radius: var(--border-radius-m);
 }
 /* stylelint-enable declaration-no-important */
 
