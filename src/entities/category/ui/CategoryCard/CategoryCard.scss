@@ -5,7 +5,7 @@
 
   display: flex;
   flex-direction: column;
-  padding: fluid(22, 12);
+  padding: fluid(16, 8) fluid(16, 6);
   background-color: var(--color-black-10);
   border: var(--border);
   border-radius: var(--border-radius-l);
@@ -60,7 +60,7 @@
     transition: scale var(--transition-duration) ease-out;
 
     &-wrapper {
-      border-radius: var(--border-radius-s);
+      border-radius: var(--border-radius-xs);
       overflow: hidden;
 
       @include laptop {
