@@ -65,4 +65,14 @@ describe("parseFilter", () => {
       yearTo: 2020,
     })
   })
+
+  it("обрезает пробелы в search и отбрасывает пустой или длинный запрос", () => {
+    expect(parseFilter({ search: "  атака  " })).toEqual({ search: "атака" })
+    expect(parseFilter({ search: "   " })).toEqual({})
+    expect(parseFilter({ search: "а".repeat(100) })).toEqual({
+      search: "а".repeat(100),
+    })
+    expect(parseFilter({ search: "а".repeat(101) })).toEqual({})
+    expect(parseFilter({ search: ["атака", "титан"] })).toEqual({})
+  })
 })

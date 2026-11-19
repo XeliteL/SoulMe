@@ -18,6 +18,8 @@ const base = {
 const serial: Anime = {
   ...base,
   id: "serial",
+  title: "Атака титанов",
+  originalTitle: "Shingeki no Kyojin",
   type: "serial",
   status: "released",
   genres: ["action", "comedy"],
@@ -30,6 +32,8 @@ const serial: Anime = {
 const film: Anime = {
   ...base,
   id: "film",
+  title: "Твоё имя",
+  originalTitle: "Kimi no Na wa.",
   type: "film",
   status: "released",
   ageRating: "r-17",
@@ -88,5 +92,34 @@ describe("applyFilter", () => {
     ])
     expect(ids(applyFilter(items, { rating: "8" }, now))).toEqual(["serial"])
     expect(ids(applyFilter(items, { rating: "9" }, now))).toEqual([])
+  })
+
+  it("ищет по части названия без учёта регистра", () => {
+    expect(ids(applyFilter(items, { search: "АТАКА" }, now))).toEqual([
+      "serial",
+    ])
+  })
+
+  it("ищет по оригинальному названию", () => {
+    expect(ids(applyFilter(items, { search: "kimi no" }, now))).toEqual([
+      "film",
+    ])
+  })
+
+  it("не различает ё и е, схлопывает пробелы", () => {
+    expect(ids(applyFilter(items, { search: "твое" }, now))).toEqual(["film"])
+    expect(ids(applyFilter(items, { search: "атака   титанов" }, now))).toEqual(
+      ["serial"],
+    )
+  })
+
+  it("складывает поиск с остальными условиями", () => {
+    expect(
+      ids(applyFilter(items, { search: "атака", genre: ["drama"] }, now)),
+    ).toEqual([])
+  })
+
+  it("ничего не возвращает, если совпадений нет", () => {
+    expect(ids(applyFilter(items, { search: "берсерк" }, now))).toEqual([])
   })
 })
