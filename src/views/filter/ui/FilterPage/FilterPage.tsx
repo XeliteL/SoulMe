@@ -9,6 +9,7 @@ import {
   DEFAULT_VIEW,
   getCollectionTitle,
   parseFilter,
+  SearchField,
   SortMenu,
   viewOptions,
   views,
@@ -31,7 +32,7 @@ const FilterPage = async ({ searchParams }: PageProps<"/anime/filter">) => {
         title={title}
         className="filter-page__results"
         actions={
-          <>
+          <div className="filter-page__header">
             <SortMenu filter={filter} />
             <nav className="filter-page__views" aria-label="Вид каталога">
               {views.map((option) => (
@@ -50,9 +51,10 @@ const FilterPage = async ({ searchParams }: PageProps<"/anime/filter">) => {
                 </Link>
               ))}
             </nav>
-          </>
+          </div>
         }
       >
+        <SearchField filter={filter} className="filter-page__search" />
         {items.length > 0 ? (
           <ul
             className={classNames(
@@ -71,7 +73,18 @@ const FilterPage = async ({ searchParams }: PageProps<"/anime/filter">) => {
             ))}
           </ul>
         ) : (
-          <>Ничего не нашлось</>
+          <div className="filter-page__empty">
+            <p className="filter-page__empty-title h5">
+              {filter.search
+                ? `По запросу «${filter.search}» ничего не нашлось`
+                : "Ничего не нашлось"}
+            </p>
+            <p className="filter-page__empty-text">
+              {filter.search
+                ? "Проверьте написание или попробуйте оригинальное название"
+                : "Попробуйте изменить фильтры"}
+            </p>
+          </div>
         )}
       </Section>
       <section className="filter-page__settings"></section>

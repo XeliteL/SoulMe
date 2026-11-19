@@ -44,6 +44,7 @@ const list = <T extends string>(values: readonly T[]) =>
     .optional()
 
 const MIN_YEAR = 1959
+export const SEARCH_MAX_LENGTH = 100
 
 const year = optional(z.coerce.number().int().min(MIN_YEAR))
 
@@ -61,7 +62,7 @@ const filterSchema = z.object({
   order: optional(z.enum(sortOrders)),
   sort: optional(z.enum(sortKeys)),
   view: optional(z.enum(views)),
-  search: optional(z.string().trim().min(1).max(100)),
+  search: optional(z.string().trim().min(1).max(SEARCH_MAX_LENGTH)),
 })
 
 export type Filter = z.infer<typeof filterSchema>
