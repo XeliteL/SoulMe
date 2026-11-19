@@ -10,7 +10,7 @@
     display: flex;
 
     .icon {
-      --iconSize: 18px;
+      --iconSize: #{fluid(18, 14)};
     }
 
     &-unfilled {
