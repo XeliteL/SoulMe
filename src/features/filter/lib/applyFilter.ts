@@ -3,6 +3,7 @@ import type { Anime } from "@/entities/anime"
 import { type EpisodeRange, episodeRanges } from "../config/episodeRanges"
 import { ratingThresholds } from "../config/ratingThresholds"
 import type { Filter } from "../model/filterSchema"
+import { normalizeQuery } from "./normalizeQuery"
 
 const RECENT_MONTHS = 6
 
@@ -48,6 +49,16 @@ const matchesYears = (anime: Anime, { yearFrom, yearTo }: Filter) => {
   )
 }
 
+const matchesSearch = (anime: Anime, { search }: Filter) => {
+  if (!search) return true
+
+  const query = normalizeQuery(search)
+
+  return [anime.title, anime.originalTitle].some((title) =>
+    normalizeQuery(title).includes(query),
+  )
+}
+
 export const applyFilter = (items: Anime[], filter: Filter, now = new Date()) =>
   items.filter(
     (anime) =>
@@ -60,5 +71,6 @@ export const applyFilter = (items: Anime[], filter: Filter, now = new Date()) =>
       (!filter.episodes || matchesEpisodes(anime, filter.episodes)) &&
       (!filter.rating ||
         anime.rating.value >= ratingThresholds[filter.rating].value) &&
-      matchesYears(anime, filter),
+      matchesYears(anime, filter) &&
+      matchesSearch(anime, filter),
   )

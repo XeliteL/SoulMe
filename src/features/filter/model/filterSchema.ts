@@ -61,6 +61,7 @@ const filterSchema = z.object({
   order: optional(z.enum(sortOrders)),
   sort: optional(z.enum(sortKeys)),
   view: optional(z.enum(views)),
+  search: optional(z.string().trim().min(1).max(100)),
 })
 
 export type Filter = z.infer<typeof filterSchema>
