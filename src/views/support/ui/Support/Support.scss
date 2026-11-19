@@ -32,7 +32,7 @@
     aspect-ratio: 720 / 688;
     background: var(--supportBackgroundImage) 50% / cover no-repeat
       var(--color-black-06);
-    border: var(--border-width-xxl) solid var(--color-black-15);
+    border: var(--border-width-xl) solid var(--color-black-15);
     border-radius: var(--border-radius-xs);
 
     @include laptop {
@@ -53,6 +53,8 @@
         url(../../../../shared/assets/images/supportBanner/bg-mobile.webp)
           type("image/webp")
       );
+
+      border-width: var(--border-width-l);
     }
   }
 }
