@@ -1,4 +1,5 @@
 export const ICON_NAMES = [
+  "archive",
   "arrow-left",
   "arrow-right",
   "bookmark",
