@@ -1,0 +1,33 @@
+.sort-menu-list {
+  font-size: 18px;
+  display: grid;
+  gap: fluid(3, 2);
+  padding: fluid(8, 4) 2px;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    column-gap: fluid(10, 8);
+    padding: fluid(10, 6);
+    border-radius: var(--border-radius-l);
+    transition: background-color var(--transition-duration);
+    text-decoration: none;
+
+    @include radio-marker;
+
+    @include hover {
+      color: var(--color-white);
+      background-color: var(--color-black-12);
+
+      @include radio-marker-hover;
+    }
+
+    &[aria-current="true"] {
+      @include radio-marker-checked;
+    }
+  }
+
+  & + & {
+    border-block-start: var(--border);
+  }
+}

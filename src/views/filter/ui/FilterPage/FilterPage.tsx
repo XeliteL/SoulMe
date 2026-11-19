@@ -9,6 +9,7 @@ import {
   DEFAULT_VIEW,
   getCollectionTitle,
   parseFilter,
+  SortMenu,
   viewOptions,
   views,
 } from "@/features/filter"
@@ -30,23 +31,26 @@ const FilterPage = async ({ searchParams }: PageProps<"/anime/filter">) => {
         title={title}
         className="filter-page__results"
         actions={
-          <nav className="filter-page__views" aria-label="Вид каталога">
-            {views.map((option) => (
-              <Link
-                className="filter-page__view"
-                href={buildFilterHref({ ...filter, view: option })}
-                aria-current={option === view ? "true" : undefined}
-                title={viewOptions[option].label}
-                scroll={false}
-                key={option}
-              >
-                <Icon name={viewOptions[option].iconName} hasFill></Icon>
-                <span className="visually-hidden">
-                  {viewOptions[option].label}
-                </span>
-              </Link>
-            ))}
-          </nav>
+          <>
+            <SortMenu filter={filter} />
+            <nav className="filter-page__views" aria-label="Вид каталога">
+              {views.map((option) => (
+                <Link
+                  className="filter-page__view"
+                  href={buildFilterHref({ ...filter, view: option })}
+                  aria-current={option === view ? "true" : undefined}
+                  title={viewOptions[option].label}
+                  scroll={false}
+                  key={option}
+                >
+                  <Icon name={viewOptions[option].iconName} hasFill></Icon>
+                  <span className="visually-hidden">
+                    {viewOptions[option].label}
+                  </span>
+                </Link>
+              ))}
+            </nav>
+          </>
         }
       >
         {items.length > 0 ? (
