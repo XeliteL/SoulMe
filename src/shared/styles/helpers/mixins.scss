@@ -1,7 +1,5 @@
 @use "functions" as *;
 
-/* stylelint-disable declaration-no-important */
-
 @mixin fluid-text($max: 48, $min: 16) {
   font-size: fluid($max, $min);
 }
@@ -56,6 +54,8 @@
   height: $size;
 }
 
+/* stylelint-disable declaration-no-important */
+
 @mixin visually-hidden {
   position: absolute !important;
   width: 1px !important;
@@ -75,6 +75,7 @@
   transition-duration: 0s !important;
   border-radius: var(--border-radius-l);
 }
+/* stylelint-enable declaration-no-important */
 
 @mixin disabled {
   opacity: 0.5;
@@ -88,4 +89,29 @@
   line-clamp: $lines;
   overflow: hidden;
 }
-/* stylelint-enable declaration-no-important */
+
+@mixin radio-marker {
+  &::before {
+    @include square(16px);
+
+    content: "";
+    flex-shrink: 0;
+    border: var(--border-width-s) solid var(--color-gray-60);
+    border-radius: 50%;
+    transition-property: border-color, border-width;
+    transition-duration: var(--transition-duration);
+  }
+}
+
+@mixin radio-marker-hover {
+  &::before {
+    border-color: var(--color-white);
+  }
+}
+
+@mixin radio-marker-checked {
+  &::before {
+    border-width: var(--border-width-xl);
+    border-color: var(--color-turquoise-50);
+  }
+}
