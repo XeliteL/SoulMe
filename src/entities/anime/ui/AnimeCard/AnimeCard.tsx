@@ -1,3 +1,4 @@
+import classNames from "classnames"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -51,6 +52,8 @@ const AnimeCard = ({
           )
         : undefined
 
+  const isViewsShown = !showReleaseDate && !showRating
+
   return (
     <Link className="anime-card" href={getAnimeHref(id)} title={title}>
       <h3 className="visually-hidden">{title}</h3>
@@ -64,12 +67,16 @@ const AnimeCard = ({
           alt=""
         />
       </div>
-      <div className="anime-card__body">
+      <div
+        className={classNames("anime-card__body", {
+          "anime-card__body--views": isViewsShown,
+        })}
+      >
         {showReleaseDate ? (
           <Badge className="anime-card__released-badge">
             {released ? (
               <>
-                {RELEASE_PREFIX[status]}{" "}
+                <span className="hidden-tablet">{RELEASE_PREFIX[status]} </span>
                 <time dateTime={released.dateTime}>{released.label}</time>
               </>
             ) : (
@@ -82,8 +89,10 @@ const AnimeCard = ({
               <Badge iconName="duration" iconLabel="Длительность" hasFillIcon>
                 {"episodes" in rest ? (
                   <>
-                    <span className="hidden-mobile">{duration}</span>
-                    <span className="visible-mobile">{rest.episodes} сер.</span>
+                    <span className="anime-card__full">{duration}</span>
+                    <span className="anime-card__short">
+                      {rest.episodes} сер.
+                    </span>
                   </>
                 ) : (
                   duration

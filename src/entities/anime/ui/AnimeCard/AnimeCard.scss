@@ -2,6 +2,7 @@
   --animeCardImagesGradientOpactiy: 1;
   --animeCardImageScale: 1;
 
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   padding: fluid(16, 8) fluid(16, 6) 0;
@@ -71,5 +72,76 @@
 
   &__released-badge {
     width: 100%;
+  }
+
+  &__short {
+    display: none;
+  }
+
+  @include mobile {
+    &__full {
+      display: none;
+    }
+
+    &__short {
+      display: inline;
+    }
+  }
+
+  @container (width < 220px) {
+    &__body--views {
+      .anime-card__full {
+        display: none;
+      }
+
+      .anime-card__short {
+        display: inline;
+      }
+    }
+  }
+
+  @container (width < 200px) {
+    &__body--views .badge {
+      padding-inline: 6px;
+      column-gap: 4px;
+    }
+  }
+
+  @container (width < 180px) {
+    &__body {
+      .badge {
+        padding-inline: 4px;
+        column-gap: 3px;
+        font-size: 12px;
+      }
+
+      .rating-view {
+        font-size: 12px;
+      }
+
+      .badge__icon.icon,
+      .rating-view__star .icon {
+        --iconSize: 14px;
+      }
+    }
+  }
+
+  @container (width < 150px) {
+    &__body {
+      .badge {
+        padding-inline: 3px;
+        column-gap: 2px;
+        font-size: 11px;
+      }
+
+      .rating-view {
+        font-size: 11px;
+      }
+
+      .badge__icon.icon,
+      .rating-view__star .icon {
+        --iconSize: 12px;
+      }
+    }
   }
 }
