@@ -4,13 +4,14 @@
   display: flex;
   align-items: center;
   column-gap: fluid(6, 2);
+  font-size: fluid-to-laptop(18, 14);
 
   &__star {
     position: relative;
     display: flex;
 
     .icon {
-      --iconSize: #{fluid(18, 14)};
+      --iconSize: #{fluid-to-laptop(22, 16)};
     }
 
     &-unfilled {
