@@ -32,9 +32,7 @@ const AnimeBanner = () => {
             anime={anime}
             description={description}
             imgSrc={imgSrc}
-            actions={
-                <BookmarkToggle animeId={anime.id} view="bookmarks" />
-            }
+            actions={<BookmarkToggle animeId={anime.id} view="bookmarks" />}
             loading={index === 0 ? "eager" : undefined}
             key={anime.id}
           />
