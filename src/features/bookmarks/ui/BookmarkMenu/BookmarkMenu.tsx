@@ -64,7 +64,7 @@ const BookmarkMenu = ({ className }: BookmarkMenuProps) => {
           ref={buttonRef}
           onClick={toggle}
         >
-          <Icon name="chevron-down" />
+          <Icon name="chevron-down" hasFill />
         </button>
       </div>
       <div
