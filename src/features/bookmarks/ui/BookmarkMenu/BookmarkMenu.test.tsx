@@ -45,6 +45,8 @@ describe("BookmarkMenu", () => {
 
     expect(getMain()).toHaveTextContent("Любимые")
     expect(toggle).toHaveAttribute("aria-expanded", "false")
+
+    await user.click(toggle)
     expect(panel().getByRole("button", { name: "Любимые" })).toHaveAttribute(
       "aria-current",
       "true",
