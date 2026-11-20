@@ -1,0 +1,74 @@
+.anime-poster-preview {
+  display: grid;
+  gap: fluid(10, 6);
+  width: fluid(350, 300);
+  padding-block: fluid(10, 6);
+  background-color: var(--color-black-06);
+  border: var(--border);
+  border-radius: var(--border-radius-l);
+
+  &__header {
+    display: grid;
+    gap: fluid(6, 4);
+    padding-inline: fluid(10, 6);
+    line-height: 1;
+  }
+
+  &__title {
+    font-size: fluid(20, 16);
+  }
+
+  &__original-title {
+    font-size: fluid(16, 14);
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: fluid(20, 10);
+    padding: fluid(10, 6) fluid(20, 10);
+    background-color: var(--color-black-10);
+
+    &-item {
+      display: grid;
+      justify-content: center;
+      align-content: center;
+      gap: fluid(8, 4);
+      line-height: 1;
+      text-align: center;
+      text-wrap: nowrap;
+    }
+  }
+
+  &__value {
+    color: var(--color-white);
+  }
+
+  &__description {
+    @include line-clamp(4);
+
+    padding: 0 fluid(10, 6);
+    color: var(--color-white);
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: fluid(5, 4);
+    padding: 0 fluid(10, 6);
+  }
+
+  &__tag {
+    padding: fluid(2, 1) fluid(3, 2);
+    font-size: 14px;
+    border: var(--border);
+    border-radius: var(--border-radius-s);
+  }
+
+  &__actions {
+    width: max-content;
+    padding: 0 fluid(10, 6);
+  }
+}

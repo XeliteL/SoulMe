@@ -1,3 +1,4 @@
+import type { ReactNode } from "react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -5,25 +6,27 @@ import { typeLabels } from "../../config/typeLabels"
 import { getAnimeHref } from "../../lib/getHref"
 import type { Anime } from "../../model/types"
 import AnimeCardsBadges from "../AnimeCardsBadges"
+import AnimePosterPreview from "./components/AnimePosterPreview"
 
 import "./AnimePosterCard.scss"
 
 const POSTER_WIDTH = 324
 const POSTER_HEIGHT = 452
 
-type AnimePosterCardProps = Anime & { isFavorite?: boolean }
+type AnimePosterCardProps = Anime & {
+  isFavorite?: boolean
+  actions?: ReactNode
+}
 
 const AnimePosterCard = ({
-  id,
-  title,
-  imgSrc,
-  type,
-  rating,
-  status,
   isFavorite,
+  actions,
+  ...anime
 }: AnimePosterCardProps) => {
+  const { id, title, imgSrc, type, rating, status } = anime
+
   return (
-    <Link className="anime-poster-card" href={getAnimeHref(id)} title={title}>
+    <article className="anime-poster-card">
       <div className="anime-poster-card__image-container">
         <AnimeCardsBadges
           status={status}
@@ -40,10 +43,15 @@ const AnimePosterCard = ({
         />
       </div>
       <div className="anime-poster-card__description">
-        <h3 className="anime-poster-card__title h5">{title}</h3>
+        <h3 className="anime-poster-card__title h5">
+          <Link className="anime-poster-card__link" href={getAnimeHref(id)}>
+            {title}
+          </Link>
+        </h3>
         <div className="anime-poster-card__type">{typeLabels[type]}</div>
       </div>
-    </Link>
+      <AnimePosterPreview {...anime} actions={actions} />
+    </article>
   )
 }
 

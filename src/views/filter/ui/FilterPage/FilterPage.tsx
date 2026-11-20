@@ -2,6 +2,7 @@ import classNames from "classnames"
 import Link from "next/link"
 
 import { animeItems, AnimePosterCard, AnimeRowCard } from "@/entities/anime"
+import { BookmarkMenu } from "@/features/bookmarks"
 import {
   applyFilter,
   applySort,
@@ -67,7 +68,10 @@ const FilterPage = async ({ searchParams }: PageProps<"/anime/filter">) => {
                 {view === "list" ? (
                   <AnimeRowCard {...anime} />
                 ) : (
-                  <AnimePosterCard {...anime} />
+                  <AnimePosterCard
+                    {...anime}
+                    actions={<BookmarkMenu animeId={anime.id} />}
+                  />
                 )}
               </li>
             ))}
