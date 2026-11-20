@@ -1,4 +1,4 @@
-import type { Anime } from "@/entities/anime"
+import { type Anime, getReleaseYear } from "@/entities/anime"
 
 import { type EpisodeRange, episodeRanges } from "../config/episodeRanges"
 import { ratingThresholds } from "../config/ratingThresholds"
@@ -6,9 +6,6 @@ import type { Filter } from "../model/filterSchema"
 import { normalizeQuery } from "./normalizeQuery"
 
 const RECENT_MONTHS = 6
-
-const getReleaseYears = (anime: Anime) =>
-  anime.released ? Number(anime.released.dateTime.slice(0, 4)) : undefined
 
 const isRecent = (anime: Anime, now: Date) => {
   if (!anime.released) return false
@@ -40,7 +37,7 @@ const matchesEpisodes = (anime: Anime, ranges: EpisodeRange[]) =>
 const matchesYears = (anime: Anime, { yearFrom, yearTo }: Filter) => {
   if (yearFrom == undefined && yearTo == undefined) return true
 
-  const year = getReleaseYears(anime)
+  const year = getReleaseYear(anime)
 
   return (
     year !== undefined &&

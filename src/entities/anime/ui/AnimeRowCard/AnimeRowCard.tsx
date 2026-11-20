@@ -5,6 +5,7 @@ import { genreLabels } from "../../config/genreLabels"
 import { statusLabels } from "../../config/statusLabels"
 import { typeLabels } from "../../config/typeLabels"
 import { getAnimeHref } from "../../lib/getHref"
+import { getReleaseYear } from "../../lib/getReleaseYear"
 import type { Anime } from "../../model/types"
 import AnimeCardsBadges from "../AnimeCardsBadges"
 
@@ -28,7 +29,7 @@ const AnimeRowCard = ({
   status,
   isFavorite,
 }: AnimeRowCardProps) => {
-  const year = released ? released.dateTime.slice(0, 4) : statusLabels.announced
+  const year = getReleaseYear({ released }) ?? statusLabels.announced
   const info = [
     typeLabels[type],
     year,
