@@ -1,6 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 
+import ExpandableText from "@/shared/ui/ExpandableText"
+
 import { genreLabels } from "../../config/genreLabels"
 import { statusLabels } from "../../config/statusLabels"
 import { typeLabels } from "../../config/typeLabels"
@@ -61,7 +63,11 @@ const AnimeRowCard = ({
           </Link>
         </h3>
         <div className="anime-row-card__info">{info}</div>
-        <p className="anime-row-card__description">{description}</p>
+        <ExpandableText
+          className="anime-row-card__description"
+          text={description}
+          lines={3}
+        />
       </div>
     </article>
   )

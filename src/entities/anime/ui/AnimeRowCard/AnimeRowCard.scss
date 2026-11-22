@@ -67,8 +67,11 @@
   }
 
   &__description {
-    @include line-clamp(5);
-
     color: var(--color-white);
+  }
+
+  .expandable-text__button {
+    position: relative;
+    z-index: 1;
   }
 }
