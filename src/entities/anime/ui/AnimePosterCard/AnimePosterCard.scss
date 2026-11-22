@@ -79,4 +79,53 @@
     color: var(--color-gray-60);
     font-size: 14px;
   }
+
+  .anime-poster-preview {
+    display: none;
+  }
+
+  @supports (anchor-scope: --a) and (position-area: right) {
+    @media (hover: hover) {
+      anchor-name: --poster-card;
+      anchor-scope: --poster-card;
+
+      .anime-poster-preview {
+        @include hide;
+
+        position: fixed;
+        position-anchor: --poster-card;
+        position-area: right span-bottom;
+        position-try-fallbacks: flip-inline;
+        z-index: 50;
+        display: grid;
+        margin-inline-start: fluid(8, 4);
+        transition:
+          opacity var(--transition-duration) 150ms,
+          visibility 0s calc(150ms + var(--transition-duration));
+
+        &::before {
+          content: "";
+          position: absolute;
+          inset-block: 0;
+          inset-inline: calc(-1 * #{fluid(8, 4)});
+          z-index: -1;
+        }
+      }
+
+      &:hover .anime-poster-preview {
+        @include show;
+
+        transition:
+          opacity var(--transition-duration) 400ms,
+          visibility 0s 400ms;
+      }
+
+      &:is(:has(:focus-visible), :has([aria-expanded="true"]))
+        .anime-poster-preview {
+        @include show;
+
+        transition-delay: 0s;
+      }
+    }
+  }
 }
