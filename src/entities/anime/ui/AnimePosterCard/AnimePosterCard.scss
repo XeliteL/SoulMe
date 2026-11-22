@@ -1,14 +1,10 @@
 .anime-poster-card {
-  --animePosterCardImagesGradientOpacity: 1;
-
   position: relative;
   display: flex;
   flex-direction: column;
   row-gap: fluid(8, 4);
 
   @include hover {
-    --animePosterCardImagesGradientOpacity: 0;
-
     .anime-poster-card__title {
       color: var(--color-turquoise-50);
     }
@@ -28,19 +24,6 @@
 
       @include laptop {
         border-radius: var(--border-radius-xs);
-      }
-
-      &::after {
-        @include abs-cover;
-
-        content: "";
-        background-image: linear-gradient(
-          180deg,
-          rgb(20 20 20 / 0) 0%,
-          var(--color-black-06) 100%
-        );
-        opacity: var(--animePosterCardImagesGradientOpacity);
-        transition: opacity var(--transition-duration-longer) ease-in-out;
       }
     }
   }
