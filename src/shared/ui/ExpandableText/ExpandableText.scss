@@ -1,0 +1,27 @@
+.expandable-text {
+  &__text {
+    @include line-clamp(var(--expandableTextLines));
+  }
+
+  &.is-expanded &__text {
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+  }
+
+  &__button {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: var(--color-turquoise-50);
+    font-size: fluid(16, 12);
+    cursor: pointer;
+
+    @include hover {
+      color: var(--color-turquoise-45);
+    }
+
+    &:focus-visible {
+      @include focus-visible;
+    }
+  }
+}
