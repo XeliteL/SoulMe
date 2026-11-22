@@ -34,13 +34,13 @@
   }
 
   &__title {
-    @include line-clamp(2);
-
     line-height: 1;
     transition: color var(--transition-duration);
   }
 
   &__link {
+    @include line-clamp(2);
+
     color: inherit;
 
     &::after {
