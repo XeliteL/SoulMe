@@ -28,7 +28,7 @@ const AnimePosterPreview = ({
   const year = getReleaseYear({ released })
 
   return (
-    <div className="anime-poster-preview">
+    <div className="anime-poster-preview" data-dropdown-boundary>
       <div className="anime-poster-preview__header">
         <p className="anime-poster-preview__title h5">{title}</p>
         <p className="anime-poster-preview__original-title">{originalTitle}</p>

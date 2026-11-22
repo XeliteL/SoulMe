@@ -20,5 +20,12 @@ export const useDropdown = () => {
     buttonRef.current?.focus()
   }
 
-  return { ...rest, buttonRef, isExpanded, handleKeyDown, handlePanelClick }
+  return {
+    ...rest,
+    buttonRef,
+    close,
+    isExpanded,
+    handleKeyDown,
+    handlePanelClick,
+  }
 }
