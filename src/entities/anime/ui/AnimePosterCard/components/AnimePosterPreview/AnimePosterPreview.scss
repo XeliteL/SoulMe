@@ -3,9 +3,9 @@
   gap: fluid(10, 6);
   width: fluid(350, 300);
   padding-block: fluid(10, 6);
-  background-color: var(--color-black-06);
+  background-color: var(--color-black-08);
   border: var(--border);
-  border-radius: var(--border-radius-l);
+  border-radius: var(--border-radius-m);
 
   &__header {
     display: grid;
@@ -68,7 +68,7 @@
   }
 
   &__actions {
-    width: max-content;
+    width: 100%;
     padding: 0 fluid(10, 6);
   }
 }
