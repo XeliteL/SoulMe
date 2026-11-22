@@ -1,7 +1,7 @@
 .anime-row-card {
   position: relative;
   display: grid;
-  grid-template-columns: 162px 1fr;
+  grid-template-columns: fluid(162, 140) 1fr;
   gap: fluid(20, 10);
 
   @include hover {
@@ -40,6 +40,10 @@
 
     color: inherit;
 
+    @include mobile {
+      font-size: 16px;
+    }
+
     &::after {
       content: "";
       position: absolute;
@@ -61,7 +65,7 @@
   }
 
   &__info {
-    @include line-clamp(2);
+    @include line-clamp(1);
 
     color: var(--color-gray-60);
   }
