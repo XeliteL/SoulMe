@@ -24,7 +24,7 @@
 
   &__info {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     gap: fluid(20, 10);
     padding: fluid(10, 6) fluid(20, 10);
