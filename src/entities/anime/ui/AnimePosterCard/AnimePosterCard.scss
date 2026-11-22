@@ -103,7 +103,10 @@
           visibility 0s 300ms;
       }
 
-      &:is(:has(:focus-visible), :has([aria-expanded="true"]))
+      &:is(
+          :has(:focus-visible),
+          :has(.anime-poster-preview__actions [aria-expanded="true"])
+        )
         .anime-poster-preview {
         @include show;
 

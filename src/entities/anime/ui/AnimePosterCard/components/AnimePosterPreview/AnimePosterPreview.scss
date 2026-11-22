@@ -46,8 +46,6 @@
   }
 
   &__description {
-    @include line-clamp(4);
-
     padding: 0 fluid(10, 6);
     color: var(--color-white);
   }

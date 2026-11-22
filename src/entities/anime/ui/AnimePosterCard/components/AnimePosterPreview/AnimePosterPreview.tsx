@@ -1,6 +1,7 @@
 import type { ReactNode } from "react"
 
 import { formatDuration } from "@/shared/lib/format"
+import ExpandableText from "@/shared/ui/ExpandableText"
 
 import { ageRatings } from "../../../../config/ageRatings"
 import { genreLabels } from "../../../../config/genreLabels"
@@ -61,7 +62,11 @@ const AnimePosterPreview = ({
           </div>
         )}
       </dl>
-      <p className="anime-poster-preview__description">{description}</p>
+      <ExpandableText
+        className="anime-poster-preview__description"
+        text={description}
+        lines={4}
+      />
       <ul className="anime-poster-preview__tags">
         <li className="anime-poster-preview__tag">
           {ageRatings[ageRating].label}
