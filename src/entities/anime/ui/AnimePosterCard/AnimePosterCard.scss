@@ -99,8 +99,8 @@
         @include show;
 
         transition:
-          opacity var(--transition-duration) 400ms,
-          visibility 0s 400ms;
+          opacity var(--transition-duration) 300ms,
+          visibility 0s 300ms;
       }
 
       &:is(:has(:focus-visible), :has([aria-expanded="true"]))
