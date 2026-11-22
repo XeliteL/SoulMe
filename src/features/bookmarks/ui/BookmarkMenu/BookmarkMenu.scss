@@ -7,7 +7,7 @@
     gap: fluid(6, 4);
     padding: fluid(4, 2) fluid(6, 4);
     color: var(--color-white);
-    background-color: var(--color-black-06);
+    background-color: var(--color-black-08);
     border: none;
 
     &:focus-visible {
@@ -43,6 +43,7 @@
   }
 
   &__main {
+    flex-grow: 1;
     border-right: var(--border);
     transition-property: border-color;
     transition-duration: var(--transition-duration);
@@ -65,7 +66,7 @@
     z-index: 10;
     padding: fluid(6, 4);
     color: var(--color-white);
-    background-color: var(--color-black-06);
+    background-color: var(--color-black-08);
     border: var(--border);
     border-block-start: none;
     border-color: var(--color-turquoise-50);
@@ -103,6 +104,7 @@
 
   &__item[aria-current="true"] {
     color: var(--color-turquoise-50);
+    border: var(--border);
   }
 
   &__remove {
