@@ -1,5 +1,5 @@
 .category-card {
-  --categoryCardImagesGradientOpactiy: 1;
+  --categoryCardImagesGradientOpacity: 1;
   --categoryCardImageScale: 1;
   --categoryCardIconOffset: 0;
 
@@ -16,7 +16,7 @@
   }
 
   @include hover {
-    --categoryCardImagesGradientOpactiy: 0;
+    --categoryCardImagesGradientOpacity: 0;
     --categoryCardImageScale: 1.05;
     --categoryCardIconOffset: 4px;
 
@@ -45,7 +45,7 @@
         rgb(20 20 20 / 0) 0%,
         var(--color-black-10) 100%
       );
-      opacity: var(--categoryCardImagesGradientOpactiy);
+      opacity: var(--categoryCardImagesGradientOpacity);
       transition: opacity var(--transition-duration) ease-in-out;
     }
   }
