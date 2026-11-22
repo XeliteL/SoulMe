@@ -76,29 +76,31 @@ const BookmarkMenu = ({ className }: BookmarkMenuProps) => {
         onClick={handlePanelClick}
       >
         <ul className="bookmark-menu__list">
-          {bookmarkViewKeys.map((view) => (
-            <li key={view}>
-              <button
-                className="bookmark-menu__item"
-                type="button"
-                aria-current={view === currentView ? "true" : undefined}
-                onClick={() => setBookmark(toBookmark(view))}
-              >
-                <Icon name={bookmarkView[view].iconName} />
-                {bookmarkView[view].label}
-              </button>
-            </li>
-          ))}
+          {bookmarkViewKeys.map((view) => {
+            const isCurrent = view === currentView
+
+            return (
+              <li key={view}>
+                <button
+                  className="bookmark-menu__item"
+                  type="button"
+                  aria-current={isCurrent ? "true" : undefined}
+                  onClick={() =>
+                    setBookmark(isCurrent ? null : toBookmark(view))
+                  }
+                >
+                  <Icon name={bookmarkView[view].iconName} />
+                  {bookmarkView[view].label}
+                  {isCurrent && (
+                    <span className="visually-hidden">
+                      , убрать из закладок
+                    </span>
+                  )}
+                </button>
+              </li>
+            )
+          })}
         </ul>
-        {bookmark && (
-          <button
-            className="bookmark-menu__remove"
-            type="button"
-            onClick={() => setBookmark(null)}
-          >
-            Удалить из закладок
-          </button>
-        )}
       </div>
     </div>
   )
