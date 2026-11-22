@@ -37,7 +37,7 @@ const AnimeRowCard = ({
   ].join(" / ")
 
   return (
-    <Link className="anime-row-card" href={getAnimeHref(id)} title={title}>
+    <article className="anime-row-card">
       <div className="anime-row-card__image-container">
         <AnimeCardsBadges
           status={status}
@@ -55,11 +55,15 @@ const AnimeRowCard = ({
       </div>
       <div className="anime-row-card__body">
         <div className="anime-row-card__info">{originalTitle}</div>
-        <h3 className="anime-row-card__title h5">{title}</h3>
+        <h3 className="anime-row-card__title h5">
+          <Link className="anime-row-card__link" href={getAnimeHref(id)}>
+            {title}
+          </Link>
+        </h3>
         <div className="anime-row-card__info">{info}</div>
         <p className="anime-row-card__description">{description}</p>
       </div>
-    </Link>
+    </article>
   )
 }
 
