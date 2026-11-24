@@ -57,7 +57,7 @@ const ExpandableText = ({ className, text, lines }: ExpandableTextProps) => {
           aria-controls={id}
           onClick={() => setIsExpanded(!isExpanded)}
         >
-          {isExpanded ? "Свернуть" : "Подробнее"}
+          {isExpanded ? "Скрыть" : "Подробнее"}
         </button>
       )}
     </div>
