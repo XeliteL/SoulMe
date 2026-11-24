@@ -1,6 +1,7 @@
 import type { ReactNode } from "react"
 
 import { formatDuration } from "@/shared/lib/format"
+import ExpandableChips from "@/shared/ui/ExpandableChips"
 import ExpandableText from "@/shared/ui/ExpandableText"
 
 import { ageRatings } from "../../../../config/ageRatings"
@@ -27,6 +28,20 @@ const AnimePosterPreview = ({
   ...rest
 }: AnimePosterPreviewProps) => {
   const year = getReleaseYear({ released })
+  const items = [
+    {
+      id: `age-${ageRatings[ageRating].label}`,
+      label: ageRatings[ageRating].label,
+    },
+    ...genres.map((genre) => ({
+      id: `genre-${genreLabels[genre]}`,
+      label: genreLabels[genre],
+    })),
+    ...(tags?.map((tag) => ({
+      id: `tag-${tagLabels[tag]}`,
+      label: `#${tagLabels[tag]}`,
+    })) ?? []),
+  ]
 
   return (
     <div className="anime-poster-preview" data-dropdown-boundary>
@@ -67,21 +82,7 @@ const AnimePosterPreview = ({
         text={description}
         lines={4}
       />
-      <ul className="anime-poster-preview__tags">
-        <li className="anime-poster-preview__tag">
-          {ageRatings[ageRating].label}
-        </li>
-        {genres.map((genre) => (
-          <li key={genre} className="anime-poster-preview__tag">
-            {genreLabels[genre]}
-          </li>
-        ))}
-        {tags?.map((tag) => (
-          <li key={tag} className="anime-poster-preview__tag">
-            {`#${tagLabels[tag]}`}
-          </li>
-        ))}
-      </ul>
+      <ExpandableChips className="anime-poster-preview__tags" items={items} />
       {actions && (
         <div className="anime-poster-preview__actions">{actions}</div>
       )}

@@ -1,0 +1,47 @@
+.expandable-chips {
+  &__container {
+    position: relative;
+  }
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: fluid(5, 4);
+  list-style: none;
+
+  > li {
+    flex: 0 0 auto;
+  }
+
+  &--measure {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inline-size: max-content;
+    flex-wrap: nowrap;
+    visibility: hidden;
+  }
+
+  &__item,
+  &__button {
+    padding: fluid(2, 1) fluid(3, 2);
+    font-size: 14px;
+    border: var(--border);
+    border-radius: var(--border-radius-s);
+  }
+
+  &__button {
+    background-color: transparent;
+    color: inherit;
+    white-space: nowrap;
+    cursor: pointer;
+
+    @include hover {
+      background-color: var(--color-black-10);
+    }
+
+    &:focus-visible {
+      @include focus-visible;
+    }
+  }
+}

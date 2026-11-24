@@ -51,18 +51,7 @@
   }
 
   &__tags {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: fluid(5, 4);
-    padding: 0 fluid(10, 6);
-  }
-
-  &__tag {
-    padding: fluid(2, 1) fluid(3, 2);
-    font-size: 14px;
-    border: var(--border);
-    border-radius: var(--border-radius-s);
+    padding-inline: fluid(10, 6);
   }
 
   &__actions {
