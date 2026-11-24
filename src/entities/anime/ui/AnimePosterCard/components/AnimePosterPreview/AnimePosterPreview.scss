@@ -3,7 +3,7 @@
   gap: fluid(10, 6);
   width: fluid(350, 300);
   padding-block: fluid(10, 6);
-  background-color: var(--color-black-08);
+  background-color: var(--color-black-06);
   border: var(--border);
   border-radius: var(--border-radius-m);
 
@@ -28,7 +28,7 @@
     align-items: center;
     gap: fluid(20, 10);
     padding: fluid(10, 6) fluid(20, 10);
-    background-color: var(--color-black-10);
+    background-color: var(--color-black-08);
 
     &-item {
       display: grid;
