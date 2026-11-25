@@ -4,4 +4,8 @@
   @include square(var(--iconSize));
 
   display: inline-flex;
+
+  svg {
+    color: #fff;
+  }
 }
