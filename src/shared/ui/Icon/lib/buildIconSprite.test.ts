@@ -34,4 +34,10 @@ describe("buildIconSprite", () => {
       expect(sprite).toContain(`<symbol id="${name}"`)
     }
   })
+
+  it("preserves the filled pips on the outlined die", () => {
+    expect(buildIconSprite()).toMatch(
+      /<symbol id="cube"[^>]*>[\s\S]*?<g fill="currentColor" stroke="none">/,
+    )
+  })
 })

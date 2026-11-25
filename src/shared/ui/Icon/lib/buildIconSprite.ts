@@ -5,7 +5,7 @@ import { ICON_NAMES } from "../config/iconName"
 
 const ICONS_DIR = path.join(process.cwd(), "src/shared/assets/icons")
 
-const COLOR_ATTRIBUTES = /\s(?:fill|stroke)="[^"]*"/g
+const COLOR_ATTRIBUTES = /\s(?:fill|stroke)="(?!none"|currentColor")[^"]*"/g
 
 export const toSymbol = (name: string, svg: string) => {
   const viewBox = svg.match(/viewBox="([^"]*)"/)?.[1]
