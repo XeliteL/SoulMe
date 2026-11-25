@@ -12,17 +12,12 @@ import {
 } from "@/entities/anime"
 
 import { type EpisodeRange, episodeRanges } from "../config/episodeRanges"
-import {
-  type RatingThreshold,
-  ratingThresholds,
-} from "../config/ratingThresholds"
 import { sortKeys, sortOrders } from "../config/sortOptions"
 import { type StatusOption, statusOptions } from "../config/statusOptions"
 import { views } from "../config/viewOptions"
 
 const ageRatingKeys = Object.keys(ageRatings) as AnimeAgeRating[]
 const episodeRangeKeys = Object.keys(episodeRanges) as EpisodeRange[]
-const ratingThresholdKeys = Object.keys(ratingThresholds) as RatingThreshold[]
 const genreKeys = Object.keys(genreLabels) as AnimeGenre[]
 const typeKeys = Object.keys(typeLabels) as AnimeType[]
 const tagKeys = Object.keys(tagLabels) as AnimeTag[]
@@ -47,6 +42,8 @@ const MIN_YEAR = 1959
 export const SEARCH_MAX_LENGTH = 100
 
 const year = optional(z.coerce.number().int().min(MIN_YEAR))
+const rating = optional(z.coerce.number().min(0).max(10))
+const reviews = optional(z.coerce.number().int().min(0))
 
 const filterSchema = z.object({
   collection: optional(z.string()),
@@ -57,7 +54,10 @@ const filterSchema = z.object({
   status: list(statusKeys),
   age: list(ageRatingKeys),
   episodes: list(episodeRangeKeys),
-  rating: optional(z.enum(ratingThresholdKeys)),
+  ratingFrom: rating,
+  ratingTo: rating,
+  reviewsFrom: reviews,
+  reviewsTo: reviews,
   tag: list(tagKeys),
   order: optional(z.enum(sortOrders)),
   sort: optional(z.enum(sortKeys)),
@@ -70,6 +70,12 @@ export type Filter = z.infer<typeof filterSchema>
 const capYear = (value: number | undefined, maxYear: number) =>
   value !== undefined && value <= maxYear ? value : undefined
 
+const normalizeRange = (
+  from: number | undefined,
+  to: number | undefined,
+): [number | undefined, number | undefined] =>
+  from !== undefined && to !== undefined && from > to ? [to, from] : [from, to]
+
 export const parseFilter = (
   params: Record<string, unknown>,
   now = new Date(),
@@ -80,12 +86,27 @@ export const parseFilter = (
     ),
   )
   const maxYear = now.getFullYear() + 1
-  const yearFrom = capYear(filter.yearFrom, maxYear)
-  const yearTo = capYear(filter.yearTo, maxYear)
 
-  if (yearFrom !== undefined && yearTo !== undefined && yearFrom > yearTo) {
-    return { ...filter, yearFrom: yearTo, yearTo: yearFrom }
+  const [yearFrom, yearTo] = normalizeRange(
+    capYear(filter.yearFrom, maxYear),
+    capYear(filter.yearTo, maxYear),
+  )
+  const [ratingFrom, ratingTo] = normalizeRange(
+    filter.ratingFrom,
+    filter.ratingTo,
+  )
+  const [reviewsFrom, reviewsTo] = normalizeRange(
+    filter.reviewsFrom,
+    filter.reviewsTo,
+  )
+
+  return {
+    ...filter,
+    yearFrom,
+    yearTo,
+    ratingFrom,
+    ratingTo,
+    reviewsFrom,
+    reviewsTo,
   }
-
-  return { ...filter, yearFrom, yearTo }
 }

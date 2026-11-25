@@ -40,10 +40,18 @@ describe("parseFilter", () => {
     expect(parseFilter({ yearFrom: "2000.5" }, now)).toEqual({})
   })
 
-  it("принимает рейтинг только из списка порогов", () => {
-    expect(parseFilter({ rating: "8" })).toEqual({ rating: "8" })
-    expect(parseFilter({ rating: "5" })).toEqual({})
-    expect(parseFilter({ rating: ["7", "8"] })).toEqual({})
+  it("нормализует диапазоны рейтинга и отзывов независимо", () => {
+    expect(
+      parseFilter({
+        ratingFrom: "8",
+        ratingTo: "7.5",
+        reviewsFrom: "100",
+        reviewsTo: "0",
+      }),
+    ).toEqual({ ratingFrom: 7.5, ratingTo: 8, reviewsFrom: 0, reviewsTo: 100 })
+    expect(
+      parseFilter({ ratingFrom: "-1", ratingTo: "11", reviewsFrom: "1.5" }),
+    ).toEqual({})
   })
 
   it("принимает только известные sort и order", () => {

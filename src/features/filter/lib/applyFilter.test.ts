@@ -23,7 +23,7 @@ const serial: Anime = {
   type: "serial",
   status: "released",
   genres: ["action", "comedy"],
-  rating: { value: 8, reviewsCount: 0 },
+  rating: { value: 8, reviewsCount: 100 },
   episodes: 12,
   released: { label: "", dateTime: "2010-04-01" },
   tags: ["must-watch"],
@@ -38,7 +38,7 @@ const film: Anime = {
   status: "released",
   ageRating: "r-17",
   genres: ["drama"],
-  rating: { value: 7.5, reviewsCount: 0 },
+  rating: { value: 7.5, reviewsCount: 50 },
   duration: 120,
   released: { label: "", dateTime: "2026-09-01" },
 }
@@ -86,12 +86,26 @@ describe("applyFilter", () => {
   })
 
   it("фильтрует по рейтингу нестрого", () => {
-    expect(ids(applyFilter(items, { rating: "7" }, now))).toEqual([
+    expect(ids(applyFilter(items, { ratingFrom: 7.5 }, now))).toEqual([
       "serial",
       "film",
     ])
-    expect(ids(applyFilter(items, { rating: "8" }, now))).toEqual(["serial"])
-    expect(ids(applyFilter(items, { rating: "9" }, now))).toEqual([])
+    expect(
+      ids(applyFilter(items, { ratingFrom: 7.5, ratingTo: 7.5 }, now)),
+    ).toEqual(["film"])
+    expect(ids(applyFilter(items, { ratingTo: 0 }, now))).toEqual(["announced"])
+  })
+
+  it("фильтрует по количеству отзывов нестрого", () => {
+    expect(
+      ids(applyFilter(items, { reviewsFrom: 50, reviewsTo: 100 }, now)),
+    ).toEqual(["serial", "film"])
+    expect(ids(applyFilter(items, { reviewsTo: 0 }, now))).toEqual([
+      "announced",
+    ])
+    expect(
+      ids(applyFilter(items, { ratingFrom: 7.5, reviewsTo: 50 }, now)),
+    ).toEqual(["film"])
   })
 
   it("ищет по части названия без учёта регистра", () => {

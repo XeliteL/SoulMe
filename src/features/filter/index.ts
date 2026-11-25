@@ -1,10 +1,6 @@
 export { collectionPresets } from "./config/collectionPresets"
 export { type EpisodeRange, episodeRanges } from "./config/episodeRanges"
 export {
-  type RatingThreshold,
-  ratingThresholds,
-} from "./config/ratingThresholds"
-export {
   type SortKey,
   sortOptions,
   type SortOrder,

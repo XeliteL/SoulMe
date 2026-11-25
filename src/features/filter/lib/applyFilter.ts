@@ -1,7 +1,6 @@
 import { type Anime, getReleaseYear } from "@/entities/anime"
 
 import { type EpisodeRange, episodeRanges } from "../config/episodeRanges"
-import { ratingThresholds } from "../config/ratingThresholds"
 import type { Filter } from "../model/filterSchema"
 import { normalizeQuery } from "./normalizeQuery"
 
@@ -46,6 +45,14 @@ const matchesYears = (anime: Anime, { yearFrom, yearTo }: Filter) => {
   )
 }
 
+const matchesRating = (anime: Anime, { ratingFrom, ratingTo }: Filter) =>
+  (ratingFrom === undefined || anime.rating.value >= ratingFrom) &&
+  (ratingTo === undefined || anime.rating.value <= ratingTo)
+
+const matchesReviews = (anime: Anime, { reviewsFrom, reviewsTo }: Filter) =>
+  (reviewsFrom === undefined || anime.rating.reviewsCount >= reviewsFrom) &&
+  (reviewsTo === undefined || anime.rating.reviewsCount <= reviewsTo)
+
 const matchesSearch = (anime: Anime, { search }: Filter) => {
   if (!search) return true
 
@@ -66,8 +73,8 @@ export const applyFilter = (items: Anime[], filter: Filter, now = new Date()) =>
       (!filter.age || filter.age.includes(anime.ageRating)) &&
       (!filter.tag || filter.tag.some((tag) => anime.tags?.includes(tag))) &&
       (!filter.episodes || matchesEpisodes(anime, filter.episodes)) &&
-      (!filter.rating ||
-        anime.rating.value >= ratingThresholds[filter.rating].value) &&
       matchesYears(anime, filter) &&
+      matchesRating(anime, filter) &&
+      matchesReviews(anime, filter) &&
       matchesSearch(anime, filter),
   )

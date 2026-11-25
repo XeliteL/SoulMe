@@ -28,7 +28,10 @@ describe("buildFilterHref", () => {
       genre: ["action", "comedy"],
       yearFrom: 2010,
       type: ["serial"],
-      rating: "8",
+      ratingFrom: 7.5,
+      ratingTo: 8,
+      reviewsFrom: 0,
+      reviewsTo: 100,
       sort: "rating",
       order: "asc",
     }
