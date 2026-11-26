@@ -36,6 +36,7 @@ const MIN_YEAR = 1959
 export const SEARCH_MAX_LENGTH = 100
 
 const year = optional(z.coerce.number().int().min(MIN_YEAR))
+const duration = optional(z.coerce.number().int().min(1))
 const rating = optional(z.coerce.number().min(0).max(10))
 const reviews = optional(z.coerce.number().int().min(0))
 
@@ -49,6 +50,8 @@ const filterSchema = z.object({
   tag: list(tagKeys),
   yearFrom: year,
   yearTo: year,
+  durationFrom: duration,
+  durationTo: duration,
   ratingFrom: rating,
   ratingTo: rating,
   reviewsFrom: reviews,
@@ -89,6 +92,10 @@ export const parseFilter = (
     filter.ratingFrom,
     filter.ratingTo,
   )
+  const [durationFrom, durationTo] = normalizeRange(
+    filter.durationFrom,
+    filter.durationTo,
+  )
   const [reviewsFrom, reviewsTo] = normalizeRange(
     filter.reviewsFrom,
     filter.reviewsTo,
@@ -98,6 +105,8 @@ export const parseFilter = (
     ...filter,
     yearFrom,
     yearTo,
+    durationFrom,
+    durationTo,
     ratingFrom,
     ratingTo,
     reviewsFrom,

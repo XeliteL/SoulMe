@@ -49,6 +49,19 @@ const matchesRating = (anime: Anime, { ratingFrom, ratingTo }: Filter) =>
   (ratingFrom === undefined || anime.rating.value >= ratingFrom) &&
   (ratingTo === undefined || anime.rating.value <= ratingTo)
 
+const matchesDuration = (
+  anime: Anime,
+  { durationFrom, durationTo }: Filter,
+) => {
+  if (durationFrom === undefined && durationTo === undefined) return true
+
+  return (
+    "duration" in anime &&
+    anime.duration >= (durationFrom ?? -Infinity) &&
+    anime.duration <= (durationTo ?? Infinity)
+  )
+}
+
 const matchesReviews = (anime: Anime, { reviewsFrom, reviewsTo }: Filter) =>
   (reviewsFrom === undefined || anime.rating.reviewsCount >= reviewsFrom) &&
   (reviewsTo === undefined || anime.rating.reviewsCount <= reviewsTo)
@@ -74,6 +87,7 @@ export const applyFilter = (items: Anime[], filter: Filter, now = new Date()) =>
       (!filter.tag || filter.tag.some((tag) => anime.tags?.includes(tag))) &&
       (!filter.episodes || matchesEpisodes(anime, filter.episodes)) &&
       matchesYears(anime, filter) &&
+      matchesDuration(anime, filter) &&
       matchesRating(anime, filter) &&
       matchesReviews(anime, filter) &&
       matchesSearch(anime, filter),
