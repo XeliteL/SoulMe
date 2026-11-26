@@ -9,6 +9,7 @@ import Checkbox from "@/shared/ui/Checkbox"
 
 import { episodeRangeKeys, episodeRanges } from "../../config/episodeRanges"
 import { statusKeys, statusOptions } from "../../config/statusOptions"
+import { buildFilterHref } from "../../lib/buildFilterHref"
 import type { Filter } from "../../model/filterSchema"
 import RandomAnimeButton from "./components/RandomAnimeButton"
 import RangeInput from "./components/RangeInput"
@@ -214,7 +215,11 @@ const FilterForm = ({ animeIds, filter }: FilterFormProps) => {
       <div className="filter-form__button-container">
         <Button
           className="filter-form__button"
-          href="/anime/filter"
+          href={buildFilterHref({
+            view: filter.view,
+            sort: filter.sort,
+            order: filter.order,
+          })}
           variant="black-06"
           label="Сбросить"
         />
