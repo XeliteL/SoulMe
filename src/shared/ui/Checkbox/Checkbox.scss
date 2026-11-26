@@ -18,7 +18,7 @@
 
     @include flex-center;
 
-    @include square(fluid-to-laptop(28, 24));
+    @include square(var(--checkboxSize, #{fluid-to-laptop(28, 24)}));
 
     margin: 0;
     background-color: var(--color-black-06);
