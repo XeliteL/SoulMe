@@ -10,6 +10,7 @@ interface CheckboxProps {
   id?: string
   label: ReactNode
   name: string
+  value?: string
   isRequired?: boolean
   hasRequiredMark?: boolean
   error?: string
@@ -21,6 +22,7 @@ const Checkbox = ({
   id,
   label,
   name,
+  value,
   isRequired,
   hasRequiredMark = true,
   error,
@@ -41,6 +43,7 @@ const Checkbox = ({
           id={controlId}
           type="checkbox"
           name={name}
+          value={value}
           className="checkbox__input"
           required={isRequired}
           aria-invalid={error ? true : undefined}
