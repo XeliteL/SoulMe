@@ -10,3 +10,5 @@ export const ageRatings: Record<
   "r-17": { label: "R-17", description: "не рекомендуется лицам до 17 лет" },
   "r-plus": { label: "R+", description: "лицам до 17 лет просмотр запрещён" },
 }
+
+export const ageRatingKeys = Object.keys(ageRatings) as AnimeAgeRating[]

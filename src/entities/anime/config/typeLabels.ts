@@ -7,3 +7,5 @@ export const typeLabels: Record<AnimeType, string> = {
   ona: "ONA",
   special: "Спешл",
 }
+
+export const typeKeys = Object.keys(typeLabels) as AnimeType[]

@@ -1,27 +1,21 @@
 import { z } from "zod"
 
 import {
-  ageRatings,
-  type AnimeAgeRating,
+  ageRatingKeys,
   type AnimeGenre,
   type AnimeTag,
-  type AnimeType,
   genreLabels,
   tagLabels,
-  typeLabels,
+  typeKeys,
 } from "@/entities/anime"
 
-import { type EpisodeRange, episodeRanges } from "../config/episodeRanges"
+import { episodeRangeKeys } from "../config/episodeRanges"
 import { sortKeys, sortOrders } from "../config/sortOptions"
-import { type StatusOption, statusOptions } from "../config/statusOptions"
+import { statusKeys } from "../config/statusOptions"
 import { views } from "../config/viewOptions"
 
-const ageRatingKeys = Object.keys(ageRatings) as AnimeAgeRating[]
-const episodeRangeKeys = Object.keys(episodeRanges) as EpisodeRange[]
 const genreKeys = Object.keys(genreLabels) as AnimeGenre[]
-const typeKeys = Object.keys(typeLabels) as AnimeType[]
 const tagKeys = Object.keys(tagLabels) as AnimeTag[]
-const statusKeys = Object.keys(statusOptions) as StatusOption[]
 
 const optional = <T extends z.ZodType>(schema: T) =>
   schema.optional().catch(undefined)
@@ -48,17 +42,17 @@ const reviews = optional(z.coerce.number().int().min(0))
 const filterSchema = z.object({
   collection: optional(z.string()),
   genre: list(genreKeys),
-  yearFrom: year,
-  yearTo: year,
   type: list(typeKeys),
   status: list(statusKeys),
   age: list(ageRatingKeys),
   episodes: list(episodeRangeKeys),
+  tag: list(tagKeys),
+  yearFrom: year,
+  yearTo: year,
   ratingFrom: rating,
   ratingTo: rating,
   reviewsFrom: reviews,
   reviewsTo: reviews,
-  tag: list(tagKeys),
   order: optional(z.enum(sortOrders)),
   sort: optional(z.enum(sortKeys)),
   view: optional(z.enum(views)),

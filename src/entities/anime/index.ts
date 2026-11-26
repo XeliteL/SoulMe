@@ -1,10 +1,10 @@
 export { animeItems } from "./api/animeItems"
 export { getAnimeById } from "./api/getAnimeById"
-export { ageRatings } from "./config/ageRatings"
+export { ageRatingKeys, ageRatings } from "./config/ageRatings"
 export { genreLabels } from "./config/genreLabels"
 export { statusLabels } from "./config/statusLabels"
 export { tagLabels } from "./config/tagLabels"
-export { typeLabels } from "./config/typeLabels"
+export { typeKeys, typeLabels } from "./config/typeLabels"
 export { getAnimeHref, getAnimePlayerHref } from "./lib/getHref"
 export { getReleaseYear } from "./lib/getReleaseYear"
 export type {

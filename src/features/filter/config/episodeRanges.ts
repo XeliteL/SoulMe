@@ -18,3 +18,5 @@ export const episodeRanges: Record<EpisodeRange, EpisodeRangeConfig> = {
     max: Infinity,
   },
 }
+
+export const episodeRangeKeys = Object.keys(episodeRanges) as EpisodeRange[]

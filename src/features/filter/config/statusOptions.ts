@@ -6,3 +6,5 @@ export const statusOptions: Record<StatusOption, string> = {
   ...statusLabels,
   recent: "Новинка",
 }
+
+export const statusKeys = Object.keys(statusOptions) as StatusOption[]
