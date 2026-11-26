@@ -1,4 +1,5 @@
 .filter-page {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 330px;
   gap: fluid(15, 10);
@@ -22,7 +23,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: fluid(5, 2);
+    padding: fluid(6, 4);
     gap: 5px;
     border: var(--border);
     border-radius: var(--border-radius-l);
@@ -51,16 +52,19 @@
     border: var(--border);
     border-radius: var(--border-radius-xl);
     background-color: var(--color-black-06);
-    padding: fluid(20, 10);
+    padding: fluid(15, 10);
   }
 
   &__results.section {
+    align-content: start;
     gap: fluid(15, 10);
     animation: none;
   }
 
   &__settings {
-    height: fit-content;
+    position: sticky;
+    top: 96px;
+    align-self: start;
 
     @include tablet {
       display: none;
