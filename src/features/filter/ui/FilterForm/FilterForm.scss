@@ -1,0 +1,46 @@
+.filter-form {
+  display: grid;
+  gap: fluid(15, 6);
+
+  &__button-container {
+    --buttonSize: 36px;
+
+    display: flex;
+    gap: fluid(10, 5);
+  }
+
+  &__button {
+    padding: fluid(5, 2);
+    font-size: 16px;
+    line-height: 1;
+
+    &:not(:last-child) {
+      flex: 1;
+    }
+  }
+
+  &__actions {
+    display: grid;
+    gap: fluid(15, 6);
+  }
+
+  &__fieldset {
+    --checkboxSize: 18px;
+
+    padding-block-start: fluid(6, 4);
+
+    &-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-flow: column;
+      gap: fluid(6, 4);
+    }
+
+    &-range {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: center;
+      gap: 8px;
+    }
+  }
+}

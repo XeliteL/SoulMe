@@ -8,6 +8,7 @@ import {
   applySort,
   buildFilterHref,
   DEFAULT_VIEW,
+  FilterForm,
   getCollectionTitle,
   parseFilter,
   SearchField,
@@ -91,7 +92,13 @@ const FilterPage = async ({ searchParams }: PageProps<"/anime/filter">) => {
           </div>
         )}
       </Section>
-      <section className="filter-page__settings"></section>
+      <section className="filter-page__settings">
+        <FilterForm
+          key={buildFilterHref(filter)}
+          animeIds={items.map(({ id }) => id)}
+          filter={filter}
+        />
+      </section>
     </div>
   )
 }

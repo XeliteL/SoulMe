@@ -1,0 +1,64 @@
+.range-input {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 24px;
+  min-height: 36px;
+  padding: fluid(4, 2);
+  border: var(--border);
+  border-radius: var(--border-radius-m);
+  background-color: var(--color-black-08);
+  transition: border-color var(--transition-duration);
+
+  @include hover {
+    border-color: var(--color-turquoise-50);
+  }
+
+  &:focus-within {
+    border-color: var(--color-turquoise-50);
+  }
+
+  &__input {
+    appearance: textfield;
+
+    min-width: 0;
+    padding-inline: fluid(6, 4);
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    color: var(--color-white);
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &::-webkit-inner-spin-button {
+      appearance: none;
+
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+
+  &__buttons {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  &__button {
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: var(--color-gray-60);
+    transition: color var(--transition-duration);
+
+    & > span {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    @include hover {
+      color: var(--color-turquoise-50);
+    }
+  }
+}
