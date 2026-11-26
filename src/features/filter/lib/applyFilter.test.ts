@@ -85,6 +85,16 @@ describe("applyFilter", () => {
     ])
   })
 
+  it("фильтрует по длительности с одной или двумя границами", () => {
+    expect(ids(applyFilter(items, { durationFrom: 120 }, now))).toEqual([
+      "film",
+    ])
+    expect(ids(applyFilter(items, { durationTo: 119 }, now))).toEqual([])
+    expect(
+      ids(applyFilter(items, { durationFrom: 120, durationTo: 120 }, now)),
+    ).toEqual(["film"])
+  })
+
   it("фильтрует по рейтингу нестрого", () => {
     expect(ids(applyFilter(items, { ratingFrom: 7.5 }, now))).toEqual([
       "serial",

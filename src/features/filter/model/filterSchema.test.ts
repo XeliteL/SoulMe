@@ -3,6 +3,14 @@ import { describe, expect, it } from "vitest"
 import { parseFilter } from "./filterSchema"
 
 describe("parseFilter", () => {
+  it("нормализует границы длительности и отбрасывает невалидные значения", () => {
+    expect(parseFilter({ durationFrom: "120", durationTo: "90" })).toEqual({
+      durationFrom: 90,
+      durationTo: 120,
+    })
+    expect(parseFilter({ durationFrom: "0", durationTo: "1.5" })).toEqual({})
+  })
+
   it("разбирает валидные значения в списки", () => {
     expect(
       parseFilter({
