@@ -11,6 +11,7 @@ import { episodeRangeKeys, episodeRanges } from "../../config/episodeRanges"
 import { statusKeys, statusOptions } from "../../config/statusOptions"
 import { buildFilterHref } from "../../lib/buildFilterHref"
 import type { Filter } from "../../model/filterSchema"
+import Help from "./components/Help"
 import RandomAnimeButton from "./components/RandomAnimeButton"
 import RangeInput from "./components/RangeInput"
 
@@ -36,7 +37,9 @@ const FilterForm = ({ animeIds, filter }: FilterFormProps) => {
       })}
       <div className="filter-form__actions">
         <fieldset className="filter-form__fieldset">
-          <legend>Год релиза</legend>
+          <legend>
+            <span className="filter-form__legend-content">Год релиза</span>
+          </legend>
           <div className="filter-form__fieldset-range">
             <RangeInput
               className="filter-form__fieldset-input"
@@ -60,7 +63,9 @@ const FilterForm = ({ animeIds, filter }: FilterFormProps) => {
           </div>
         </fieldset>
         <fieldset className="filter-form__fieldset">
-          <legend>Рейтинг</legend>
+          <legend>
+            <span className="filter-form__legend-content">Рейтинг</span>
+          </legend>
           <div className="filter-form__fieldset-range">
             <RangeInput
               className="filter-form__fieldset-input"
@@ -88,7 +93,11 @@ const FilterForm = ({ animeIds, filter }: FilterFormProps) => {
           </div>
         </fieldset>
         <fieldset className="filter-form__fieldset">
-          <legend>Количество рецензий</legend>
+          <legend>
+            <span className="filter-form__legend-content">
+              Количество рецензий
+            </span>
+          </legend>
           <div className="filter-form__fieldset-range">
             <RangeInput
               className="filter-form__fieldset-input"
@@ -110,7 +119,11 @@ const FilterForm = ({ animeIds, filter }: FilterFormProps) => {
           </div>
         </fieldset>
         <fieldset className="filter-form__fieldset">
-          <legend>Длительность, мин</legend>
+          <legend>
+            <span className="filter-form__legend-content">
+              Длительность, мин
+            </span>
+          </legend>
           <div className="filter-form__fieldset-range">
             <RangeInput
               className="filter-form__fieldset-input"
@@ -132,7 +145,9 @@ const FilterForm = ({ animeIds, filter }: FilterFormProps) => {
           </div>
         </fieldset>
         <fieldset className="filter-form__fieldset">
-          <legend>Тип</legend>
+          <legend>
+            <span className="filter-form__legend-content">Тип</span>
+          </legend>
           <ul
             className="filter-form__fieldset-list"
             style={{
@@ -152,7 +167,9 @@ const FilterForm = ({ animeIds, filter }: FilterFormProps) => {
           </ul>
         </fieldset>
         <fieldset className="filter-form__fieldset">
-          <legend>Статус</legend>
+          <legend>
+            <span className="filter-form__legend-content">Статус</span>
+          </legend>
           <ul
             className="filter-form__fieldset-list"
             style={{
@@ -167,12 +184,27 @@ const FilterForm = ({ animeIds, filter }: FilterFormProps) => {
                   value={status}
                   defaultChecked={filter.status?.includes(status)}
                 />
+                {status === "recent" && (
+                  <Help
+                    label="Пояснение к статусу недавно"
+                    variant="solo"
+                    text="Аниме вышедшие за последние полгода"
+                  />
+                )}
               </li>
             ))}
           </ul>
         </fieldset>
         <fieldset className="filter-form__fieldset">
-          <legend>Количество серий</legend>
+          <legend>
+            <span className="filter-form__legend-content">
+              Количество серий
+              <Help
+                label="Пояснение к количеству серий"
+                information={Object.values(episodeRanges)}
+              />
+            </span>
+          </legend>
           <ul
             className="filter-form__fieldset-list"
             style={{
@@ -192,7 +224,15 @@ const FilterForm = ({ animeIds, filter }: FilterFormProps) => {
           </ul>
         </fieldset>
         <fieldset className="filter-form__fieldset">
-          <legend>Возрастной рейтинг</legend>
+          <legend>
+            <span className="filter-form__legend-content">
+              Возрастной рейтинг
+              <Help
+                label="Пояснение к возрастным рейтингам"
+                information={Object.values(ageRatings)}
+              />
+            </span>
+          </legend>
           <ul
             className="filter-form__fieldset-list"
             style={{
