@@ -22,9 +22,17 @@ interface FilterFormProps {
 
 const FilterForm = ({ animeIds, filter }: FilterFormProps) => {
   const maxYear = new Date().getFullYear() + 1
+  const preservedKeys = ["view", "sort", "order", "search"] as const
 
   return (
     <form className="filter-form">
+      {preservedKeys.map((name) => {
+        const value = filter[name]
+
+        return value === undefined ? null : (
+          <input key={name} type="hidden" name={name} value={value} />
+        )
+      })}
       <div className="filter-form__actions">
         <fieldset className="filter-form__fieldset">
           <legend>Год релиза</legend>
