@@ -13,7 +13,7 @@ interface ButtonProps {
   name?: string
   value?: string
   target?: HTMLAttributeAnchorTarget
-  variant?: "" | "transparent" | "black-10" | "black-06"
+  variant?: "" | "transparent" | "black-10" | "black-08" | "black-06"
   label?: string
   isLabelHidden?: boolean
   isPressed?: boolean
