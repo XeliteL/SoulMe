@@ -12,7 +12,7 @@ export const episodeRanges: Record<EpisodeRange, EpisodeRangeConfig> = {
   medium: { label: "Средние", description: "14–26 серий", min: 14, max: 26 },
   long: { label: "Длинные", description: "27–100 серий", min: 27, max: 100 },
   "very-long": {
-    label: "Очень длинные",
+    label: "Сверхдлинные",
     description: "больше 100 серий",
     min: 101,
     max: Infinity,
