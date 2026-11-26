@@ -1,7 +1,7 @@
 .range-input {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 24px;
-  min-height: 36px;
+  min-height: fluid(24, 16);
   padding: fluid(4, 2);
   border: var(--border);
   border-radius: var(--border-radius-m);
@@ -24,6 +24,7 @@
     border: none;
     background: transparent;
     font-size: 16px;
+    line-height: 1;
     color: var(--color-white);
 
     &:focus-visible {
@@ -53,7 +54,7 @@
     transition: color var(--transition-duration);
 
     & > span {
-      font-size: 16px;
+      font-size: fluid(14, 10);
       line-height: 1;
     }
 
