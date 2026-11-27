@@ -1,21 +1,11 @@
 import { z } from "zod"
 
-import {
-  ageRatingKeys,
-  type AnimeGenre,
-  type AnimeTag,
-  genreLabels,
-  tagLabels,
-  typeKeys,
-} from "@/entities/anime"
+import { ageRatingKeys, genreKeys, tagKeys, typeKeys } from "@/entities/anime"
 
 import { episodeRangeKeys } from "../config/episodeRanges"
 import { sortKeys, sortOrders } from "../config/sortOptions"
 import { statusKeys } from "../config/statusOptions"
 import { views } from "../config/viewOptions"
-
-const genreKeys = Object.keys(genreLabels) as AnimeGenre[]
-const tagKeys = Object.keys(tagLabels) as AnimeTag[]
 
 const optional = <T extends z.ZodType>(schema: T) =>
   schema.optional().catch(undefined)

@@ -30,3 +30,5 @@ export const genreLabels: Record<AnimeGenre, string> = {
   supernatural: "Сверхъестественное",
   thriller: "Триллер",
 }
+
+export const genreKeys = Object.keys(genreLabels) as AnimeGenre[]
