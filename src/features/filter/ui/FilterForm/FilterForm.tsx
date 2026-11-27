@@ -260,7 +260,7 @@ const FilterForm = ({ animeIds, filter }: FilterFormProps) => {
             sort: filter.sort,
             order: filter.order,
           })}
-          variant="black-08"
+          variant="black-06"
           label="Сбросить"
         />
         <Button
