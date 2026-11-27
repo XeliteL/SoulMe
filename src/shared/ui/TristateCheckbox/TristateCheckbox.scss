@@ -1,0 +1,45 @@
+.tristate-checkbox {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: fluid-to-laptop(10, 6);
+  border: none;
+  background-color: transparent;
+  color: var(--color-gray-60);
+  transition: color var(--transition-duration);
+
+  @include hover {
+    color: var(--color-white);
+
+    .tristate-checkbox__square {
+      border-color: var(--color-white);
+    }
+  }
+
+  &__square {
+    @include square(fluid(24, 20));
+
+    padding: 0;
+    color: var(--color-white);
+    border: var(--border);
+    border-radius: var(--border-radius-xs);
+    border-color: var(--color-black-20);
+    transition-property: border-color, background-color;
+    transition-duration: var(--transition-duration);
+
+    &:has(.tristate-checkbox__icon--plus) {
+      background-color: var(--color-turquoise-50);
+    }
+
+    &:has(.tristate-checkbox__icon--minus) {
+      background-color: var(--color-red);
+    }
+  }
+
+  &__icon {
+    @include square(100%);
+
+    color: var(--color-white);
+    border-radius: inherit;
+  }
+}
