@@ -1,0 +1,19 @@
+.panel-button.button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: fluid(8, 4) fluid(4, 2);
+    color: var(--color-gray-60);
+    border-radius: var(--border-radius-s);
+    transition-property: color, background-color;
+    transition-duration: var(--transition-duration);
+
+    @include hover {
+      background-color: var(--color-black-12);
+      color: var(--color-white);
+    }
+
+    & > .icon {
+      --iconSize: #{fluid(22, 18)};
+    }
+  }

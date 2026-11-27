@@ -52,11 +52,11 @@
     border: var(--border);
     border-radius: var(--border-radius-xl);
     background-color: var(--color-black-06);
-    padding: fluid(15, 10);
   }
 
   &__results.section {
     align-content: start;
+    padding: fluid(20, 10) fluid(25, 10);
     gap: fluid(15, 10);
     animation: none;
   }

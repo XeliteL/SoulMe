@@ -1,12 +1,17 @@
 .filter-form {
-  display: grid;
-  gap: fluid(15, 6);
+  position: relative;
+  padding: fluid(15, 10);
+
+  &__main--inactive {
+    visibility: hidden;
+  }
 
   &__button-container {
     --buttonSize: 36px;
 
     display: flex;
     gap: fluid(10, 5);
+    padding-block-start: fluid(10, 6);
   }
 
   &__button {
@@ -21,7 +26,7 @@
 
   &__actions {
     display: grid;
-    gap: fluid(15, 6);
+    gap: fluid(10, 6);
   }
 
   &__legend-content {
@@ -39,7 +44,7 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       grid-auto-flow: column;
-      gap: fluid(6, 4);
+      gap: fluid(4, 2);
     }
 
     &-range {
