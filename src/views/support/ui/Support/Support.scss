@@ -18,10 +18,11 @@
   }
 
   &__description {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   &__image {
+    --support-border-width: var(--border-width-xl);
     --supportBackgroundImage: image-set(
       url(../../../../shared/assets/images/supportBanner/bg-desktop.avif)
         type("image/avif"),
@@ -32,8 +33,8 @@
     aspect-ratio: 720 / 688;
     background: var(--supportBackgroundImage) 50% / cover no-repeat
       var(--color-black-06);
-    border: var(--border-width-xl) solid var(--color-black-15);
-    border-radius: var(--border-radius-xs);
+    border: var(--support-border-width) solid var(--color-black-15);
+    border-radius: calc(var(--border-radius-m) + var(--support-border-width));
 
     @include laptop {
       --supportBackgroundImage: image-set(
@@ -42,19 +43,16 @@
         url(../../../../shared/assets/images/supportBanner/bg-laptop.webp)
           type("image/webp")
       );
-
-      border-radius: var(--border-radius-xxs);
     }
 
     @include mobile {
+      --support-border-width: var(--border-width-l);
       --supportBackgroundImage: image-set(
         url(../../../../shared/assets/images/supportBanner/bg-mobile.avif)
           type("image/avif"),
         url(../../../../shared/assets/images/supportBanner/bg-mobile.webp)
           type("image/webp")
       );
-
-      border-width: var(--border-width-l);
     }
   }
 }
