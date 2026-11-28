@@ -6,6 +6,7 @@ import Icon from "@/shared/ui/Icon"
 import TristateCheckbox, { type TriState } from "@/shared/ui/TristateCheckbox"
 
 import { normalizeQuery } from "../../../../lib/normalizeQuery"
+import Help from "../../components/Help"
 import PanelButton from "../../components/PanelButton"
 
 import "./FilterOptionsPanel.scss"
@@ -19,14 +20,20 @@ interface FilterOptionsPanelProps {
     setState: (state: TriState) => void
   }[]
   placeholder?: string
+  isStrict: boolean
   onBack: () => void
+  onReset: () => void
+  onStrictChange: (isStrict: boolean) => void
 }
 
 const FilterOptionsPanel = ({
   label,
   options,
   placeholder,
+  isStrict,
   onBack,
+  onReset,
+  onStrictChange,
 }: FilterOptionsPanelProps) => {
   const titleId = useBaseId()
   const searchPlaceholder = `Поиск по ${placeholder ?? label.toLowerCase()}`
@@ -52,6 +59,7 @@ const FilterOptionsPanel = ({
           className="filter-options-panel__button"
           variant="transparent"
           label="Сбросить"
+          onClick={onReset}
         />
       </header>
       <div className="filter-options-panel__search">
@@ -76,6 +84,21 @@ const FilterOptionsPanel = ({
             <Icon name="close" />
           </button>
         )}
+      </div>
+      <div className="filter-options-panel__strict-match">
+        <Button
+          className="filter-options-panel__strict-match-button"
+          variant="transparent"
+          label="Строгое совпадение"
+          isPressed={isStrict}
+          onClick={() => onStrictChange(!isStrict)}
+        />
+        <Help
+          className="filter-options-panel__help"
+          label="Строгое совпадение"
+          variant="solo"
+          text="В выдаче будут тайтлы со всеми отмеченными плюсом вариантами. Варианты с минусом исключаются."
+        />
       </div>
       <ul className="filter-options-panel__list">
         {visibleOptions.map((item) => (

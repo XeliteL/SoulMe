@@ -6,8 +6,6 @@ import classNames from "classnames"
 import {
   ageRatingKeys,
   ageRatings,
-  type AnimeGenre,
-  type AnimeTag,
   genreKeys,
   genreLabels,
   tagKeys,
@@ -28,8 +26,21 @@ import Help from "./components/Help"
 import PanelButton from "./components/PanelButton"
 import RandomAnimeButton from "./components/RandomAnimeButton"
 import RangeInput from "./components/RangeInput"
+import { renderOptionInputs } from "./lib/renderOptionInputs"
 
 import "./FilterForm.scss"
+
+function createOptionStates<T extends string>(
+  included: readonly T[] = [],
+  excluded: readonly T[] = [],
+): Partial<Record<T, TriState>> {
+  const states: Partial<Record<T, TriState>> = {}
+
+  for (const id of included) states[id] = "include"
+  for (const id of excluded) states[id] = "exclude"
+
+  return states
+}
 
 interface FilterFormProps {
   animeIds: string[]
@@ -40,12 +51,14 @@ const FilterForm = ({ animeIds, filter }: FilterFormProps) => {
   const maxYear = new Date().getFullYear() + 1
   const preservedKeys = ["view", "sort", "order", "search"] as const
   const [screen, setScreen] = useState<"main" | "genres" | "tags">("main")
-  const [genreStates, setGenreStates] = useState<
-    Partial<Record<AnimeGenre, TriState>>
-  >({})
-  const [tagStates, setTagStates] = useState<
-    Partial<Record<AnimeTag, TriState>>
-  >({})
+  const [genreStates, setGenreStates] = useState(() =>
+    createOptionStates(filter.genre, filter.excludeGenre),
+  )
+  const [tagStates, setTagStates] = useState(() =>
+    createOptionStates(filter.tag, filter.excludeTag),
+  )
+  const [isGenreStrict, setIsGenreStrict] = useState(filter.match === "all")
+  const [isTagStrict, setIsTagStrict] = useState(filter.tagMatch === "all")
 
   return (
     <form className="filter-form">
@@ -55,6 +68,18 @@ const FilterForm = ({ animeIds, filter }: FilterFormProps) => {
         return value === undefined ? null : (
           <input key={name} type="hidden" name={name} value={value} />
         )
+      })}
+      {renderOptionInputs(genreKeys, genreStates, {
+        includeName: "genre",
+        excludeName: "excludeGenre",
+        matchName: "match",
+        isStrict: isGenreStrict,
+      })}
+      {renderOptionInputs(tagKeys, tagStates, {
+        includeName: "tag",
+        excludeName: "excludeTag",
+        matchName: "tagMatch",
+        isStrict: isTagStrict,
       })}
       <div
         className={classNames("filter-form__main", {
@@ -314,7 +339,10 @@ const FilterForm = ({ animeIds, filter }: FilterFormProps) => {
               setGenreStates((current) => ({ ...current, [id]: state })),
           }))}
           placeholder="жанрам"
+          isStrict={isGenreStrict}
           onBack={() => setScreen("main")}
+          onReset={() => setGenreStates({})}
+          onStrictChange={setIsGenreStrict}
         />
       )}
       {screen === "tags" && (
@@ -328,7 +356,10 @@ const FilterForm = ({ animeIds, filter }: FilterFormProps) => {
               setTagStates((current) => ({ ...current, [id]: state })),
           }))}
           placeholder="тегам"
+          isStrict={isTagStrict}
           onBack={() => setScreen("main")}
+          onReset={() => setTagStates({})}
+          onStrictChange={setIsTagStrict}
         />
       )}
     </form>

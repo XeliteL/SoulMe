@@ -88,6 +88,44 @@
     }
   }
 
+  &__strict-match {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 fluid(8, 6) fluid(6, 4);
+    border-bottom: var(--border);
+
+    &-button {
+      display: flex;
+      gap: fluid(12, 10);
+      padding: fluid(8, 6);
+      color: var(--color-gray-60);
+
+      @include radio-marker;
+
+      @include hover {
+        color: var(--color-white);
+        background-color: var(--color-black-12);
+
+        @include radio-marker-hover;
+      }
+
+      &[aria-pressed="true"] {
+        @include radio-marker-checked;
+      }
+    }
+  }
+
+  &__help {
+    & .help__panel {
+      inset-block: 100% auto;
+    }
+
+    & .help__icon {
+      --iconSize: #{fluid(24, 20)};
+    }
+  }
+
   &__list {
     display: flex;
     flex-direction: column;

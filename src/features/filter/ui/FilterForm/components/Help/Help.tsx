@@ -8,18 +8,25 @@ import Icon from "@/shared/ui/Icon"
 import "./Help.scss"
 
 interface HelpProps {
+  className?: string
   label: string
   variant?: "" | "solo"
   text?: string
   information?: { label: string; description: string }[]
 }
 
-const Help = ({ label, variant = "", text, information = [] }: HelpProps) => {
+const Help = ({
+  className,
+  label,
+  variant = "",
+  text,
+  information = [],
+}: HelpProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <span
-      className={classNames("help", {
+      className={classNames(className, "help", {
         "help--solo": variant === "solo",
       })}
       onPointerEnter={(event) => {
