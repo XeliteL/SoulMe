@@ -89,6 +89,10 @@
   }
 
   &__list {
+    display: flex;
+    flex-direction: column;
+    gap: fluid(4, 2);
+    padding: fluid(8, 6);
     flex: 1;
     min-block-size: 0;
     overflow-y: auto;
