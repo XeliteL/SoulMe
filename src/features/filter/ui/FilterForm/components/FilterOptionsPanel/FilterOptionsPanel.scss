@@ -40,51 +40,51 @@
     color: var(--color-white);
     transition: border-color var(--transition-duration);
 
-    &-input {
-      flex: 1;
-      min-inline-size: 0;
-      border: none;
-      background-color: transparent;
-      color: var(--color-white);
-
-      &:focus-visible {
-        outline: none;
-      }
-
-      &::-webkit-search-cancel-button {
-        appearance: none;
-      }
-    }
-
-    &-clear {
-      @include flex-center;
-
-      @include square(24px);
-
-      flex-shrink: 0;
-      padding: 0;
-      border: none;
-      border-radius: 50%;
-      background-color: transparent;
-      color: var(--color-gray-60);
-      transition-property: color, background-color;
-
-      @include hover {
-        background-color: var(--color-black-25);
-        color: var(--color-white);
-      }
-
-      .icon {
-        --iconSize: 18px;
-      }
-    }
-
     @include hover {
       border-color: var(--color-turquoise-50);
     }
 
     &:focus-within {
       border-color: var(--color-turquoise-50);
+    }
+  }
+
+  &__search-input {
+    flex: 1;
+    min-inline-size: 0;
+    border: none;
+    background-color: transparent;
+    color: var(--color-white);
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &::-webkit-search-cancel-button {
+      appearance: none;
+    }
+  }
+
+  &__search-clear {
+    @include flex-center;
+
+    @include square(24px);
+
+    flex-shrink: 0;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--color-gray-60);
+    transition-property: color, background-color;
+
+    @include hover {
+      background-color: var(--color-black-25);
+      color: var(--color-white);
+    }
+
+    .icon {
+      --iconSize: 18px;
     }
   }
 
