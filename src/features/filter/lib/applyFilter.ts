@@ -80,11 +80,20 @@ export const applyFilter = (items: Anime[], filter: Filter, now = new Date()) =>
   items.filter(
     (anime) =>
       (!filter.genre ||
-        filter.genre.some((genre) => anime.genres.includes(genre))) &&
+        (filter.match === "all"
+          ? filter.genre.every((genre) => anime.genres.includes(genre))
+          : filter.genre.some((genre) => anime.genres.includes(genre)))) &&
+      (!filter.excludeGenre ||
+        !filter.excludeGenre.some((genre) => anime.genres.includes(genre))) &&
       (!filter.type || filter.type.includes(anime.type)) &&
       (!filter.status || matchesStatus(anime, filter.status, now)) &&
       (!filter.age || filter.age.includes(anime.ageRating)) &&
-      (!filter.tag || filter.tag.some((tag) => anime.tags?.includes(tag))) &&
+      (!filter.tag ||
+        (filter.tagMatch
+          ? filter.tag.every((tag) => anime.tags?.includes(tag))
+          : filter.tag.some((tag) => anime.tags?.includes(tag)))) &&
+      (!filter.excludeTag ||
+        !filter.excludeTag.some((tag) => anime.tags?.includes(tag))) &&
       (!filter.episodes || matchesEpisodes(anime, filter.episodes)) &&
       matchesYears(anime, filter) &&
       matchesDuration(anime, filter) &&
